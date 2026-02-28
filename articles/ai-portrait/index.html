@@ -630,7 +630,10 @@
         <span class="dot"></span>
         Just Some AI Tips
       </a>
-      <ul class="nav-links">
+      <button class="nav-hamburger" id="nav-hamburger" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+      <ul class="nav-links" id="nav-links">
         <li><a href="../../#about">A propos</a></li>
         <li><a href="../../#content">Contenus</a></li>
         <li><a href="../../#team">L'equipe</a></li>
@@ -902,6 +905,20 @@ copier tel quel depuis le prompt par defaut.</span>
     window.addEventListener('scroll', () => {
       nav.classList.toggle('scrolled', window.scrollY > 20);
     }, { passive: true });
+
+    // Hamburger menu
+    const hamburger = document.getElementById('nav-hamburger');
+    const navLinks = document.getElementById('nav-links');
+    hamburger.addEventListener('click', () => {
+      hamburger.classList.toggle('active');
+      navLinks.classList.toggle('open');
+    });
+    navLinks.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => {
+        hamburger.classList.remove('active');
+        navLinks.classList.remove('open');
+      });
+    });
 
     // Reveal on scroll
     const observer = new IntersectionObserver((entries) => {
