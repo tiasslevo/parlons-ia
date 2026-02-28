@@ -1,0 +1,1080 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI Portrait Prompt Kit — Just Some AI Tips</title>
+  <meta name="description" content="Genere des portraits photo-realistes de toi avec l'IA. Prompt pret a copier, personnalisable.">
+  <link rel="stylesheet" href="../../style.css">
+
+  <style>
+    /* === ARTICLE LAYOUT === */
+    .article-hero {
+      padding-top: 8rem;
+      padding-bottom: 4rem;
+    }
+
+    .article-hero .tag { margin-bottom: 1.5rem; }
+
+    .article-hero h1 {
+      font-size: clamp(2.25rem, 5vw, 3.75rem);
+      letter-spacing: -0.035em;
+      line-height: 1.08;
+      margin-bottom: 1.25rem;
+      max-width: 700px;
+    }
+
+    .article-hero h1 .muted {
+      color: var(--text-faint);
+      font-weight: 400;
+    }
+
+    .article-hero-desc {
+      font-size: 1.05rem;
+      color: var(--text-muted);
+      max-width: 540px;
+      margin-bottom: 2rem;
+    }
+
+    .article-meta {
+      display: flex;
+      align-items: center;
+      gap: 1.5rem;
+      font-size: 0.82rem;
+      color: var(--text-faint);
+    }
+
+    .article-meta-item {
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+
+    .article-meta-item svg { width: 14px; height: 14px; opacity: 0.6; }
+
+    /* === HERO IMAGE === */
+    .article-hero-image {
+      margin-top: 3rem;
+      border-radius: 1.25rem;
+      overflow: hidden;
+      aspect-ratio: 16 / 7;
+      position: relative;
+    }
+
+    .article-hero-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center 25%;
+    }
+
+    .article-hero-image::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(10,10,10,0.3) 0%, transparent 40%);
+      pointer-events: none;
+    }
+
+    /* === ARTICLE BODY === */
+    .article-body {
+      max-width: 760px;
+      margin: 0 auto;
+      padding: 0 var(--container-px);
+    }
+
+    .article-body h2 {
+      font-size: clamp(1.5rem, 3vw, 2rem);
+      margin-top: 4rem;
+      margin-bottom: 1rem;
+    }
+
+    .article-body p {
+      color: var(--text-secondary);
+      margin-bottom: 1rem;
+    }
+
+    /* === PREREQUISITES === */
+    .prereq-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 1rem;
+      margin: 1.5rem 0 2rem;
+    }
+
+    .prereq-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 1rem;
+      padding: 1.25rem;
+      text-align: center;
+    }
+
+    .prereq-num {
+      width: 36px;
+      height: 36px;
+      border-radius: 10px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--font-display);
+      font-weight: 700;
+      font-size: 0.88rem;
+      background: var(--accent-light);
+      color: var(--accent);
+      margin-bottom: 0.75rem;
+    }
+
+    .prereq-card p {
+      font-size: 0.85rem;
+      color: var(--text-secondary);
+      line-height: 1.5;
+      margin: 0;
+    }
+
+    .prereq-card strong {
+      display: block;
+      font-family: var(--font-display);
+      font-size: 0.92rem;
+      color: var(--text-primary);
+      margin-bottom: 0.35rem;
+    }
+
+    .prereq-card a {
+      color: var(--accent);
+      font-weight: 600;
+    }
+
+    /* === PROMPT TRIGGER BUTTON === */
+    .prompt-trigger {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      background: #1a1a1a;
+      border-radius: 1rem;
+      padding: 1.25rem 1.5rem;
+      margin: 1.5rem 0 2rem;
+      cursor: pointer;
+      transition: all var(--duration-fast) var(--ease-out);
+      border: 1px solid transparent;
+    }
+
+    .prompt-trigger:hover {
+      border-color: rgba(255,255,255,0.08);
+      box-shadow: 0 8px 30px -10px rgba(0,0,0,0.3);
+      transform: translateY(-1px);
+    }
+
+    .prompt-trigger:active {
+      transform: translateY(0) scale(0.995);
+    }
+
+    .prompt-trigger-left {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .prompt-trigger-icon {
+      width: 42px;
+      height: 42px;
+      border-radius: 11px;
+      background: rgba(13, 148, 136, 0.15);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .prompt-trigger-icon svg {
+      width: 20px;
+      height: 20px;
+      color: var(--accent);
+    }
+
+    .prompt-trigger-label {
+      font-family: var(--font-display);
+      font-size: 0.95rem;
+      font-weight: 600;
+      color: #e4e4e7;
+    }
+
+    .prompt-trigger-sub {
+      font-size: 0.78rem;
+      color: #71717a;
+      margin-top: 0.15rem;
+    }
+
+    .prompt-trigger-actions {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .prompt-trigger-btn {
+      padding: 0.5rem 1rem;
+      border-radius: 9999px;
+      font-family: var(--font-body);
+      font-size: 0.78rem;
+      font-weight: 600;
+      border: none;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      transition: all var(--duration-fast) var(--ease-out);
+    }
+
+    .prompt-trigger-btn svg { width: 14px; height: 14px; }
+
+    .prompt-trigger-copy {
+      background: var(--accent);
+      color: white;
+    }
+
+    .prompt-trigger-copy:hover {
+      background: var(--accent-hover);
+      box-shadow: 0 4px 16px rgba(13,148,136,0.3);
+    }
+
+    .prompt-trigger-copy:active {
+      transform: scale(0.96);
+    }
+
+    .prompt-trigger-copy.copied {
+      background: #059669;
+    }
+
+    .prompt-trigger-view {
+      background: rgba(255,255,255,0.08);
+      color: #a1a1aa;
+      border: 1px solid rgba(255,255,255,0.1);
+    }
+
+    .prompt-trigger-view:hover {
+      background: rgba(255,255,255,0.14);
+      color: #e4e4e7;
+    }
+
+    /* === ZONE SYSTEM === */
+    .zone-legend {
+      display: flex;
+      gap: 1.5rem;
+      margin: 1.25rem 0;
+      flex-wrap: wrap;
+    }
+
+    .zone-chip {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.45rem;
+      font-size: 0.82rem;
+      font-weight: 600;
+      font-family: var(--font-display);
+    }
+
+    .zone-dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 3px;
+    }
+
+    .zone-a .zone-dot { background: #0d9488; }
+    .zone-b .zone-dot { background: #2563eb; }
+    .zone-c .zone-dot { background: #dc2626; }
+
+    .zone-chip span:last-child { color: var(--text-secondary); }
+
+    /* === GALLERY === */
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+      margin: 1.5rem 0 2rem;
+    }
+
+    .gallery-item {
+      position: relative;
+      border-radius: 1rem;
+      overflow: hidden;
+      cursor: pointer;
+      aspect-ratio: 3 / 4;
+      background: var(--bg-subtle);
+    }
+
+    .gallery-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform var(--duration-base) var(--ease-out);
+    }
+
+    .gallery-item:hover img { transform: scale(1.03); }
+
+    .gallery-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(10,10,10,0.75) 0%, transparent 50%);
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      padding: 1.15rem;
+      opacity: 0;
+      transition: opacity var(--duration-fast) var(--ease-out);
+    }
+
+    .gallery-item:hover .gallery-overlay { opacity: 1; }
+
+    .gallery-label {
+      font-family: var(--font-display);
+      font-size: 0.82rem;
+      font-weight: 600;
+      color: white;
+      margin-bottom: 0.45rem;
+    }
+
+    .gallery-actions {
+      display: flex;
+      gap: 0.4rem;
+    }
+
+    .gallery-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      padding: 0.4rem 0.75rem;
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      border: 1px solid rgba(255,255,255,0.2);
+      border-radius: 8px;
+      font-family: var(--font-body);
+      font-size: 0.7rem;
+      font-weight: 600;
+      color: white;
+      cursor: pointer;
+      transition: all var(--duration-fast) var(--ease-out);
+      width: fit-content;
+    }
+
+    .gallery-btn svg { width: 12px; height: 12px; }
+
+    .gallery-btn-copy {
+      background: var(--accent);
+      border-color: var(--accent);
+    }
+
+    .gallery-btn-copy:hover { background: var(--accent-hover); }
+    .gallery-btn-copy.copied { background: #059669; border-color: #059669; }
+
+    .gallery-btn-view {
+      background: rgba(255,255,255,0.12);
+    }
+
+    .gallery-btn-view:hover { background: rgba(255,255,255,0.22); }
+
+    .gallery-btn:active { transform: scale(0.95); }
+
+    /* === PRESET GRID === */
+    .preset-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0.75rem;
+      margin: 1rem 0 2.5rem;
+    }
+
+    .preset-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 0.85rem;
+      padding: 1rem;
+    }
+
+    .preset-card-name {
+      font-family: var(--font-display);
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--text-primary);
+      margin-bottom: 0.25rem;
+    }
+
+    .preset-card-desc {
+      font-size: 0.75rem;
+      color: var(--text-muted);
+      line-height: 1.5;
+    }
+
+    .presets-zone-title {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-family: var(--font-display);
+      font-size: 1rem;
+      font-weight: 600;
+      color: var(--text-primary);
+      margin-top: 2rem;
+      margin-bottom: 0.75rem;
+    }
+
+    .presets-zone-title .zone-dot { width: 8px; height: 8px; }
+
+    /* === CALLOUT === */
+    .callout {
+      background: var(--accent-light);
+      border: 1px solid rgba(13, 148, 136, 0.2);
+      border-radius: 0.85rem;
+      padding: 1rem 1.25rem;
+      margin: 1.5rem 0;
+      font-size: 0.85rem;
+      color: #0f5e56;
+      line-height: 1.6;
+    }
+
+    .callout strong {
+      font-weight: 700;
+      color: #134e4a;
+    }
+
+    /* === MODAL === */
+    .modal-backdrop {
+      position: fixed;
+      inset: 0;
+      z-index: 100;
+      background: rgba(10, 10, 10, 0.6);
+      backdrop-filter: blur(4px);
+      -webkit-backdrop-filter: blur(4px);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 1.5rem;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity var(--duration-fast) var(--ease-out);
+    }
+
+    .modal-backdrop.active {
+      opacity: 1;
+      pointer-events: all;
+    }
+
+    .modal {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 1.25rem;
+      width: 100%;
+      max-width: 640px;
+      max-height: 80vh;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      transform: translateY(12px) scale(0.98);
+      transition: transform var(--duration-base) var(--ease-out);
+      box-shadow: 0 25px 60px -15px rgba(0,0,0,0.25);
+    }
+
+    .modal-backdrop.active .modal {
+      transform: translateY(0) scale(1);
+    }
+
+    .modal-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1.25rem 1.5rem;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .modal-title {
+      font-family: var(--font-display);
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--text-primary);
+    }
+
+    .modal-close {
+      width: 32px;
+      height: 32px;
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: transparent;
+      border: none;
+      cursor: pointer;
+      color: var(--text-faint);
+      transition: all var(--duration-fast) var(--ease-out);
+    }
+
+    .modal-close:hover {
+      background: var(--bg-subtle);
+      color: var(--text-primary);
+    }
+
+    .modal-close svg { width: 16px; height: 16px; }
+
+    .modal-body {
+      padding: 1.5rem;
+      overflow-y: auto;
+    }
+
+    .modal-body pre {
+      font-family: 'Geist Mono', 'SF Mono', monospace;
+      font-size: 0.75rem;
+      line-height: 1.7;
+      color: var(--text-secondary);
+      white-space: pre-wrap;
+      word-break: break-word;
+    }
+
+    .modal-footer {
+      padding: 1rem 1.5rem;
+      border-top: 1px solid var(--border);
+      display: flex;
+      justify-content: flex-end;
+    }
+
+    .modal-copy-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      padding: 0.5rem 1.1rem;
+      background: var(--accent);
+      color: white;
+      border: none;
+      border-radius: 9999px;
+      font-family: var(--font-body);
+      font-size: 0.78rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all var(--duration-fast) var(--ease-out);
+    }
+
+    .modal-copy-btn:hover {
+      background: var(--accent-hover);
+      box-shadow: 0 4px 16px rgba(13, 148, 136, 0.25);
+    }
+
+    .modal-copy-btn:active { transform: scale(0.97) translateY(1px); }
+    .modal-copy-btn.copied { background: #059669; }
+    .modal-copy-btn svg { width: 14px; height: 14px; }
+
+    /* === ARTICLE CTA === */
+    .article-cta {
+      margin-top: 4rem;
+      padding: 3rem 0;
+      border-top: 1px solid var(--border);
+      text-align: center;
+    }
+
+    .article-cta h2 { margin-top: 0; margin-bottom: 0.5rem; }
+
+    .article-cta p {
+      color: var(--text-muted);
+      margin: 0 auto 1.5rem;
+      font-size: 0.92rem;
+    }
+
+    /* === RESPONSIVE === */
+    @media (max-width: 768px) {
+      .article-hero {
+        padding-top: 6rem;
+        padding-bottom: 2.5rem;
+      }
+
+      .article-hero h1 { font-size: 2rem; }
+
+      .article-hero-image {
+        aspect-ratio: 16 / 9;
+        border-radius: 0.85rem;
+      }
+
+      .article-meta { flex-wrap: wrap; gap: 0.75rem; }
+
+      .prereq-grid { grid-template-columns: 1fr; }
+
+      .prompt-trigger {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 1rem;
+      }
+
+      .prompt-trigger-actions { width: 100%; }
+      .prompt-trigger-copy { flex: 1; justify-content: center; }
+
+      .gallery-grid { grid-template-columns: 1fr; gap: 0.85rem; }
+      .gallery-item { aspect-ratio: 4 / 5; }
+      .gallery-overlay { opacity: 1; }
+
+      .preset-grid { grid-template-columns: 1fr; }
+
+      .zone-legend { flex-direction: column; gap: 0.75rem; }
+
+      .modal { max-height: 90vh; }
+      .modal-body pre { font-size: 0.7rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Nav -->
+  <nav class="nav" id="nav">
+    <div class="container nav-inner">
+      <a href="../../" class="nav-brand">
+        <span class="dot"></span>
+        Just Some AI Tips
+      </a>
+      <ul class="nav-links">
+        <li><a href="../../#about">A propos</a></li>
+        <li><a href="../../#content">Contenus</a></li>
+        <li><a href="../../#team">L'equipe</a></li>
+        <li><a href="#" class="btn btn-whatsapp">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          Rejoindre
+        </a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- Article Hero -->
+  <header class="article-hero container">
+    <span class="tag tag-accent reveal">Prompt Kit</span>
+    <h1 class="reveal reveal-delay-1">AI Portrait <span class="muted">Prompt Kit</span></h1>
+    <p class="article-hero-desc reveal reveal-delay-2">
+      Genere des portraits photo-realistes de toi avec l'IA. Un prompt a copier, des zones a modifier, des resultats immediats.
+    </p>
+    <div class="article-meta reveal reveal-delay-3">
+      <span class="article-meta-item">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+        3 min
+      </span>
+      <span class="article-meta-item">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+        Boris Koulevo
+      </span>
+    </div>
+
+    <div class="article-hero-image reveal reveal-delay-3">
+      <img src="./bureau-ceo.jpg" alt="Portrait IA genere avec Gemini">
+    </div>
+  </header>
+
+  <!-- Article Body -->
+  <div class="article-body">
+
+    <!-- 1. PREREQS -->
+    <h2 class="reveal">Ce qu'il te faut</h2>
+
+    <div class="prereq-grid">
+      <div class="prereq-card reveal">
+        <div class="prereq-num">1</div>
+        <strong>Ouvre Gemini</strong>
+        <p>Va sur <a href="https://gemini.google.com" target="_blank" rel="noopener">gemini.google.com</a> et active la generation d'images.</p>
+      </div>
+      <div class="prereq-card reveal reveal-delay-1">
+        <div class="prereq-num">2</div>
+        <strong>Upload tes selfies</strong>
+        <p>2-3 photos. Visage net, bonne lumiere, angles differents. Pas de filtre.</p>
+      </div>
+      <div class="prereq-card reveal reveal-delay-2">
+        <div class="prereq-num">3</div>
+        <strong>Colle le prompt</strong>
+        <p>Copie le prompt ci-dessous et colle-le dans la conversation. C'est tout.</p>
+      </div>
+    </div>
+
+    <div class="callout reveal">
+      <strong>Pourquoi Gemini ?</strong> C'est l'outil qui garde la meilleure consistance au niveau des visages. ChatGPT fonctionne aussi, mais les resultats sont moins stables.
+    </div>
+
+    <!-- 2. DEFAULT PROMPT (button style) -->
+    <h2 class="reveal">Le prompt par defaut</h2>
+    <p class="reveal">Version <strong style="color: var(--accent);">Bureau CEO</strong> — un portrait cinematique dans un bureau sombre. Copie-le, colle-le, c'est pret.</p>
+
+    <div class="prompt-trigger reveal" onclick="openModal(0)">
+      <div class="prompt-trigger-left">
+        <div class="prompt-trigger-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z"/><polyline points="14 2 14 8 20 8"/></svg>
+        </div>
+        <div>
+          <div class="prompt-trigger-label">Prompt Bureau CEO</div>
+          <div class="prompt-trigger-sub">Portrait cinematique — pret a copier</div>
+        </div>
+      </div>
+      <div class="prompt-trigger-actions">
+        <button class="prompt-trigger-btn prompt-trigger-copy" onclick="event.stopPropagation(); copyDirect(0, this)">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+          Copier
+        </button>
+        <button class="prompt-trigger-btn prompt-trigger-view" onclick="event.stopPropagation(); openModal(0)">
+          Voir
+        </button>
+      </div>
+    </div>
+
+    <!-- 3. MODULAR -->
+    <h2 class="reveal">C'est modulaire</h2>
+    <p class="reveal">Le prompt a 3 zones que tu peux changer independamment. Le reste ne bouge jamais.</p>
+
+    <div class="zone-legend reveal">
+      <span class="zone-chip zone-a"><span class="zone-dot"></span> <span>Zone A — Lieu</span></span>
+      <span class="zone-chip zone-b"><span class="zone-dot"></span> <span>Zone B — Tenue</span></span>
+      <span class="zone-chip zone-c"><span class="zone-dot"></span> <span>Zone C — Pose</span></span>
+    </div>
+
+    <div class="prompt-trigger reveal" onclick="openTemplateModal()">
+      <div class="prompt-trigger-left">
+        <div class="prompt-trigger-icon" style="background: rgba(37, 99, 235, 0.12);">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#2563eb" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18"/><path d="M9 21V9"/></svg>
+        </div>
+        <div>
+          <div class="prompt-trigger-label">Voir le template modulaire</div>
+          <div class="prompt-trigger-sub">Prompt decompose avec les 3 zones colorees</div>
+        </div>
+      </div>
+      <div class="prompt-trigger-actions">
+        <button class="prompt-trigger-btn prompt-trigger-view" onclick="event.stopPropagation(); openTemplateModal()">
+          Voir
+        </button>
+      </div>
+    </div>
+
+    <p class="reveal">En changeant ces zones, tu obtiens des portraits completement differents. Voici deux exemples :</p>
+
+    <!-- 4. GALLERY (right after modular explanation) -->
+    <div class="gallery-grid">
+      <div class="gallery-item reveal" onclick="openModal(1)">
+        <img src="./bibliotheque.jpg" alt="Portrait IA — Bibliotheque" loading="lazy">
+        <div class="gallery-overlay">
+          <span class="gallery-label">Bibliotheque</span>
+          <div class="gallery-actions">
+            <button class="gallery-btn gallery-btn-copy" onclick="event.stopPropagation(); copyDirect(1, this)">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+              Copier
+            </button>
+            <button class="gallery-btn gallery-btn-view" onclick="event.stopPropagation(); openModal(1)">
+              Voir le prompt
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div class="gallery-item reveal reveal-delay-1" onclick="openModal(2)">
+        <img src="./rooftop.jpg" alt="Portrait IA — Rooftop" loading="lazy">
+        <div class="gallery-overlay">
+          <span class="gallery-label">Rooftop Dusk</span>
+          <div class="gallery-actions">
+            <button class="gallery-btn gallery-btn-copy" onclick="event.stopPropagation(); copyDirect(2, this)">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+              Copier
+            </button>
+            <button class="gallery-btn gallery-btn-view" onclick="event.stopPropagation(); openModal(2)">
+              Voir le prompt
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 5. TIP -->
+    <h2 class="reveal">Envie de personnaliser ?</h2>
+    <div class="callout reveal" style="margin-top: 1rem;">
+      <strong>Tu n'as pas besoin de modifier le prompt toi-meme.</strong> Donne le prompt par defaut a une IA (Gemini, ChatGPT, Claude) et demande-lui de l'adapter : changer le lieu, la tenue ou la pose. Dis-lui simplement ce que tu veux, et elle ajustera les bonnes zones sans toucher au cadrage, a l'identity lock ou au negative prompt. Tu peux aussi lui demander des idees : "propose-moi 3 ambiances differentes pour ce prompt."
+    </div>
+
+    <!-- CTA -->
+    <div class="article-cta reveal">
+      <h2>D'autres kits arrivent</h2>
+      <p>Rejoins la chaine pour les prochains prompts et tutos.</p>
+      <a href="#" class="btn btn-whatsapp">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        Rejoindre la chaine WhatsApp
+      </a>
+    </div>
+
+  </div>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <p>Just Some AI Tips — Kevin Tiassou & Boris Koulevo</p>
+    </div>
+  </footer>
+
+  <!-- Modal (prompts) -->
+  <div class="modal-backdrop" id="prompt-modal" onclick="closeModal(event)">
+    <div class="modal" onclick="event.stopPropagation()">
+      <div class="modal-header">
+        <span class="modal-title" id="modal-title">Prompt</span>
+        <button class="modal-close" onclick="closeModal()">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+        </button>
+      </div>
+      <div class="modal-body">
+        <pre id="modal-prompt-text"></pre>
+      </div>
+      <div class="modal-footer">
+        <button class="modal-copy-btn" id="modal-copy-btn" onclick="copyModalPrompt()">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+          Copier le prompt
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal (template modulaire) -->
+  <div class="modal-backdrop" id="template-modal" onclick="closeTemplateModal(event)">
+    <div class="modal" style="max-width: 700px;" onclick="event.stopPropagation()">
+      <div class="modal-header">
+        <span class="modal-title">Template modulaire</span>
+        <button class="modal-close" onclick="closeTemplateModal()">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+        </button>
+      </div>
+      <div class="modal-body" style="padding: 0;">
+        <div style="background: #1a1a1a; padding: 1.5rem; font-family: 'Geist Mono', 'SF Mono', monospace; font-size: 0.75rem; line-height: 1.85; color: #e4e4e7;">
+<span style="color: #71717a;">Ultra-realistic cinematic portrait photo of the same person from my provided selfies (STRICT identity preservation).</span>
+
+<span style="color: #2dd4bf; font-weight: 600;">[ZONE A]</span> They are <span style="color: #2dd4bf;">[POSITION]</span> in/near a <span style="color: #2dd4bf;">[LIEU]</span>, <span style="color: #2dd4bf;">[DETAIL]</span>.
+
+<span style="color: #60a5fa; font-weight: 600;">[ZONE B]</span> Outfit: <span style="color: #60a5fa;">[DESCRIPTION TENUE]</span>.
+Accessories: <span style="color: #60a5fa;">[ACCESSOIRES]</span>.
+
+<span style="color: #f87171; font-weight: 600;">[ZONE C]</span> Pose: <span style="color: #f87171;">[EXPRESSION]</span>, <span style="color: #f87171;">[REGARD]</span>, <span style="color: #f87171;">[MAINS]</span>, <span style="color: #f87171;">[POSTURE]</span>.
+
+<span style="color: #71717a;">Composition:
+- Medium shot (waist/chest up)
+- Subject slightly [centered / off-center]
+- Shot through foreground blur ([OBJETS FLOUS])
+- Moody, [ADJECTIF], [ADJECTIF] vibe
+
+Lighting / Color grade:
+- Low-key cinematic lighting (dramatic shadows)
+- [TYPE] key light from one side (Rembrandt style)
+- Deep blacks, [COULEUR 1], [COULEUR 2]
+- Filmic contrast, subtle haze, natural skin texture
+- Background softly blurred with [ARRIERE-PLAN]
+
+Camera look, Identity lock, Negative prompt :
+copier tel quel depuis le prompt par defaut.</span>
+        </div>
+        <div style="padding: 1.25rem 1.5rem; border-top: 1px solid var(--border);">
+          <div style="font-size: 0.82rem; color: var(--text-muted); line-height: 1.6; margin-bottom: 1.25rem;">
+            <strong style="color: var(--text-primary);">Comment ca marche :</strong> remplace uniquement les <span style="color: #0d9488; font-weight: 600;">zones colorees</span>. Le reste du prompt (camera, identity lock, negative prompt) reste identique au prompt par defaut.
+          </div>
+
+          <div style="font-family: var(--font-display); font-size: 0.82rem; font-weight: 700; color: var(--text-primary); margin-bottom: 0.75rem;">Exemples par zone</div>
+
+          <div style="display: flex; align-items: center; gap: 0.4rem; font-size: 0.78rem; font-weight: 600; color: #0d9488; margin-bottom: 0.4rem;"><span style="width:8px;height:8px;border-radius:3px;background:#0d9488;flex-shrink:0;"></span> Zone A — Location</div>
+          <div style="font-size: 0.72rem; color: var(--text-muted); line-height: 1.6; margin-bottom: 0.85rem; padding-left: 1.1rem;">
+            Dark luxury office, deep green leather armchair, bookshelves<br>
+            Dimly lit private whisky lounge, burgundy velvet wingback chair<br>
+            High-rise penthouse at night, rain-streaked floor-to-ceiling window
+          </div>
+
+          <div style="display: flex; align-items: center; gap: 0.4rem; font-size: 0.78rem; font-weight: 600; color: #2563eb; margin-bottom: 0.4rem;"><span style="width:8px;height:8px;border-radius:3px;background:#2563eb;flex-shrink:0;"></span> Zone B — Outfit</div>
+          <div style="font-size: 0.72rem; color: var(--text-muted); line-height: 1.6; margin-bottom: 0.85rem; padding-left: 1.1rem;">
+            Brown/grey plaid suit jacket, white dress shirt, dark red tie<br>
+            Fitted black turtleneck under a camel wool overcoat, silver watch<br>
+            Fitted black silk shirt, top buttons undone, sleeves rolled up
+          </div>
+
+          <div style="display: flex; align-items: center; gap: 0.4rem; font-size: 0.78rem; font-weight: 600; color: #dc2626; margin-bottom: 0.4rem;"><span style="width:8px;height:8px;border-radius:3px;background:#dc2626;flex-shrink:0;"></span> Zone C — Pose</div>
+          <div style="font-size: 0.72rem; color: var(--text-muted); line-height: 1.6; padding-left: 1.1rem;">
+            Serious, thoughtful, looking slightly down, right hand near face<br>
+            Quietly confident, chin raised, eyes looking directly into camera<br>
+            Body angled three-quarters, head turned to look over shoulder
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // Nav scroll
+    const nav = document.getElementById('nav');
+    window.addEventListener('scroll', () => {
+      nav.classList.toggle('scrolled', window.scrollY > 20);
+    }, { passive: true });
+
+    // Reveal on scroll
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+
+    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+    // Prompts data
+    const prompts = [
+      {
+        title: 'Bureau CEO — Prompt par defaut',
+        prompt: `Ultra-realistic cinematic portrait photo of the same man from my provided selfies (STRICT identity preservation).
+He is sitting in a dark luxury office / private study, leaning back in a deep green leather armchair behind a desk.
+Outfit: elegant business style — brown/grey plaid suit jacket, white dress shirt, dark red tie, classic cuff buttons visible.
+Accessories: black round eyeglasses.
+Pose: serious, thoughtful expression, looking slightly down / to the side, right hand near face, elbow resting on the chair/desk.
+
+Composition:
+- Medium shot (waist/chest up)
+- Subject slightly centered
+- Shot through foreground blur (out-of-focus objects at the bottom + left side)
+- Desk in front with subtle reflections, blurred items
+- Moody, intimate, powerful CEO vibe
+
+Lighting / Color grade:
+- Low-key cinematic lighting (dramatic shadows)
+- Warm soft key light from one side (Rembrandt style)
+- Deep blacks, rich browns, warm highlights
+- Filmic contrast, subtle haze, natural skin texture
+- Background softly blurred with dark shelves / books atmosphere
+
+Camera look:
+- 85mm lens look, f/1.4
+- Shallow depth of field, creamy bokeh
+- Ultra-realistic skin pores, no smoothing
+- Professional editorial photography, high-end masculine aesthetic
+- 8K realism, extremely detailed fabric texture
+
+IDENTITY LOCK:
+The man must be EXACTLY the same person as in my provided selfies. Keep 100% identical: facial structure, bone proportions, jawline, eyes shape/distance, eyebrows, nose, lips, beard density and shape, hairline, skin texture, natural imperfections. NO beautification, NO face swap look, NO "more handsome" effect, NO retouching, NO smoothing.
+
+Negative prompt:
+bad face, different person, altered identity, face distortion, beautified skin, smooth skin, plastic skin, de-aged, fake beard, different hairstyle, cartoon, CGI, AI look, over-sharpening, oversaturated, low quality, extra fingers, warped hands, weird glasses`
+      },
+      {
+        title: 'Bibliotheque',
+        prompt: `Ultra-realistic cinematic portrait photo of the same person from my provided selfies (STRICT identity preservation).
+They are sitting deep in a large worn brown leather Chesterfield sofa in a private library, slightly sunk into the cushions, a thick open book resting on one knee.
+Outfit: oversized dark charcoal wool cardigan over a simple white crew neck t-shirt, layered and loose. A soft camel cashmere scarf draped loosely around the neck.
+Accessories: black round eyeglasses.
+Pose: quiet, absorbed expression, eyes looking down at the book, one hand gently holding the page, head slightly tilted. Soft, natural, unposed feel — as if caught in a private moment of reading.
+
+Composition:
+- Close-up to medium-close shot (shoulders and head)
+- Subject slightly off-center to the left
+- Shot through foreground blur (the spine of a standing book + warm glow of a vintage desk lamp)
+- Soft, intimate, private intellectual vibe
+
+Lighting / Color grade:
+- Low-key cinematic lighting (soft dramatic shadows)
+- Warm key light from one side, like a reading lamp (soft Rembrandt)
+- Deep blacks, warm cognac tones, soft ivory highlights
+- Filmic contrast, subtle haze, natural skin texture
+- Background softly blurred with aged bookshelves, muted warm tones
+
+Camera look:
+- 85mm lens look, f/1.4
+- Shallow depth of field, creamy bokeh
+- Ultra-realistic skin pores, no smoothing
+- Professional editorial photography, high-end aesthetic
+- 8K realism, extremely detailed fabric texture (wool grain on cardigan, cashmere scarf fibers)
+
+IDENTITY LOCK:
+The person must be EXACTLY the same as in my provided selfies. Keep 100% identical: facial structure, bone proportions, jawline, eyes shape/distance, eyebrows, nose, lips, facial hair density and shape, hairline, skin texture, natural imperfections. NO beautification, NO face swap look, NO retouching, NO smoothing.
+
+Negative prompt:
+bad face, different person, altered identity, face distortion, beautified skin, smooth skin, plastic skin, de-aged, fake facial hair, different hairstyle, cartoon, CGI, AI look, over-sharpening, oversaturated, low quality, extra fingers, warped hands, weird glasses`
+      },
+      {
+        title: 'Rooftop Dusk',
+        prompt: `Ultra-realistic cinematic portrait photo of the same person from my provided selfies (STRICT identity preservation).
+They are sitting on a weathered wooden bench on a dimly lit rooftop terrace at dusk, the city skyline softly out of focus behind them. Elbows resting on knees, leaning slightly forward.
+Outfit: oversized black wool overcoat worn open over a thick cream fisherman knit sweater, high collar partially covering the neck. Dark scarf tucked inside the coat.
+Accessories: black round eyeglasses.
+Pose: calm, contemplative expression, looking straight ahead past the camera into the distance, hands loosely intertwined between the knees. Windswept but still — as if pausing mid-thought on a cold evening.
+
+Composition:
+- Close-up to medium-close shot (shoulders and head, hands barely visible at bottom edge)
+- Subject slightly off-center to the right
+- Shot through foreground blur (the edge of a concrete ledge + an out-of-focus coffee cup)
+- Quiet, solitary, end-of-day rooftop atmosphere
+
+Lighting / Color grade:
+- Golden hour fading into blue hour — warm-to-cool transition
+- Soft warm key light from the remaining sunset hitting one side of the face
+- Cool blue fill from the emerging evening sky on the other side
+- Deep blacks, muted steel blues, fading amber highlights
+- Filmic contrast, subtle atmospheric haze, natural skin texture
+- Background: soft defocused city lights beginning to turn on, dusky sky gradient
+
+Camera look:
+- 85mm lens look, f/1.4
+- Shallow depth of field, creamy bokeh — city lights become soft orbs
+- Ultra-realistic skin pores, no smoothing
+- Professional editorial photography, high-end aesthetic
+- 8K realism, extremely detailed fabric texture (wool overcoat fibers, fisherman knit pattern, scarf weave)
+
+IDENTITY LOCK:
+The person must be EXACTLY the same as in my provided selfies. Keep 100% identical: facial structure, bone proportions, jawline, eyes shape/distance, eyebrows, nose, lips, facial hair density and shape, hairline, skin texture, natural imperfections. NO beautification, NO face swap look, NO retouching, NO smoothing.
+
+Negative prompt:
+bad face, different person, altered identity, face distortion, beautified skin, smooth skin, plastic skin, de-aged, fake facial hair, different hairstyle, cartoon, CGI, AI look, over-sharpening, oversaturated, low quality, extra fingers, warped hands, weird glasses`
+      }
+    ];
+
+    // Copy directly without opening modal
+    function copyDirect(index, btn) {
+      navigator.clipboard.writeText(prompts[index].prompt).then(() => {
+        const originalHTML = btn.innerHTML;
+        btn.innerHTML = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Copie !';
+        btn.classList.add('copied');
+        setTimeout(() => {
+          btn.innerHTML = originalHTML;
+          btn.classList.remove('copied');
+        }, 2000);
+      });
+    }
+
+    // Modal
+    let currentModalPrompt = '';
+
+    function openModal(index) {
+      const data = prompts[index];
+      document.getElementById('modal-title').textContent = data.title;
+      document.getElementById('modal-prompt-text').textContent = data.prompt;
+      currentModalPrompt = data.prompt;
+      document.getElementById('prompt-modal').classList.add('active');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeModal(e) {
+      if (e && e.target !== e.currentTarget) return;
+      document.getElementById('prompt-modal').classList.remove('active');
+      document.body.style.overflow = '';
+    }
+
+    function copyModalPrompt() {
+      navigator.clipboard.writeText(currentModalPrompt).then(() => {
+        const btn = document.getElementById('modal-copy-btn');
+        btn.innerHTML = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Copie !';
+        btn.classList.add('copied');
+        setTimeout(() => {
+          btn.innerHTML = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg> Copier le prompt';
+          btn.classList.remove('copied');
+        }, 2000);
+      });
+    }
+
+    // Template modal
+    function openTemplateModal() {
+      document.getElementById('template-modal').classList.add('active');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeTemplateModal(e) {
+      if (e && e.target !== e.currentTarget) return;
+      document.getElementById('template-modal').classList.remove('active');
+      document.body.style.overflow = '';
+    }
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') { closeModal(); closeTemplateModal(); }
+    });
+  </script>
+
+</body>
+</html>
