@@ -378,6 +378,84 @@
 
     .gallery-btn:active { transform: scale(0.95); }
 
+    /* === IMAGE MODAL === */
+    .img-modal-backdrop {
+      position: fixed;
+      inset: 0;
+      z-index: 100;
+      background: rgba(10, 10, 10, 0.92);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .img-modal-backdrop.active {
+      opacity: 1;
+      pointer-events: all;
+    }
+
+    .img-modal-close {
+      position: absolute;
+      top: 1.25rem;
+      right: 1.25rem;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      border: 1.5px solid rgba(255,255,255,0.15);
+      background: rgba(255,255,255,0.08);
+      color: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      z-index: 2;
+    }
+
+    .img-modal-close:hover {
+      background: rgba(255,255,255,0.15);
+      border-color: rgba(255,255,255,0.3);
+    }
+
+    .img-modal-close svg { width: 18px; height: 18px; }
+
+    .img-modal-image-wrap {
+      position: relative;
+      max-width: min(90vw, 600px);
+      max-height: 75vh;
+      border-radius: 1rem;
+      overflow: hidden;
+      box-shadow: 0 30px 80px -20px rgba(0,0,0,0.5);
+      transform: scale(0.95) translateY(10px);
+      transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .img-modal-backdrop.active .img-modal-image-wrap {
+      transform: scale(1) translateY(0);
+    }
+
+    .img-modal-image-wrap img {
+      width: 100%;
+      height: auto;
+      max-height: 75vh;
+      object-fit: contain;
+      display: block;
+    }
+
+    .img-modal-product {
+      margin-top: 0.75rem;
+      font-family: var(--font-display);
+      font-size: 0.92rem;
+      font-weight: 600;
+      color: rgba(255,255,255,0.7);
+    }
+
     /* === PRESET GRID === */
     .preset-grid {
       display: grid;
@@ -752,7 +830,7 @@
 
     <!-- 4. GALLERY (right after modular explanation) -->
     <div class="gallery-grid">
-      <div class="gallery-item reveal" onclick="openModal(1)">
+      <div class="gallery-item reveal" onclick="openImgModal(1)">
         <img src="./bibliotheque.jpg" alt="Portrait IA — Bibliotheque" loading="lazy">
         <div class="gallery-overlay">
           <span class="gallery-label">Bibliotheque</span>
@@ -768,7 +846,7 @@
         </div>
       </div>
 
-      <div class="gallery-item reveal reveal-delay-1" onclick="openModal(2)">
+      <div class="gallery-item reveal reveal-delay-1" onclick="openImgModal(2)">
         <img src="./rooftop.jpg" alt="Portrait IA — Rooftop" loading="lazy">
         <div class="gallery-overlay">
           <span class="gallery-label">Rooftop Dusk</span>
@@ -809,6 +887,17 @@
       <p>Just Some AI Tips — Kevin Tiassou & Boris Koulevo</p>
     </div>
   </footer>
+
+  <!-- Image Modal -->
+  <div class="img-modal-backdrop" id="img-modal" onclick="closeImgModal(event)">
+    <button class="img-modal-close" onclick="closeImgModal()">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+    </button>
+    <div class="img-modal-image-wrap" onclick="event.stopPropagation()">
+      <img id="img-modal-img" src="" alt="">
+    </div>
+    <div class="img-modal-product" id="img-modal-product"></div>
+  </div>
 
   <!-- Modal (prompts) -->
   <div class="modal-backdrop" id="prompt-modal" onclick="closeModal(event)">
@@ -1040,6 +1129,28 @@ bad face, different person, altered identity, face distortion, beautified skin, 
       }
     ];
 
+    // Gallery image data (maps prompt index to image src and label)
+    const galleryImages = {
+      1: { src: './bibliotheque.jpg', label: 'Bibliotheque' },
+      2: { src: './rooftop.jpg', label: 'Rooftop Dusk' }
+    };
+
+    // Image modal
+    function openImgModal(index) {
+      const data = galleryImages[index];
+      if (!data) return;
+      document.getElementById('img-modal-img').src = data.src;
+      document.getElementById('img-modal-product').textContent = data.label;
+      document.getElementById('img-modal').classList.add('active');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeImgModal(e) {
+      if (e && e.target !== e.currentTarget) return;
+      document.getElementById('img-modal').classList.remove('active');
+      document.body.style.overflow = '';
+    }
+
     // Copy directly without opening modal
     function copyDirect(index, btn) {
       navigator.clipboard.writeText(prompts[index].prompt).then(() => {
@@ -1096,7 +1207,7 @@ bad face, different person, altered identity, face distortion, beautified skin, 
     }
 
     document.addEventListener('keydown', (e) => {
-      if (e.key === 'Escape') { closeModal(); closeTemplateModal(); }
+      if (e.key === 'Escape') { closeModal(); closeTemplateModal(); closeImgModal(); }
     });
   </script>
 

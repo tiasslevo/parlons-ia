@@ -1,0 +1,1573 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Poster Design Prompt Kit — Just Some AI Tips</title>
+  <meta name="description" content="Creez des affiches pro avec l'IA. Un prompt modulaire, remplissez les zones, le moteur fait le reste. 3 exemples avant/apres.">
+  <link rel="stylesheet" href="../../style.css">
+
+  <style>
+    /* === ARTICLE LAYOUT === */
+    .article-hero {
+      padding-top: 8rem;
+      padding-bottom: 4rem;
+    }
+
+    .article-hero .tag { margin-bottom: 1.5rem; }
+
+    .article-hero h1 {
+      font-size: clamp(2.25rem, 5vw, 3.75rem);
+      letter-spacing: -0.035em;
+      line-height: 1.08;
+      margin-bottom: 1.25rem;
+      max-width: 700px;
+    }
+
+    .article-hero h1 .muted {
+      color: var(--text-faint);
+      font-weight: 400;
+    }
+
+    .article-hero-desc {
+      font-size: 1.05rem;
+      color: var(--text-muted);
+      max-width: 540px;
+      margin-bottom: 2rem;
+    }
+
+    .article-meta {
+      display: flex;
+      align-items: center;
+      gap: 1.5rem;
+      font-size: 0.82rem;
+      color: var(--text-faint);
+    }
+
+    .article-meta-item {
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+
+    .article-meta-item svg { width: 14px; height: 14px; opacity: 0.6; }
+
+    /* === HERO IMAGE (avant/apres) === */
+    .hero-compare {
+      margin-top: 3rem;
+      border-radius: 1.25rem;
+      overflow: hidden;
+      border: 1px solid var(--border);
+      position: relative;
+    }
+
+    .hero-compare-inner {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      position: relative;
+    }
+
+    .hero-compare-side {
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-compare-side img {
+      width: 100%;
+      aspect-ratio: 4 / 5;
+      object-fit: cover;
+      display: block;
+    }
+
+    .compare-label {
+      position: absolute;
+      top: 1rem;
+      padding: 0.35rem 0.85rem;
+      font-family: var(--font-display);
+      font-size: 0.72rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      border-radius: 9999px;
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+    }
+
+    .compare-label.before {
+      left: 1rem;
+      background: rgba(10,10,10,0.55);
+      color: #fff;
+    }
+
+    .compare-label.after {
+      right: 1rem;
+      background: rgba(13, 148, 136, 0.85);
+      color: #fff;
+    }
+
+    .hero-compare-divider {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 2px;
+      background: rgba(255,255,255,0.15);
+      z-index: 2;
+    }
+
+    .hero-compare-arrow {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      z-index: 3;
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      background: rgba(10,10,10,0.7);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      border: 1.5px solid rgba(255,255,255,0.2);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #fff;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.3);
+    }
+
+    .hero-compare-arrow svg { width: 22px; height: 22px; }
+
+    /* === ARTICLE BODY === */
+    .article-body {
+      max-width: 760px;
+      margin: 0 auto;
+      padding: 0 var(--container-px);
+    }
+
+    .article-body h2 {
+      font-size: clamp(1.5rem, 3vw, 2rem);
+      margin-top: 4rem;
+      margin-bottom: 1rem;
+    }
+
+    .article-body p {
+      color: var(--text-secondary);
+      margin-bottom: 1rem;
+    }
+
+    /* === PROMPT TRIGGER (dark bar) === */
+    .prompt-trigger {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      background: #1a1a1a;
+      border-radius: 1rem;
+      padding: 1.25rem 1.5rem;
+      margin: 1.5rem 0 2rem;
+      cursor: pointer;
+      transition: all var(--duration-fast) var(--ease-out);
+      border: 1px solid transparent;
+    }
+
+    .prompt-trigger:hover {
+      border-color: rgba(255,255,255,0.08);
+      box-shadow: 0 8px 30px -10px rgba(0,0,0,0.3);
+      transform: translateY(-1px);
+    }
+
+    .prompt-trigger:active {
+      transform: translateY(0) scale(0.995);
+    }
+
+    .prompt-trigger-left {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .prompt-trigger-icon {
+      width: 42px;
+      height: 42px;
+      border-radius: 11px;
+      background: rgba(13, 148, 136, 0.15);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .prompt-trigger-icon svg {
+      width: 20px;
+      height: 20px;
+      color: var(--accent);
+    }
+
+    .prompt-trigger-label {
+      font-family: var(--font-display);
+      font-size: 0.95rem;
+      font-weight: 600;
+      color: #e4e4e7;
+    }
+
+    .prompt-trigger-sub {
+      font-size: 0.78rem;
+      color: #71717a;
+      margin-top: 0.15rem;
+    }
+
+    .prompt-trigger-actions {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .prompt-trigger-btn {
+      padding: 0.5rem 1rem;
+      border-radius: 9999px;
+      font-family: var(--font-body);
+      font-size: 0.78rem;
+      font-weight: 600;
+      border: none;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      transition: all var(--duration-fast) var(--ease-out);
+    }
+
+    .prompt-trigger-btn svg { width: 14px; height: 14px; }
+
+    .prompt-trigger-copy {
+      background: var(--accent);
+      color: white;
+    }
+
+    .prompt-trigger-copy:hover {
+      background: var(--accent-hover);
+      box-shadow: 0 4px 16px rgba(13,148,136,0.3);
+    }
+
+    .prompt-trigger-copy:active { transform: scale(0.96); }
+
+    .prompt-trigger-copy.copied { background: #059669; }
+
+    .prompt-trigger-view {
+      background: rgba(255,255,255,0.08);
+      color: #a1a1aa;
+      border: 1px solid rgba(255,255,255,0.1);
+    }
+
+    .prompt-trigger-view:hover {
+      background: rgba(255,255,255,0.14);
+      color: #e4e4e7;
+    }
+
+    /* === ZONE SYSTEM === */
+    .zone-legend {
+      display: flex;
+      gap: 1.5rem;
+      margin: 1.25rem 0;
+      flex-wrap: wrap;
+    }
+
+    .zone-chip {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.45rem;
+      font-size: 0.82rem;
+      font-weight: 600;
+      font-family: var(--font-display);
+    }
+
+    .zone-dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 3px;
+    }
+
+    .zone-identity .zone-dot { background: #0d9488; }
+    .zone-direction .zone-dot { background: #2563eb; }
+    .zone-reference .zone-dot { background: #eab308; }
+    .zone-extras .zone-dot { background: #8b5cf6; }
+    .zone-motor .zone-dot { background: #71717a; }
+
+    .zone-chip span:last-child { color: var(--text-secondary); }
+
+    /* === PREREQUISITES === */
+    .prereq-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 1rem;
+      margin: 1.5rem 0 2rem;
+    }
+
+    .prereq-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 1rem;
+      padding: 1.75rem 1.25rem;
+      text-align: center;
+    }
+
+    .prereq-num {
+      width: 36px;
+      height: 36px;
+      border-radius: 10px;
+      background: var(--accent-light);
+      color: var(--accent);
+      font-family: var(--font-display);
+      font-weight: 800;
+      font-size: 0.92rem;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 0.75rem;
+    }
+
+    .prereq-card p {
+      font-size: 0.85rem;
+      color: var(--text-secondary);
+      line-height: 1.5;
+      margin: 0;
+    }
+
+    .prereq-card strong {
+      display: block;
+      font-family: var(--font-display);
+      font-size: 0.92rem;
+      margin-bottom: 0.35rem;
+    }
+
+    .prereq-card a {
+      color: var(--accent);
+      font-weight: 600;
+    }
+
+    /* === CALLOUT === */
+    .callout {
+      background: var(--accent-light);
+      border: 1px solid rgba(13, 148, 136, 0.2);
+      border-radius: 0.85rem;
+      padding: 1rem 1.25rem;
+      margin: 1.5rem 0;
+      font-size: 0.85rem;
+      color: #0f5e56;
+      line-height: 1.6;
+    }
+
+    .callout strong {
+      font-weight: 700;
+      color: #134e4a;
+    }
+
+    /* === GALLERY (avant/apres) === */
+    .gallery-grid {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+      margin-top: 2rem;
+    }
+
+    .gallery-item {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 1.25rem;
+      overflow: hidden;
+      transition: all var(--duration-base) var(--ease-out);
+    }
+
+    .gallery-item:hover {
+      border-color: var(--border-light);
+      box-shadow: 0 20px 40px -15px rgba(0,0,0,0.08);
+    }
+
+    .gallery-compare {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      position: relative;
+    }
+
+    .gallery-compare-side {
+      position: relative;
+      overflow: hidden;
+    }
+
+    .gallery-compare-side img {
+      width: 100%;
+      aspect-ratio: 4 / 5;
+      object-fit: cover;
+      display: block;
+      transition: transform var(--duration-base) var(--ease-out);
+    }
+
+    .gallery-item:hover .gallery-compare-side img {
+      transform: scale(1.02);
+    }
+
+    .gallery-divider {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 2px;
+      background: rgba(255,255,255,0.15);
+      z-index: 2;
+    }
+
+    .compare-arrow {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      z-index: 3;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background: rgba(10,10,10,0.7);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      border: 1.5px solid rgba(255,255,255,0.2);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #fff;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+    }
+
+    .compare-arrow svg { width: 18px; height: 18px; }
+
+    /* === GALLERY SINGLE (no before) === */
+    .gallery-single {
+      position: relative;
+      overflow: hidden;
+    }
+
+    .gallery-single img {
+      width: 100%;
+      aspect-ratio: 3 / 4;
+      object-fit: cover;
+      display: block;
+      transition: transform var(--duration-base) var(--ease-out);
+    }
+
+    .gallery-item:hover .gallery-single img {
+      transform: scale(1.02);
+    }
+
+    .gallery-single-label {
+      position: absolute;
+      top: 1rem;
+      left: 1rem;
+      padding: 0.35rem 0.85rem;
+      font-family: var(--font-display);
+      font-size: 0.72rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      border-radius: 9999px;
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      background: rgba(139, 92, 246, 0.85);
+      color: #fff;
+    }
+
+    .gallery-info {
+      padding: 1.15rem 1.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-top: 1px solid var(--border);
+    }
+
+    .gallery-product {
+      font-family: var(--font-display);
+      font-size: 0.92rem;
+      font-weight: 700;
+      color: var(--text-primary);
+    }
+
+    .gallery-details {
+      font-size: 0.72rem;
+      color: var(--text-faint);
+      margin-top: 0.15rem;
+    }
+
+    .gallery-actions {
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+
+    .gallery-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      padding: 0.4rem 0.85rem;
+      border-radius: 9999px;
+      font-family: var(--font-body);
+      font-size: 0.72rem;
+      font-weight: 600;
+      border: none;
+      cursor: pointer;
+      transition: all var(--duration-fast) var(--ease-out);
+    }
+
+    .gallery-btn svg { width: 12px; height: 12px; }
+    .gallery-btn:active { transform: scale(0.95); }
+
+    .gallery-btn-copy {
+      background: var(--accent);
+      color: white;
+    }
+
+    .gallery-btn-copy:hover { background: var(--accent-hover); }
+    .gallery-btn-copy.copied { background: #059669; }
+
+    .gallery-btn-view {
+      background: var(--bg-subtle);
+      color: var(--text-muted);
+      border: 1px solid var(--border);
+    }
+
+    .gallery-btn-view:hover {
+      border-color: var(--accent);
+      color: var(--accent);
+      background: var(--accent-light);
+    }
+
+    /* === MODAL === */
+    .modal-backdrop {
+      position: fixed;
+      inset: 0;
+      z-index: 100;
+      background: rgba(10, 10, 10, 0.6);
+      backdrop-filter: blur(4px);
+      -webkit-backdrop-filter: blur(4px);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 1.5rem;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity var(--duration-fast) var(--ease-out);
+    }
+
+    .modal-backdrop.active {
+      opacity: 1;
+      pointer-events: all;
+    }
+
+    .modal {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 1.25rem;
+      width: 100%;
+      max-width: 700px;
+      max-height: 80vh;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      transform: translateY(12px) scale(0.98);
+      transition: transform var(--duration-base) var(--ease-out);
+      box-shadow: 0 25px 60px -15px rgba(0,0,0,0.25);
+    }
+
+    .modal-backdrop.active .modal {
+      transform: translateY(0) scale(1);
+    }
+
+    .modal-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1.25rem 1.5rem;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .modal-title {
+      font-family: var(--font-display);
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--text-primary);
+    }
+
+    .modal-close {
+      width: 32px;
+      height: 32px;
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: transparent;
+      border: none;
+      cursor: pointer;
+      color: var(--text-faint);
+      transition: all var(--duration-fast) var(--ease-out);
+    }
+
+    .modal-close:hover {
+      background: var(--bg-subtle);
+      color: var(--text-primary);
+    }
+
+    .modal-close svg { width: 16px; height: 16px; }
+
+    .modal-body {
+      padding: 1.5rem;
+      overflow-y: auto;
+    }
+
+    .modal-body pre {
+      font-family: 'Geist Mono', 'SF Mono', monospace;
+      font-size: 0.75rem;
+      line-height: 1.7;
+      color: var(--text-secondary);
+      white-space: pre-wrap;
+      word-break: break-word;
+    }
+
+    .modal-footer {
+      padding: 1rem 1.5rem;
+      border-top: 1px solid var(--border);
+      display: flex;
+      justify-content: flex-end;
+    }
+
+    .modal-copy-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      padding: 0.5rem 1.1rem;
+      background: var(--accent);
+      color: white;
+      border: none;
+      border-radius: 9999px;
+      font-family: var(--font-body);
+      font-size: 0.78rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all var(--duration-fast) var(--ease-out);
+    }
+
+    .modal-copy-btn:hover {
+      background: var(--accent-hover);
+      box-shadow: 0 4px 16px rgba(13, 148, 136, 0.25);
+    }
+
+    .modal-copy-btn:active { transform: scale(0.97) translateY(1px); }
+    .modal-copy-btn.copied { background: #059669; }
+    .modal-copy-btn svg { width: 14px; height: 14px; }
+
+    /* === TEMPLATE MODAL (dark code view) === */
+    .template-code {
+      background: #1a1a1a;
+      padding: 1.5rem;
+      font-family: 'Geist Mono', 'SF Mono', monospace;
+      font-size: 0.75rem;
+      line-height: 1.85;
+      color: #e4e4e7;
+    }
+
+    .template-code .zone-var {
+      font-weight: 600;
+      padding: 0.1em 0.3em;
+      border-radius: 3px;
+    }
+
+    .template-code .zone-var.identity { background: rgba(13,148,136,0.15); color: #2dd4bf; }
+    .template-code .zone-var.direction { background: rgba(37,99,235,0.15); color: #60a5fa; }
+    .template-code .zone-var.reference { background: rgba(234,179,8,0.15); color: #fbbf24; }
+    .template-code .zone-var.extras { background: rgba(139,92,246,0.15); color: #a78bfa; }
+
+    .template-code .fixed { color: #71717a; }
+
+    .template-explain {
+      padding: 1.25rem 1.5rem;
+      border-top: 1px solid var(--border);
+    }
+
+    .template-explain-title {
+      font-family: var(--font-display);
+      font-size: 0.82rem;
+      font-weight: 700;
+      color: var(--text-primary);
+      margin-bottom: 0.5rem;
+    }
+
+    .template-explain p {
+      font-size: 0.78rem;
+      color: var(--text-muted);
+      line-height: 1.6;
+      margin: 0;
+    }
+
+    /* === ARTICLE CTA === */
+    .article-cta {
+      margin-top: 4rem;
+      padding: 3rem 0;
+      border-top: 1px solid var(--border);
+      text-align: center;
+    }
+
+    .article-cta h2 { margin-top: 0; margin-bottom: 0.5rem; }
+
+    .article-cta p {
+      color: var(--text-muted);
+      margin: 0 auto 1.5rem;
+      font-size: 0.92rem;
+    }
+
+    /* === IMAGE COMPARE MODAL === */
+    .img-modal-backdrop {
+      position: fixed;
+      inset: 0;
+      z-index: 100;
+      background: rgba(10, 10, 10, 0.92);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .img-modal-backdrop.active {
+      opacity: 1;
+      pointer-events: all;
+    }
+
+    .img-modal-close {
+      position: absolute;
+      top: 1.25rem;
+      right: 1.25rem;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      border: 1.5px solid rgba(255,255,255,0.15);
+      background: rgba(255,255,255,0.08);
+      color: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      z-index: 2;
+    }
+
+    .img-modal-close:hover {
+      background: rgba(255,255,255,0.15);
+      border-color: rgba(255,255,255,0.3);
+    }
+
+    .img-modal-close svg { width: 18px; height: 18px; }
+
+    .img-modal-image-wrap {
+      position: relative;
+      max-width: min(90vw, 600px);
+      max-height: 75vh;
+      border-radius: 1rem;
+      overflow: hidden;
+      box-shadow: 0 30px 80px -20px rgba(0,0,0,0.5);
+      transform: scale(0.95) translateY(10px);
+      transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .img-modal-backdrop.active .img-modal-image-wrap {
+      transform: scale(1) translateY(0);
+    }
+
+    .img-modal-image-wrap img {
+      width: 100%;
+      height: auto;
+      max-height: 75vh;
+      object-fit: contain;
+      display: block;
+    }
+
+    .img-modal-label {
+      position: absolute;
+      top: 1rem;
+      left: 1rem;
+      padding: 0.3rem 0.75rem;
+      font-family: var(--font-display);
+      font-size: 0.72rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      border-radius: 9999px;
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      color: #fff;
+      transition: opacity 0.2s ease;
+    }
+
+    .img-modal-label.is-before {
+      background: rgba(10, 10, 10, 0.55);
+    }
+
+    .img-modal-label.is-after {
+      background: rgba(13, 148, 136, 0.85);
+    }
+
+    .img-modal-toggle {
+      margin-top: 1.25rem;
+      display: flex;
+      align-items: center;
+      gap: 0;
+      background: rgba(255,255,255,0.08);
+      border: 1.5px solid rgba(255,255,255,0.12);
+      border-radius: 9999px;
+      padding: 4px;
+      position: relative;
+    }
+
+    .img-modal-toggle-btn {
+      padding: 0.5rem 1.5rem;
+      font-family: var(--font-display);
+      font-size: 0.82rem;
+      font-weight: 600;
+      color: rgba(255,255,255,0.5);
+      background: transparent;
+      border: none;
+      border-radius: 9999px;
+      cursor: pointer;
+      transition: color 0.25s ease;
+      position: relative;
+      z-index: 1;
+    }
+
+    .img-modal-toggle-btn.active {
+      color: #fff;
+    }
+
+    .img-modal-toggle-pill {
+      position: absolute;
+      top: 4px;
+      height: calc(100% - 8px);
+      border-radius: 9999px;
+      background: rgba(255,255,255,0.12);
+      transition: left 0.3s cubic-bezier(0.16, 1, 0.3, 1), width 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .img-modal-product {
+      margin-top: 0.75rem;
+      font-family: var(--font-display);
+      font-size: 0.92rem;
+      font-weight: 600;
+      color: rgba(255,255,255,0.7);
+    }
+
+    /* Make compare sections clickable */
+    .hero-compare,
+    .gallery-compare,
+    .gallery-single {
+      cursor: pointer;
+    }
+
+    .hero-compare:hover,
+    .gallery-compare:hover,
+    .gallery-single:hover {
+      opacity: 0.92;
+      transition: opacity 0.2s ease;
+    }
+
+    /* === RESPONSIVE === */
+    @media (max-width: 768px) {
+      .article-hero {
+        padding-top: 6rem;
+        padding-bottom: 2.5rem;
+      }
+
+      .article-hero h1 { font-size: 2rem; }
+
+      .article-meta { flex-wrap: wrap; gap: 0.75rem; }
+
+      .prereq-grid { grid-template-columns: 1fr; }
+
+      .hero-compare-side img { aspect-ratio: 3 / 4; }
+
+      .prompt-trigger {
+        flex-direction: column;
+        align-items: center;
+        gap: 1rem;
+        text-align: center;
+      }
+
+      .prompt-trigger-left { flex-direction: column; align-items: center; }
+
+      .prompt-trigger-actions { width: 100%; justify-content: center; }
+      .prompt-trigger-copy { flex: 1; justify-content: center; }
+      .prompt-trigger-view { flex: 1; justify-content: center; }
+
+      .zone-legend { flex-direction: column; gap: 0.75rem; }
+
+      .gallery-compare-side img { aspect-ratio: 3 / 4; }
+
+      .gallery-info {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.75rem;
+      }
+
+      .modal { max-height: 90vh; }
+      .modal-body pre { font-size: 0.7rem; }
+      .template-code { font-size: 0.68rem; padding: 1rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Nav -->
+  <nav class="nav" id="nav">
+    <div class="container nav-inner">
+      <a href="../../" class="nav-brand">
+        <span class="dot"></span>
+        Just Some AI Tips
+      </a>
+      <button class="nav-hamburger" id="nav-hamburger" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+      <ul class="nav-links" id="nav-links">
+        <li><a href="../../#about">A propos</a></li>
+        <li><a href="../../#content">Contenus</a></li>
+        <li><a href="../../#articles">Articles</a></li>
+        <li><a href="../../#team">L'equipe</a></li>
+        <li><a href="https://whatsapp.com/channel/0029Vb7XKwS3LdQcVnWBlJ2U" target="_blank" rel="noopener" class="btn btn-whatsapp">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          Rejoindre
+        </a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- Article Hero -->
+  <header class="article-hero container">
+    <span class="tag tag-accent reveal">Prompt Kit</span>
+
+    <h1 class="reveal reveal-delay-1">
+      Poster Design <span class="muted">Prompt Kit</span>
+    </h1>
+
+    <p class="article-hero-desc reveal reveal-delay-2">
+      Creez des affiches pro avec l'IA. Un prompt modulaire, remplissez les zones, le moteur fait le reste.
+    </p>
+
+    <div class="article-meta reveal reveal-delay-3">
+      <span class="article-meta-item">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+        3 min
+      </span>
+      <span class="article-meta-item">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+        Boris Koulevo
+      </span>
+      <span class="article-meta-item">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="18" height="18" x="3" y="4" rx="2" ry="2"/><line x1="16" x2="16" y1="2" y2="6"/><line x1="8" x2="8" y1="2" y2="6"/><line x1="3" x2="21" y1="10" y2="10"/></svg>
+        Mars 2026
+      </span>
+    </div>
+
+    <!-- Hero avant/apres -->
+    <div class="hero-compare reveal reveal-delay-3">
+      <div class="hero-compare-inner">
+        <div class="hero-compare-side">
+          <span class="compare-label before">Avant — Photo simple</span>
+          <img src="before-karite.png" alt="Photo simple beurre de karite" loading="eager">
+        </div>
+        <div class="hero-compare-side">
+          <span class="compare-label after">Apres — Affiche generee</span>
+          <img src="after-karite.jpg" alt="Affiche generee beurre de karite" loading="eager">
+        </div>
+        <div class="hero-compare-divider"></div>
+        <div class="hero-compare-arrow">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Article Body -->
+  <div class="article-body">
+
+    <!-- 1. PREREQS -->
+    <h2 class="reveal">Ce qu'il te faut</h2>
+
+    <div class="prereq-grid">
+      <div class="prereq-card reveal">
+        <div class="prereq-num">1</div>
+        <strong>Ouvre ChatGPT ou Gemini</strong>
+        <p>Les deux fonctionnent. Gemini est souvent plus creatif sur les affiches.</p>
+      </div>
+      <div class="prereq-card reveal reveal-delay-1">
+        <div class="prereq-num">2</div>
+        <strong>Decris ton affiche</strong>
+        <p>Remplis les zones du prompt : type, nom, ambiance, couleurs. Ajoute une photo si c'est pour un produit.</p>
+      </div>
+      <div class="prereq-card reveal reveal-delay-2">
+        <div class="prereq-num">3</div>
+        <strong>Colle le prompt</strong>
+        <p>Le moteur s'occupe du design. Tu obtiens une affiche prete a imprimer ou publier.</p>
+      </div>
+    </div>
+
+    <!-- Le prompt -->
+    <h2 class="reveal">Le prompt</h2>
+
+    <div class="prompt-trigger reveal" onclick="openModal('template')">
+      <div class="prompt-trigger-left">
+        <div class="prompt-trigger-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18"/><path d="M9 21V9"/></svg>
+        </div>
+        <div>
+          <div class="prompt-trigger-label">Template modulaire</div>
+          <div class="prompt-trigger-sub">Prompt decompose avec les zones modifiables</div>
+        </div>
+      </div>
+      <div class="prompt-trigger-actions">
+        <button class="prompt-trigger-btn prompt-trigger-view" onclick="event.stopPropagation(); openModal('template')">
+          Voir
+        </button>
+      </div>
+    </div>
+
+    <!-- Modulaire -->
+    <h2 class="reveal">C'est modulaire</h2>
+    <p class="reveal">Le prompt a <strong>5 zones</strong> que vous adaptez a votre affiche. Le moteur (en gris) ne bouge jamais — c'est lui qui fait le gros du travail.</p>
+
+    <div class="zone-legend reveal">
+      <span class="zone-chip zone-identity"><span class="zone-dot"></span> <span>Identite</span></span>
+      <span class="zone-chip zone-direction"><span class="zone-dot"></span> <span>Direction artistique</span></span>
+      <span class="zone-chip zone-reference"><span class="zone-dot"></span> <span>Reference (optionnel)</span></span>
+      <span class="zone-chip zone-extras"><span class="zone-dot"></span> <span>Extras (optionnel)</span></span>
+      <span class="zone-chip zone-motor"><span class="zone-dot"></span> <span>Moteur (ne pas toucher)</span></span>
+    </div>
+
+    <div class="callout reveal">
+      <strong>Le moteur est le coeur du prompt.</strong> C'est lui qui transforme vos 2-3 mots d'ambiance en affiche pro. Ne le modifiez jamais — il contient toutes les regles de design, composition et anti-AI-slop.
+    </div>
+
+    <p class="reveal">En changeant les zones, le meme prompt donne des resultats completement differents. Voici 3 affiches, 3 styles :</p>
+
+    <!-- Galerie -->
+    <h2 class="reveal">3 affiches, 3 styles</h2>
+
+    <div class="gallery-grid">
+
+      <!-- Beurre de karite -->
+      <div class="gallery-item reveal">
+        <div class="gallery-compare">
+          <div class="gallery-compare-side">
+            <span class="compare-label before">Avant</span>
+            <img src="before-karite.png" alt="Avant — Beurre de karite" loading="lazy">
+          </div>
+          <div class="gallery-compare-side">
+            <span class="compare-label after">Apres</span>
+            <img src="after-karite.jpg" alt="Apres — Beurre de karite" loading="lazy">
+          </div>
+          <div class="gallery-divider"></div>
+          <div class="compare-arrow">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+          </div>
+        </div>
+        <div class="gallery-info">
+          <div>
+            <div class="gallery-product">Beurre de karite</div>
+            <div class="gallery-details">Promo produit — Naturel chaleureux — Avec photo de reference</div>
+          </div>
+          <div class="gallery-actions">
+            <button class="gallery-btn gallery-btn-copy" onclick="copyDirect(0, this)">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+              Copier
+            </button>
+            <button class="gallery-btn gallery-btn-view" onclick="openModal(0)">
+              Voir le prompt
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Epices -->
+      <div class="gallery-item reveal">
+        <div class="gallery-compare">
+          <div class="gallery-compare-side">
+            <span class="compare-label before">Avant</span>
+            <img src="before-epices.png" alt="Avant — Melange d'epices" loading="lazy">
+          </div>
+          <div class="gallery-compare-side">
+            <span class="compare-label after">Apres</span>
+            <img src="after-epices.jpg" alt="Apres — Melange d'epices" loading="lazy">
+          </div>
+          <div class="gallery-divider"></div>
+          <div class="compare-arrow">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+          </div>
+        </div>
+        <div class="gallery-info">
+          <div>
+            <div class="gallery-product">Melange d'epices pimentees</div>
+            <div class="gallery-details">Promo produit — Chaud intense — Avec photo de reference</div>
+          </div>
+          <div class="gallery-actions">
+            <button class="gallery-btn gallery-btn-copy" onclick="copyDirect(1, this)">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+              Copier
+            </button>
+            <button class="gallery-btn gallery-btn-view" onclick="openModal(1)">
+              Voir le prompt
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- L'Assiette Bleue -->
+      <div class="gallery-item reveal">
+        <div class="gallery-single">
+          <span class="gallery-single-label">Sans photo de reference</span>
+          <img src="after-assiette.jpg" alt="Affiche — L'Assiette Bleue" loading="lazy">
+        </div>
+        <div class="gallery-info">
+          <div>
+            <div class="gallery-product">L'Assiette Bleue</div>
+            <div class="gallery-details">Promo restaurant — Authentique raffine — Sans reference</div>
+          </div>
+          <div class="gallery-actions">
+            <button class="gallery-btn gallery-btn-copy" onclick="copyDirect(2, this)">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+              Copier
+            </button>
+            <button class="gallery-btn gallery-btn-view" onclick="openModal(2)">
+              Voir le prompt
+            </button>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Tip -->
+    <h2 class="reveal">Envie de personnaliser ?</h2>
+    <div class="callout reveal" style="margin-top: 1rem;">
+      <strong>Tu n'as pas besoin de modifier le prompt toi-meme.</strong> Donne le template a une IA (ChatGPT, Gemini, Claude) et demande-lui de l'adapter : "adapte ce prompt pour une soiree jazz dans un bar a cocktails." Elle ajustera les bonnes zones sans toucher au moteur ni au negative prompt. Tu peux aussi lui demander des idees : "propose-moi 3 ambiances differentes pour cette affiche."
+    </div>
+
+    <!-- CTA -->
+    <div class="article-cta reveal">
+      <h2>D'autres kits arrivent</h2>
+      <p>Rejoignez la chaine pour les prochains prompts et tutos.</p>
+      <a href="https://whatsapp.com/channel/0029Vb7XKwS3LdQcVnWBlJ2U" target="_blank" rel="noopener" class="btn btn-whatsapp">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        Rejoindre la chaine WhatsApp
+      </a>
+    </div>
+
+  </div>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <p>Just Some AI Tips — Kevin Tiassou & Boris Koulevo</p>
+    </div>
+  </footer>
+
+  <!-- Single reusable modal (prompts) -->
+  <div class="modal-backdrop" id="prompt-modal" onclick="closeModal(event)">
+    <div class="modal" onclick="event.stopPropagation()">
+      <div class="modal-header">
+        <span class="modal-title" id="modal-title">Prompt</span>
+        <button class="modal-close" onclick="closeModal()">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+        </button>
+      </div>
+      <div class="modal-body">
+        <pre id="modal-prompt-text"></pre>
+      </div>
+      <div class="modal-footer">
+        <button class="modal-copy-btn" id="modal-copy-btn" onclick="copyModalPrompt()">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+          Copier le prompt
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Template modal (dark code view) -->
+  <div class="modal-backdrop" id="template-modal" onclick="closeTemplateModal(event)">
+    <div class="modal" onclick="event.stopPropagation()">
+      <div class="modal-header">
+        <span class="modal-title">Template modulaire</span>
+        <button class="modal-close" onclick="closeTemplateModal()">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+        </button>
+      </div>
+      <div class="modal-body" style="padding: 0;">
+        <div class="template-code">
+<span class="zone-var identity">[TYPE]</span> <span class="fixed">— Type d'affiche (ex: soiree, concert, restaurant, promo produit)</span>
+<span class="zone-var identity">[NOM]</span> <span class="fixed">— Nom principal (le gros titre)</span>
+<span class="zone-var identity">[SOUS-TITRE]</span> <span class="fixed">— Tagline ou description courte</span>
+<span class="zone-var identity">[INFOS]</span> <span class="fixed">— Date, lieu, horaire, prix, contact</span>
+<span class="zone-var direction">[AMBIANCE]</span> <span class="fixed">— 2-3 mots (ex: "tropical festif", "sombre luxueux")</span>
+<span class="zone-var direction">[COULEURS]</span> <span class="fixed">— 2-3 couleurs dominantes</span>
+<span class="zone-var direction">[VISUEL]</span> <span class="fixed">— Element visuel principal</span>
+<span class="zone-var reference">[IMAGE REF]</span> <span class="fixed">— (optionnel) Description de l'image de reference jointe</span>
+<span class="zone-var reference">[UTILISATION]</span> <span class="fixed">— (optionnel) Comment montrer le produit/objet sur l'affiche</span>
+<span class="zone-var extras">[TEXTURES]</span> <span class="fixed">— (optionnel) Textures souhaitees</span>
+<span class="zone-var extras">[DECO]</span> <span class="fixed">— (optionnel) Elements decoratifs</span>
+<span class="zone-var extras">[CONTRAINTES]</span> <span class="fixed">— (optionnel) Contraintes specifiques</span>
+
+<span class="fixed">Create a flat 2D poster design, portrait format 3:4 ratio. This is the poster itself — not a photo of a poster, not a mockup, not a poster in a scene. The output IS the poster, ready to print or publish digitally.
+
+DESIGN DIRECTION — MANDATORY:
+You are a world-class graphic designer creating a poster that stops people in their tracks. Apply these principles with full creative freedom:
+
+CONTEXTUAL INTELLIGENCE:
+- Before designing, THINK about what the [TYPE] and [AMBIANCE] naturally call for. A jewelry poster wants shimmer, glow, premium materials, skin catching light. A food poster wants steam, texture, appetite appeal, warmth. A party poster wants movement, energy, crowd electricity. A luxury event wants restraint, negative space, gold accents. Let the SUBJECT MATTER guide your creative instincts — don't wait for explicit instructions, interpret the context and deliver what it deserves.
+- Every element on the poster — from the main visual to the smallest decorative detail — must belong to the SAME VISUAL WORLD. If the main design is refined and elegant, the secondary elements (info bars, decorative touches, background patterns) must also feel refined — they can be simpler, but never cheap or generic.
+
+TYPOGRAPHY AS ARCHITECTURE:
+- The main title [NOM] must DOMINATE the composition. Make it massive — it should fill at least 40% of the poster width.
+- Create DRAMATIC SIZE CONTRAST between the title and the secondary text.
+- The info text ([INFOS]) must be readable but never compete with the title.
+- BREAK TYPOGRAPHIC CONVENTIONS when it serves the impact.
+
+COMPOSITION WITH IMPACT:
+- DO NOT center everything. Use dynamic asymmetry.
+- Create AT LEAST 3 distinct visual layers.
+- Use STRATEGIC WHITESPACE or STRATEGIC DENSITY.
+- The eye should follow a clear path: biggest/boldest element first → visual anchor → info details.
+- TEXT AND VISUALS MUST COEXIST, NOT COMPETE.
+
+COLOR AS EMOTION:
+- Use the [COULEURS] with INTENTIONAL DISTRIBUTION: 60% dominant, 30% support, 10% accent.
+- High contrast between text and background is non-negotiable.
+
+THE VISUAL ELEMENT:
+- The [VISUEL] must be integrated INTO the design, not just placed on top.
+- If photo-realistic, render with ultra-detailed textures.
+
+REFERENCE IMAGE LOCK (only if a reference photo is provided):
+- The item shown must appear EXACTLY as-is on the poster. Keep 100% identical.
+
+ANTI-AI-SLOP — CRITICAL:
+- NO perfect symmetry. NO centered-everything layouts. NO smooth plastic textures.
+- Add PRINT-REALISTIC TEXTURES.
+- Restrict yourself. A great poster is defined by what you LEAVE OUT.
+
+OUTPUT SPECIFICATIONS:
+- Flat 2D poster, portrait 3:4 ratio
+- All text must be perfectly legible and correctly spelled
+- Print-ready quality, crisp at high resolution
+
+Negative prompt:
+3D render, photograph, realistic scene, poster on a wall, poster in a frame, mockup template, camera angle, depth of field, bokeh, studio lighting on a physical surface, white void background, generic clip art, childish cartoon style, blurry text, illegible type, misspelled words, AI glow, smooth plastic gradients, perfectly symmetrical layout, centered boring composition, stock photo aesthetic, low quality, watermark, border around the poster</span>
+        </div>
+        <div class="template-explain">
+          <div class="template-explain-title">Comment ca marche</div>
+          <p>Remplacez uniquement les <strong>zones colorees</strong> en haut. Le moteur (en gris) reste identique — c'est lui qui contient toutes les regles de design, composition, typographie et anti-AI-slop. Chaque couleur correspond a un aspect : l'identite de l'affiche, la direction artistique, la reference photo (optionnel), et les extras (optionnel).</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Image Compare Modal -->
+  <div class="img-modal-backdrop" id="img-modal" onclick="closeImgModal(event)">
+    <button class="img-modal-close" onclick="closeImgModal()">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+    </button>
+    <div class="img-modal-image-wrap" onclick="event.stopPropagation()">
+      <span class="img-modal-label" id="img-modal-label"></span>
+      <img id="img-modal-img" src="" alt="">
+    </div>
+    <div class="img-modal-toggle" id="img-modal-toggle" onclick="event.stopPropagation()">
+      <div class="img-modal-toggle-pill" id="img-modal-pill"></div>
+      <button class="img-modal-toggle-btn" data-side="before" onclick="toggleImgModal('before')">Avant</button>
+      <button class="img-modal-toggle-btn active" data-side="after" onclick="toggleImgModal('after')">Apres</button>
+    </div>
+    <div class="img-modal-product" id="img-modal-product"></div>
+  </div>
+
+  <script>
+    // Nav scroll
+    const nav = document.getElementById('nav');
+    window.addEventListener('scroll', () => {
+      nav.classList.toggle('scrolled', window.scrollY > 20);
+    }, { passive: true });
+
+    // Hamburger
+    const hamburger = document.getElementById('nav-hamburger');
+    const navLinks = document.getElementById('nav-links');
+    hamburger.addEventListener('click', () => {
+      hamburger.classList.toggle('active');
+      navLinks.classList.toggle('open');
+    });
+    navLinks.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => {
+        hamburger.classList.remove('active');
+        navLinks.classList.remove('open');
+      });
+    });
+
+    // Reveal on scroll
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+    // Motor text (shared across all prompts)
+    const MOTOR = `Create a flat 2D poster design, portrait format 3:4 ratio. This is the poster itself — not a photo of a poster, not a mockup, not a poster in a scene. The output IS the poster, ready to print or publish digitally.
+
+DESIGN DIRECTION — MANDATORY:
+You are a world-class graphic designer creating a poster that stops people in their tracks. Apply these principles with full creative freedom:
+
+CONTEXTUAL INTELLIGENCE:
+- Before designing, THINK about what the [TYPE] and [AMBIANCE] naturally call for. A jewelry poster wants shimmer, glow, premium materials, skin catching light. A food poster wants steam, texture, appetite appeal, warmth. A party poster wants movement, energy, crowd electricity. A luxury event wants restraint, negative space, gold accents. Let the SUBJECT MATTER guide your creative instincts — don't wait for explicit instructions, interpret the context and deliver what it deserves.
+- Every element on the poster — from the main visual to the smallest decorative detail — must belong to the SAME VISUAL WORLD. If the main design is refined and elegant, the secondary elements (info bars, decorative touches, background patterns) must also feel refined — they can be simpler, but never cheap or generic.
+
+TYPOGRAPHY AS ARCHITECTURE:
+- The main title [NOM] must DOMINATE the composition. Make it massive — it should fill at least 40% of the poster width.
+- Create DRAMATIC SIZE CONTRAST between the title and the secondary text.
+- The info text ([INFOS]) must be readable but never compete with the title.
+- BREAK TYPOGRAPHIC CONVENTIONS when it serves the impact.
+
+COMPOSITION WITH IMPACT:
+- DO NOT center everything. Use dynamic asymmetry.
+- Create AT LEAST 3 distinct visual layers.
+- Use STRATEGIC WHITESPACE or STRATEGIC DENSITY.
+- The eye should follow a clear path: biggest/boldest element first → visual anchor → info details.
+- TEXT AND VISUALS MUST COEXIST, NOT COMPETE.
+
+COLOR AS EMOTION:
+- Use the [COULEURS] with INTENTIONAL DISTRIBUTION: 60% dominant, 30% support, 10% accent.
+- High contrast between text and background is non-negotiable.
+
+THE VISUAL ELEMENT:
+- The [VISUEL] must be integrated INTO the design, not just placed on top.
+- If photo-realistic, render with ultra-detailed textures.
+
+REFERENCE IMAGE LOCK (only if a reference photo is provided):
+- The item shown must appear EXACTLY as-is on the poster. Keep 100% identical.
+
+ANTI-AI-SLOP — CRITICAL:
+- NO perfect symmetry. NO centered-everything layouts. NO smooth plastic textures.
+- Add PRINT-REALISTIC TEXTURES.
+- Restrict yourself. A great poster is defined by what you LEAVE OUT.
+
+OUTPUT SPECIFICATIONS:
+- Flat 2D poster, portrait 3:4 ratio
+- All text must be perfectly legible and correctly spelled
+- Print-ready quality, crisp at high resolution
+
+Negative prompt:
+3D render, photograph, realistic scene, poster on a wall, poster in a frame, mockup template, camera angle, depth of field, bokeh, studio lighting on a physical surface, white void background, generic clip art, childish cartoon style, blurry text, illegible type, misspelled words, AI glow, smooth plastic gradients, perfectly symmetrical layout, centered boring composition, stock photo aesthetic, low quality, watermark, border around the poster`;
+
+    // Prompts data (single source of truth)
+    const prompts = [
+      {
+        title: 'Beurre de karite',
+        prompt: `Type d'affiche : promo produit cosmetique naturel
+Nom principal : BEURRE DE KARITE PUR
+Sous-titre : 100% Naturel & Brut \u00b7 Mama's Harvest
+Infos cles : 250g \u00b7 Origine Burkina Faso \u00b7 Commandes en DM
+Ambiance en 2-3 mots : naturel chaleureux
+2-3 couleurs dominantes : dore miel, creme, brun chaud
+Element visuel principal : le pot de karite ouvert avec la texture cremeuse visible
+Image de reference : pot carre transparent en plastique, couvercle noir, rempli de beurre de karite jaune pale cremeux avec texture epaisse. Etiquette beige/terre avec formes organiques marron et terracotta, illustration de noix de karite avec feuilles, texte "Mama's Harvest", "Beurre de Karite Pur", "100% Naturel & Brut", "Origine: Burkina Faso", "Poids Net: 250g | 8.8 oz"
+Utilisation sur l'affiche : pot ouvert mis en valeur, etiquette lisible, texture du beurre visible
+
+${MOTOR}`
+      },
+      {
+        title: 'Melange d\'epices pimentees',
+        prompt: `Type d'affiche : promo produit alimentaire
+Nom principal : MELANGE D'EPICES PIMENTEES
+Sous-titre : Puissant et Parfume \u00b7 300g
+Infos cles : Commandes & infos : @votrecompte \u00b7 Livraison disponible
+Ambiance en 2-3 mots : chaud intense appetissant
+2-3 couleurs dominantes : rouge piment profond, noir charbon, dore chaud
+Element visuel principal : le pot d'epices au premier plan avec a cote un plat de poulet grille fumant assaisonne avec le melange, des piments entiers, des grains de coriandre et de la poudre en suspension dans l'air autour de la scene
+Image de reference : un pot rectangulaire transparent en plastique avec couvercle noir, rempli de poudre d'epices rouge-brun. Etiquette blanche avec illustrations de piments seches rouges, ail, gingembre et grains de coriandre. Texte : "Melange d'Epices Pimentees", "Puissant et Parfume", "Niveau de piment : Chaud", "Poids net : 300g | 10.6 oz", icones flammes, logo en bas
+Utilisation sur l'affiche : le pot visible en entier, mis en valeur a cote du plat, on doit pouvoir lire l'etiquette
+
+${MOTOR}
+
+Textures souhaitees : grain de fumee, particules d'epices dans l'air
+Elements decoratifs : piments entiers scattered, traces de poudre rouge`
+      },
+      {
+        title: 'L\'Assiette Bleue',
+        prompt: `Type d'affiche : promo restaurant
+Nom principal : L'ASSIETTE BLEUE
+Sous-titre : Cuisine de saison & produits du terroir
+Infos cles : Ouverture le 15 avril \u00b7 12 Rue des Carmes, Nantes \u00b7 Reservation : 02.40.XX.XX.XX
+Ambiance en 2-3 mots : authentique raffine
+2-3 couleurs dominantes : bleu mineral, beige lin, bois clair
+Element visuel principal : vue de dessus d'une assiette en ceramique artisanale contenant une entree de legumes de printemps colores
+
+${MOTOR}
+
+Textures souhaitees : ceramique mate, nappe en lin froisse, bois brut
+Elements decoratifs : filet de separation fin, ombres portees naturelles de fenetres`
+      }
+    ];
+
+    // Copy directly without opening modal
+    function copyDirect(index, btn) {
+      navigator.clipboard.writeText(prompts[index].prompt).then(() => {
+        const originalHTML = btn.innerHTML;
+        btn.innerHTML = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Copie !';
+        btn.classList.add('copied');
+        setTimeout(() => {
+          btn.innerHTML = originalHTML;
+          btn.classList.remove('copied');
+        }, 2000);
+      });
+    }
+
+    // Prompt modal (single reusable)
+    let currentModalPrompt = '';
+
+    function openModal(indexOrKey) {
+      if (indexOrKey === 'template') {
+        openTemplateModal();
+        return;
+      }
+      const data = prompts[indexOrKey];
+      document.getElementById('modal-title').textContent = data.title;
+      document.getElementById('modal-prompt-text').textContent = data.prompt;
+      currentModalPrompt = data.prompt;
+      document.getElementById('prompt-modal').classList.add('active');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeModal(e) {
+      if (e && e.target !== e.currentTarget) return;
+      document.getElementById('prompt-modal').classList.remove('active');
+      document.body.style.overflow = '';
+    }
+
+    function copyModalPrompt() {
+      navigator.clipboard.writeText(currentModalPrompt).then(() => {
+        const btn = document.getElementById('modal-copy-btn');
+        btn.innerHTML = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Copie !';
+        btn.classList.add('copied');
+        setTimeout(() => {
+          btn.innerHTML = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg> Copier le prompt';
+          btn.classList.remove('copied');
+        }, 2000);
+      });
+    }
+
+    // Template modal
+    function openTemplateModal() {
+      document.getElementById('template-modal').classList.add('active');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeTemplateModal(e) {
+      if (e && e.target !== e.currentTarget) return;
+      document.getElementById('template-modal').classList.remove('active');
+      document.body.style.overflow = '';
+    }
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') { closeModal(); closeTemplateModal(); closeImgModal(); }
+    });
+
+    // Image Compare Modal
+    const compareImages = [
+      { before: 'before-karite.png', after: 'after-karite.jpg', product: 'Beurre de karite' },
+      { before: 'before-epices.png', after: 'after-epices.jpg', product: 'Melange d\'epices pimentees' },
+      { before: null, after: 'after-assiette.jpg', product: 'L\'Assiette Bleue' }
+    ];
+
+    let imgModalCurrent = null;
+    let imgModalSide = 'after';
+
+    function openImgModal(index) {
+      const data = compareImages[index];
+      if (!data) return;
+      imgModalCurrent = data;
+      imgModalSide = 'after';
+      updateImgModal();
+
+      const toggle = document.getElementById('img-modal-toggle');
+      if (!data.before) {
+        toggle.style.display = 'none';
+      } else {
+        toggle.style.display = 'flex';
+      }
+
+      document.getElementById('img-modal-product').textContent = data.product;
+      document.getElementById('img-modal').classList.add('active');
+      document.body.style.overflow = 'hidden';
+
+      requestAnimationFrame(() => updatePill());
+    }
+
+    function closeImgModal(e) {
+      if (e && e.target !== e.currentTarget) return;
+      document.getElementById('img-modal').classList.remove('active');
+      document.body.style.overflow = '';
+      imgModalCurrent = null;
+    }
+
+    function toggleImgModal(side) {
+      if (!imgModalCurrent) return;
+      if (side === 'before' && !imgModalCurrent.before) return;
+      imgModalSide = side;
+      updateImgModal();
+      updatePill();
+    }
+
+    function updateImgModal() {
+      if (!imgModalCurrent) return;
+      const img = document.getElementById('img-modal-img');
+      const label = document.getElementById('img-modal-label');
+      const src = imgModalSide === 'before' ? imgModalCurrent.before : imgModalCurrent.after;
+      img.src = src;
+      img.alt = (imgModalSide === 'before' ? 'Avant' : 'Apres') + ' — ' + imgModalCurrent.product;
+
+      label.textContent = imgModalSide === 'before' ? 'Avant' : 'Apres';
+      label.className = 'img-modal-label ' + (imgModalSide === 'before' ? 'is-before' : 'is-after');
+
+      document.querySelectorAll('.img-modal-toggle-btn').forEach(btn => {
+        btn.classList.toggle('active', btn.dataset.side === imgModalSide);
+      });
+    }
+
+    function updatePill() {
+      const btns = document.querySelectorAll('.img-modal-toggle-btn');
+      const pill = document.getElementById('img-modal-pill');
+      const activeBtn = document.querySelector('.img-modal-toggle-btn.active');
+      if (!activeBtn || !pill) return;
+      pill.style.left = activeBtn.offsetLeft + 'px';
+      pill.style.width = activeBtn.offsetWidth + 'px';
+    }
+
+    // Hero compare click
+    const heroCompare = document.querySelector('.hero-compare');
+    if (heroCompare) {
+      heroCompare.addEventListener('click', () => openImgModal(0));
+    }
+
+    // Gallery compare clicks
+    document.querySelectorAll('.gallery-item').forEach((item, i) => {
+      const compare = item.querySelector('.gallery-compare, .gallery-single');
+      if (compare) {
+        compare.addEventListener('click', () => openImgModal(i));
+      }
+    });
+  </script>
+
+</body>
+</html>

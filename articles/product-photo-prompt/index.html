@@ -730,6 +730,161 @@
       .modal-body pre { font-size: 0.7rem; }
       .template-code { font-size: 0.68rem; padding: 1rem; }
     }
+
+    /* === IMAGE COMPARE MODAL === */
+    .img-modal-backdrop {
+      position: fixed;
+      inset: 0;
+      z-index: 100;
+      background: rgba(10, 10, 10, 0.92);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .img-modal-backdrop.active {
+      opacity: 1;
+      pointer-events: all;
+    }
+
+    .img-modal-close {
+      position: absolute;
+      top: 1.25rem;
+      right: 1.25rem;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      border: 1.5px solid rgba(255,255,255,0.15);
+      background: rgba(255,255,255,0.08);
+      color: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      z-index: 2;
+    }
+
+    .img-modal-close:hover {
+      background: rgba(255,255,255,0.15);
+      border-color: rgba(255,255,255,0.3);
+    }
+
+    .img-modal-close svg { width: 18px; height: 18px; }
+
+    .img-modal-image-wrap {
+      position: relative;
+      max-width: min(90vw, 600px);
+      max-height: 75vh;
+      border-radius: 1rem;
+      overflow: hidden;
+      box-shadow: 0 30px 80px -20px rgba(0,0,0,0.5);
+      transform: scale(0.95) translateY(10px);
+      transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .img-modal-backdrop.active .img-modal-image-wrap {
+      transform: scale(1) translateY(0);
+    }
+
+    .img-modal-image-wrap img {
+      width: 100%;
+      height: auto;
+      max-height: 75vh;
+      object-fit: contain;
+      display: block;
+    }
+
+    .img-modal-label {
+      position: absolute;
+      top: 1rem;
+      left: 1rem;
+      padding: 0.3rem 0.75rem;
+      font-family: var(--font-display);
+      font-size: 0.72rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      border-radius: 9999px;
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      color: #fff;
+      transition: opacity 0.2s ease;
+    }
+
+    .img-modal-label.is-before {
+      background: rgba(10, 10, 10, 0.55);
+    }
+
+    .img-modal-label.is-after {
+      background: rgba(13, 148, 136, 0.85);
+    }
+
+    .img-modal-toggle {
+      margin-top: 1.25rem;
+      display: flex;
+      align-items: center;
+      gap: 0;
+      background: rgba(255,255,255,0.08);
+      border: 1.5px solid rgba(255,255,255,0.12);
+      border-radius: 9999px;
+      padding: 4px;
+      position: relative;
+    }
+
+    .img-modal-toggle-btn {
+      padding: 0.5rem 1.5rem;
+      font-family: var(--font-display);
+      font-size: 0.82rem;
+      font-weight: 600;
+      color: rgba(255,255,255,0.5);
+      background: transparent;
+      border: none;
+      border-radius: 9999px;
+      cursor: pointer;
+      transition: color 0.25s ease;
+      position: relative;
+      z-index: 1;
+    }
+
+    .img-modal-toggle-btn.active {
+      color: #fff;
+    }
+
+    .img-modal-toggle-pill {
+      position: absolute;
+      top: 4px;
+      height: calc(100% - 8px);
+      border-radius: 9999px;
+      background: rgba(255,255,255,0.12);
+      transition: left 0.3s cubic-bezier(0.16, 1, 0.3, 1), width 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .img-modal-product {
+      margin-top: 0.75rem;
+      font-family: var(--font-display);
+      font-size: 0.92rem;
+      font-weight: 600;
+      color: rgba(255,255,255,0.7);
+    }
+
+    /* Make compare sections clickable */
+    .hero-compare,
+    .gallery-compare {
+      cursor: pointer;
+    }
+
+    .hero-compare:hover,
+    .gallery-compare:hover {
+      opacity: 0.92;
+      transition: opacity 0.2s ease;
+    }
   </style>
 </head>
 <body>
@@ -1125,6 +1280,22 @@
     </div>
   </div>
 
+  <div class="img-modal-backdrop" id="img-modal" onclick="closeImgModal(event)">
+    <button class="img-modal-close" onclick="closeImgModal()">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+    </button>
+    <div class="img-modal-image-wrap" onclick="event.stopPropagation()">
+      <span class="img-modal-label" id="img-modal-label"></span>
+      <img id="img-modal-img" src="" alt="">
+    </div>
+    <div class="img-modal-toggle" id="img-modal-toggle" onclick="event.stopPropagation()">
+      <div class="img-modal-toggle-pill" id="img-modal-pill"></div>
+      <button class="img-modal-toggle-btn" data-side="before" onclick="toggleImgModal('before')">Avant</button>
+      <button class="img-modal-toggle-btn active" data-side="after" onclick="toggleImgModal('after')">Apres</button>
+    </div>
+    <div class="img-modal-product" id="img-modal-product"></div>
+  </div>
+
   <script>
     // Nav scroll
     const nav = document.getElementById('nav');
@@ -1241,7 +1412,95 @@
     }
 
     document.addEventListener('keydown', (e) => {
-      if (e.key === 'Escape') { closeModal(); closeTemplateModal(); }
+      if (e.key === 'Escape') { closeModal(); closeTemplateModal(); closeImgModal(); }
+    });
+
+    // Image Compare Modal
+    const compareImages = [
+      { before: 'before-karite.png', after: 'hero-after.png', product: 'Beurre de karite' },
+      { before: 'before-karite.png', after: 'after-karite.png', product: 'Beurre de karite' },
+      { before: 'before-epices.png', after: 'after-epices.png', product: 'Melange d\'epices pimentees' },
+      { before: 'before-savon.png', after: 'after-savon.png', product: 'Savon artisanal lavande' },
+      { before: 'before-miel.png', after: 'after-miel.png', product: 'Miel pur artisanal' },
+      { before: 'before-bougie.png', after: 'after-bougie.png', product: 'Bougie artisanale soja' }
+    ];
+
+    let imgModalCurrent = null;
+    let imgModalSide = 'after';
+
+    function openImgModal(index) {
+      const data = compareImages[index];
+      if (!data) return;
+      imgModalCurrent = data;
+      imgModalSide = 'after';
+      updateImgModal();
+
+      const toggle = document.getElementById('img-modal-toggle');
+      if (!data.before) {
+        toggle.style.display = 'none';
+      } else {
+        toggle.style.display = 'flex';
+      }
+
+      document.getElementById('img-modal-product').textContent = data.product;
+      document.getElementById('img-modal').classList.add('active');
+      document.body.style.overflow = 'hidden';
+
+      requestAnimationFrame(() => updatePill());
+    }
+
+    function closeImgModal(e) {
+      if (e && e.target !== e.currentTarget) return;
+      document.getElementById('img-modal').classList.remove('active');
+      document.body.style.overflow = '';
+      imgModalCurrent = null;
+    }
+
+    function toggleImgModal(side) {
+      if (!imgModalCurrent) return;
+      if (side === 'before' && !imgModalCurrent.before) return;
+      imgModalSide = side;
+      updateImgModal();
+      updatePill();
+    }
+
+    function updateImgModal() {
+      if (!imgModalCurrent) return;
+      const img = document.getElementById('img-modal-img');
+      const label = document.getElementById('img-modal-label');
+      const src = imgModalSide === 'before' ? imgModalCurrent.before : imgModalCurrent.after;
+      img.src = src;
+      img.alt = (imgModalSide === 'before' ? 'Avant' : 'Apres') + ' — ' + imgModalCurrent.product;
+
+      label.textContent = imgModalSide === 'before' ? 'Avant' : 'Apres';
+      label.className = 'img-modal-label ' + (imgModalSide === 'before' ? 'is-before' : 'is-after');
+
+      document.querySelectorAll('.img-modal-toggle-btn').forEach(btn => {
+        btn.classList.toggle('active', btn.dataset.side === imgModalSide);
+      });
+    }
+
+    function updatePill() {
+      const btns = document.querySelectorAll('.img-modal-toggle-btn');
+      const pill = document.getElementById('img-modal-pill');
+      const activeBtn = document.querySelector('.img-modal-toggle-btn.active');
+      if (!activeBtn || !pill) return;
+      pill.style.left = activeBtn.offsetLeft + 'px';
+      pill.style.width = activeBtn.offsetWidth + 'px';
+    }
+
+    // Hero compare click
+    const heroCompare = document.querySelector('.hero-compare');
+    if (heroCompare) {
+      heroCompare.addEventListener('click', () => openImgModal(0));
+    }
+
+    // Gallery compare clicks
+    document.querySelectorAll('.gallery-item').forEach((item, i) => {
+      const compare = item.querySelector('.gallery-compare');
+      if (compare) {
+        compare.addEventListener('click', () => openImgModal(i + 1));
+      }
     });
   </script>
 
