@@ -1,4 +1,4 @@
-const CHANNEL_URL = "https://whatsapp.com/channel/0029Vb7XKwS3LdQcVnWBlJ2U";
+const CHANNEL_URL = "https://whatsapp.com/channel/0029VbCaX96EgGfOFW6Isc37";
 const COMMUNITY_URL = "https://chat.whatsapp.com/L1bc0rZp4Zv4epYPAcSatx?s=cl&p=a&ilr=0";
 
 const channelMessages = [
