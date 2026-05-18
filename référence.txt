@@ -1,0 +1,1167 @@
+<!DOCTYPE html>
+<html lang="fr" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Parlons IA — L'Écosystème</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts: Editorial Serif + Clean Sans -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+                        serif: ['"Playfair Display"', 'serif'],
+                    },
+                    colors: {
+                        brand: {
+                            50: '#f9fafb',
+                            100: '#f3f4f6',
+                            200: '#e5e7eb',
+                            800: '#1f2937',
+                            900: '#111827',
+                            950: '#09090b', // Shadcn dark
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background-color: #fafafa;
+            color: #09090b;
+        }
+        .editorial-title {
+            font-family: 'Playfair Display', serif;
+        }
+        /* Custom scrollbar to keep it clean */
+        ::-webkit-scrollbar {
+            width: 6px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #fafafa;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #e4e4e7;
+            border-radius: 10px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #d4d4d8;
+        }
+        .tab-content {
+            display: none;
+            opacity: 0;
+            transition: opacity 0.3s ease-in-out;
+        }
+        .tab-content.active {
+            display: block;
+            opacity: 1;
+        }
+    </style>
+</head>
+<body class="min-h-screen flex flex-col antialiased">
+
+    <!-- Header / Navigation -->
+    <header class="sticky top-0 z-40 w-full border-b border-zinc-200/80 bg-white/80 backdrop-blur-md">
+        <div class="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+            <div class="flex h-16 items-center justify-between">
+                <!-- Logo & Brand Transition Tag -->
+                <div class="flex items-center gap-3">
+                    <a href="#" onclick="navigateTo('home'); return false;" class="flex items-center gap-2 group">
+                        <span class="h-8 w-8 rounded-lg bg-zinc-950 flex items-center justify-center text-white font-serif font-bold text-lg tracking-wider transition-transform group-hover:scale-105">P</span>
+                        <div class="flex flex-col">
+                            <span class="text-sm font-semibold tracking-tight text-zinc-900">Parlons IA</span>
+                            <span class="text-[10px] text-zinc-400 font-medium -mt-1 hidden sm:inline">ex-Just Some AI Tips</span>
+                        </div>
+                    </a>
+                </div>
+
+                <!-- Desktop Navigation Menu -->
+                <nav class="hidden md:flex items-center gap-8">
+                    <a href="#" onclick="navigateTo('home'); return false;" class="nav-link text-sm font-medium text-zinc-900 hover:text-zinc-600 transition" id="nav-home">Écosystème</a>
+                    <a href="#" onclick="navigateTo('ateliers'); return false;" class="nav-link text-sm font-medium text-zinc-500 hover:text-zinc-900 transition" id="nav-ateliers">Ateliers</a>
+                    <a href="#" onclick="navigateTo('concours'); return false;" class="nav-link text-sm font-medium text-zinc-500 hover:text-zinc-900 transition" id="nav-concours">Concours</a>
+                </nav>
+
+                <!-- Actions / CTAs -->
+                <div class="flex items-center gap-3">
+                    <a href="#orientation" onclick="scrollToSection('orientation')" class="hidden sm:inline-flex items-center justify-center rounded-lg text-xs font-semibold px-4 py-2 border border-zinc-200 bg-white hover:bg-zinc-50 text-zinc-800 transition shadow-sm">
+                        S'orienter
+                    </a>
+                    <a href="#ecosystem" onclick="scrollToSection('ecosystem')" class="inline-flex items-center justify-center rounded-lg text-xs font-semibold px-4 py-2 bg-zinc-950 hover:bg-zinc-800 text-white transition shadow-sm">
+                        Rejoindre l'espace
+                    </a>
+                    <!-- Mobile Menu Button -->
+                    <button id="mobile-menu-btn" class="md:hidden p-2 text-zinc-600 hover:text-zinc-900 focus:outline-none">
+                        <i data-lucide="menu" class="w-5 h-5"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Navigation Menu -->
+        <div id="mobile-menu" class="hidden border-b border-zinc-200 bg-white px-4 py-4 md:hidden">
+            <nav class="flex flex-col gap-4">
+                <a href="#" onclick="navigateTo('home'); toggleMobileMenu(); return false;" class="text-sm font-medium text-zinc-900 py-2 border-b border-zinc-50">Écosystème</a>
+                <a href="#" onclick="navigateTo('ateliers'); toggleMobileMenu(); return false;" class="text-sm font-medium text-zinc-600 py-2 border-b border-zinc-50">Ateliers</a>
+                <a href="#" onclick="navigateTo('concours'); toggleMobileMenu(); return false;" class="text-sm font-medium text-zinc-600 py-2">Concours</a>
+                <div class="pt-2 flex flex-col gap-2">
+                    <a href="#orientation" onclick="scrollToSection('orientation'); toggleMobileMenu();" class="w-full text-center rounded-lg text-xs font-semibold py-2.5 border border-zinc-200 text-zinc-800">Trouver son canal</a>
+                    <a href="#ecosystem" onclick="scrollToSection('ecosystem'); toggleMobileMenu();" class="w-full text-center rounded-lg text-xs font-semibold py-2.5 bg-zinc-950 text-white">Accéder à WhatsApp</a>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Global Toast notification for dynamic actions -->
+    <div id="toast" class="fixed bottom-6 right-6 z-50 transform translate-y-20 opacity-0 transition-all duration-300 ease-out bg-zinc-900 text-white px-4 py-3 rounded-xl shadow-lg flex items-center gap-2 text-sm">
+        <span id="toast-message">Action effectuée</span>
+    </div>
+
+    <!-- Main Content Containers -->
+    <main class="flex-grow">
+
+        <!-- ================= HOME PAGE CONTENT ================= -->
+        <div id="page-home" class="tab-content active">
+            
+            <!-- Hero Section -->
+            <section class="relative py-20 md:py-32 overflow-hidden bg-white">
+                <div class="absolute inset-0 bg-[radial-gradient(#e4e4e7_1px,transparent_1px)] [background-size:16px_16px] [mask-image:radial-gradient(ellipse_50%_50%_at_50%_50%,#000_70%,transparent_100%)] opacity-60"></div>
+                <div class="relative mx-auto max-w-4xl px-4 sm:px-6 lg:px-8 text-center">
+                    
+                    <!-- Transition Badge -->
+                    <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-zinc-200 bg-zinc-50 text-xs font-medium text-zinc-600 mb-8 animate-fade-in">
+                        <span class="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse"></span>
+                        <span>Just Some AI Tips devient <strong>Parlons IA</strong></span>
+                    </div>
+
+                    <!-- Editorial Headings -->
+                    <h1 class="editorial-title text-4xl sm:text-6xl tracking-tight text-zinc-900 font-normal leading-[1.1] mb-6">
+                        L'intelligence artificielle se pratique <span class="italic font-serif">au quotidien</span>.
+                    </h1>
+                    
+                    <p class="max-w-xl mx-auto text-base sm:text-lg text-zinc-500 font-light leading-relaxed mb-10">
+                        Un petit écosystème conçu pour apprendre, s’entraider et intégrer l'IA dans vos projets de manière concrète. Sans bruit, juste de la clarté.
+                    </p>
+
+                    <!-- Subtle Multi-Option visual introduction -->
+                    <div class="flex flex-col sm:flex-row items-center justify-center gap-4 max-w-md mx-auto">
+                        <a href="#ecosystem" onclick="scrollToSection('ecosystem')" class="w-full sm:w-auto inline-flex items-center justify-center rounded-xl bg-zinc-950 hover:bg-zinc-800 text-white font-medium text-sm px-6 py-3.5 transition shadow-sm group">
+                            Découvrir l'écosystème
+                            <i data-lucide="arrow-right" class="w-4 h-4 ml-2 transition-transform group-hover:translate-x-0.5"></i>
+                        </a>
+                        <a href="#orientation" onclick="scrollToSection('orientation')" class="w-full sm:w-auto inline-flex items-center justify-center rounded-xl bg-white hover:bg-zinc-50 text-zinc-800 font-medium text-sm px-6 py-3.5 border border-zinc-200 transition">
+                            Où dois-je aller ?
+                        </a>
+                    </div>
+
+                    <!-- Trust micro-copy -->
+                    <p class="text-[11px] text-zinc-400 mt-6 tracking-wide uppercase">Rejoignez notre réseau de passionnés sur WhatsApp</p>
+                </div>
+            </section>
+
+            <!-- Interactive Orientation Widget (La transition douce) -->
+            <section id="orientation" class="py-16 bg-zinc-50 border-y border-zinc-100">
+                <div class="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
+                    <div class="bg-white rounded-2xl border border-zinc-200 shadow-[0_8px_30px_rgb(0,0,0,0.02)] p-6 sm:p-10">
+                        <div class="max-w-2xl mx-auto text-center mb-8">
+                            <span class="text-xs font-semibold tracking-wider text-zinc-400 uppercase">Orientation Guidée</span>
+                            <h2 class="editorial-title text-2xl sm:text-3xl font-normal text-zinc-900 mt-2">Quel est votre objectif aujourd'hui ?</h2>
+                            <p class="text-sm text-zinc-500 mt-2">Répondez en un clic pour savoir quel espace de notre écosystème vous correspond le mieux.</p>
+                        </div>
+
+                        <!-- Mini Interactive Multi-step -->
+                        <div id="orientation-step-1" class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                            <button onclick="selectOrientation('receive')" class="flex items-start text-left p-5 rounded-xl border border-zinc-200 hover:border-zinc-900 bg-white hover:bg-zinc-50/50 transition duration-200 group">
+                                <span class="p-3 bg-zinc-100 rounded-lg text-zinc-900 mr-4 group-hover:bg-zinc-950 group-hover:text-white transition-colors">
+                                    <i data-lucide="bell" class="w-5 h-5"></i>
+                                </span>
+                                <div>
+                                    <h3 class="font-semibold text-sm text-zinc-900">Je veux recevoir des ressources</h3>
+                                    <p class="text-xs text-zinc-500 mt-1 leading-relaxed">Prompts, astuces rapides, annonces de lives ou tutoriels stables sans interaction.</p>
+                                </div>
+                            </button>
+
+                            <button onclick="selectOrientation('interact')" class="flex items-start text-left p-5 rounded-xl border border-zinc-200 hover:border-zinc-900 bg-white hover:bg-zinc-50/50 transition duration-200 group">
+                                <span class="p-3 bg-zinc-100 rounded-lg text-zinc-900 mr-4 group-hover:bg-zinc-950 group-hover:text-white transition-colors">
+                                    <i data-lucide="message-square" class="w-5 h-5"></i>
+                                </span>
+                                <div>
+                                    <h3 class="font-semibold text-sm text-zinc-900">Je veux échanger ou poser des questions</h3>
+                                    <p class="text-xs text-zinc-500 mt-1 leading-relaxed">Bloqué sur un prompt, besoin de retours sur une création, ou envie d'échanger avec d'autres.</p>
+                                </div>
+                            </button>
+                        </div>
+
+                        <!-- Result Receive -->
+                        <div id="orientation-result-receive" class="hidden text-center py-6 animate-fade-in">
+                            <div class="mx-auto w-12 h-12 rounded-full bg-zinc-100 flex items-center justify-center text-zinc-900 mb-4">
+                                <i data-lucide="sparkles" class="w-6 h-6"></i>
+                            </div>
+                            <h3 class="font-serif text-xl text-zinc-900">Le Canal de diffusion est fait pour vous</h3>
+                            <p class="text-sm text-zinc-500 max-w-md mx-auto mt-2 mb-6">
+                                Notre chaîne WhatsApp est pensée comme un flux continu d'inspiration. Vous y recevrez nos meilleurs prompts, actus IA, et annonces sans aucune notification superflue.
+                            </p>
+                            <div class="flex flex-col sm:flex-row items-center justify-center gap-3">
+                                <a href="https://whatsapp.com/channel/example" target="_blank" class="w-full sm:w-auto px-6 py-2.5 bg-zinc-950 text-white rounded-lg text-xs font-semibold shadow hover:bg-zinc-800 transition">
+                                    S'abonner à la Chaîne (Gratuit)
+                                </a>
+                                <button onclick="resetOrientation()" class="text-xs text-zinc-400 hover:text-zinc-600 py-2">
+                                    Recommencer le test
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- Result Interact -->
+                        <div id="orientation-result-interact" class="hidden text-center py-6 animate-fade-in">
+                            <div class="mx-auto w-12 h-12 rounded-full bg-zinc-100 flex items-center justify-center text-zinc-900 mb-4">
+                                <i data-lucide="users" class="w-6 h-6"></i>
+                            </div>
+                            <h3 class="font-serif text-xl text-zinc-900">Rejoignez la Communauté Parlons IA</h3>
+                            <p class="text-sm text-zinc-500 max-w-md mx-auto mt-2 mb-6">
+                                Échangez directement avec nous et d'autres passionnés d'IA. Profitez de nos salons thématiques comme <strong class="font-medium text-zinc-800">#discussion</strong> et <strong class="font-medium text-zinc-800">#besoin-d-aide</strong>.
+                            </p>
+                            <div class="flex flex-col sm:flex-row items-center justify-center gap-3">
+                                <a href="https://chat.whatsapp.com/example" target="_blank" class="w-full sm:w-auto px-6 py-2.5 bg-zinc-950 text-white rounded-lg text-xs font-semibold shadow hover:bg-zinc-800 transition">
+                                    Rejoindre la Communauté WhatsApp
+                                </a>
+                                <button onclick="resetOrientation()" class="text-xs text-zinc-400 hover:text-zinc-600 py-2">
+                                    Recommencer le test
+                                </button>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </section>
+
+            <!-- En ce moment dans Parlons IA (Highlight Section, No boring cards) -->
+            <section class="py-24 bg-white">
+                <div class="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+                    <div class="flex flex-col md:flex-row md:items-end justify-between mb-12">
+                        <div>
+                            <span class="text-xs font-semibold tracking-wider text-zinc-400 uppercase">La Vie de l'Écosystème</span>
+                            <h2 class="editorial-title text-3xl sm:text-4xl text-zinc-900 mt-2">En ce moment</h2>
+                        </div>
+                        <p class="text-sm text-zinc-500 max-w-xs mt-3 md:mt-0">
+                            Nos événements phares se déroulent en ligne et s'organisent directement avec nos membres.
+                        </p>
+                    </div>
+
+                    <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                        
+                        <!-- Featured Event 1: Ateliers -->
+                        <div class="relative group overflow-hidden rounded-2xl border border-zinc-200/80 bg-zinc-50/50 p-8 flex flex-col justify-between hover:border-zinc-300 transition duration-300">
+                            <div>
+                                <div class="flex items-center justify-between mb-6">
+                                    <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-zinc-100 text-[11px] font-medium text-zinc-800">
+                                        <i data-lucide="video" class="w-3.5 h-3.5"></i> Atelier en Direct
+                                    </span>
+                                    <span class="text-xs text-zinc-400 font-medium">Bientôt annoncé</span>
+                                </div>
+                                <h3 class="font-serif text-2xl text-zinc-900 mb-3 group-hover:text-zinc-800">
+                                    Ateliers Pratiques Parlons IA
+                                </h3>
+                                <p class="text-sm text-zinc-500 leading-relaxed mb-6">
+                                    Des sessions de formation en ligne courtes pour construire des workflows réels à l'aide de l'IA. Pas de théorie superflue, que de la pratique.
+                                </p>
+                            </div>
+                            <div class="pt-4 border-t border-zinc-200/60 flex items-center justify-between">
+                                <button onclick="navigateTo('ateliers')" class="text-xs font-semibold text-zinc-900 flex items-center gap-1 group/btn">
+                                    Découvrir le format
+                                    <i data-lucide="arrow-right" class="w-3.5 h-3.5 transition-transform group-hover/btn:translate-x-0.5"></i>
+                                </button>
+                                <span class="text-[11px] text-zinc-400">Gratuit</span>
+                            </div>
+                        </div>
+
+                        <!-- Featured Event 2: Concours -->
+                        <div class="relative group overflow-hidden rounded-2xl border border-zinc-200/80 bg-zinc-900 text-zinc-50 p-8 flex flex-col justify-between hover:border-zinc-800 transition duration-300">
+                            <div class="absolute top-0 right-0 p-8 opacity-5">
+                                <i data-lucide="award" class="w-36 h-36"></i>
+                            </div>
+                            <div class="relative z-10">
+                                <div class="flex items-center justify-between mb-6">
+                                    <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-white/10 text-[11px] font-medium text-white">
+                                        <span class="w-1.5 h-1.5 rounded-full bg-amber-400 animate-pulse"></span> Concours actif
+                                    </span>
+                                    <span class="text-xs text-zinc-400 font-medium">Fermeture des votes bientôt</span>
+                                </div>
+                                <h3 class="font-serif text-2xl text-white mb-3">
+                                    Concours : Conception GPT Image
+                                </h3>
+                                <p class="text-sm text-zinc-300 leading-relaxed mb-6">
+                                    Thème actuel : Concevoir une <strong>carte d'invitation de mariage</strong> élégante et originale en exploitant Midjourney ou DALL-E. Soumettez votre chef d'œuvre et votez !
+                                </p>
+                            </div>
+                            <div class="relative z-10 pt-4 border-t border-white/10 flex items-center justify-between">
+                                <button onclick="navigateTo('concours')" class="text-xs font-semibold text-white flex items-center gap-1 group/btn">
+                                    Voir les critères & participer
+                                    <i data-lucide="arrow-right" class="w-3.5 h-3.5 transition-transform group-hover/btn:translate-x-0.5"></i>
+                                </button>
+                                <span class="text-[11px] text-zinc-400">Vote communautaire</span>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </section>
+
+            <!-- Ecosystem Articulation (Le fonctionnement sans discours ennuyeux) -->
+            <section id="ecosystem" class="py-24 bg-zinc-50 border-y border-zinc-100">
+                <div class="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+                    <div class="max-w-3xl mx-auto text-center mb-16">
+                        <span class="text-xs font-semibold tracking-wider text-zinc-400 uppercase">Architecture de notre Hub</span>
+                        <h2 class="editorial-title text-3xl sm:text-4xl text-zinc-900 mt-2">Comment s'organise l'écosystème</h2>
+                        <p class="text-sm text-zinc-500 mt-3 max-w-lg mx-auto">
+                            Tout converge vers WhatsApp, organisé intelligemment pour que vous ne subissiez jamais de surcharge d'informations.
+                        </p>
+                    </div>
+
+                    <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                        
+                        <!-- Left Side: Conceptual cards -->
+                        <div class="lg:col-span-5 flex flex-col gap-6">
+                            
+                            <!-- The Hub Explanation -->
+                            <div class="p-6 bg-white rounded-xl border border-zinc-200">
+                                <div class="flex items-center gap-3 mb-3">
+                                    <div class="p-2 bg-zinc-100 rounded-lg text-zinc-900">
+                                        <i data-lucide="home" class="w-4 h-4"></i>
+                                    </div>
+                                    <h4 class="font-semibold text-sm text-zinc-900">Le Site : Notre Mémoire</h4>
+                                </div>
+                                <p class="text-xs text-zinc-500 leading-relaxed">
+                                    C'est ici que vivent les ressources durables, les règles de nos concours, les dates des ateliers et les informations stables. Les messages WhatsApp passent, le site reste.
+                                </p>
+                            </div>
+
+                            <!-- The Channel Explanation -->
+                            <div class="p-6 bg-white rounded-xl border border-zinc-200 relative overflow-hidden group">
+                                <div class="absolute top-0 right-0 h-1 w-full bg-zinc-900 transform scale-x-0 group-hover:scale-x-100 transition-transform origin-left duration-300"></div>
+                                <div class="flex items-center gap-3 mb-3">
+                                    <div class="p-2 bg-zinc-100 rounded-lg text-zinc-900">
+                                        <i data-lucide="rss" class="w-4 h-4"></i>
+                                    </div>
+                                    <h4 class="font-semibold text-sm text-zinc-900">La Chaîne : Recevoir</h4>
+                                </div>
+                                <p class="text-xs text-zinc-500 leading-relaxed mb-4">
+                                    Un canal unidirectionnel où seul notre équipe publie. Idéal pour être tenu au courant sans bruit : astuces, prompts bruts, annonces rapides.
+                                </p>
+                                <a href="https://whatsapp.com/channel/example" target="_blank" class="text-xs font-semibold text-zinc-900 flex items-center gap-1 hover:underline">
+                                    S'abonner au canal <i data-lucide="external-link" class="w-3 h-3"></i>
+                                </a>
+                            </div>
+
+                            <!-- The Community Explanation -->
+                            <div class="p-6 bg-white rounded-xl border border-zinc-200 relative overflow-hidden group">
+                                <div class="absolute top-0 right-0 h-1 w-full bg-zinc-900 transform scale-x-0 group-hover:scale-x-100 transition-transform origin-left duration-300"></div>
+                                <div class="flex items-center gap-3 mb-3">
+                                    <div class="p-2 bg-zinc-100 rounded-lg text-zinc-900">
+                                        <i data-lucide="users-2" class="w-4 h-4"></i>
+                                    </div>
+                                    <h4 class="font-semibold text-sm text-zinc-900">La Communauté : Interagir</h4>
+                                </div>
+                                <p class="text-xs text-zinc-500 leading-relaxed mb-4">
+                                    Un espace d'interaction complet scindé en deux sections principales : <span class="font-medium">#discussion</span> pour partager les découvertes et <span class="font-medium">#besoin-d-aide</span> pour le support.
+                                </p>
+                                <a href="https://chat.whatsapp.com/example" target="_blank" class="text-xs font-semibold text-zinc-900 flex items-center gap-1 hover:underline">
+                                    Accéder au groupe d'entraide <i data-lucide="external-link" class="w-3 h-3"></i>
+                                </a>
+                            </div>
+
+                        </div>
+
+                        <!-- Right Side: Beautiful interactive WhatsApp Preview simulator -->
+                        <div class="lg:col-span-7 flex flex-col items-center">
+                            <span class="text-xs text-zinc-400 mb-2 font-medium">Aperçu interactif de l'écosystème WhatsApp</span>
+                            
+                            <!-- Smartphone Wrapper -->
+                            <div class="w-full max-w-[360px] bg-zinc-950 p-3 rounded-[36px] shadow-xl border border-zinc-800">
+                                <div class="bg-zinc-100 rounded-[28px] overflow-hidden flex flex-col h-[520px] relative text-zinc-900">
+                                    
+                                    <!-- Phone Header / Camera Notch -->
+                                    <div class="bg-zinc-900 text-white px-5 pt-3 pb-3 flex flex-col justify-between items-center select-none">
+                                        <div class="w-20 h-4 bg-black rounded-b-xl mb-1 flex items-center justify-center">
+                                            <span class="w-1.5 h-1.5 rounded-full bg-zinc-800"></span>
+                                        </div>
+                                        <div class="w-full flex justify-between items-center text-[11px] text-zinc-300">
+                                            <span class="font-bold">09:41</span>
+                                            <div class="flex gap-1.5 items-center">
+                                                <i data-lucide="wifi" class="w-3 h-3"></i>
+                                                <i data-lucide="battery" class="w-3 h-3"></i>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <!-- Phone App Header (WhatsApp style) -->
+                                    <div class="bg-zinc-900 text-white px-4 py-3 flex items-center gap-3">
+                                        <div class="w-8 h-8 rounded-full bg-zinc-800 flex items-center justify-center font-bold text-xs">P</div>
+                                        <div>
+                                            <h5 class="text-xs font-bold" id="sim-title">Parlons IA — Canal</h5>
+                                            <p class="text-[9px] text-emerald-400" id="sim-subtitle">Canal officiel de diffusion</p>
+                                        </div>
+                                    </div>
+
+                                    <!-- Simulator Tab Navigation inside phone -->
+                                    <div class="bg-zinc-800 text-white flex justify-around text-xs border-b border-zinc-700">
+                                        <button onclick="switchSimView('canal')" id="sim-tab-canal" class="w-1/2 py-2 text-center font-semibold border-b-2 border-emerald-500 text-emerald-400 transition-all">
+                                            Le Canal
+                                        </button>
+                                        <button onclick="switchSimView('commu')" id="sim-tab-commu" class="w-1/2 py-2 text-center font-semibold border-b-2 border-transparent text-zinc-400 hover:text-white transition-all">
+                                            La Communauté
+                                        </button>
+                                    </div>
+
+                                    <!-- Simulator Chat Content Area -->
+                                    <div id="sim-chat-area" class="flex-grow p-3 overflow-y-auto space-y-3 bg-[#efeae2] text-[11px] leading-relaxed">
+                                        <!-- Dynamic simulator feed will be injected here -->
+                                    </div>
+
+                                    <!-- Phone Footer Input simulator -->
+                                    <div class="p-2.5 bg-zinc-100 border-t border-zinc-200 flex items-center gap-2">
+                                        <div class="flex-grow bg-white py-1.5 px-3 rounded-full text-[10px] text-zinc-400 flex justify-between items-center select-none">
+                                            <span id="sim-input-placeholder">Lecture seule pour le canal</span>
+                                            <i data-lucide="smile" class="w-3.5 h-3.5 text-zinc-400"></i>
+                                        </div>
+                                        <div class="w-7 h-7 bg-emerald-600 rounded-full flex items-center justify-center text-white cursor-pointer hover:bg-emerald-700 transition">
+                                            <i data-lucide="mic" class="w-3.5 h-3.5"></i>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+
+                        </div>
+
+                    </div>
+                </div>
+            </section>
+
+            <!-- Articles / Tutoriels Section (Savoir de fond) -->
+            <section class="py-24 bg-white">
+                <div class="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+                    <div class="flex flex-col md:flex-row md:items-end justify-between mb-12">
+                        <div>
+                            <span class="text-xs font-semibold tracking-wider text-zinc-400 uppercase">Le savoir partagé</span>
+                            <h2 class="editorial-title text-3xl sm:text-4xl text-zinc-900 mt-2">Dernières ressources & guides</h2>
+                        </div>
+                        <span class="text-xs text-zinc-500 mt-2 md:mt-0 max-w-xs">
+                            Des tutoriels épurés pour vous guider pas à pas sans fioritures.
+                        </span>
+                    </div>
+
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                        
+                        <!-- Article 1 -->
+                        <article class="group cursor-pointer" onclick="openArticleModal('art-1')">
+                            <div class="aspect-[16/10] bg-zinc-100 rounded-xl overflow-hidden mb-4 relative">
+                                <div class="absolute inset-0 bg-gradient-to-t from-zinc-950/20 to-transparent"></div>
+                                <div class="absolute bottom-3 left-3 bg-white/90 backdrop-blur text-[10px] uppercase tracking-wider px-2 py-0.5 rounded font-medium text-zinc-800">Guide Prompting</div>
+                                <div class="w-full h-full flex items-center justify-center text-zinc-300 group-hover:scale-105 transition-transform duration-300">
+                                    <i data-lucide="text-quote" class="w-12 h-12 text-zinc-400/50"></i>
+                                </div>
+                            </div>
+                            <span class="text-[10px] text-zinc-400 font-semibold tracking-wider uppercase">Février 2026 — 5 min</span>
+                            <h3 class="font-serif text-lg text-zinc-900 mt-1 mb-2 group-hover:underline">Le framework de Prompting ultime pour vos briefs</h3>
+                            <p class="text-xs text-zinc-500 leading-relaxed">
+                                Comment structurer vos questions à Claude 3.5 Sonnet pour obtenir des réponses exploitables sans répéter les instructions.
+                            </p>
+                        </article>
+
+                        <!-- Article 2 -->
+                        <article class="group cursor-pointer" onclick="openArticleModal('art-2')">
+                            <div class="aspect-[16/10] bg-zinc-100 rounded-xl overflow-hidden mb-4 relative">
+                                <div class="absolute inset-0 bg-gradient-to-t from-zinc-950/20 to-transparent"></div>
+                                <div class="absolute bottom-3 left-3 bg-white/90 backdrop-blur text-[10px] uppercase tracking-wider px-2 py-0.5 rounded font-medium text-zinc-800">Outil / Workflow</div>
+                                <div class="w-full h-full flex items-center justify-center text-zinc-300 group-hover:scale-105 transition-transform duration-300">
+                                    <i data-lucide="image" class="w-12 h-12 text-zinc-400/50"></i>
+                                </div>
+                            </div>
+                            <span class="text-[10px] text-zinc-400 font-semibold tracking-wider uppercase">Janvier 2026 — 4 min</span>
+                            <h3 class="font-serif text-lg text-zinc-900 mt-1 mb-2 group-hover:underline">Générer des visuels réalistes et cohérents</h3>
+                            <p class="text-xs text-zinc-500 leading-relaxed">
+                                Un tour d'horizon des paramètres avancés d'image-to-image avec Midjourney pour conserver un personnage sur plusieurs visuels.
+                            </p>
+                        </article>
+
+                        <!-- Article 3 -->
+                        <article class="group cursor-pointer" onclick="openArticleModal('art-3')">
+                            <div class="aspect-[16/10] bg-zinc-100 rounded-xl overflow-hidden mb-4 relative">
+                                <div class="absolute inset-0 bg-gradient-to-t from-zinc-950/20 to-transparent"></div>
+                                <div class="absolute bottom-3 left-3 bg-white/90 backdrop-blur text-[10px] uppercase tracking-wider px-2 py-0.5 rounded font-medium text-zinc-800">Productivité</div>
+                                <div class="w-full h-full flex items-center justify-center text-zinc-300 group-hover:scale-105 transition-transform duration-300">
+                                    <i data-lucide="sparkles" class="w-12 h-12 text-zinc-400/50"></i>
+                                </div>
+                            </div>
+                            <span class="text-[10px] text-zinc-400 font-semibold tracking-wider uppercase">Janvier 2026 — 6 min</span>
+                            <h3 class="font-serif text-lg text-zinc-900 mt-1 mb-2 group-hover:underline">Intégrer l'IA dans Obsidian ou Notion</h3>
+                            <p class="text-xs text-zinc-500 leading-relaxed">
+                                Automatisez l'extraction des points clés de vos réunions en les important directement dans vos bases de connaissances privées.
+                            </p>
+                        </article>
+
+                    </div>
+                </div>
+            </section>
+
+            <!-- Les Créateurs (Simple, humain, crédible) -->
+            <section class="py-24 bg-zinc-50 border-t border-zinc-200/80">
+                <div class="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
+                    <div class="text-center mb-16">
+                        <span class="text-xs font-semibold tracking-wider text-zinc-400 uppercase font-sans">L'Équipe derrière le projet</span>
+                        <h2 class="editorial-title text-3xl text-zinc-900 mt-2">Boris & Kevin</h2>
+                        <p class="text-sm text-zinc-500 mt-3 max-w-md mx-auto">
+                            Nous testons, trions et condensons l'information pour vous livrer le meilleur de l'IA sans blabla marketing.
+                        </p>
+                    </div>
+
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-2xl mx-auto">
+                        
+                        <!-- Boris -->
+                        <div class="bg-white rounded-2xl border border-zinc-200/80 p-6 flex flex-col items-center text-center">
+                            <div class="w-20 h-20 rounded-full bg-zinc-100 flex items-center justify-center text-zinc-900 font-bold font-serif text-2xl mb-4 shadow-inner">
+                                B
+                            </div>
+                            <h3 class="font-serif text-lg text-zinc-900">Boris</h3>
+                            <span class="text-xs text-zinc-400 font-medium mt-1">Stratégie & Automations IA</span>
+                            <p class="text-xs text-zinc-500 leading-relaxed mt-3 max-w-xs">
+                                Obsédé par la productivité réelle. Il démonte les outils d'automatisation pour concevoir des process solides pour les créateurs de contenu.
+                            </p>
+                        </div>
+
+                        <!-- Kevin -->
+                        <div class="bg-white rounded-2xl border border-zinc-200/80 p-6 flex flex-col items-center text-center">
+                            <div class="w-20 h-20 rounded-full bg-zinc-100 flex items-center justify-center text-zinc-900 font-bold font-serif text-2xl mb-4 shadow-inner">
+                                K
+                            </div>
+                            <h3 class="font-serif text-lg text-zinc-900">Kevin</h3>
+                            <span class="text-xs text-zinc-400 font-medium mt-1">Prompting & Workflow Créatifs</span>
+                            <p class="text-xs text-zinc-500 leading-relaxed mt-3 max-w-xs">
+                                Spécialiste de la génération d'images et de la rédaction intelligente. Son but est de faire tomber les barrières techniques entre vos idées et leur réalisation.
+                            </p>
+                        </div>
+
+                    </div>
+                </div>
+            </section>
+
+            <!-- CTA Final (Une invitation élégante) -->
+            <section class="py-24 bg-white relative overflow-hidden">
+                <div class="absolute inset-0 bg-zinc-50/50"></div>
+                <div class="relative mx-auto max-w-4xl px-4 sm:px-6 lg:px-8 text-center z-10">
+                    <h2 class="editorial-title text-3xl sm:text-5xl text-zinc-900 font-normal leading-tight max-w-2xl mx-auto">
+                        Prêt à faire évoluer votre usage de l'IA ?
+                    </h2>
+                    <p class="text-sm text-zinc-500 mt-4 max-w-md mx-auto leading-relaxed">
+                        Choisissez votre niveau d'implication. Rejoignez-nous pour simplement suivre ou pour échanger au quotidien.
+                    </p>
+
+                    <!-- Elegant side-by-side premium card call-to-action -->
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-2xl mx-auto mt-12 text-left">
+                        
+                        <!-- Choice 1: The Channel -->
+                        <div class="bg-white rounded-xl border border-zinc-200 p-6 flex flex-col justify-between">
+                            <div>
+                                <h3 class="font-semibold text-sm text-zinc-900">Recevoir le flux</h3>
+                                <p class="text-xs text-zinc-500 mt-2 leading-relaxed">
+                                    Prompts, astuces, et nouvelles partagées sans bruit directement sur votre application préférée.
+                                </p>
+                            </div>
+                            <a href="https://whatsapp.com/channel/example" target="_blank" class="mt-6 w-full text-center py-2.5 bg-zinc-950 hover:bg-zinc-800 text-white font-semibold text-xs rounded-lg transition">
+                                S'abonner au Canal
+                            </a>
+                        </div>
+
+                        <!-- Choice 2: The Community -->
+                        <div class="bg-white rounded-xl border border-zinc-200 p-6 flex flex-col justify-between">
+                            <div>
+                                <h3 class="font-semibold text-sm text-zinc-900">Poser des questions</h3>
+                                <p class="text-xs text-zinc-500 mt-2 leading-relaxed">
+                                    Résoudre des bugs de prompts, partager des workflows créatifs ou s'entraider en temps réel.
+                                </p>
+                            </div>
+                            <a href="https://chat.whatsapp.com/example" target="_blank" class="mt-6 w-full text-center py-2.5 bg-white border border-zinc-200 text-zinc-900 hover:bg-zinc-50 font-semibold text-xs rounded-lg transition">
+                                Rejoindre le Groupe
+                            </a>
+                        </div>
+
+                    </div>
+                </div>
+            </section>
+
+        </div>
+
+        <!-- ================= PAGE ATELIERS ================= -->
+        <div id="page-ateliers" class="tab-content">
+            
+            <!-- Hero Ateliers -->
+            <section class="py-20 bg-white border-b border-zinc-200/60 relative overflow-hidden">
+                <div class="absolute inset-0 bg-[radial-gradient(#e4e4e7_1px,transparent_1px)] [background-size:24px_24px] opacity-40"></div>
+                <div class="relative mx-auto max-w-4xl px-4 sm:px-6 lg:px-8 text-center">
+                    <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-zinc-100 text-[10px] font-semibold tracking-wider text-zinc-600 uppercase mb-4">
+                        Format interactif en ligne
+                    </span>
+                    <h1 class="editorial-title text-4xl sm:text-5xl font-normal text-zinc-900 tracking-tight leading-tight">
+                        Nos Ateliers de Pratique
+                    </h1>
+                    <p class="text-sm sm:text-base text-zinc-500 max-w-xl mx-auto mt-4 leading-relaxed font-light">
+                        Apprenez à maîtriser des workflows précis lors de sessions en direct. Pas de long discours académique, uniquement de l'application réelle.
+                    </p>
+                </div>
+            </section>
+
+            <!-- Ateliers Details & Process -->
+            <section class="py-16 bg-zinc-50/50">
+                <div class="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
+                    
+                    <!-- Format Description List -->
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-16">
+                        <div class="bg-white p-6 rounded-xl border border-zinc-200">
+                            <div class="w-8 h-8 rounded-lg bg-zinc-100 flex items-center justify-center text-zinc-900 mb-4">
+                                <i data-lucide="clock" class="w-4 h-4"></i>
+                            </div>
+                            <h4 class="font-semibold text-sm text-zinc-900">Format Express</h4>
+                            <p class="text-xs text-zinc-500 mt-2 leading-relaxed">
+                                45 minutes chrono. 30 minutes de démonstration de workflow réel, 15 minutes de questions / réponses.
+                            </p>
+                        </div>
+                        <div class="bg-white p-6 rounded-xl border border-zinc-200">
+                            <div class="w-8 h-8 rounded-lg bg-zinc-100 flex items-center justify-center text-zinc-900 mb-4">
+                                <i data-lucide="download" class="w-4 h-4"></i>
+                            </div>
+                            <h4 class="font-semibold text-sm text-zinc-900">Ressources fournies</h4>
+                            <p class="text-xs text-zinc-500 mt-2 leading-relaxed">
+                                Chaque atelier s'accompagne d'une fiche résumé, de la liste des prompts testés et du script ou modèle éventuel.
+                            </p>
+                        </div>
+                        <div class="bg-white p-6 rounded-xl border border-zinc-200">
+                            <div class="w-8 h-8 rounded-lg bg-zinc-100 flex items-center justify-center text-zinc-900 mb-4">
+                                <i data-lucide="shield-check" class="w-4 h-4"></i>
+                            </div>
+                            <h4 class="font-semibold text-sm text-zinc-900">100% Gratuit</h4>
+                            <p class="text-xs text-zinc-500 mt-2 leading-relaxed">
+                                L'accès aux ateliers est libre pour tous nos abonnés WhatsApp. Aucune formation payante cachée.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Upcoming Session Area -->
+                    <div class="bg-zinc-900 text-white rounded-2xl p-8 sm:p-12 mb-16 relative overflow-hidden shadow-lg">
+                        <div class="absolute top-0 right-0 p-8 opacity-5">
+                            <i data-lucide="calendar" class="w-48 h-48"></i>
+                        </div>
+                        <div class="relative z-10 max-w-xl">
+                            <span class="text-[10px] font-bold tracking-wider text-emerald-400 uppercase">Prochain rendez-vous</span>
+                            <h3 class="font-serif text-2xl sm:text-3xl mt-2 mb-4">
+                                Planification & Automatisation de contenu avec l'IA
+                            </h3>
+                            <p class="text-sm text-zinc-300 leading-relaxed mb-6 font-light">
+                                Durant cette session en direct, Kevin & Boris vous montreront comment partir d'une simple idée pour planifier, rédiger, et prévisualiser une semaine complète de publications de façon fluide.
+                            </p>
+                            
+                            <!-- Schedule badges -->
+                            <div class="flex flex-wrap items-center gap-4 mb-8 text-xs text-zinc-200">
+                                <div class="flex items-center gap-1.5 px-3 py-1 rounded bg-white/10">
+                                    <i data-lucide="calendar" class="w-3.5 h-3.5 text-emerald-400"></i> Date & Heure bientôt annoncées
+                                </div>
+                                <div class="flex items-center gap-1.5 px-3 py-1 rounded bg-white/10">
+                                    <i data-lucide="video" class="w-3.5 h-3.5 text-emerald-400"></i> Google Meet / Live privé
+                                </div>
+                            </div>
+
+                            <!-- CTA to lock-in -->
+                            <div class="flex flex-col sm:flex-row items-stretch sm:items-center gap-3">
+                                <a href="https://whatsapp.com/channel/example" target="_blank" class="px-6 py-3 bg-white text-zinc-950 rounded-lg text-xs font-semibold text-center hover:bg-zinc-100 transition shadow">
+                                    Être prévenu de l'annonce
+                                </a>
+                                <span class="text-xs text-zinc-400 text-center sm:text-left">L'annonce aura lieu en priorité sur la chaîne</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Topic list examples -->
+                    <div class="bg-white rounded-2xl border border-zinc-200 p-8">
+                        <h4 class="font-serif text-xl text-zinc-900 mb-6">Exemples de thèmes abordés</h4>
+                        <div class="space-y-4">
+                            <div class="flex items-start gap-3 py-3 border-b border-zinc-100 last:border-0">
+                                <span class="text-zinc-400 text-xs font-mono pt-1">01 /</span>
+                                <div>
+                                    <h5 class="text-xs font-semibold text-zinc-900">Anatomie d'un prompt d'écriture créative</h5>
+                                    <p class="text-xs text-zinc-500 mt-1">Comment forcer ChatGPT à abandonner ses formules toutes faites et adopter un ton humain et engageant.</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start gap-3 py-3 border-b border-zinc-100 last:border-0">
+                                <span class="text-zinc-400 text-xs font-mono pt-1">02 /</span>
+                                <div>
+                                    <h5 class="text-xs font-semibold text-zinc-900">Le reverse-engineering de prompts</h5>
+                                    <p class="text-xs text-zinc-500 mt-1">Analyser un contenu que vous adorez pour générer les instructions parfaites capables de recréer cette structure.</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start gap-3 py-3 border-b border-zinc-100 last:border-0">
+                                <span class="text-zinc-400 text-xs font-mono pt-1">03 /</span>
+                                <div>
+                                    <h5 class="text-xs font-semibold text-zinc-900">Créer son propre assistant GPT sur mesure</h5>
+                                    <p class="text-xs text-zinc-500 mt-1">Configurer des instructions personnalisées stables pour qu'un modèle comprenne votre univers de marque à chaque nouvelle session.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </section>
+
+        </div>
+
+        <!-- ================= PAGE CONCOURS ================= -->
+        <div id="page-concours" class="tab-content">
+            
+            <!-- Hero Concours -->
+            <section class="py-20 bg-white border-b border-zinc-200/60 relative overflow-hidden">
+                <div class="absolute inset-0 bg-[radial-gradient(#e4e4e7_1px,transparent_1px)] [background-size:24px_24px] opacity-40"></div>
+                <div class="relative mx-auto max-w-4xl px-4 sm:px-6 lg:px-8 text-center">
+                    <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-zinc-900 text-white text-[10px] font-semibold tracking-wider uppercase mb-4">
+                        Événement communautaire actif
+                    </span>
+                    <h1 class="editorial-title text-4xl sm:text-5xl font-normal text-zinc-900 tracking-tight leading-tight">
+                        Nos Défis & Concours
+                    </h1>
+                    <p class="text-sm sm:text-base text-zinc-500 max-w-xl mx-auto mt-4 leading-relaxed font-light font-sans">
+                        Le meilleur moyen de progresser est de pratiquer sous contraintes. Mesurez vos créations à celles de la communauté et affûtez vos prompts.
+                    </p>
+                </div>
+            </section>
+
+            <!-- Contest Details -->
+            <section class="py-16 bg-zinc-50/50">
+                <div class="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
+                    
+                    <!-- Main Active Challenge Block -->
+                    <div class="bg-white rounded-2xl border border-zinc-200 shadow-[0_8px_30px_rgb(0,0,0,0.02)] p-6 sm:p-10 mb-12">
+                        <div class="flex flex-col md:flex-row justify-between items-start md:items-center border-b border-zinc-100 pb-6 mb-8 gap-4">
+                            <div>
+                                <span class="text-[10px] font-bold tracking-wider text-amber-600 uppercase">Concours en cours</span>
+                                <h3 class="font-serif text-2xl text-zinc-900 mt-1">Le Défi GPT Image</h3>
+                            </div>
+                            <div class="px-4 py-2 bg-zinc-50 rounded-xl border border-zinc-200/80 text-xs">
+                                Thème : <strong class="font-semibold text-zinc-900">Carte de mariage élégante</strong>
+                            </div>
+                        </div>
+
+                        <!-- Theme Description -->
+                        <div class="prose max-w-none text-sm text-zinc-600 space-y-4 mb-8">
+                            <p>
+                                Ce mois-ci, nous mettons au défi vos compétences en génération d'image avec l'IA. Que vous utilisiez Midjourney, DALL-E 3 ou Stable Diffusion, la mission consiste à concevoir une <strong>carte d'invitation de mariage minimaliste, poétique et sophistiquée</strong>.
+                            </p>
+                            <p>
+                                Le défi n'est pas seulement de créer un beau visuel, mais d'intégrer une harmonie typographique cohérente ou de laisser des emplacements textuels équilibrés.
+                            </p>
+                        </div>
+
+                        <!-- Guidelines & Rules -->
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 bg-zinc-50 rounded-xl p-6 border border-zinc-200/60 mb-8 text-xs">
+                            <div>
+                                <h4 class="font-bold text-zinc-900 mb-3 flex items-center gap-1.5">
+                                    <i data-lucide="check-circle" class="w-4 h-4 text-emerald-600"></i> Critères de sélection
+                                </h4>
+                                <ul class="space-y-2 text-zinc-500 list-disc list-inside">
+                                    <li>Originalité artistique de la composition</li>
+                                    <li>Qualité de la gestion de la lumière et du grain d'image</li>
+                                    <li>Faisabilité réelle en impression (format & marges)</li>
+                                    <li>Partage du prompt ou du cheminement créatif</li>
+                                </ul>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-zinc-900 mb-3 flex items-center gap-1.5">
+                                    <i data-lucide="calendar" class="w-4 h-4 text-amber-600"></i> Calendrier & Déroulement
+                                </h4>
+                                <ul class="space-y-2 text-zinc-500">
+                                    <li><strong class="font-medium text-zinc-800">1. Soumission :</strong> Déposez vos créations dans le salon dédié de la communauté WhatsApp.</li>
+                                    <li><strong class="font-medium text-zinc-800">2. Présélection :</strong> Le jury (Boris & Kevin) retiendra les 5 propositions les plus impactantes.</li>
+                                    <li><strong class="font-medium text-zinc-800">3. Vote final :</strong> Vote public des membres sur la chaîne.</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <!-- Participation Call to Action -->
+                        <div class="text-center py-4 border-t border-zinc-100">
+                            <p class="text-xs text-zinc-400 mb-4">Le dépôt des participations s'effectue exclusivement au sein de notre communauté.</p>
+                            <div class="flex flex-col sm:flex-row items-center justify-center gap-3">
+                                <a href="https://chat.whatsapp.com/example" target="_blank" class="w-full sm:w-auto px-6 py-2.5 bg-zinc-950 text-white rounded-lg text-xs font-semibold hover:bg-zinc-800 transition">
+                                    Rejoindre le salon #concours
+                                </a>
+                                <button onclick="triggerToast('Le salon #concours est accessible après acceptation des règles du groupe WhatsApp')" class="text-xs text-zinc-500 hover:text-zinc-900 px-4 py-2">
+                                    Voir la galerie des précédentes éditions
+                                </button>
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
+            </section>
+
+        </div>
+
+    </main>
+
+    <!-- Modal for Articles / Tutorials Details -->
+    <div id="article-modal" class="fixed inset-0 z-50 overflow-y-auto hidden" aria-labelledby="modal-title" role="dialog" aria-modal="true">
+        <div class="flex items-center justify-center min-h-screen pt-4 px-4 pb-20 text-center sm:block sm:p-0">
+            <!-- Background overlay -->
+            <div onclick="closeArticleModal()" class="fixed inset-0 bg-zinc-900/60 transition-opacity backdrop-blur-sm" aria-hidden="true"></div>
+
+            <span class="hidden sm:inline-block sm:align-middle sm:h-screen" aria-hidden="true">&#8203;</span>
+
+            <!-- Modal Body -->
+            <div class="inline-block align-bottom bg-white rounded-2xl text-left overflow-hidden shadow-xl transform transition-all sm:my-8 sm:align-middle sm:max-w-2xl sm:w-full">
+                
+                <!-- Close Button -->
+                <div class="absolute top-4 right-4 z-10">
+                    <button onclick="closeArticleModal()" class="p-2 bg-zinc-100 rounded-full text-zinc-500 hover:text-zinc-900 transition">
+                        <i data-lucide="x" class="w-4 h-4"></i>
+                    </button>
+                </div>
+
+                <!-- Dynamic Modal Content (Injected by JS) -->
+                <div id="modal-content-area" class="p-6 sm:p-8">
+                    <!-- Loaded dynamically -->
+                </div>
+
+                <div class="bg-zinc-50 px-6 py-4 sm:px-8 flex flex-col sm:flex-row items-center justify-between gap-4 border-t border-zinc-100">
+                    <p class="text-xs text-zinc-400">Ce guide vous a plu ? Parlons-en sur WhatsApp !</p>
+                    <div class="flex gap-2">
+                        <button onclick="closeArticleModal()" class="px-4 py-1.5 border border-zinc-200 bg-white rounded-lg text-xs font-medium text-zinc-800 hover:bg-zinc-50">Fermer</button>
+                        <a href="https://chat.whatsapp.com/example" target="_blank" class="px-4 py-1.5 bg-zinc-950 text-white rounded-lg text-xs font-semibold hover:bg-zinc-800">Participer</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Editorial Footer -->
+    <footer class="bg-zinc-950 text-zinc-400 py-12 border-t border-zinc-900 text-xs">
+        <div class="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row items-center justify-between gap-6 pb-8 border-b border-zinc-900">
+                <div class="flex items-center gap-2">
+                    <span class="h-6 w-6 rounded bg-white text-zinc-950 flex items-center justify-center font-serif font-bold text-sm">P</span>
+                    <span class="font-semibold text-white">Parlons IA</span>
+                </div>
+                <div class="flex items-center gap-6">
+                    <a href="#" onclick="navigateTo('home'); return false;" class="hover:text-white transition">Écosystème</a>
+                    <a href="#" onclick="navigateTo('ateliers'); return false;" class="hover:text-white transition">Ateliers</a>
+                    <a href="#" onclick="navigateTo('concours'); return false;" class="hover:text-white transition">Concours</a>
+                    <a href="https://whatsapp.com/channel/example" target="_blank" class="hover:text-white transition">Chaîne</a>
+                </div>
+            </div>
+            
+            <div class="flex flex-col sm:flex-row items-center justify-between gap-4 pt-8">
+                <p>&copy; 2026 Parlons IA. Conçu avec amour pour les curieux et praticiens de l'IA.</p>
+                <p class="text-[10px] text-zinc-600">Évolution épurée et moderne de Just Some AI Tips</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts & SPA Navigation Logic -->
+    <script>
+        // Global State
+        let currentTab = 'home';
+        let currentSimView = 'canal';
+
+        // Initialize Icons
+        document.addEventListener('DOMContentLoaded', () => {
+            lucide.createIcons();
+            switchSimView('canal'); // Render first WhatsApp simulator content
+        });
+
+        // Navigation Controller
+        function navigateTo(pageId) {
+            // Hide all tab content
+            document.querySelectorAll('.tab-content').forEach(el => {
+                el.classList.remove('active');
+            });
+
+            // Show current page ID
+            const targetPage = document.getElementById(`page-${pageId}`);
+            if (targetPage) {
+                targetPage.classList.add('active');
+            }
+
+            // Update nav links styling
+            document.querySelectorAll('.nav-link').forEach(link => {
+                link.classList.remove('text-zinc-900', 'font-semibold');
+                link.classList.add('text-zinc-500');
+            });
+            const activeLink = document.getElementById(`nav-${pageId}`);
+            if (activeLink) {
+                activeLink.classList.remove('text-zinc-500');
+                activeLink.classList.add('text-zinc-900', 'font-semibold');
+            }
+
+            currentTab = pageId;
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        // Smooth Scroll helper
+        function scrollToSection(id) {
+            const el = document.getElementById(id);
+            if (el) {
+                el.scrollIntoView({ behavior: 'smooth' });
+            }
+        }
+
+        // Toggle mobile menu navigation panel
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobile-menu');
+            menu.classList.toggle('hidden');
+        }
+
+        document.getElementById('mobile-menu-btn').addEventListener('click', () => {
+            toggleMobileMenu();
+        });
+
+        // Toast Messages Helper
+        function triggerToast(message) {
+            const toast = document.getElementById('toast');
+            const toastMsg = document.getElementById('toast-message');
+            toastMsg.innerText = message;
+            
+            toast.classList.remove('translate-y-20', 'opacity-0');
+            
+            setTimeout(() => {
+                toast.classList.add('translate-y-20', 'opacity-0');
+            }, 3000);
+        }
+
+        // Interactive Orientation Widget logic
+        function selectOrientation(choice) {
+            document.getElementById('orientation-step-1').classList.add('hidden');
+            if (choice === 'receive') {
+                document.getElementById('orientation-result-receive').classList.remove('hidden');
+            } else {
+                document.getElementById('orientation-result-interact').classList.remove('hidden');
+            }
+        }
+
+        function resetOrientation() {
+            document.getElementById('orientation-result-receive').classList.add('hidden');
+            document.getElementById('orientation-result-interact').classList.add('hidden');
+            document.getElementById('orientation-step-1').classList.remove('hidden');
+        }
+
+        // Simulated WhatsApp Mock Data generator
+        const canalChats = [
+            {
+                role: 'admin',
+                avatar: 'P',
+                name: 'Parlons IA — Officiel',
+                time: 'Hier, 14:20',
+                body: '🔥 <strong>Nouvelle ressource partagée !</strong><br><br>Nous venons de mettre en page le framework de prompting pour Claude 3.5 Sonnet. Copiez le template de brief directement dans notre article de blog.',
+                hasAction: true,
+                actionLabel: 'Lire l\'article',
+                actionPage: 'art-1'
+            },
+            {
+                role: 'admin',
+                avatar: 'P',
+                name: 'Parlons IA — Officiel',
+                time: 'Aujourd\'hui, 09:12',
+                body: '⚡️ <strong>Défi GPT Image actif !</strong><br><br>Nous recherchons la plus belle proposition de carte de mariage élégante. Plus d\'informations sur la page concours !',
+                hasAction: true,
+                actionLabel: 'Voir le concours',
+                actionPage: 'concours'
+            }
+        ];
+
+        const commuChats = [
+            {
+                role: 'member',
+                avatar: 'A',
+                name: 'Alexandre',
+                time: '09:20',
+                body: 'Salut l\'équipe ! Des retours sur l\'utilisation de Midjourney v6 pour générer du texte précis sur des packagings ? J\'ai quelques ratés.'
+            },
+            {
+                role: 'admin',
+                avatar: 'K',
+                name: 'Kevin (Parlons IA)',
+                time: '09:25',
+                body: 'Salut @Alexandre ! Oui, utilise des guillemets doubles et un prompt très simple comme : <i>"the word "COFFEE" written in bold serif typography on..."</i>. Évite de surcharger les détails autour.'
+            },
+            {
+                role: 'member',
+                avatar: 'M',
+                name: 'Marie',
+                time: '09:31',
+                body: 'Je confirme, la méthode de Kevin fonctionne très bien. Je viens de tester pour le concours de carte de mariage d\'ailleurs !'
+            }
+        ];
+
+        function switchSimView(view) {
+            const chatArea = document.getElementById('sim-chat-area');
+            const tabCanal = document.getElementById('sim-tab-canal');
+            const tabCommu = document.getElementById('sim-tab-commu');
+            const titleEl = document.getElementById('sim-title');
+            const subtitleEl = document.getElementById('sim-subtitle');
+            const inputPlaceholder = document.getElementById('sim-input-placeholder');
+
+            currentSimView = view;
+            chatArea.innerHTML = '';
+
+            if (view === 'canal') {
+                tabCanal.className = "w-1/2 py-2 text-center font-semibold border-b-2 border-emerald-500 text-emerald-400 transition-all";
+                tabCommu.className = "w-1/2 py-2 text-center font-semibold border-b-2 border-transparent text-zinc-400 hover:text-white transition-all";
+                titleEl.innerText = "Parlons IA — Canal";
+                subtitleEl.innerText = "Canal officiel de diffusion";
+                inputPlaceholder.innerText = "Lecture seule pour le canal";
+
+                canalChats.forEach(chat => {
+                    const bubble = document.createElement('div');
+                    bubble.className = "bg-white rounded-xl p-3 shadow-sm border border-zinc-200/50 max-w-[90%] mr-auto";
+                    bubble.innerHTML = `
+                        <div class="flex items-center justify-between mb-1.5 border-b border-zinc-100 pb-1">
+                            <span class="font-bold text-zinc-800 text-[10px]">${chat.name}</span>
+                            <span class="text-[9px] text-zinc-400">${chat.time}</span>
+                        </div>
+                        <p class="text-zinc-600 text-xs">${chat.body}</p>
+                        ${chat.hasAction ? `
+                            <button onclick="handleSimAction('${chat.actionPage}')" class="mt-3 w-full bg-zinc-900 text-white py-1.5 rounded-lg text-[10px] font-semibold hover:bg-zinc-800 transition">
+                                ${chat.actionLabel}
+                            </button>
+                        ` : ''}
+                    `;
+                    chatArea.appendChild(bubble);
+                });
+            } else {
+                tabCanal.className = "w-1/2 py-2 text-center font-semibold border-b-2 border-transparent text-zinc-400 hover:text-white transition-all";
+                tabCommu.className = "w-1/2 py-2 text-center font-semibold border-b-2 border-emerald-500 text-emerald-400 transition-all";
+                titleEl.innerText = "Parlons IA — Entraide";
+                subtitleEl.innerText = "Membres actifs en ligne";
+                inputPlaceholder.innerText = "Écrire un message...";
+
+                commuChats.forEach(chat => {
+                    const isSelf = chat.role === 'admin';
+                    const bubble = document.createElement('div');
+                    bubble.className = `rounded-xl p-3 shadow-sm border border-zinc-200/50 max-w-[85%] ${isSelf ? 'bg-emerald-50/80 ml-auto' : 'bg-white mr-auto'}`;
+                    bubble.innerHTML = `
+                        <div class="flex items-center justify-between mb-1">
+                            <span class="font-bold text-zinc-800 text-[9px]">${chat.name}</span>
+                            <span class="text-[8px] text-zinc-400">${chat.time}</span>
+                        </div>
+                        <p class="text-zinc-600 text-xs">${chat.body}</p>
+                    `;
+                    chatArea.appendChild(bubble);
+                });
+            }
+        }
+
+        // Handle inner app actions clicked from the interactive phone simulator
+        function handleSimAction(pageId) {
+            triggerToast(`Navigation vers la section : ${pageId.toUpperCase()}`);
+            if (pageId === 'art-1') {
+                openArticleModal('art-1');
+            } else {
+                navigateTo(pageId);
+            }
+        }
+
+        // Article mock database & modal system
+        const articlesDb = {
+            'art-1': {
+                title: "Le framework de Prompting ultime pour vos briefs",
+                category: "Guide Prompting",
+                time: "5 min de lecture",
+                date: "Février 2026",
+                content: `
+                    <p class="text-sm text-zinc-500 mb-6 italic leading-relaxed">
+                        Pour que Claude ou ChatGPT arrête d'inventer des formules formatées ou de répéter inutilement les instructions, structurez vos prompts sous forme de briefs professionnels.
+                    </p>
+                    <h4 class="font-bold text-sm text-zinc-900 mb-2">1. Le Rôle (Persona)</h4>
+                    <p class="text-xs text-zinc-600 mb-4">Définissez une expertise et une contrainte stricte. Exemple : "Tu es un relecteur éditorial pointilleux. Tu ne félicites jamais le rédacteur, tu corriges directement."</p>
+                    
+                    <h4 class="font-bold text-sm text-zinc-900 mb-2">2. Le Contexte et l'Objectif</h4>
+                    <p class="text-xs text-zinc-600 mb-4">Donnez la cible de lecture et le but final. "Nous rédigeons un article pour des développeurs juniors pour leur expliquer le concept de dette technique sans condescendance."</p>
+
+                    <h4 class="font-bold text-sm text-zinc-900 mb-2">3. Les Contraintes de Sortie (Format & Style)</h4>
+                    <p class="text-xs text-zinc-600 mb-4">Définissez ce qui est interdit. "N'utilise jamais de métaphore d'iceberg ou d'introduction ronflante. Pas d'adjectif pompeux comme 'révolutionnaire'."</p>
+
+                    <div class="bg-zinc-50 border border-zinc-200 rounded-xl p-4 mt-6">
+                        <span class="text-[9px] uppercase tracking-wider font-bold text-zinc-400">Template à copier :</span>
+                        <pre class="text-[10px] text-zinc-700 font-mono mt-2 whitespace-pre-wrap overflow-x-auto">
+[Rôle] : Concepteur de contenu technique minimaliste.
+[Contexte] : Rédiger des points clés d'un compte rendu.
+[Règles] : Phrases courtes (15 mots max), puces épurées, interdiction de rajouter des conclusions ou des synthèses non demandées.
+                        </pre>
+                    </div>
+                `
+            },
+            'art-2': {
+                title: "Générer des visuels réalistes et cohérents",
+                category: "Outil / Workflow",
+                time: "4 min de lecture",
+                date: "Janvier 2026",
+                content: `
+                    <p class="text-sm text-zinc-500 mb-6 italic leading-relaxed">
+                        Comment conserver un même personnage sur plusieurs visuels Midjourney sans perdre en réalisme.
+                    </p>
+                    <h4 class="font-bold text-sm text-zinc-900 mb-2">1. Utiliser le paramètre --cref</h4>
+                    <p class="text-xs text-zinc-600 mb-4">Le Character Reference (--cref URL) permet de calquer le style vestimentaire et facial d'un personnage de référence. C'est l'atout numéro un pour faire du storyboarding.</p>
+                    
+                    <h4 class="font-bold text-sm text-zinc-900 mb-2">2. L'importance de la graine (--seed)</h4>
+                    <p class="text-xs text-zinc-600 mb-4">Fixez le grain créatif en copiant la valeur de graine d'une image réussie pour que la lumière générale ne dérive pas.</p>
+                `
+            },
+            'art-3': {
+                title: "Intégrer l'IA dans Obsidian ou Notion",
+                category: "Productivité",
+                time: "6 min de lecture",
+                date: "Janvier 2026",
+                content: `
+                    <p class="text-sm text-zinc-500 mb-6 italic leading-relaxed">
+                        Créez un second cerveau automatisé grâce à des connexions API légères avec vos outils d'organisation favoris.
+                    </p>
+                    <h4 class="font-bold text-sm text-zinc-900 mb-2">1. Connecter l'API OpenAI / Anthropic</h4>
+                    <p class="text-xs text-zinc-600 mb-4">Exploitez des extensions open-source comme Obsidian Copilot ou des modules Make/Zapier pour automatiser la synthèse de vos notes quotidiennes.</p>
+                `
+            }
+        };
+
+        function openArticleModal(articleId) {
+            const article = articlesDb[articleId];
+            if (!article) return;
+
+            const modal = document.getElementById('article-modal');
+            const contentArea = document.getElementById('modal-content-area');
+
+            contentArea.innerHTML = `
+                <div class="mb-6">
+                    <span class="text-[10px] uppercase font-bold tracking-wider text-zinc-400 bg-zinc-100 px-2 py-1 rounded">${article.category}</span>
+                    <span class="text-[10px] text-zinc-400 ml-2 font-medium">${article.date} — ${article.time}</span>
+                    <h3 class="editorial-title text-2xl sm:text-3xl font-normal text-zinc-900 mt-3 leading-tight">${article.title}</h3>
+                </div>
+                <div class="prose max-w-none text-zinc-700 leading-relaxed font-light">
+                    ${article.content}
+                </div>
+            `;
+
+            modal.classList.remove('hidden');
+            document.body.style.overflow = 'hidden'; // prevent back scroll
+        }
+
+        function closeArticleModal() {
+            const modal = document.getElementById('article-modal');
+            modal.classList.add('hidden');
+            document.body.style.overflow = ''; // allow back scroll
+        }
+    </script>
+</body>
+</html>

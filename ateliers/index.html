@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="fr" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Parlons IA — Ateliers</title>
+  <meta name="description" content="Les ateliers Parlons IA sont des sessions live courtes, pratiques et ciblées.">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', "sans-serif"],
+            serif: ['"Playfair Display"', "serif"]
+          }
+        }
+      }
+    };
+  </script>
+  <link rel="stylesheet" href="../styles.css">
+</head>
+<body class="min-h-screen flex flex-col antialiased">
+  <header class="sticky top-0 z-40 w-full border-b border-zinc-200/80 bg-white/80 backdrop-blur-md">
+    <div class="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+      <div class="flex h-16 items-center justify-between">
+        <div class="flex items-center gap-3">
+          <a href="../" class="flex items-center gap-2 group">
+            <span class="h-8 w-8 rounded-lg bg-zinc-950 flex items-center justify-center text-white font-serif font-bold text-lg tracking-wider transition-transform group-hover:scale-105">P</span>
+            <span class="text-sm font-semibold tracking-tight text-zinc-900">Parlons IA</span>
+          </a>
+        </div>
+
+        <div class="hidden sm:flex items-center gap-3">
+          <a data-channel-url target="_blank" rel="noopener" class="inline-flex items-center justify-center rounded-lg text-xs font-semibold px-4 py-2 border border-zinc-200 bg-white hover:bg-zinc-50 text-zinc-800 transition shadow-sm">
+            Être prévenu
+          </a>
+          <a data-community-url target="_blank" rel="noopener" class="inline-flex items-center justify-center rounded-lg text-xs font-semibold px-4 py-2 bg-zinc-950 hover:bg-zinc-800 text-white transition shadow-sm">
+            Poser une question
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <div class="border-t border-zinc-200 bg-white px-4 py-3 sm:hidden">
+      <div class="flex gap-2">
+        <a data-channel-url target="_blank" rel="noopener" class="flex-1 text-center rounded-lg text-xs font-semibold py-2.5 border border-zinc-200 text-zinc-800 bg-white">
+          Être prévenu
+        </a>
+        <a data-community-url target="_blank" rel="noopener" class="flex-1 text-center rounded-lg text-xs font-semibold py-2.5 bg-zinc-950 text-white">
+          Poser une question
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <main class="flex-grow">
+    <section class="section-compact bg-white border-b border-zinc-200/60 relative overflow-hidden">
+      <div class="absolute inset-0 bg-[radial-gradient(#e4e4e7_1px,transparent_1px)] [background-size:24px_24px] opacity-40"></div>
+      <div class="relative mx-auto max-w-4xl px-4 sm:px-6 lg:px-8 text-center">
+        <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-zinc-100 text-[10px] font-semibold tracking-wider text-zinc-600 uppercase mb-4">
+          Live pratique
+        </span>
+        <h1 class="editorial-title text-4xl sm:text-5xl font-normal text-zinc-900 tracking-tight leading-tight">
+          Les ateliers Parlons IA
+        </h1>
+        <p class="text-sm sm:text-base text-zinc-500 max-w-xl mx-auto mt-4 leading-relaxed font-light">
+          Des lives en ligne pour travailler ensemble un usage concret de l'IA, thème par thème.
+        </p>
+      </div>
+    </section>
+
+    <section class="section-compact section-wash-soft">
+      <div class="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-5 mb-12">
+          <div class="landing-card bg-white p-6 rounded-xl border border-zinc-200">
+            <div class="w-8 h-8 rounded-lg bg-emerald-50 flex items-center justify-center text-emerald-700 mb-4">
+              <i data-lucide="clock" class="w-4 h-4"></i>
+            </div>
+            <h4 class="font-semibold text-sm text-zinc-900">Format live</h4>
+            <p class="text-xs text-zinc-500 mt-2 leading-relaxed">
+              Un live en ligne, centré sur un usage précis, pour avancer ensemble sur un vrai cas.
+            </p>
+          </div>
+
+          <div class="landing-card bg-white p-6 rounded-xl border border-zinc-200">
+            <div class="w-8 h-8 rounded-lg bg-emerald-50 flex items-center justify-center text-emerald-700 mb-4">
+              <i data-lucide="target" class="w-4 h-4"></i>
+            </div>
+            <h4 class="font-semibold text-sm text-zinc-900">Thème ciblé</h4>
+            <p class="text-xs text-zinc-500 mt-2 leading-relaxed">
+              Chaque atelier travaille une thématique claire au lieu d'essayer de tout couvrir d'un coup.
+            </p>
+          </div>
+
+          <div class="landing-card bg-white p-6 rounded-xl border border-zinc-200">
+            <div class="w-8 h-8 rounded-lg bg-emerald-50 flex items-center justify-center text-emerald-700 mb-4">
+              <i data-lucide="users-2" class="w-4 h-4"></i>
+            </div>
+            <h4 class="font-semibold text-sm text-zinc-900">Avec la communauté</h4>
+            <p class="text-xs text-zinc-500 mt-2 leading-relaxed">
+              Les questions prolongent le live, et les prochains sujets remontent depuis la communauté.
+            </p>
+          </div>
+        </div>
+
+        <div class="dark-feature-card bg-zinc-900 text-white rounded-2xl p-8 sm:p-10 mb-12 relative overflow-hidden shadow-lg">
+          <div class="absolute top-0 right-0 p-8 opacity-5">
+            <i data-lucide="calendar" class="w-48 h-48"></i>
+          </div>
+          <div class="relative z-10 max-w-xl">
+            <span class="text-[10px] font-bold tracking-wider text-emerald-400 uppercase">Prochain atelier</span>
+            <h3 class="font-serif text-2xl sm:text-3xl mt-2 mb-4">
+              Très bientôt
+            </h3>
+            <p class="text-sm text-zinc-300 leading-relaxed mb-6 font-light">
+              Le prochain thème n'est pas encore figé. Dès qu'il est arrêté, l'annonce part sur la chaîne. Ensuite, la communauté sert à prolonger l'échange et à faire remonter les prochains besoins.
+            </p>
+
+            <div class="flex flex-wrap items-center gap-4 mb-8 text-xs text-zinc-200">
+              <div class="flex items-center gap-1.5 px-3 py-1 rounded bg-white/10">
+                <i data-lucide="calendar" class="w-3.5 h-3.5 text-emerald-400"></i> Annonce sur la chaîne
+              </div>
+              <div class="flex items-center gap-1.5 px-3 py-1 rounded bg-white/10">
+                <i data-lucide="video" class="w-3.5 h-3.5 text-emerald-400"></i> Live en ligne
+              </div>
+              <div class="flex items-center gap-1.5 px-3 py-1 rounded bg-white/10">
+                <i data-lucide="sparkles" class="w-3.5 h-3.5 text-emerald-400"></i> Thème en préparation
+              </div>
+            </div>
+
+            <div class="flex flex-col sm:flex-row items-stretch sm:items-center gap-3">
+              <a data-channel-url target="_blank" rel="noopener" class="px-6 py-3 bg-white text-zinc-950 rounded-lg text-xs font-semibold text-center hover:bg-zinc-100 transition shadow">
+                Être prévenu sur la chaîne
+              </a>
+              <a data-community-url target="_blank" rel="noopener" class="px-6 py-3 border border-white/15 rounded-lg text-xs font-semibold text-center hover:bg-white/5 transition">
+                Proposer un sujet
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <div class="landing-card bg-white rounded-2xl border border-zinc-200 p-8">
+          <h4 class="font-serif text-xl text-zinc-900 mb-6">Thèmes possibles à venir</h4>
+          <div class="space-y-4">
+            <div class="flex items-start gap-3 py-3 border-b border-zinc-100 last:border-0">
+              <span class="text-zinc-400 text-xs font-mono pt-1">01 /</span>
+              <div>
+                <h5 class="text-xs font-semibold text-zinc-900">Mieux comprendre les skills</h5>
+                <p class="text-xs text-zinc-500 mt-1">À quoi ils servent, quand s'en servir, et comment mieux les utiliser au quotidien.</p>
+              </div>
+            </div>
+
+            <div class="flex items-start gap-3 py-3 border-b border-zinc-100 last:border-0">
+              <span class="text-zinc-400 text-xs font-mono pt-1">02 /</span>
+              <div>
+                <h5 class="text-xs font-semibold text-zinc-900">Construire un workflow image plus propre</h5>
+                <p class="text-xs text-zinc-500 mt-1">Partir d'une idée, itérer plus vite et obtenir un rendu plus cohérent.</p>
+              </div>
+            </div>
+
+            <div class="flex items-start gap-3 py-3 border-b border-zinc-100 last:border-0">
+              <span class="text-zinc-400 text-xs font-mono pt-1">03 /</span>
+              <div>
+                <h5 class="text-xs font-semibold text-zinc-900">Passer d'un usage novice à un usage plus avancé</h5>
+                <p class="text-xs text-zinc-500 mt-1">Structurer sa méthode, mieux briefer les modèles et gagner en régularité.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="mt-6 pt-5 border-t border-zinc-100 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">
+            <p class="text-xs text-zinc-500">
+              Pour proposer votre thème ou en discuter, la communauté est le bon endroit.
+            </p>
+            <a data-community-url target="_blank" rel="noopener" class="accent-outline inline-flex items-center justify-center rounded-lg text-xs font-semibold px-4 py-2 border transition">
+              Rejoindre la communauté
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="bg-zinc-950 text-zinc-400 py-12 border-t border-zinc-900 text-xs">
+    <div class="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+      <div class="flex flex-col md:flex-row items-center justify-between gap-6 pb-8 border-b border-zinc-900">
+        <div class="flex items-center gap-2">
+          <span class="h-6 w-6 rounded bg-white text-zinc-950 flex items-center justify-center font-serif font-bold text-sm">P</span>
+          <span class="font-semibold text-white">Parlons IA</span>
+        </div>
+        <div class="flex items-center gap-6">
+          <a href="../" class="hover:text-white transition">Accueil</a>
+          <a href="./" class="hover:text-white transition">Ateliers</a>
+          <a href="../concours/" class="hover:text-white transition">Concours</a>
+        </div>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4 pt-8">
+        <div class="rounded-2xl border border-zinc-800 bg-zinc-900/60 p-5">
+          <p class="text-[10px] uppercase tracking-wider text-zinc-600 font-semibold">La chaîne</p>
+          <h3 class="font-semibold text-white text-sm mt-2">Recevoir l'annonce</h3>
+          <p class="text-zinc-400 text-xs leading-relaxed mt-2">
+            Le thème, la date et les prochains ateliers passent d'abord ici.
+          </p>
+          <a data-channel-url target="_blank" rel="noopener" class="inline-flex items-center justify-center rounded-lg text-xs font-semibold px-4 py-2 mt-4 bg-white text-zinc-950 hover:bg-zinc-100 transition">
+            Suivre la chaîne
+          </a>
+        </div>
+
+        <div class="rounded-2xl border border-zinc-800 bg-zinc-900/60 p-5">
+          <p class="text-[10px] uppercase tracking-wider text-zinc-600 font-semibold">La communauté</p>
+          <h3 class="font-semibold text-white text-sm mt-2">Faire remonter un besoin</h3>
+          <p class="text-zinc-400 text-xs leading-relaxed mt-2">
+            Questions, blocages, idées de sujets et retours vivent ici.
+          </p>
+          <a data-community-url target="_blank" rel="noopener" class="inline-flex items-center justify-center rounded-lg text-xs font-semibold px-4 py-2 mt-4 border border-zinc-700 text-white hover:bg-zinc-800 transition">
+            Rejoindre la communauté
+          </a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="../script.js"></script>
+</body>
+</html>
