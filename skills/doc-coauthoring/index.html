@@ -1,64 +1,113 @@
-<!doctype html>
-<html lang="fr">
+<!DOCTYPE html>
+<html lang="fr" class="scroll-smooth">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>Doc Co-Authoring - Parlons IA</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Parlons IA — Doc Co-Authoring</title>
   <meta name="description" content="Page directe Parlons IA pour recuperer le skill Doc Co-Authoring.">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', "sans-serif"],
+            serif: ['"Playfair Display"', "serif"]
+          }
+        }
+      }
+    };
+  </script>
   <link rel="stylesheet" href="../../styles.css">
-  <link rel="stylesheet" href="../style.css">
 </head>
-<body class="skill-detail">
-  <header class="page-header">
-    <div class="header-shell">
-      <a class="brand" href="../../">
-        <span class="brand-mark">P</span>
-        <span class="brand-text">Parlons IA</span>
-      </a>
-      <a class="header-link" href="../">Retour aux skills</a>
+<body class="min-h-screen flex flex-col antialiased">
+  <header class="sticky top-0 z-40 w-full border-b border-zinc-200/80 bg-white/80 backdrop-blur-md">
+    <div class="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+      <div class="flex h-16 items-center justify-between">
+        <div class="flex items-center gap-3">
+          <a href="../../" class="flex items-center gap-2 group">
+            <span class="h-8 w-8 rounded-lg bg-zinc-950 flex items-center justify-center text-white font-serif font-bold text-lg tracking-wider transition-transform group-hover:scale-105">P</span>
+            <span class="text-sm font-semibold tracking-tight text-zinc-900">Parlons IA</span>
+          </a>
+        </div>
+
+        <div class="hidden sm:flex items-center gap-3">
+          <a href="../" class="inline-flex items-center justify-center rounded-lg text-xs font-semibold px-4 py-2 border border-zinc-200 bg-white hover:bg-zinc-50 text-zinc-800 transition shadow-sm">
+            Retour aux skills
+          </a>
+        </div>
+      </div>
     </div>
   </header>
 
-  <main class="wrap detail-wrap" data-download-file="https://raw.githubusercontent.com/tiasslevo/just--some-ai--tips/main/skills/doc-coauthoring/SKILL.md" data-download-name="doc-coauthoring-SKILL.md" data-auto-download="true">
-    <section class="intro reveal">
-      <p class="eyebrow">Ressource directe</p>
-      <h1 class="editorial-title page-title">Doc Co-Authoring</h1>
-      <p class="lead">
-        Un skill pour guider Claude dans la construction d'un vrai document, avec plus de cadre et moins d'aller-retours brouillons.
-      </p>
-
-      <div class="action-row">
-        <a class="btn" href="https://raw.githubusercontent.com/tiasslevo/just--some-ai--tips/main/skills/doc-coauthoring/SKILL.md" data-role="download">Telecharger le skill</a>
-        <a class="btn btn-secondary" href="../">Retour</a>
-      </div>
-
-      <p class="status-line" data-role="status">Chargement du skill...</p>
-    </section>
-
-    <section class="section-block reveal">
-      <div class="section-head">
-        <p class="section-label">Usage</p>
-        <p class="section-intro">
-          A utiliser quand il faut poser une structure avant de rediger.
+  <main class="flex-grow" data-download-file="./SKILL.md" data-download-name="doc-coauthoring-SKILL.md" data-auto-download="true">
+    <section class="section-compact bg-white border-b border-zinc-200/60 relative overflow-hidden">
+      <div class="absolute inset-0 bg-[radial-gradient(#e4e4e7_1px,transparent_1px)] [background-size:24px_24px] opacity-40"></div>
+      <div class="relative mx-auto max-w-4xl px-4 sm:px-6 lg:px-8 text-center">
+        <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-zinc-900 text-white text-[10px] font-semibold tracking-wider uppercase mb-4">
+          Ressource directe
+        </span>
+        <h1 class="editorial-title text-4xl sm:text-5xl font-normal text-zinc-900 tracking-tight leading-tight">
+          Doc Co-Authoring
+        </h1>
+        <p class="text-sm sm:text-base text-zinc-500 max-w-2xl mx-auto mt-4 leading-relaxed font-light font-sans">
+          Un skill pour guider Claude dans la construction d'un vrai document, avec plus de cadre et moins d'aller-retours brouillons.
         </p>
       </div>
-
-      <div class="note-list">
-        <p>Pour une proposition, une note de cadrage, une spec ou un memo.</p>
-        <p>Quand tu veux mieux cadrer avant de produire du texte.</p>
-        <p>Quand tu veux une progression plus propre jusqu'au document final.</p>
-      </div>
     </section>
 
-    <section class="section-block reveal">
-      <div class="section-head">
-        <p class="section-label">Apercu</p>
+    <section class="section-compact section-wash-soft">
+      <div class="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
+        <div class="bg-white rounded-2xl border border-zinc-200 shadow-[0_8px_30px_rgb(0,0,0,0.02)] p-6 sm:p-10 mb-8">
+          <div class="border-b border-zinc-100 pb-8 mb-8">
+            <div class="max-w-2xl">
+              <span class="text-[10px] font-bold tracking-wider text-emerald-600 uppercase">Telechargement</span>
+              <h2 class="font-serif text-2xl sm:text-3xl text-zinc-900 mt-2">Le skill, sans detour</h2>
+              <p class="text-sm text-zinc-600 leading-relaxed mt-5">
+                Le fichier se telecharge automatiquement si tout va bien. Sinon, utilise simplement le bouton juste en dessous.
+              </p>
+              <div class="flex flex-col sm:flex-row gap-3 mt-6">
+                <a class="inline-flex items-center justify-center rounded-lg text-xs font-semibold px-5 py-3 bg-zinc-950 hover:bg-zinc-800 text-white transition shadow-sm" href="./SKILL.md" data-role="download">
+                  Telecharger le skill
+                </a>
+                <a class="inline-flex items-center justify-center rounded-lg text-xs font-semibold px-5 py-3 border border-zinc-200 bg-white hover:bg-zinc-50 text-zinc-800 transition shadow-sm" href="../">
+                  Retour aux skills
+                </a>
+              </div>
+              <p class="text-xs text-zinc-400 mt-4" data-role="status">Chargement du skill...</p>
+            </div>
+          </div>
+
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-4 bg-zinc-50 rounded-xl p-6 border border-zinc-200/60 text-xs">
+            <div>
+              <h3 class="font-bold text-zinc-900 mb-2">Pour une spec</h3>
+              <p class="text-zinc-500 leading-relaxed">Quand il faut poser une vraie structure avant de rediger.</p>
+            </div>
+            <div>
+              <h3 class="font-bold text-zinc-900 mb-2">Pour un memo</h3>
+              <p class="text-zinc-500 leading-relaxed">Quand tu veux avancer proprement vers un document final.</p>
+            </div>
+            <div>
+              <h3 class="font-bold text-zinc-900 mb-2">Pour une proposition</h3>
+              <p class="text-zinc-500 leading-relaxed">Quand tu veux mieux cadrer avant de produire du texte.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="bg-zinc-950 rounded-2xl border border-zinc-900 p-6 sm:p-8 overflow-hidden">
+          <div class="max-w-2xl mb-5">
+            <span class="text-[10px] font-bold tracking-wider text-emerald-400 uppercase">Apercu</span>
+            <h3 class="font-serif text-2xl text-white mt-2">Voir la logique avant d'utiliser</h3>
+          </div>
+          <pre data-role="preview" class="overflow-x-auto rounded-xl border border-zinc-800 bg-zinc-950 text-zinc-200 p-5 text-[13px] leading-7 whitespace-pre-wrap break-words"></pre>
+        </div>
       </div>
-      <pre data-role="preview"></pre>
     </section>
   </main>
 
-  <script src="../ui.js"></script>
   <script src="../skill-page.js"></script>
 </body>
 </html>

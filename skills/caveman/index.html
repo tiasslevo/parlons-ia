@@ -1,80 +1,113 @@
-<!doctype html>
-<html lang="fr">
+<!DOCTYPE html>
+<html lang="fr" class="scroll-smooth">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>Caveman - Parlons IA</title>
-  <meta name="description" content="Page directe Parlons IA pour recuperer le skill Caveman et comprendre en deux minutes ce qu'il change.">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Parlons IA — Caveman</title>
+  <meta name="description" content="Page directe Parlons IA pour recuperer le skill Caveman et comprendre rapidement ce qu'il change.">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', "sans-serif"],
+            serif: ['"Playfair Display"', "serif"]
+          }
+        }
+      }
+    };
+  </script>
   <link rel="stylesheet" href="../../styles.css">
-  <link rel="stylesheet" href="../style.css">
 </head>
-<body class="skill-detail">
-  <header class="page-header">
-    <div class="header-shell">
-      <a class="brand" href="../../">
-        <span class="brand-mark">P</span>
-        <span class="brand-text">Parlons IA</span>
-      </a>
-      <a class="header-link" href="../../">Retour au site</a>
+<body class="min-h-screen flex flex-col antialiased">
+  <header class="sticky top-0 z-40 w-full border-b border-zinc-200/80 bg-white/80 backdrop-blur-md">
+    <div class="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+      <div class="flex h-16 items-center justify-between">
+        <div class="flex items-center gap-3">
+          <a href="../../" class="flex items-center gap-2 group">
+            <span class="h-8 w-8 rounded-lg bg-zinc-950 flex items-center justify-center text-white font-serif font-bold text-lg tracking-wider transition-transform group-hover:scale-105">P</span>
+            <span class="text-sm font-semibold tracking-tight text-zinc-900">Parlons IA</span>
+          </a>
+        </div>
+
+        <div class="hidden sm:flex items-center gap-3">
+          <a href="../" class="inline-flex items-center justify-center rounded-lg text-xs font-semibold px-4 py-2 border border-zinc-200 bg-white hover:bg-zinc-50 text-zinc-800 transition shadow-sm">
+            Retour aux skills
+          </a>
+        </div>
+      </div>
     </div>
   </header>
 
-  <main class="wrap detail-wrap" data-download-file="./SKILL.md" data-download-name="caveman-SKILL.md">
-    <section class="intro reveal">
-      <p class="eyebrow">Ressource directe</p>
-      <h1 class="editorial-title page-title">Caveman</h1>
-      <p class="lead">
-        Un skill open source pense pour pousser Claude a repondre plus court, plus direct et plus dense.
-        Si ton vrai probleme, c'est la vitesse a laquelle tu atteins les limites, c'est exactement le genre de ressource a tester.
-      </p>
-
-      <div class="action-row">
-        <a class="btn" href="./SKILL.md" data-role="download">Telecharger le skill</a>
-        <a class="btn btn-secondary" href="https://github.com/juliusbrussee/caveman" target="_blank" rel="noopener">Voir la source GitHub</a>
-      </div>
-
-      <p class="status-line" data-role="status">Chargement du skill...</p>
-    </section>
-
-    <section class="section-block reveal">
-      <div class="section-head">
-        <p class="section-label">Pourquoi c'est utile</p>
-        <p class="section-intro">
-          L'idee n'est pas de rendre Claude plus intelligent. L'idee, c'est de rendre ses sorties beaucoup plus economes.
+  <main class="flex-grow" data-download-file="./SKILL.md" data-download-name="caveman-SKILL.md">
+    <section class="section-compact bg-white border-b border-zinc-200/60 relative overflow-hidden">
+      <div class="absolute inset-0 bg-[radial-gradient(#e4e4e7_1px,transparent_1px)] [background-size:24px_24px] opacity-40"></div>
+      <div class="relative mx-auto max-w-4xl px-4 sm:px-6 lg:px-8 text-center">
+        <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-zinc-900 text-white text-[10px] font-semibold tracking-wider uppercase mb-4">
+          Ressource directe
+        </span>
+        <h1 class="editorial-title text-4xl sm:text-5xl font-normal text-zinc-900 tracking-tight leading-tight">
+          Caveman
+        </h1>
+        <p class="text-sm sm:text-base text-zinc-500 max-w-2xl mx-auto mt-4 leading-relaxed font-light font-sans">
+          Un skill open source pense pour pousser Claude a repondre plus court, plus direct et plus dense. Si ton vrai probleme, c'est la vitesse a laquelle tu atteins les limites, c'est exactement le genre de ressource a tester.
         </p>
       </div>
-
-      <div class="note-list">
-        <p>Moins de blabla dans les reponses.</p>
-        <p>Plus de densite pour une meme question.</p>
-        <p>Une sensation d'aller plus loin avant de taper les limites.</p>
-      </div>
     </section>
 
-    <section class="section-block reveal">
-      <div class="section-head">
-        <p class="section-label">Ce que tu recuperes</p>
-        <p class="section-intro">
-          Le fichier du skill tel qu'il est partage en open source, directement telechargeable depuis cette page.
-        </p>
-      </div>
+    <section class="section-compact section-wash-soft">
+      <div class="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
+        <div class="bg-white rounded-2xl border border-zinc-200 shadow-[0_8px_30px_rgb(0,0,0,0.02)] p-6 sm:p-10 mb-8">
+          <div class="border-b border-zinc-100 pb-8 mb-8">
+            <div class="max-w-2xl">
+              <span class="text-[10px] font-bold tracking-wider text-emerald-600 uppercase">Telechargement</span>
+              <h2 class="font-serif text-2xl sm:text-3xl text-zinc-900 mt-2">Le skill, sans detour</h2>
+              <p class="text-sm text-zinc-600 leading-relaxed mt-5">
+                Tu peux le telecharger directement depuis cette page, puis verifier la source originale si tu veux suivre ses mises a jour.
+              </p>
+              <div class="flex flex-col sm:flex-row gap-3 mt-6">
+                <a class="inline-flex items-center justify-center rounded-lg text-xs font-semibold px-5 py-3 bg-zinc-950 hover:bg-zinc-800 text-white transition shadow-sm" href="./SKILL.md" data-role="download">
+                  Telecharger le skill
+                </a>
+                <a class="inline-flex items-center justify-center rounded-lg text-xs font-semibold px-5 py-3 border border-zinc-200 bg-white hover:bg-zinc-50 text-zinc-800 transition shadow-sm" href="https://github.com/juliusbrussee/caveman" target="_blank" rel="noopener">
+                  Voir la source GitHub
+                </a>
+              </div>
+              <p class="text-xs text-zinc-400 mt-4" data-role="status">Chargement du skill...</p>
+            </div>
+          </div>
 
-      <div class="note-list">
-        <p>Le fichier <code>SKILL.md</code> a recuperer en un clic.</p>
-        <p>La source originale GitHub si tu veux verifier ou suivre les mises a jour.</p>
-        <p>Un apercu juste en dessous pour voir tout de suite la logique du skill.</p>
-      </div>
-    </section>
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-4 bg-zinc-50 rounded-xl p-6 border border-zinc-200/60 text-xs">
+            <div>
+              <h3 class="font-bold text-zinc-900 mb-2">Moins de blabla</h3>
+              <p class="text-zinc-500 leading-relaxed">Le skill pousse Claude vers des sorties plus directes.</p>
+            </div>
+            <div>
+              <h3 class="font-bold text-zinc-900 mb-2">Plus de densite</h3>
+              <p class="text-zinc-500 leading-relaxed">L'idee est de garder la valeur sans trainer sur l'emballage.</p>
+            </div>
+            <div>
+              <h3 class="font-bold text-zinc-900 mb-2">Plus longtemps</h3>
+              <p class="text-zinc-500 leading-relaxed">Une sensation d'aller plus loin avant de taper les limites.</p>
+            </div>
+          </div>
+        </div>
 
-    <section class="section-block reveal">
-      <div class="section-head">
-        <p class="section-label">Apercu</p>
+        <div class="bg-zinc-950 rounded-2xl border border-zinc-900 p-6 sm:p-8 overflow-hidden">
+          <div class="max-w-2xl mb-5">
+            <span class="text-[10px] font-bold tracking-wider text-emerald-400 uppercase">Apercu</span>
+            <h3 class="font-serif text-2xl text-white mt-2">Voir la logique avant d'utiliser</h3>
+          </div>
+          <pre data-role="preview" class="overflow-x-auto rounded-xl border border-zinc-800 bg-zinc-950 text-zinc-200 p-5 text-[13px] leading-7 whitespace-pre-wrap break-words"></pre>
+        </div>
       </div>
-      <pre data-role="preview"></pre>
     </section>
   </main>
 
-  <script src="../ui.js"></script>
   <script src="../skill-page.js"></script>
 </body>
 </html>
