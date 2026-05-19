@@ -18,7 +18,11 @@
     downloadBtn.href = url;
     downloadBtn.download = filename;
     if (preview) preview.textContent = text;
-    if (status) status.textContent = "Le telechargement devrait demarrer automatiquement. Sinon, utilise le bouton.";
+    if (status) {
+      status.textContent = autoDownload
+        ? "Le telechargement devrait demarrer automatiquement. Sinon, utilise le bouton."
+        : "Le skill est pret. Utilise le bouton pour le telecharger ou lis l'apercu juste en dessous.";
+    }
     if (autoDownload) {
       setTimeout(() => downloadBtn.click(), 250);
     }
