@@ -17,8 +17,8 @@ const channelMessages = [
   {
     name: "Parlons IA",
     time: "Aujourd'hui, 14:42",
-    body: "Concours en cours : <strong>GPT Image</strong> autour d'une carte d'invitation de mariage.",
-    actionLabel: "Voir le concours",
+    body: "Concours ouvert : crée une <strong>carte d'invitation de mariage avec l'IA</strong>. Prix : 100$. Deadline : 1er juin.",
+    actionLabel: "Participer",
     actionHref: "./concours/"
   }
 ];
