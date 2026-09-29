@@ -258,11 +258,12 @@ html.js .blur-words.is-visible .word {
   display: flex;
   align-items: center;
   justify-content: center;
-  border-radius: 0.6rem;
   background: var(--ink);
-  color: #fff;
-  font-family: "Playfair Display", serif;
-  font-weight: 700;
+  -webkit-mask: url("assets/brand/parlons-ia-icon.svg") center / contain no-repeat;
+  mask: url("assets/brand/parlons-ia-icon.svg") center / contain no-repeat;
+  text-indent: -999px;
+  overflow: hidden;
+  color: transparent !important;
   transition:
     transform 0.4s var(--ease),
     box-shadow 0.4s var(--ease);
@@ -271,7 +272,16 @@ html.js .blur-words.is-visible .word {
 a:hover .brand-mark,
 .brand-mark:hover {
   transform: scale(1.06) rotate(-3deg);
-  box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.28);
+}
+
+.brand-word {
+  font-family: "Montserrat", sans-serif !important;
+  font-weight: 400 !important;
+  letter-spacing: 0.16em !important;
+}
+
+.brand-word b {
+  font-weight: 700;
 }
 
 /* ---------- 6. Boutons ---------- */
