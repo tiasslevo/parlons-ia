@@ -3,7 +3,7 @@ const COMMUNITY_URL = "https://chat.whatsapp.com/L1bc0rZp4Zv4epYPAcSatx?s=cl&p=a
 
 // Chiffres de preuve sociale — à ajuster ici si besoin.
 const STATS = {
-  members: 1500, // membres dans la communauté
+  members: 5000, // abonnés chaîne + membres communauté
   drops: 1 // contenu publié chaque jour sur la chaîne
 };
 
