@@ -29,11 +29,11 @@
 </head>
 <body class="min-h-screen flex flex-col antialiased">
   <header class="site-header sticky top-0 z-40 w-full border-b border-zinc-200/80 bg-white/80 backdrop-blur-md">
-    <a href="./ateliers/" class="contest-banner group">
+    <a href="./formation/" class="contest-banner group">
       <span class="contest-banner-dot"></span>
-      <span>Masterclass</span>
-      <strong>Prochaine session en préparation</strong>
-      <span class="hidden sm:inline">Annonce bientôt sur la chaîne</span>
+      <span>Formation</span>
+      <strong>Session en cours</strong>
+      <span class="hidden sm:inline">Réserve ta place pour la prochaine</span>
       <i data-lucide="arrow-right" class="w-3.5 h-3.5 transition-transform group-hover:translate-x-0.5"></i>
     </a>
     <div class="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
@@ -45,6 +45,7 @@
 
         <nav class="hidden md:flex items-center gap-8">
           <a href="#en-ce-moment" class="nav-link">En ce moment</a>
+          <a href="./formation/" class="nav-link">Formation</a>
           <a href="#articles" class="nav-link">Articles</a>
           <a href="#equipe" class="nav-link">L'équipe</a>
         </nav>
@@ -63,6 +64,7 @@
     <div data-mobile-menu class="hidden border-b border-zinc-200 bg-white px-4 py-4 md:hidden">
       <nav class="flex flex-col gap-4">
         <a href="#en-ce-moment" class="text-sm font-medium text-zinc-900 py-2 border-b border-zinc-50">En ce moment</a>
+        <a href="./formation/" class="text-sm font-medium text-zinc-600 py-2 border-b border-zinc-50">Formation</a>
         <a href="#articles" class="text-sm font-medium text-zinc-600 py-2 border-b border-zinc-50">Articles</a>
         <a href="#equipe" class="text-sm font-medium text-zinc-600 py-2 border-b border-zinc-50">L'équipe</a>
         <div class="pt-2 flex flex-col gap-2">
@@ -95,8 +97,8 @@
             <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z"/></svg>
             Suivre la chaîne
           </a>
-          <a href="./ateliers/" class="accent-outline btn w-full sm:w-auto border group">
-            Voir la masterclass
+          <a href="./formation/" class="accent-outline btn w-full sm:w-auto border group">
+            Voir la formation
             <i data-lucide="arrow-right" class="w-4 h-4 transition-transform group-hover:translate-x-0.5"></i>
           </a>
         </div>
@@ -194,68 +196,73 @@
             <h2 class="display-section text-zinc-900 mt-3">L'actualité Parlons IA</h2>
           </div>
           <p class="text-sm text-zinc-500 max-w-xs mt-4 md:mt-0 leading-relaxed">
-            La prochaine masterclass se prépare. Le concours est terminé.
+            Une formation en cours, des masterclass gratuites à venir.
           </p>
         </div>
 
         <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
           <div data-reveal class="dark-feature-card relative group overflow-hidden rounded-3xl border border-zinc-800 text-zinc-50 p-8 sm:p-10 lg:col-span-2">
             <div class="absolute top-0 right-0 p-8 opacity-[0.06]">
-              <i data-lucide="sparkles" class="w-44 h-44"></i>
+              <i data-lucide="graduation-cap" class="w-44 h-44"></i>
             </div>
             <div class="relative z-10 max-w-xl">
               <div class="flex flex-wrap items-center gap-3 mb-7">
                 <span class="accent-pill-dark inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-[11px] font-medium">
-                  <i data-lucide="calendar-clock" class="w-3.5 h-3.5"></i> Prochaine masterclass
+                  <i data-lucide="graduation-cap" class="w-3.5 h-3.5"></i> Formation
                 </span>
-                <span class="text-xs text-emerald-300 font-medium">En préparation</span>
+                <span class="text-xs text-emerald-300 font-medium">Session en cours</span>
               </div>
               <h3 class="font-serif text-3xl sm:text-4xl text-white mb-4 leading-[1.15]">
-                La prochaine session<br><em class="text-emerald-300">arrive bientôt.</em>
+                Maîtriser Claude Cowork et ChatGPT<br><em class="text-emerald-300">pour mieux travailler.</em>
               </h3>
               <p class="text-sm text-zinc-300 leading-relaxed mb-7 max-w-xl">
-                Après la masterclass Génération d'images, on prépare la suite. Le thème et la date seront annoncés en avant-première sur la chaîne — comme toujours, gratuit et en direct.
+                Six séances pour apprendre à déléguer de vraies tâches à l'IA, produire des livrables professionnels et automatiser le répétitif. Une session est en cours, la prochaine se prépare.
               </p>
               <div class="flex flex-wrap items-center gap-2.5 text-[11px] text-zinc-200 mb-8">
-                <span class="px-3 py-1.5 rounded-md bg-white/10 border border-white/5">Gratuit</span>
-                <span class="px-3 py-1.5 rounded-md bg-white/10 border border-white/5">En direct</span>
-                <span class="px-3 py-1.5 rounded-md bg-white/10 border border-white/5">Thème à venir</span>
+                <span class="px-3 py-1.5 rounded-md bg-white/10 border border-white/5">6 séances de 2 h</span>
+                <span class="px-3 py-1.5 rounded-md bg-white/10 border border-white/5">100 % en ligne</span>
+                <span class="px-3 py-1.5 rounded-md bg-white/10 border border-white/5">150 €</span>
               </div>
-              <a data-channel-url target="_blank" rel="noopener" class="accent-button btn text-white group/btn">
-                <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z"/></svg>
-                Être prévenu sur la chaîne
+              <a href="./formation/" class="accent-button btn text-white group/btn">
+                Voir la formation
+                <i data-lucide="arrow-right" class="w-4 h-4 transition-transform group-hover/btn:translate-x-0.5"></i>
               </a>
             </div>
           </div>
 
           <div data-reveal style="--reveal-delay: 120ms" class="dark-feature-card relative group overflow-hidden rounded-3xl border border-zinc-800 text-zinc-50 p-8 sm:p-10 flex flex-col justify-between">
             <div class="absolute top-0 right-0 p-8 opacity-[0.06]">
-              <i data-lucide="award" class="w-36 h-36"></i>
+              <i data-lucide="calendar-clock" class="w-36 h-36"></i>
             </div>
             <div class="relative z-10">
               <div class="flex items-center justify-between mb-7">
                 <span class="accent-pill-dark inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-[11px] font-medium">
-                  <i data-lucide="award" class="w-3.5 h-3.5"></i> Concours
+                  <i data-lucide="video" class="w-3.5 h-3.5"></i> Masterclass
                 </span>
-                <span class="text-xs text-emerald-300 font-medium">Résultat annoncé</span>
+                <span class="text-xs text-emerald-300 font-medium">Gratuit</span>
               </div>
               <h3 class="font-serif text-2xl sm:text-3xl text-white mb-4 leading-snug">
-                Invitation de mariage IA
+                La prochaine arrive bientôt
               </h3>
               <p class="text-sm text-zinc-300 leading-relaxed mb-6">
-                Le concours est terminé. Félicitations à Serge, gagnant de cette édition avec une carte complète et cohérente.
+                Après la génération d'images et les agents IA, d'autres masterclass gratuites et en direct arrivent. Le thème et la date sont annoncés d'abord sur la chaîne.
               </p>
             </div>
-            <div class="relative z-10 pt-5 border-t border-white/10 flex items-center justify-between">
-              <a href="./concours/" class="text-sm font-semibold text-white flex items-center gap-1.5 group/btn">
-                Voir le concours
+            <div class="relative z-10 pt-5 border-t border-white/10">
+              <a data-channel-url target="_blank" rel="noopener" class="text-sm font-semibold text-white flex items-center gap-1.5 group/btn">
+                Être prévenu sur la chaîne
                 <i data-lucide="arrow-right" class="w-4 h-4 transition-transform group-hover/btn:translate-x-1"></i>
               </a>
-              <span class="accent-pill-dark inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-[11px] font-medium text-emerald-300">
-                Serge
-              </span>
             </div>
           </div>
+        </div>
+
+        <div data-reveal class="archive-row">
+          <div class="flex items-center gap-3 min-w-0">
+            <span class="archive-badge">Session passée</span>
+            <span class="archive-title">Masterclass — Les agents IA · 27 septembre 2026</span>
+          </div>
+          <span class="archive-link">Replay bientôt</span>
         </div>
 
         <div data-reveal class="archive-row">
@@ -265,6 +272,17 @@
           </div>
           <a href="./ateliers/" class="archive-link group/arch">
             Voir le programme
+            <i data-lucide="arrow-right" class="w-3.5 h-3.5 transition-transform group-hover/arch:translate-x-0.5"></i>
+          </a>
+        </div>
+
+        <div data-reveal class="archive-row">
+          <div class="flex items-center gap-3 min-w-0">
+            <span class="archive-badge">Concours terminé</span>
+            <span class="archive-title">Invitation de mariage IA · gagnant : Serge</span>
+          </div>
+          <a href="./concours/" class="archive-link group/arch">
+            Voir le concours
             <i data-lucide="arrow-right" class="w-3.5 h-3.5 transition-transform group-hover/arch:translate-x-0.5"></i>
           </a>
         </div>
@@ -613,6 +631,7 @@
         <nav class="flex flex-wrap items-center justify-center gap-x-7 gap-y-3 text-xs">
           <a href="./" class="footer-link">Accueil</a>
           <a href="./ateliers/" class="footer-link">Masterclass</a>
+          <a href="./formation/" class="footer-link">Formation</a>
           <a href="./concours/" class="footer-link">Concours</a>
           <a href="#articles" class="footer-link">Articles</a>
           <a data-channel-url target="_blank" rel="noopener" class="footer-link">La chaîne</a>
