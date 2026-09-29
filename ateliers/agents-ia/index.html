@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="fr" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Masterclass : les agents IA expliqués simplement — Parlons IA</title>
+  <meta name="description" content="Récap de la masterclass gratuite Parlons IA du 27 septembre 2026 : ce qu'est un agent IA, les 5 cases qui le rendent utile, et comment choisir le bon outil.">
+  <meta name="theme-color" content="#0b100e">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%22-60 -30 870 890%22 fill=%22none%22 stroke=%22%23ffffff%22 stroke-linecap=%22round%22 stroke-linejoin=%22round%22%3E%3Crect x=%22-60%22 y=%22-30%22 width=%22870%22 height=%22890%22 rx=%22190%22 fill=%22%230b100e%22 stroke=%22none%22/%3E %3Cpath d=%22M355,82 H205 C118,82 58,150 58,262 V432 C58,545 122,622 226,640 V742 L355,662 Z%22 stroke-width=%2232%22/%3E %3Cpath d=%22M432,86 H503 C563,86 597,128 599,186 C652,196 688,246 684,308 C714,340 714,410 677,434 C702,474 690,544 638,562 C636,634 588,690 520,690 H478 C420,690 392,652 392,612 V576 H514%22 stroke-width=%2232%22/%3E %3Cpath d=%22M382,408 C408,404 424,392 442,366 L494,284%22 stroke-width=%2224%22/%3E %3Cpath d=%22M390,490 H444 C478,490 492,470 512,445 C532,420 548,410 570,408%22 stroke-width=%2224%22/%3E %3Ccircle cx=%22510%22 cy=%22262%22 r=%2219%22 stroke-width=%2212%22/%3E %3Ccircle cx=%22590%22 cy=%22405%22 r=%2219%22 stroke-width=%2212%22/%3E %3Ccircle cx=%22536%22 cy=%22566%22 r=%2219%22 stroke-width=%2212%22/%3E %3C/svg%3E ">
+  <script>document.documentElement.classList.add("js");</script>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400;1,500&display=swap" rel="stylesheet">
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', "sans-serif"],
+            serif: ['"Playfair Display"', "serif"]
+          }
+        }
+      }
+    };
+  </script>
+  <link rel="stylesheet" href="../../styles.css">
+</head>
+<body class="min-h-screen flex flex-col antialiased">
+  <header class="site-header sticky top-0 z-40 w-full border-b border-zinc-200/80 bg-white/80 backdrop-blur-md">
+    <div class="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+      <div class="header-inner flex h-16 items-center justify-between">
+        <div class="flex items-center gap-3">
+          <a href="../../" class="flex items-center gap-2 group">
+            <span class="brand-mark h-8 w-8 text-lg">P</span>
+            <span class="text-sm font-semibold tracking-tight text-zinc-900 brand-word">Parlons <b>IA</b></span>
+          </a>
+        </div>
+
+        <div class="hidden sm:flex items-center gap-3">
+          <a data-channel-url target="_blank" rel="noopener" class="inline-flex items-center justify-center rounded-lg text-xs font-semibold px-4 py-2 border border-zinc-200 bg-white hover:bg-zinc-50 text-zinc-800 transition shadow-sm">
+            S'inscrire
+          </a>
+          <a data-community-url target="_blank" rel="noopener" class="inline-flex items-center justify-center rounded-lg text-xs font-semibold px-4 py-2 bg-zinc-950 hover:bg-zinc-800 text-white transition shadow-sm">
+            Poser une question
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <div class="border-t border-zinc-200 bg-white px-4 py-3 sm:hidden">
+      <div class="flex gap-2">
+        <a data-channel-url target="_blank" rel="noopener" class="flex-1 text-center rounded-lg text-xs font-semibold py-2.5 border border-zinc-200 text-zinc-800 bg-white">
+          S'inscrire
+        </a>
+        <a data-community-url target="_blank" rel="noopener" class="flex-1 text-center rounded-lg text-xs font-semibold py-2.5 bg-zinc-950 text-white">
+          Poser une question
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <main class="flex-grow">
+    <section class="section-compact bg-white border-b border-zinc-200/60 relative overflow-hidden">
+      <div class="absolute inset-0 bg-[radial-gradient(#e4e4e7_1px,transparent_1px)] [background-size:24px_24px] opacity-40"></div>
+      <div class="relative mx-auto max-w-4xl px-4 sm:px-6 lg:px-8 text-center">
+        <div class="flex flex-wrap justify-center items-center gap-2 mb-4">
+          <span class="inline-flex items-center px-3 py-1 rounded-full bg-zinc-100 text-[10px] font-semibold tracking-wider text-zinc-600 uppercase">Masterclass gratuite</span>
+          <span class="inline-flex items-center px-3 py-1 rounded-full bg-zinc-100 text-[10px] font-semibold tracking-wider text-zinc-600 uppercase">Session passée</span>
+        </div>
+        <h1 class="editorial-title text-4xl sm:text-6xl font-normal text-zinc-900 tracking-tight leading-tight">
+          Les agents IA,<br><em>expliqués simplement.</em>
+        </h1>
+        <p class="text-sm sm:text-base text-zinc-500 max-w-2xl mx-auto mt-5 leading-relaxed font-light">
+          Ce qu'est vraiment un agent, ce qui le rend utile, et comment choisir l'outil qui correspond à ton besoin. Voici les points clés de la séance.
+        </p>
+        <div class="flex flex-wrap justify-center items-center gap-3 mt-7 text-xs text-zinc-600">
+          <span class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-white border border-zinc-200"><i data-lucide="calendar" class="w-3.5 h-3.5 text-emerald-700"></i> Dimanche 27 septembre 2026</span>
+          <span class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-white border border-zinc-200"><i data-lucide="video" class="w-3.5 h-3.5 text-emerald-700"></i> En direct sur Google Meet</span>
+        </div>
+        <div class="mt-8 inline-flex flex-col sm:flex-row items-center gap-3">
+          <span class="inline-flex items-center gap-2 px-5 py-3 rounded-xl bg-amber-50 border border-amber-200 text-amber-800 text-sm font-medium"><i data-lucide="clapperboard" class="w-4 h-4"></i> Replay bientôt disponible</span>
+          <a data-channel-url target="_blank" rel="noopener" class="accent-button inline-flex items-center justify-center rounded-xl text-white font-medium text-sm px-6 py-3 transition shadow-sm">Être prévenu sur la chaîne</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section-compact section-wash-soft">
+      <div class="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
+        <div class="landing-card bg-white rounded-2xl border border-zinc-200 p-8 mb-10 text-center">
+          <span class="text-xs font-semibold tracking-wider text-emerald-700 uppercase">L'idée de départ</span>
+          <p class="font-serif text-3xl sm:text-4xl text-zinc-900 mt-3">Un agent = un modèle + des outils</p>
+          <p class="text-sm text-zinc-500 mt-4 max-w-xl mx-auto leading-relaxed">Le modèle réfléchit, les outils lui permettent d'agir. La différence avec une automatisation : dans une automatisation, chaque étape est écrite à l'avance. Un agent, lui, choisit comment atteindre l'objectif.</p>
+        </div>
+
+        <div class="mb-4">
+          <span class="text-xs font-semibold tracking-wider text-emerald-700 uppercase">Les 5 cases</span>
+          <h3 class="font-serif text-2xl text-zinc-900 mt-2">Ce qui rend un agent de plus en plus utile</h3>
+        </div>
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4 mb-12">
+          <div class="landing-card bg-white p-5 rounded-xl border border-zinc-200">
+            <div class="w-9 h-9 rounded-lg bg-emerald-50 flex items-center justify-center text-emerald-700 mb-3"><i data-lucide="brain" class="w-4 h-4"></i></div>
+            <h4 class="font-semibold text-sm text-zinc-900"><span class="text-zinc-400 font-mono text-xs mr-1">1</span>Mémoire</h4>
+            <p class="text-xs text-zinc-500 mt-2 leading-relaxed">Il se souvient de toi d'une fois à l'autre.</p>
+          </div><div class="landing-card bg-white p-5 rounded-xl border border-zinc-200">
+            <div class="w-9 h-9 rounded-lg bg-emerald-50 flex items-center justify-center text-emerald-700 mb-3"><i data-lucide="repeat" class="w-4 h-4"></i></div>
+            <h4 class="font-semibold text-sm text-zinc-900"><span class="text-zinc-400 font-mono text-xs mr-1">2</span>Autonomie</h4>
+            <p class="text-xs text-zinc-500 mt-2 leading-relaxed">Il enchaîne les étapes seul, vérifie, recommence.</p>
+          </div><div class="landing-card bg-white p-5 rounded-xl border border-zinc-200">
+            <div class="w-9 h-9 rounded-lg bg-emerald-50 flex items-center justify-center text-emerald-700 mb-3"><i data-lucide="folder-open" class="w-4 h-4"></i></div>
+            <h4 class="font-semibold text-sm text-zinc-900"><span class="text-zinc-400 font-mono text-xs mr-1">3</span>Environnement</h4>
+            <p class="text-xs text-zinc-500 mt-2 leading-relaxed">Il travaille sur tes fichiers, puis sur ta machine.</p>
+          </div><div class="landing-card bg-white p-5 rounded-xl border border-zinc-200">
+            <div class="w-9 h-9 rounded-lg bg-emerald-50 flex items-center justify-center text-emerald-700 mb-3"><i data-lucide="alarm-clock" class="w-4 h-4"></i></div>
+            <h4 class="font-semibold text-sm text-zinc-900"><span class="text-zinc-400 font-mono text-xs mr-1">4</span>Initiative</h4>
+            <p class="text-xs text-zinc-500 mt-2 leading-relaxed">Il agit sans que tu lui parles : à heure fixe, quand un mail arrive.</p>
+          </div><div class="landing-card bg-white p-5 rounded-xl border border-zinc-200">
+            <div class="w-9 h-9 rounded-lg bg-emerald-50 flex items-center justify-center text-emerald-700 mb-3"><i data-lucide="smartphone" class="w-4 h-4"></i></div>
+            <h4 class="font-semibold text-sm text-zinc-900"><span class="text-zinc-400 font-mono text-xs mr-1">5</span>Partout</h4>
+            <p class="text-xs text-zinc-500 mt-2 leading-relaxed">Tu lui parles depuis ton téléphone, dans ta messagerie.</p>
+          </div>
+        </div>
+
+        <div class="dark-feature-card bg-zinc-900 text-white rounded-2xl p-8 sm:p-10 mb-12 relative overflow-hidden shadow-lg">
+          <span class="text-[10px] font-bold tracking-wider text-emerald-400 uppercase">Le parcours de la séance</span>
+          <h3 class="font-serif text-2xl sm:text-3xl mt-2 mb-6">Du chatbot à l'agent sur-mesure</h3>
+          <div class="flex items-start gap-4 py-4 border-b border-white/10 last:border-0">
+              <span class="w-7 h-7 shrink-0 rounded-full bg-emerald-400/15 text-emerald-300 text-xs font-bold flex items-center justify-center">0</span>
+              <div><h4 class="text-sm font-semibold text-white">D'où on vient</h4><p class="text-xs text-zinc-400 mt-1 leading-relaxed">IA, chatbot, LLM : la petite histoire, pour savoir de quoi on parle.</p></div>
+            </div><div class="flex items-start gap-4 py-4 border-b border-white/10 last:border-0">
+              <span class="w-7 h-7 shrink-0 rounded-full bg-emerald-400/15 text-emerald-300 text-xs font-bold flex items-center justify-center">1</span>
+              <div><h4 class="text-sm font-semibold text-white">Du modèle à l'agent</h4><p class="text-xs text-zinc-400 mt-1 leading-relaxed">On lui donne des outils. Et la différence avec une automatisation, où chaque étape est écrite à l'avance.</p></div>
+            </div><div class="flex items-start gap-4 py-4 border-b border-white/10 last:border-0">
+              <span class="w-7 h-7 shrink-0 rounded-full bg-emerald-400/15 text-emerald-300 text-xs font-bold flex items-center justify-center">2</span>
+              <div><h4 class="text-sm font-semibold text-white">Vous en avez déjà un</h4><p class="text-xs text-zinc-400 mt-1 leading-relaxed">ChatGPT, Claude et Gemini cherchent sur le web et produisent des documents.</p></div>
+            </div><div class="flex items-start gap-4 py-4 border-b border-white/10 last:border-0">
+              <span class="w-7 h-7 shrink-0 rounded-full bg-emerald-400/15 text-emerald-300 text-xs font-bold flex items-center justify-center">3</span>
+              <div><h4 class="text-sm font-semibold text-white">Les utiliser intelligemment</h4><p class="text-xs text-zinc-400 mt-1 leading-relaxed">Activer la mémoire, travailler en projets pour ne plus repartir de zéro.</p></div>
+            </div><div class="flex items-start gap-4 py-4 border-b border-white/10 last:border-0">
+              <span class="w-7 h-7 shrink-0 rounded-full bg-emerald-400/15 text-emerald-300 text-xs font-bold flex items-center justify-center">4</span>
+              <div><h4 class="text-sm font-semibold text-white">Plus de puissance</h4><p class="text-xs text-zinc-400 mt-1 leading-relaxed">ChatGPT Work et son petit ordinateur, qui enchaîne une mission entière. Manus est de la même famille.</p></div>
+            </div><div class="flex items-start gap-4 py-4 border-b border-white/10 last:border-0">
+              <span class="w-7 h-7 shrink-0 rounded-full bg-emerald-400/15 text-emerald-300 text-xs font-bold flex items-center justify-center">5</span>
+              <div><h4 class="text-sm font-semibold text-white">Tes fichiers</h4><p class="text-xs text-zinc-400 mt-1 leading-relaxed">Les connecteurs Drive et Gmail : l'agent lit tes documents et y dépose son travail.</p></div>
+            </div><div class="flex items-start gap-4 py-4 border-b border-white/10 last:border-0">
+              <span class="w-7 h-7 shrink-0 rounded-full bg-emerald-400/15 text-emerald-300 text-xs font-bold flex items-center justify-center">6</span>
+              <div><h4 class="text-sm font-semibold text-white">Ta machine</h4><p class="text-xs text-zinc-400 mt-1 leading-relaxed">Codex sur le PC, piloté depuis le téléphone.</p></div>
+            </div><div class="flex items-start gap-4 py-4 border-b border-white/10 last:border-0">
+              <span class="w-7 h-7 shrink-0 rounded-full bg-emerald-400/15 text-emerald-300 text-xs font-bold flex items-center justify-center">7</span>
+              <div><h4 class="text-sm font-semibold text-white">Poke</h4><p class="text-xs text-zinc-400 mt-1 leading-relaxed">La mémoire et la messagerie, sans rien installer. Mais pas ta machine.</p></div>
+            </div><div class="flex items-start gap-4 py-4 border-b border-white/10 last:border-0">
+              <span class="w-7 h-7 shrink-0 rounded-full bg-emerald-400/15 text-emerald-300 text-xs font-bold flex items-center justify-center">8</span>
+              <div><h4 class="text-sm font-semibold text-white">Le sur-mesure</h4><p class="text-xs text-zinc-400 mt-1 leading-relaxed">Nao, OpenClaw, Hermes, Claude Code sur Telegram : toutes les cases cochées. En fin de séance, on a montré comment construire le sien.</p></div>
+            </div>
+        </div>
+
+        <div class="landing-card bg-white rounded-2xl border border-zinc-200 p-6 sm:p-8 mb-12 overflow-x-auto">
+          <span class="text-xs font-semibold tracking-wider text-emerald-700 uppercase">La grille</span>
+          <h3 class="font-serif text-2xl text-zinc-900 mt-2 mb-5">Quelles cases chaque outil coche</h3>
+          <table class="w-full min-w-[520px] text-sm">
+            <thead><tr class="text-[10px] sm:text-xs text-zinc-500 uppercase tracking-wider"><th class="pb-3 text-left font-semibold">Outil</th><th class="pb-3 font-semibold">Mémoire</th><th class="pb-3 font-semibold">Autonomie</th><th class="pb-3 font-semibold">Environ&shy;nement</th><th class="pb-3 font-semibold">Initiative</th><th class="pb-3 font-semibold">Partout</th></tr></thead>
+            <tbody><tr class="border-t border-zinc-100"><td class="py-3 pr-3 text-left text-xs sm:text-sm text-zinc-800 font-medium">Chatbot d'avant</td><td class="py-3 text-center"><span class="text-zinc-300">✗</span></td><td class="py-3 text-center"><span class="text-zinc-300">✗</span></td><td class="py-3 text-center"><span class="text-zinc-300">✗</span></td><td class="py-3 text-center"><span class="text-zinc-300">✗</span></td><td class="py-3 text-center"><span class="text-zinc-300">✗</span></td></tr><tr class="border-t border-zinc-100"><td class="py-3 pr-3 text-left text-xs sm:text-sm text-zinc-800 font-medium">ChatGPT, Claude, Gemini</td><td class="py-3 text-center"><span class="text-zinc-300">✗</span></td><td class="py-3 text-center"><span class="text-amber-500 font-bold">½</span></td><td class="py-3 text-center"><span class="text-amber-500 font-bold">½</span></td><td class="py-3 text-center"><span class="text-zinc-300">✗</span></td><td class="py-3 text-center"><span class="text-amber-500 font-bold">½</span></td></tr><tr class="border-t border-zinc-100"><td class="py-3 pr-3 text-left text-xs sm:text-sm text-zinc-800 font-medium">Avec mémoire et projets</td><td class="py-3 text-center"><span class="text-amber-500 font-bold">½</span></td><td class="py-3 text-center"><span class="text-amber-500 font-bold">½</span></td><td class="py-3 text-center"><span class="text-amber-500 font-bold">½</span></td><td class="py-3 text-center"><span class="text-zinc-300">✗</span></td><td class="py-3 text-center"><span class="text-amber-500 font-bold">½</span></td></tr><tr class="border-t border-zinc-100"><td class="py-3 pr-3 text-left text-xs sm:text-sm text-zinc-800 font-medium">ChatGPT Work</td><td class="py-3 text-center"><span class="text-zinc-300">✗</span></td><td class="py-3 text-center"><span class="text-emerald-600 font-bold">✓</span></td><td class="py-3 text-center"><span class="text-zinc-300">✗</span></td><td class="py-3 text-center"><span class="text-zinc-300">✗</span></td><td class="py-3 text-center"><span class="text-amber-500 font-bold">½</span></td></tr><tr class="border-t border-zinc-100"><td class="py-3 pr-3 text-left text-xs sm:text-sm text-zinc-800 font-medium">Connecteur Drive</td><td class="py-3 text-center"><span class="text-amber-500 font-bold">½</span></td><td class="py-3 text-center"><span class="text-amber-500 font-bold">½</span></td><td class="py-3 text-center"><span class="text-amber-500 font-bold">½</span></td><td class="py-3 text-center"><span class="text-zinc-300">✗</span></td><td class="py-3 text-center"><span class="text-amber-500 font-bold">½</span></td></tr><tr class="border-t border-zinc-100"><td class="py-3 pr-3 text-left text-xs sm:text-sm text-zinc-800 font-medium">Codex sur le PC</td><td class="py-3 text-center"><span class="text-zinc-300">✗</span></td><td class="py-3 text-center"><span class="text-emerald-600 font-bold">✓</span></td><td class="py-3 text-center"><span class="text-emerald-600 font-bold">✓</span></td><td class="py-3 text-center"><span class="text-zinc-300">✗</span></td><td class="py-3 text-center"><span class="text-emerald-600 font-bold">✓</span></td></tr><tr class="border-t border-zinc-100"><td class="py-3 pr-3 text-left text-xs sm:text-sm text-zinc-800 font-medium">Poke</td><td class="py-3 text-center"><span class="text-emerald-600 font-bold">✓</span></td><td class="py-3 text-center"><span class="text-amber-500 font-bold">½</span></td><td class="py-3 text-center"><span class="text-amber-500 font-bold">½</span></td><td class="py-3 text-center"><span class="text-emerald-600 font-bold">✓</span></td><td class="py-3 text-center"><span class="text-emerald-600 font-bold">✓</span></td></tr><tr class="border-t border-zinc-100"><td class="py-3 pr-3 text-left text-xs sm:text-sm text-zinc-800 font-medium">Sur-mesure</td><td class="py-3 text-center"><span class="text-emerald-600 font-bold">✓</span></td><td class="py-3 text-center"><span class="text-emerald-600 font-bold">✓</span></td><td class="py-3 text-center"><span class="text-emerald-600 font-bold">✓</span></td><td class="py-3 text-center"><span class="text-emerald-600 font-bold">✓</span></td><td class="py-3 text-center"><span class="text-emerald-600 font-bold">✓</span></td></tr></tbody>
+          </table>
+          <p class="text-xs text-zinc-500 mt-5 leading-relaxed">✓ coché · ½ à moitié · ✗ pas coché. La grille marche aussi dans l'autre sens : regarde quelles cases ton besoin demande, et tu sauras quel outil choisir.</p>
+        </div>
+
+        <div class="landing-card bg-white rounded-2xl border border-zinc-200 p-8 mb-12 text-center">
+          <p class="font-serif text-2xl sm:text-3xl text-zinc-900 leading-snug">« Plus vous cochez de cases, <em class="text-emerald-700">plus l'agent vous ressemble.</em> »</p>
+          <p class="text-xs text-zinc-500 mt-4">Tout cocher, aujourd'hui, ça demande du sur-mesure. C'est ce qu'on a montré en fin de séance.</p>
+        </div>
+
+        <div class="dark-feature-card bg-zinc-900 text-white rounded-2xl p-8 sm:p-10 text-center shadow-lg">
+          <span class="text-[10px] font-bold tracking-wider text-emerald-400 uppercase">Le replay</span>
+          <h3 class="font-serif text-2xl sm:text-3xl mt-2 mb-3">Bientôt disponible</h3>
+          <p class="text-sm text-zinc-300 leading-relaxed mb-7 font-light max-w-lg mx-auto">Le replay arrive. Il sera annoncé sur la chaîne, avec les prochaines masterclass gratuites.</p>
+          <div class="flex flex-col sm:flex-row items-stretch sm:items-center justify-center gap-3">
+            <a data-channel-url target="_blank" rel="noopener" class="px-6 py-3 bg-white text-zinc-950 rounded-lg text-xs font-semibold text-center hover:bg-zinc-100 transition shadow">Suivre la chaîne</a>
+            <a href="../../formation/" class="px-6 py-3 border border-white/15 rounded-lg text-xs font-semibold text-center hover:bg-white/5 transition">Aller plus loin : la formation</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="bg-zinc-950 text-zinc-400 py-12 border-t border-zinc-900 text-xs">
+    <div class="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+      <div class="flex flex-col md:flex-row items-center justify-between gap-6 pb-8 border-b border-zinc-900">
+        <div class="flex items-center gap-2">
+          <span class="brand-mark h-7 w-7 text-sm !bg-white !text-zinc-950">P</span>
+          <span class="font-semibold text-white brand-word">Parlons <b>IA</b></span>
+        </div>
+        <div class="flex items-center gap-6">
+          <a href="../../" class="footer-link">Accueil</a>
+          <a href="../" class="footer-link">Masterclass</a>
+          <a href="../../formation/" class="footer-link">Formation</a>
+          <a href="../../concours/" class="footer-link">Concours</a>
+        </div>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4 pt-8">
+        <div class="rounded-2xl border border-zinc-800 bg-zinc-900/60 p-5">
+          <p class="text-[10px] uppercase tracking-wider text-zinc-600 font-semibold">La chaîne</p>
+          <h3 class="font-semibold text-white text-sm mt-2">Recevoir l'annonce</h3>
+          <p class="text-zinc-400 text-xs leading-relaxed mt-2">
+            Les infos pratiques, le lien Google Meet et les prochaines masterclass passent d'abord ici.
+          </p>
+          <a data-channel-url target="_blank" rel="noopener" class="inline-flex items-center justify-center rounded-lg text-xs font-semibold px-4 py-2 mt-4 bg-white text-zinc-950 hover:bg-zinc-100 transition">
+            Suivre la chaîne
+          </a>
+        </div>
+
+        <div class="rounded-2xl border border-zinc-800 bg-zinc-900/60 p-5">
+          <p class="text-[10px] uppercase tracking-wider text-zinc-600 font-semibold">La communauté</p>
+          <h3 class="font-semibold text-white text-sm mt-2">Faire remonter un besoin</h3>
+          <p class="text-zinc-400 text-xs leading-relaxed mt-2">
+            Questions, blocages, idées de sujets et retours vivent ici.
+          </p>
+          <a data-community-url target="_blank" rel="noopener" class="inline-flex items-center justify-center rounded-lg text-xs font-semibold px-4 py-2 mt-4 border border-zinc-700 text-white hover:bg-zinc-800 transition">
+            Rejoindre la communauté
+          </a>
+        </div>
+      </div>
+
+      <div class="flex flex-col sm:flex-row items-center justify-between gap-3 mt-8 pt-6 border-t border-zinc-900 text-xs text-zinc-600">
+        <span>© <span data-year>2026</span> Parlons IA. Tous droits réservés.</span>
+        <span>Chaîne pour recevoir. Communauté pour échanger.</span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="../../script.js"></script>
+</body>
+</html>
