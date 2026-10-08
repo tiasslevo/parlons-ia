@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="fr" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ta vidéo dessinée à la main avec Claude : le guide — Parlons IA</title>
+  <meta name="description" content="Le guide pas à pas pour faire une vidéo explicative dessinée à la main (style whiteboard) avec Claude et ChatGPT : script, illustrations, voix et MP4 final.">
+  <meta name="theme-color" content="#0b100e">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%22-60 -30 870 890%22 fill=%22none%22 stroke=%22%23ffffff%22 stroke-linecap=%22round%22 stroke-linejoin=%22round%22%3E%3Crect x=%22-60%22 y=%22-30%22 width=%22870%22 height=%22890%22 rx=%22190%22 fill=%22%230b100e%22 stroke=%22none%22/%3E %3Cpath d=%22M355,82 H205 C118,82 58,150 58,262 V432 C58,545 122,622 226,640 V742 L355,662 Z%22 stroke-width=%2232%22/%3E %3Cpath d=%22M432,86 H503 C563,86 597,128 599,186 C652,196 688,246 684,308 C714,340 714,410 677,434 C702,474 690,544 638,562 C636,634 588,690 520,690 H478 C420,690 392,652 392,612 V576 H514%22 stroke-width=%2232%22/%3E %3Cpath d=%22M382,408 C408,404 424,392 442,366 L494,284%22 stroke-width=%2224%22/%3E %3Cpath d=%22M390,490 H444 C478,490 492,470 512,445 C532,420 548,410 570,408%22 stroke-width=%2224%22/%3E %3Ccircle cx=%22510%22 cy=%22262%22 r=%2219%22 stroke-width=%2212%22/%3E %3Ccircle cx=%22590%22 cy=%22405%22 r=%2219%22 stroke-width=%2212%22/%3E %3Ccircle cx=%22536%22 cy=%22566%22 r=%2219%22 stroke-width=%2212%22/%3E %3C/svg%3E ">
+  <script>document.documentElement.classList.add("js");</script>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400;1,500&display=swap" rel="stylesheet">
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', "sans-serif"],
+            serif: ['"Playfair Display"', "serif"]
+          }
+        }
+      }
+    };
+  </script>
+  <link rel="stylesheet" href="../../styles.css">
+  <link rel="stylesheet" href="../../article.css">
+</head>
+<body class="article-page min-h-screen flex flex-col antialiased">
+  <header class="site-header sticky top-0 z-40 w-full border-b border-zinc-200/80 bg-white/80 backdrop-blur-md">
+    <a href="../../formation/" class="contest-banner group">
+      <span class="contest-banner-dot"></span>
+      <span>Formation</span>
+      <strong>Session en cours</strong>
+      <span class="hidden sm:inline">Réserve ta place pour la prochaine</span>
+      <i data-lucide="arrow-right" class="w-3.5 h-3.5 transition-transform group-hover:translate-x-0.5"></i>
+    </a>
+    <div class="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+      <div class="header-inner flex h-16 items-center justify-between">
+        <div class="flex items-center gap-3">
+          <a href="../../" class="flex items-center gap-2 group">
+            <span class="brand-mark h-8 w-8 text-lg">P</span>
+            <span class="text-sm font-semibold tracking-tight text-zinc-900 brand-word">Parlons <b>IA</b></span>
+          </a>
+        </div>
+
+        <div class="hidden sm:flex items-center gap-3">
+          <a data-channel-url target="_blank" rel="noopener" class="inline-flex items-center justify-center rounded-lg text-xs font-semibold px-4 py-2 border border-zinc-200 bg-white hover:bg-zinc-50 text-zinc-800 transition">
+            Être prévenu
+          </a>
+          <a data-community-url target="_blank" rel="noopener" class="inline-flex items-center justify-center rounded-lg text-xs font-semibold px-4 py-2 bg-zinc-950 hover:bg-zinc-800 text-white transition">
+            Poser une question
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <div class="border-t border-zinc-200 bg-white px-4 py-3 sm:hidden">
+      <div class="flex gap-2">
+        <a data-channel-url target="_blank" rel="noopener" class="flex-1 text-center rounded-lg text-xs font-semibold py-2.5 border border-zinc-200 text-zinc-800 bg-white">
+          Être prévenu
+        </a>
+        <a data-community-url target="_blank" rel="noopener" class="flex-1 text-center rounded-lg text-xs font-semibold py-2.5 bg-zinc-950 text-white">
+          Poser une question
+        </a>
+      </div>
+    </div>
+  </header>
+
+    <main class="flex-grow">
+    <section class="article-hero article-wrap">
+      <div class="article-hero-copy">
+        <span class="article-kicker" data-reveal>Guide pas à pas</span>
+        <h1 class="article-title" data-reveal data-delay="1">Ta vidéo dessinée à la main, <span>faite avec Claude</span></h1>
+        <p class="article-summary" data-reveal data-delay="2">
+          Le style des vidéos explicatives où une main dessine au feutre chaque idée au moment où elle est dite. Claude écrit, anime et monte. ChatGPT dessine les illustrations.
+        </p>
+        <div class="article-meta" data-reveal data-delay="2">
+          <span class="article-meta-chip"><i data-lucide="clock-3"></i>8 min</span>
+          <span class="article-meta-chip"><i data-lucide="user"></i>Boris Koulevo</span>
+          <span class="article-meta-chip"><i data-lucide="calendar-days"></i>Octobre 2026</span>
+        </div>
+      </div>
+      <div class="article-visual" data-reveal data-delay="2">
+        <div class="p-3 bg-white flex justify-center">
+          <video class="rounded-2xl w-full max-w-[340px] aspect-[9/16] bg-zinc-100" src="./inflation-whiteboard.mp4" poster="./inflation-poster.jpg" controls playsinline preload="metadata"></video>
+        </div>
+      </div>
+    </section>
+
+    <div class="article-body">
+      <section class="article-section">
+        <h2 class="article-section-title" data-reveal>Ce que tu vas obtenir</h2>
+        <p class="article-text" data-reveal>L'exemple du guide, c'est <strong>« L'inflation en 60 secondes »</strong>. Une voix explique, et pendant qu'elle parle, une main dessine au feutre le pain qui coûte plus cher, la foule devant le rayon, l'usine, la tirelire. Chaque dessin arrive d'abord en traits noirs, puis la couleur se pose. Les mots importants s'écrivent à la main.</p>
+        <p class="article-text" data-reveal>Ce style marche pour expliquer n'importe quoi : un concept, ton offre, une méthode, un chiffre. Le sujet est à toi.</p>
+      </section>
+
+      <section class="article-section">
+        <h2 class="article-section-title" data-reveal>Ce qu'il te faut</h2>
+        <div class="article-grid-3">
+          <div class="article-card" data-reveal>
+            <span class="article-step"><i data-lucide="sparkles"></i></span>
+            <h3>Claude</h3>
+            <p>Un abonnement payant, avec l'exécution de code activée dans les réglages. C'est ce qui permet à Claude de fabriquer la vidéo.</p>
+          </div>
+          <div class="article-card" data-reveal data-delay="1">
+            <span class="article-step"><i data-lucide="image"></i></span>
+            <h3>ChatGPT</h3>
+            <p>Pour dessiner la main et les illustrations, à partir des prompts que Claude te prépare.</p>
+          </div>
+          <div class="article-card" data-reveal data-delay="2">
+            <span class="article-step"><i data-lucide="mic"></i></span>
+            <h3>Une voix</h3>
+            <p>Ta propre voix enregistrée, ou une voix ElevenLabs avec son connecteur activé dans Claude.</p>
+          </div>
+        </div>
+        <div class="article-callout" data-reveal><strong>Claude et ChatGPT ne se parlent pas.</strong> C'est toi qui fais le lien : Claude te donne les prompts d'images, tu les colles dans ChatGPT, puis tu renvoies les images à Claude. Compte environ une heure pour une première vidéo.</div>
+      </section>
+
+      <section class="article-section">
+        <h2 class="article-section-title" data-reveal>Étape 1 · Coller le prompt de départ</h2>
+        <p class="article-text" data-reveal>Ouvre une nouvelle conversation dans Claude et colle ce prompt. Claude commence par te poser quelques questions : ton sujet, la durée, le format, la voix. Réponds simplement.</p>
+        <div class="prompt-panel" onclick="openPromptModal(0)" data-reveal>
+          <div class="prompt-panel-main">
+            <div class="prompt-panel-icon"><i data-lucide="pen-tool"></i></div>
+            <div>
+              <div class="prompt-panel-label">Le prompt de départ</div>
+              <div class="prompt-panel-sub">À coller dans une nouvelle conversation Claude</div>
+            </div>
+          </div>
+          <div class="prompt-panel-actions">
+            <button class="prompt-button solid" onclick="event.stopPropagation(); copyPrompt(0, this)">Copier</button>
+            <button class="prompt-button" onclick="event.stopPropagation(); openPromptModal(0)">Voir</button>
+          </div>
+        </div>
+      </section>
+
+      <section class="article-section">
+        <h2 class="article-section-title" data-reveal>Étape 2 · Valider le script</h2>
+        <p class="article-text" data-reveal>Claude te propose un script découpé en scènes : ce que dit la voix, et ce qui se dessine à chaque phrase. Lis-le à voix haute. Si une phrase sonne faux ou si une idée manque, dis-le-lui maintenant : tout le reste en dépend.</p>
+      </section>
+
+      <section class="article-section">
+        <h2 class="article-section-title" data-reveal>Étape 3 · Générer les images dans ChatGPT</h2>
+        <p class="article-text" data-reveal>Une fois le script validé, Claude te donne la liste des images à créer, avec un prompt prêt à coller pour chacune : la main qui tient le feutre, puis une illustration par idée. Colle-les une par une dans ChatGPT, télécharge les images et renvoie-les toutes à Claude.</p>
+        <div class="grid grid-cols-2 gap-3 mt-6" data-reveal>
+          <figure class="relative overflow-hidden rounded-2xl border border-zinc-200 bg-white"><span class="article-compare-label">La main</span><img class="w-full aspect-square object-contain" src="./main.jpg" alt="Main qui tient un feutre, générée par ChatGPT" loading="lazy"></figure>
+          <figure class="relative overflow-hidden rounded-2xl border border-zinc-200 bg-white"><span class="article-compare-label after">Une illustration</span><img class="w-full aspect-square object-contain" src="./usine-color.jpg" alt="Illustration d'usine au trait, générée par ChatGPT" loading="lazy"></figure>
+        </div>
+        <p class="article-text" data-reveal>Si tu veux préparer tes images avant, voici les deux prompts qu'on a utilisés.</p>
+        <div class="prompt-panel" onclick="openPromptModal(1)" data-reveal>
+          <div class="prompt-panel-main">
+            <div class="prompt-panel-icon"><i data-lucide="hand"></i></div>
+            <div>
+              <div class="prompt-panel-label">ChatGPT : la main au feutre</div>
+              <div class="prompt-panel-sub">Une seule fois, elle sert pour toute la vidéo</div>
+            </div>
+          </div>
+          <div class="prompt-panel-actions">
+            <button class="prompt-button solid" onclick="event.stopPropagation(); copyPrompt(1, this)">Copier</button>
+            <button class="prompt-button" onclick="event.stopPropagation(); openPromptModal(1)">Voir</button>
+          </div>
+        </div>
+        <div class="prompt-panel" onclick="openPromptModal(2)" data-reveal>
+          <div class="prompt-panel-main">
+            <div class="prompt-panel-icon"><i data-lucide="image"></i></div>
+            <div>
+              <div class="prompt-panel-label">ChatGPT : une illustration</div>
+              <div class="prompt-panel-sub">Une par idée, même style pour toutes</div>
+            </div>
+          </div>
+          <div class="prompt-panel-actions">
+            <button class="prompt-button solid" onclick="event.stopPropagation(); copyPrompt(2, this)">Copier</button>
+            <button class="prompt-button" onclick="event.stopPropagation(); openPromptModal(2)">Voir</button>
+          </div>
+        </div>
+      </section>
+
+      <section class="article-section">
+        <h2 class="article-section-title" data-reveal>Étape 4 · La voix</h2>
+        <p class="article-text" data-reveal>Deux options. Tu enregistres le script toi-même sur ton téléphone et tu envoies l'audio à Claude. Ou, si le connecteur ElevenLabs est activé, Claude génère la voix lui-même : décris-lui simplement la voix que tu veux.</p>
+      </section>
+
+      <section class="article-section">
+        <h2 class="article-section-title" data-reveal>Étape 5 · Claude anime et monte</h2>
+        <p class="article-text" data-reveal>Avec les images et la voix, Claude fabrique la vidéo en code. Il tire les contours de chaque illustration, les fait apparaître trait par trait sous la pointe du feutre, puis pose la couleur. Les mots-clés s'écrivent à la main, au moment où la voix les prononce.</p>
+        <div class="grid grid-cols-2 gap-3 mt-6" data-reveal>
+          <figure class="relative overflow-hidden rounded-2xl border border-zinc-200 bg-white"><span class="article-compare-label">Le trait</span><img class="w-full aspect-[4/3] object-contain" src="./foule-line.jpg" alt="Contours de l'illustration, dessinés en premier" loading="lazy"></figure>
+          <figure class="relative overflow-hidden rounded-2xl border border-zinc-200 bg-white"><span class="article-compare-label after">La couleur</span><img class="w-full aspect-[4/3] object-contain" src="./foule-color.jpg" alt="La même illustration, en couleur" loading="lazy"></figure>
+        </div>
+        <p class="article-text" data-reveal>La première version est rarement parfaite. Regarde-la en entier, puis donne des retours précis, avec le moment concerné. Voici les phrases qui servent le plus :</p>
+        <div class="prompt-panel" onclick="openPromptModal(3)" data-reveal>
+          <div class="prompt-panel-main">
+            <div class="prompt-panel-icon"><i data-lucide="wrench"></i></div>
+            <div>
+              <div class="prompt-panel-label">Les phrases pour corriger</div>
+              <div class="prompt-panel-sub">Rythme, synchronisation, lisibilité</div>
+            </div>
+          </div>
+          <div class="prompt-panel-actions">
+            <button class="prompt-button solid" onclick="event.stopPropagation(); copyPrompt(3, this)">Copier</button>
+            <button class="prompt-button" onclick="event.stopPropagation(); openPromptModal(3)">Voir</button>
+          </div>
+        </div>
+      </section>
+
+      <section class="article-section">
+        <h2 class="article-section-title" data-reveal>Et pour n'importe quel autre style</h2>
+        <p class="article-text" data-reveal>Le prompt de départ décrit le style dessiné à la main, mais la méthode marche pour tous les styles. Tu as vu une vidéo dont tu aimes la façon de faire ? Commence par elle. Donne-la à Claude, ou quelques captures d'écran si la vidéo ne passe pas, et demande-lui d'analyser comment elle est construite. Il en tire les règles du style, et tu les utilises à la place des miennes dans le prompt de départ.</p>
+        <div class="prompt-panel" onclick="openPromptModal(4)" data-reveal>
+          <div class="prompt-panel-main">
+            <div class="prompt-panel-icon"><i data-lucide="scan-search"></i></div>
+            <div>
+              <div class="prompt-panel-label">Analyser une vidéo de référence</div>
+              <div class="prompt-panel-sub">À envoyer avec la vidéo ou ses captures</div>
+            </div>
+          </div>
+          <div class="prompt-panel-actions">
+            <button class="prompt-button solid" onclick="event.stopPropagation(); copyPrompt(4, this)">Copier</button>
+            <button class="prompt-button" onclick="event.stopPropagation(); openPromptModal(4)">Voir</button>
+          </div>
+        </div>
+        <div class="article-callout" data-reveal><strong>Ne copie pas les détails de la référence.</strong> Ce qui compte, c'est sa façon de raconter : ce qui apparaît, à quel moment, et comment. Les couleurs, les cadres ou les polices peuvent être les tiens.</div>
+      </section>
+
+
+      <section class="section-compact section-wash relative overflow-hidden mt-16 rounded-[28px] border border-zinc-200" data-reveal>
+        <div class="absolute inset-0 bg-zinc-50/35"></div>
+        <div class="relative mx-auto max-w-4xl px-4 sm:px-6 lg:px-8 text-center z-10">
+          <h2 class="editorial-title text-3xl sm:text-5xl text-zinc-900 font-normal leading-tight max-w-2xl mx-auto">
+            Chaîne ou communauté ?
+          </h2>
+          <p class="text-sm text-zinc-500 mt-4 max-w-md mx-auto leading-relaxed">
+            Suivre les prochains kits, ou venir montrer ses essais et obtenir un retour.
+          </p>
+
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-2xl mx-auto mt-12 text-left">
+            <div class="landing-card bg-white rounded-xl border border-zinc-200 p-6 flex flex-col justify-between hover:border-emerald-200 transition-colors duration-300">
+              <div>
+                <h3 class="font-semibold text-sm text-zinc-900">La chaîne</h3>
+                <p class="text-xs text-zinc-500 mt-2 leading-relaxed">
+                  Nouveaux kits, ressources, ateliers et annonces.
+                </p>
+              </div>
+              <a data-channel-url target="_blank" rel="noopener" class="accent-button mt-6 w-full text-center py-2.5 text-white font-semibold text-xs rounded-lg transition">
+                Suivre la chaîne
+              </a>
+            </div>
+
+            <div class="landing-card bg-white rounded-xl border border-zinc-200 p-6 flex flex-col justify-between hover:border-emerald-200 transition-colors duration-300">
+              <div>
+                <h3 class="font-semibold text-sm text-zinc-900">La communauté</h3>
+                <p class="text-xs text-zinc-500 mt-2 leading-relaxed">
+                  Questions, retours, idées et corrections sur les tests.
+                </p>
+              </div>
+              <a data-community-url target="_blank" rel="noopener" class="accent-outline mt-6 w-full text-center py-2.5 border font-semibold text-xs rounded-lg transition">
+                Rejoindre la communauté
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <footer class="bg-zinc-950 text-zinc-400 py-12 border-t border-zinc-900 text-xs">
+    <div class="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+      <div class="flex flex-col md:flex-row items-center justify-between gap-6 pb-8 border-b border-zinc-900">
+        <div class="flex items-center gap-2">
+          <span class="brand-mark h-7 w-7 text-sm !bg-white !text-zinc-950">P</span>
+          <span class="font-semibold text-white brand-word">Parlons <b>IA</b></span>
+        </div>
+        <div class="flex items-center gap-6">
+          <a href="../../" class="footer-link">Accueil</a>
+          <a href="../../ateliers/" class="footer-link">Masterclass</a>
+          <a href="../../formation/" class="footer-link">Formation</a>
+          <a href="../../concours/" class="footer-link">Concours</a>
+        </div>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4 pt-8">
+        <div class="rounded-2xl border border-zinc-800 bg-zinc-900/60 p-5">
+          <p class="text-[10px] uppercase tracking-wider text-zinc-600 font-semibold">La chaîne</p>
+          <h3 class="font-semibold text-white text-sm mt-2">Recevoir les prochains kits</h3>
+          <p class="text-zinc-400 text-xs leading-relaxed mt-2">
+            Guides, annonces et prompts à tester.
+          </p>
+          <a data-channel-url target="_blank" rel="noopener" class="inline-flex items-center justify-center rounded-lg text-xs font-semibold px-4 py-2 mt-4 bg-white text-zinc-950 hover:bg-zinc-100 transition">
+            Suivre la chaîne
+          </a>
+        </div>
+
+        <div class="rounded-2xl border border-zinc-800 bg-zinc-900/60 p-5">
+          <p class="text-[10px] uppercase tracking-wider text-zinc-600 font-semibold">La communauté</p>
+          <h3 class="font-semibold text-white text-sm mt-2">Partager ses essais</h3>
+          <p class="text-zinc-400 text-xs leading-relaxed mt-2">
+            Questions, retours et exemples de prompts.
+          </p>
+          <a data-community-url target="_blank" rel="noopener" class="inline-flex items-center justify-center rounded-lg text-xs font-semibold px-4 py-2 mt-4 border border-zinc-700 text-white hover:bg-zinc-800 transition">
+            Rejoindre la communauté
+          </a>
+        </div>
+      </div>
+
+      <div class="flex flex-col sm:flex-row items-center justify-between gap-3 mt-8 pt-6 border-t border-zinc-900 text-xs text-zinc-600">
+        <span>© <span data-year>2026</span> Parlons IA. Tous droits réservés.</span>
+        <span>Chaîne pour recevoir. Communauté pour échanger.</span>
+      </div>
+    </div>
+  </footer>
+
+  <div id="prompt-modal" class="article-modal-backdrop" onclick="closePromptModal(event)">
+    <div class="article-modal" onclick="event.stopPropagation()">
+      <div class="article-modal-header">
+        <h3 id="prompt-modal-title" class="article-modal-title">Prompt</h3>
+        <button class="article-modal-close" onclick="closePromptModal()">
+          <i data-lucide="x"></i>
+        </button>
+      </div>
+      <div class="article-modal-body">
+        <pre id="prompt-modal-content"></pre>
+      </div>
+      <div class="article-modal-footer">
+        <button id="prompt-modal-copy" class="prompt-button solid" onclick="copyPromptFromModal(this)">Copier</button>
+      </div>
+    </div>
+  </div>
+
+  <div id="prompt-modal" class="article-modal-backdrop" onclick="closePromptModal(event)">
+    <div class="article-modal" onclick="event.stopPropagation()">
+      <div class="article-modal-header">
+        <h3 id="prompt-modal-title" class="article-modal-title">Prompt</h3>
+        <button class="article-modal-close" onclick="closePromptModal()">
+          <i data-lucide="x"></i>
+        </button>
+      </div>
+      <div class="article-modal-body">
+        <pre id="prompt-modal-content"></pre>
+      </div>
+      <div class="article-modal-footer">
+        <button id="prompt-modal-copy" class="prompt-button solid" onclick="copyPromptFromModal(this)">Copier</button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    window.articlePrompts = [
+  {
+    "title": "Le prompt de départ",
+    "prompt": "Je veux faire une vidéo explicative dans le style « dessiné à la main » (whiteboard) : une main tient un feutre et dessine chaque idée au moment où la voix la dit. Tu la fabriques entièrement en code, jusqu'au MP4 final. Les images viendront de ChatGPT : c'est moi qui ferai le lien entre vous deux.\n\nAVANT TOUT\nPose-moi en un seul message court ces questions, rien d'autre :\n- le sujet, et ce que la personne doit avoir compris à la fin ;\n- à qui s'adresse la vidéo ;\n- la durée (par défaut 60 secondes) et le format (vertical 9:16 ou horizontal 16:9) ;\n- la voix : je l'enregistre moi-même, ou tu la génères avec ElevenLabs (et quel type de voix) ;\n- la fin : un appel à l'action, ou rien.\n\nENSUITE, DANS CET ORDRE, EN ATTENDANT MA VALIDATION À CHAQUE ÉTAPE\n1. Le script, découpé en scènes : pour chaque phrase, le texte dit et ce qui se dessine. Phrases courtes, une idée par phrase, un ton simple et parlé.\n2. La liste des images à créer (8 maximum) : la main au feutre, puis une illustration par idée qui en a besoin. Pour chacune, un prompt prêt à coller dans ChatGPT. Toutes les illustrations dans le même style : dessin au trait noir, couleurs en aplats, fond blanc pur, sans texte, sans ombre au sol, sujet centré avec de la marge.\n3. Quand je t'envoie les images : vérifie-les et dis-moi si une doit être refaite.\n4. La voix : génère-la, ou attends mon enregistrement. Repère le moment où chaque mot est dit pour caler les dessins dessus.\n5. L'animation, puis le MP4.\n\nLES RÈGLES DU STYLE\n- Fond blanc. Une idée à la fois. Chaque élément se dessine au moment exact où la voix le nomme, jamais avant.\n- Les illustrations apparaissent d'abord en contours noirs, tracés progressivement comme au feutre (extrais les contours de l'image en code), puis la couleur se pose en fondu.\n- La main suit la pointe du trait pendant qu'elle dessine, avec un léger mouvement naturel. Entre deux dessins, elle sort du cadre ou se pose sur le côté.\n- Les mots-clés s'écrivent à la main, lettre par lettre, dans une police manuscrite lisible. Toujours courts : jamais une phrase entière à l'écran.\n- Une seule couleur d'accent pour ce qui est important (un chiffre, un mot) ; le reste en noir.\n- Le tableau se construit : les éléments d'une même idée restent ensemble et forment un petit schéma (flèches, liens, avant/après). Quand on change de partie, on passe à une page blanche.\n- Laisse au moins 0,7 seconde sur chaque résultat pour qu'on puisse le lire avant la suite.\n- Pas de musique forte : la voix d'abord, éventuellement un léger bruit de feutre.\n\nLIVRAISON\nUn MP4 en 30 images par seconde, au format choisi, avec le son. Avant de me l'envoyer, regarde toi-même quelques images de la vidéo pour vérifier qu'aucun texte ne déborde et que rien ne se chevauche."
+  },
+  {
+    "title": "ChatGPT : la main au feutre",
+    "prompt": "Génère une image : une main qui tient un feutre noir de tableau blanc, vue de dessus, comme si elle allait écrire sur une feuille posée devant elle. [Précise la couleur de peau que tu veux.]\nPhoto réaliste, lumière douce. La pointe du feutre est bien visible en haut à gauche, le poignet sort du cadre en bas à droite.\nFond transparent (PNG). Si ce n'est pas possible : fond blanc pur uni, sans ombre portée. Rien d'autre dans l'image. Format carré."
+  },
+  {
+    "title": "ChatGPT : une illustration",
+    "prompt": "Génère une illustration de [ton sujet, par exemple : une foule qui se presse devant un rayon de supermarché presque vide].\nStyle dessin à la main de vidéo explicative : contours noirs nets à l'encre, couleurs en aplats simples, sans dégradé, sans texte ni lettres, sans ombre au sol.\nFond blanc pur, sujet centré avec de la marge autour. Format [carré / paysage].\nGarde exactement le même style pour toutes les illustrations que je vais te demander."
+  },
+  {
+    "title": "Les phrases pour corriger",
+    "prompt": "À [0:12], le dessin arrive avant que je le dise : cale son début sur le mot « [mot] ».\nC'est trop rapide : laisse au moins une seconde sur chaque dessin terminé avant de passer à la suite.\nLa main cache ce qu'elle dessine : décale-la pour qu'on voie le trait se faire.\nLe texte à [0:30] est trop long : garde seulement « [mots-clés] ».\nIl y a trop de choses à l'écran : passe à une page blanche avant [la scène].\nLe trait apparaît d'un coup : il doit se tracer progressivement, comme au feutre.\nCe dessin ne ressemble pas aux autres : donne-moi un nouveau prompt ChatGPT dans le même style que [l'image]."
+  },
+  {
+    "title": "Analyser une vidéo de référence",
+    "prompt": "Je t'envoie une vidéo [ou : des captures d'une vidéo] dont j'aime le style. Analyse comment elle est construite, sans t'arrêter aux détails (couleurs exactes, logos, cadres) :\n- comment l'information apparaît : dans quel ordre, à quel moment par rapport à la voix, avec quel mouvement ;\n- ce qui est dessiné, écrit ou montré, et comment c'est mis en page ;\n- le rythme : durée des scènes, pauses, transitions ;\n- le ton de la voix et la structure du script (accroche, explication, fin).\nPuis écris ces observations sous forme de règles courtes, que je pourrai coller dans la partie « LES RÈGLES DU STYLE » de mon prompt de départ. Ne fabrique encore rien."
+  }
+];
+  </script>
+  <script src="../../script.js"></script>
+  <script src="../../article.js"></script>
+</body>
+</html>
