@@ -481,8 +481,117 @@ function setupSimulator() {
   playSim("channel");
 }
 
+// Navigateurs intégrés (TikTok, Instagram…) : les liens WhatsApp ne s'y ouvrent pas.
+// On propose d'ouvrir la page dans le vrai navigateur dès l'arrivée.
+// Test : ajouter ?inapp=tiktok à l'adresse.
+function detectInAppBrowser() {
+  const forced = new URLSearchParams(location.search).get("inapp");
+  if (forced) return forced === "1" ? "TikTok" : forced.charAt(0).toUpperCase() + forced.slice(1);
+  const ua = navigator.userAgent || "";
+  if (/BytedanceWebview|musical_ly|TikTok|trill_|ByteLocale/i.test(ua)) return "TikTok";
+  if (/Instagram/i.test(ua)) return "Instagram";
+  if (/FBAN|FBAV|FB_IAB|FBIOS/i.test(ua)) return "Facebook";
+  if (/Snapchat/i.test(ua)) return "Snapchat";
+  return null;
+}
+
+function setupInAppNotice() {
+  const app = detectInAppBrowser();
+  if (!app) return;
+  try {
+    if (sessionStorage.getItem("inapp-dismissed")) return;
+  } catch (e) {}
+
+  const ua = navigator.userAgent || "";
+  const isAndroid = /Android/i.test(ua);
+  const isIOS = /iPhone|iPad|iPod/i.test(ua);
+  const url = new URL(location.href);
+  url.searchParams.delete("inapp");
+  const cleanUrl = url.toString();
+  const hostPath = url.host + url.pathname + url.search + url.hash;
+
+  let openHref = "";
+  let openLabel = "";
+  if (isAndroid) {
+    openHref = "intent://" + hostPath + "#Intent;scheme=https;package=com.android.chrome;S.browser_fallback_url=" + encodeURIComponent(cleanUrl) + ";end";
+    openLabel = "Ouvrir dans Chrome";
+  } else if (isIOS) {
+    openHref = "x-safari-" + cleanUrl;
+    openLabel = "Ouvrir dans Safari";
+  }
+
+  const style = document.createElement("style");
+  style.textContent = `
+    .inapp-overlay{position:fixed;inset:0;z-index:9999;display:flex;align-items:flex-end;justify-content:center;
+      background:rgba(9,9,11,.55);backdrop-filter:blur(3px);-webkit-backdrop-filter:blur(3px);padding:16px;
+      font-family:inherit;animation:inapp-fade .2s ease-out}
+    .inapp-card{width:100%;max-width:420px;background:#fff;color:#09090b;border-radius:20px;padding:22px 20px 18px;
+      box-shadow:0 20px 50px -12px rgba(0,0,0,.35);animation:inapp-up .25s ease-out}
+    .inapp-card h2{font-size:19px;font-weight:700;line-height:1.25;margin:0 0 8px}
+    .inapp-card p{font-size:14.5px;line-height:1.5;color:#3f3f46;margin:0 0 14px}
+    .inapp-steps{background:#f4f4f5;border-radius:14px;padding:12px 14px;margin:0 0 14px;font-size:14px;line-height:1.55;color:#27272a}
+    .inapp-steps strong{color:#09090b}
+    .inapp-btn{display:flex;align-items:center;justify-content:center;width:100%;border:0;border-radius:12px;
+      padding:13px 16px;font-size:15px;font-weight:600;cursor:pointer;text-decoration:none;font-family:inherit}
+    .inapp-primary{background:#10b981;color:#fff;margin-bottom:8px}
+    .inapp-secondary{background:#09090b;color:#fff;margin-bottom:8px}
+    .inapp-skip{background:none;color:#71717a;font-size:13.5px;font-weight:500;padding:8px}
+    @keyframes inapp-fade{from{opacity:0}to{opacity:1}}
+    @keyframes inapp-up{from{transform:translateY(24px);opacity:0}to{transform:none;opacity:1}}
+    @media (prefers-reduced-motion: reduce){.inapp-overlay,.inapp-card{animation:none}}
+  `;
+  document.head.appendChild(style);
+
+  const overlay = document.createElement("div");
+  overlay.className = "inapp-overlay";
+  overlay.setAttribute("role", "dialog");
+  overlay.setAttribute("aria-modal", "true");
+  overlay.setAttribute("aria-labelledby", "inapp-title");
+  overlay.innerHTML = `
+    <div class="inapp-card">
+      <h2 id="inapp-title">Ouvrez cette page dans votre navigateur</h2>
+      <p>Vous êtes dans le navigateur de ${app}. Les liens WhatsApp (chaîne, communauté, contact) ne s'y ouvrent pas.</p>
+      ${openHref ? `<a class="inapp-btn inapp-primary" href="${openHref}">${openLabel}</a>` : ""}
+      <div class="inapp-steps">
+        ${openHref ? "Si rien ne se passe :<br>" : ""}
+        1. Appuyez sur <strong>•••</strong> en haut à droite<br>
+        2. Choisissez <strong>« Ouvrir dans le navigateur »</strong><br>
+        Ou copiez le lien et collez-le dans Chrome ou Safari.
+      </div>
+      <button type="button" class="inapp-btn inapp-secondary" data-inapp-copy>Copier le lien</button>
+      <button type="button" class="inapp-btn inapp-skip" data-inapp-close>Continuer ici quand même</button>
+    </div>`;
+  document.body.appendChild(overlay);
+
+  const copyBtn = overlay.querySelector("[data-inapp-copy]");
+  copyBtn.addEventListener("click", async () => {
+    let ok = false;
+    try {
+      await navigator.clipboard.writeText(cleanUrl);
+      ok = true;
+    } catch (e) {
+      const field = document.createElement("textarea");
+      field.value = cleanUrl;
+      field.setAttribute("readonly", "");
+      field.style.position = "fixed";
+      field.style.opacity = "0";
+      document.body.appendChild(field);
+      field.select();
+      try { ok = document.execCommand("copy"); } catch (err) {}
+      field.remove();
+    }
+    copyBtn.textContent = ok ? "Lien copié ✓ Collez-le dans votre navigateur" : cleanUrl;
+  });
+
+  overlay.querySelector("[data-inapp-close]").addEventListener("click", () => {
+    try { sessionStorage.setItem("inapp-dismissed", "1"); } catch (e) {}
+    overlay.remove();
+  });
+}
+
 document.addEventListener("DOMContentLoaded", () => {
   hydrateLinks();
+  setupInAppNotice();
   setupMobileMenu();
   setupHeaderScroll();
   splitBlurWords();
