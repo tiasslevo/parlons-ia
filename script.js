@@ -502,23 +502,9 @@ function setupInAppNotice() {
     if (sessionStorage.getItem("inapp-dismissed")) return;
   } catch (e) {}
 
-  const ua = navigator.userAgent || "";
-  const isAndroid = /Android/i.test(ua);
-  const isIOS = /iPhone|iPad|iPod/i.test(ua);
   const url = new URL(location.href);
   url.searchParams.delete("inapp");
   const cleanUrl = url.toString();
-  const hostPath = url.host + url.pathname + url.search + url.hash;
-
-  let openHref = "";
-  let openLabel = "";
-  if (isAndroid) {
-    openHref = "intent://" + hostPath + "#Intent;scheme=https;package=com.android.chrome;S.browser_fallback_url=" + encodeURIComponent(cleanUrl) + ";end";
-    openLabel = "Ouvrir dans Chrome";
-  } else if (isIOS) {
-    openHref = "x-safari-" + cleanUrl;
-    openLabel = "Ouvrir dans Safari";
-  }
 
   const style = document.createElement("style");
   style.textContent = `
@@ -534,7 +520,7 @@ function setupInAppNotice() {
     .inapp-btn{display:flex;align-items:center;justify-content:center;width:100%;border:0;border-radius:12px;
       padding:13px 16px;font-size:15px;font-weight:600;cursor:pointer;text-decoration:none;font-family:inherit}
     .inapp-primary{background:#10b981;color:#fff;margin-bottom:8px}
-    .inapp-secondary{background:#09090b;color:#fff;margin-bottom:8px}
+    .inapp-card p.inapp-after{font-size:13.5px;color:#71717a;text-align:center;margin:0 0 14px}
     .inapp-skip{background:none;color:#71717a;font-size:13.5px;font-weight:500;padding:8px}
     @keyframes inapp-fade{from{opacity:0}to{opacity:1}}
     @keyframes inapp-up{from{transform:translateY(24px);opacity:0}to{transform:none;opacity:1}}
@@ -551,14 +537,11 @@ function setupInAppNotice() {
     <div class="inapp-card">
       <h2 id="inapp-title">Ouvrez cette page dans votre navigateur</h2>
       <p>Vous êtes dans le navigateur de ${app}. Les liens WhatsApp (chaîne, communauté, contact) ne s'y ouvrent pas.</p>
-      ${openHref ? `<a class="inapp-btn inapp-primary" href="${openHref}">${openLabel}</a>` : ""}
+      <button type="button" class="inapp-btn inapp-primary" data-inapp-copy>Copier le lien</button>
+      <p class="inapp-after">Puis collez-le dans Chrome ou Safari.</p>
       <div class="inapp-steps">
-        ${openHref ? "Si rien ne se passe :<br>" : ""}
-        1. Appuyez sur <strong>•••</strong> en haut à droite<br>
-        2. Choisissez <strong>« Ouvrir dans le navigateur »</strong><br>
-        Ou copiez le lien et collez-le dans Chrome ou Safari.
+        Autre solution : appuyez sur <strong>•••</strong> en haut à droite, puis <strong>« Ouvrir dans le navigateur »</strong>.
       </div>
-      <button type="button" class="inapp-btn inapp-secondary" data-inapp-copy>Copier le lien</button>
       <button type="button" class="inapp-btn inapp-skip" data-inapp-close>Continuer ici quand même</button>
     </div>`;
   document.body.appendChild(overlay);
@@ -580,7 +563,7 @@ function setupInAppNotice() {
       try { ok = document.execCommand("copy"); } catch (err) {}
       field.remove();
     }
-    copyBtn.textContent = ok ? "Lien copié ✓ Collez-le dans votre navigateur" : cleanUrl;
+    copyBtn.textContent = ok ? "Lien copié ✓" : cleanUrl;
   });
 
   overlay.querySelector("[data-inapp-close]").addEventListener("click", () => {
