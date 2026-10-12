@@ -15,7 +15,7 @@ const channelMessages = [
     time: "Aujourd'hui, 09:12",
     body: "La masterclass <strong>Génération d'images IA</strong> est passée — merci à toutes et tous. Le replay arrive très vite.",
     actionLabel: "Voir le programme",
-    actionHref: "./ateliers/"
+    actionHref: "../ateliers/"
   },
   {
     name: "Parlons IA",
@@ -27,7 +27,7 @@ const channelMessages = [
     time: "Aujourd'hui, 14:42",
     body: "Concours terminé : félicitations à <strong>Serge</strong>, gagnant de la carte d'invitation de mariage IA.",
     actionLabel: "Voir le concours",
-    actionHref: "./concours/"
+    actionHref: "../concours/"
   }
 ];
 
