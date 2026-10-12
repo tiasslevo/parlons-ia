@@ -16,9 +16,6 @@ function detectInAppBrowser() {
 function setupInAppNotice() {
   const app = detectInAppBrowser();
   if (!app) return;
-  try {
-    if (sessionStorage.getItem("inapp-dismissed")) return;
-  } catch (e) {}
 
   const url = new URL(location.href);
   url.searchParams.delete("inapp");
@@ -39,7 +36,6 @@ function setupInAppNotice() {
       padding:13px 16px;font-size:15px;font-weight:600;cursor:pointer;text-decoration:none;font-family:inherit}
     .inapp-primary{background:#10b981;color:#fff;margin-bottom:8px}
     .inapp-card p.inapp-after{font-size:13.5px;color:#71717a;text-align:center;margin:0 0 14px}
-    .inapp-skip{background:none;color:#71717a;font-size:13.5px;font-weight:500;padding:8px}
     @keyframes inapp-fade{from{opacity:0}to{opacity:1}}
     @keyframes inapp-up{from{transform:translateY(24px);opacity:0}to{transform:none;opacity:1}}
     @media (prefers-reduced-motion: reduce){.inapp-overlay,.inapp-card{animation:none}}
@@ -60,7 +56,6 @@ function setupInAppNotice() {
       <div class="inapp-steps">
         Autre solution : appuyez sur <strong>•••</strong> en haut à droite, puis <strong>« Ouvrir dans le navigateur »</strong>.
       </div>
-      <button type="button" class="inapp-btn inapp-skip" data-inapp-close>Continuer ici quand même</button>
     </div>`;
   document.body.appendChild(overlay);
 
@@ -82,11 +77,6 @@ function setupInAppNotice() {
       field.remove();
     }
     copyBtn.textContent = ok ? "Lien copié ✓" : cleanUrl;
-  });
-
-  overlay.querySelector("[data-inapp-close]").addEventListener("click", () => {
-    try { sessionStorage.setItem("inapp-dismissed", "1"); } catch (e) {}
-    overlay.remove();
   });
 }
 
