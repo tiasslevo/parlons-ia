@@ -216,7 +216,39 @@
         cercle && v('invest') ? `Déjà investi dans un outil, une formation ou un prestataire : ${v('invest')}` : null,
         cercle ? 'Je m’engage à partager où j’en suis dans le Cercle.' : null,
       ].filter((l) => l !== null);
-      window.open(`https://wa.me/${NUMBERS[to]}?text=${encodeURIComponent(lines.join('\n'))}`, '_blank', 'noopener');
+      const send = () => window.open(`https://wa.me/${NUMBERS[to]}?text=${encodeURIComponent(lines.join('\n'))}`, '_blank', 'noopener');
+      if (!cercle) { send(); return; }
+      // Rejoindre le Cercle : on rappelle le prix et la durée avant d'ouvrir WhatsApp
+      lines.push('J’ai bien noté l’adhésion : 150 € pour 6 mois.');
+      confirmPrice(send);
     });
+  }
+  function confirmPrice(onOk) {
+    const old = document.querySelector('.cf-overlay'); if (old) old.remove();
+    const o = document.createElement('div');
+    o.className = 'cf-overlay';
+    o.setAttribute('role', 'dialog'); o.setAttribute('aria-modal', 'true'); o.setAttribute('aria-labelledby', 'cf-title');
+    o.innerHTML = `
+      <div class="cf-card">
+        <p class="cf-kicker" id="cf-title">Avant d’envoyer ta candidature</p>
+        <p class="cf-title">Ta place dans le Cercle</p>
+        <div class="cf-price"><span class="cf-amount">150 €</span><span class="cf-dur">pour 6 mois<br><small>renouvelable</small></span></div>
+        <ul class="cf-list">
+          <li><i style="--c:#1d6bff"><svg viewBox="0 0 20 20"><path d="M4 4.5h12v8H9l-4 3v-3H4z"/></svg></i><div><b>Des réponses à tes questions</b><span>Une solution adaptée à ton activité, pas une réponse générique.</span></div></li>
+          <li><i style="--c:#ec4899"><svg viewBox="0 0 20 20"><rect x="3" y="4.5" width="14" height="9.5" rx="2"/><path d="M8 17h4M10 14v3"/></svg></i><div><b>Une masterclass en direct</b><span>Toutes les deux semaines, sur un cas concret.</span></div></li>
+          <li><i style="--c:#8b5cf6"><svg viewBox="0 0 20 20"><path d="M10 3.5 12 8l4.8.4-3.7 3.1 1.2 4.7L10 13.6l-4.3 2.6 1.2-4.7L3.2 8.4 8 8z"/></svg></i><div><b>Des avantages membres</b><span>Formations à prix réduit, accès prioritaire.</span></div></li>
+        </ul>
+        <p class="cf-note">Tu règles l’adhésion après ton échange avec Boris ou Kévin.</p>
+        <button type="button" class="btn btn-primary btn-wide" data-cf-ok>C’est bon pour moi, j’envoie</button>
+        <button type="button" class="cf-back" data-cf-back>Revenir</button>
+      </div>`;
+    document.body.appendChild(o);
+    requestAnimationFrame(() => o.classList.add('on'));
+    const close = () => { o.classList.remove('on'); setTimeout(() => o.remove(), 250); };
+    o.querySelector('[data-cf-ok]').addEventListener('click', () => { onOk(); close(); });
+    o.querySelector('[data-cf-back]').addEventListener('click', close);
+    o.addEventListener('click', (e) => { if (e.target === o) close(); });
+    document.addEventListener('keydown', function esc(e) { if (e.key === 'Escape') { close(); document.removeEventListener('keydown', esc); } });
+    o.querySelector('[data-cf-ok]').focus();
   }
 })();

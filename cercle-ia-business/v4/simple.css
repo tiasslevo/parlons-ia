@@ -34,3 +34,23 @@
   .join-steps { flex-direction: column; gap: 10px; }
   .join .btn { width: 100%; }
 }
+/* Fenêtre de confirmation avant WhatsApp : le prix visible, la valeur ensuite */
+.cf-overlay { position: fixed; inset: 0; z-index: 400; display: flex; align-items: flex-end; justify-content: center; padding: 14px; background: rgba(11,11,15,.45); backdrop-filter: blur(4px); -webkit-backdrop-filter: blur(4px); opacity: 0; transition: opacity .25s var(--ease); }
+.cf-overlay.on { opacity: 1; }
+.cf-card { width: 100%; max-width: 430px; background: #fff; border-radius: 28px; padding: 24px 20px 14px; box-shadow: 0 30px 70px -20px rgba(20,20,60,.45); transform: translateY(30px); transition: transform .35s var(--spring); }
+.cf-overlay.on .cf-card { transform: none; }
+.cf-kicker { font-size: 13px; font-weight: 600; color: var(--ink3); text-transform: uppercase; letter-spacing: .08em; }
+.cf-title { font-size: 24px; font-weight: 600; letter-spacing: -.02em; margin-top: 4px; color: var(--ink); }
+.cf-price { display: flex; align-items: center; gap: 12px; margin-top: 14px; padding: 12px 14px; border-radius: 18px; background: #FFF1F1; border: 1px solid #FFD6D6; }
+.cf-amount { font-size: 30px; font-weight: 700; letter-spacing: -.03em; color: #fff; background: #E5484D; border-radius: 12px; padding: 4px 12px; box-shadow: 0 8px 18px -10px rgba(229,72,77,.9); }
+.cf-dur { font-size: 15.5px; font-weight: 600; color: #B4232A; line-height: 1.25; }
+.cf-dur small { font-size: 13px; font-weight: 500; color: #C94F55; }
+.cf-list { list-style: none; padding: 0; margin: 16px 0 0; display: flex; flex-direction: column; gap: 12px; }
+.cf-list li { display: flex; align-items: flex-start; gap: 12px; }
+.cf-list i { width: 36px; height: 36px; border-radius: 11px; flex: none; display: grid; place-items: center; background: color-mix(in srgb, var(--c) 13%, white); color: var(--c); }
+.cf-list svg { width: 19px; height: 19px; fill: none; stroke: currentColor; stroke-width: 1.7; stroke-linejoin: round; stroke-linecap: round; }
+.cf-list b { display: block; font-size: 15.5px; font-weight: 600; color: var(--ink); }
+.cf-list span { display: block; font-size: 13.5px; color: var(--ink2); margin-top: 1px; line-height: 1.35; }
+.cf-note { font-size: 13px; color: var(--ink3); margin: 16px 0 12px; text-align: center; }
+.cf-back { display: block; width: 100%; margin-top: 4px; background: none; border: 0; color: var(--ink2); font: inherit; font-size: 14.5px; padding: 10px; cursor: pointer; }
+@media (min-width: 700px) { .cf-overlay { align-items: center; } }
