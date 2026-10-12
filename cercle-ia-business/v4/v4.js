@@ -230,17 +230,17 @@
     o.setAttribute('role', 'dialog'); o.setAttribute('aria-modal', 'true'); o.setAttribute('aria-labelledby', 'cf-title');
     o.innerHTML = `
       <div class="cf-card">
-        <p class="cf-kicker" id="cf-title">Avant d’envoyer ta candidature</p>
-        <p class="cf-title">Ta place dans le Cercle</p>
-        <div class="cf-price"><span class="cf-amount">150 €</span><span class="cf-dur">pour 6 mois<br><small>renouvelable</small></span></div>
-        <ul class="cf-list">
-          <li><i style="--c:#1d6bff"><svg viewBox="0 0 20 20"><path d="M4 4.5h12v8H9l-4 3v-3H4z"/></svg></i><div><b>Des réponses à tes questions</b><span>Une solution adaptée à ton activité, pas une réponse générique.</span></div></li>
-          <li><i style="--c:#ec4899"><svg viewBox="0 0 20 20"><rect x="3" y="4.5" width="14" height="9.5" rx="2"/><path d="M8 17h4M10 14v3"/></svg></i><div><b>Une masterclass en direct</b><span>Toutes les deux semaines, sur un cas concret.</span></div></li>
-          <li><i style="--c:#8b5cf6"><svg viewBox="0 0 20 20"><path d="M10 3.5 12 8l4.8.4-3.7 3.1 1.2 4.7L10 13.6l-4.3 2.6 1.2-4.7L3.2 8.4 8 8z"/></svg></i><div><b>Des avantages membres</b><span>Formations à prix réduit, accès prioritaire.</span></div></li>
+        <div class="cf-art"><img src="./v4/img/e-candidature.webp" alt=""></div>
+        <span class="cf-k" id="cf-title">Petit rappel</span>
+        <p class="cf-t">Tu as bien vu les infos ?</p>
+        <p class="cf-s">Le Cercle, c’est <b>150 € pour 6 mois</b>, renouvelable. Tu règles l’adhésion après ton échange avec Boris ou Kévin.</p>
+        <ul class="cf-r">
+          <li><svg><use href="#check"/></svg>Des réponses adaptées à tes questions</li>
+          <li><svg><use href="#check"/></svg>Une masterclass en direct toutes les deux semaines</li>
+          <li><svg><use href="#check"/></svg>Formations à prix réduit et accès prioritaire</li>
         </ul>
-        <p class="cf-note">Tu règles l’adhésion après ton échange avec Boris ou Kévin.</p>
-        <button type="button" class="btn btn-primary btn-wide" data-cf-ok>C’est bon pour moi, j’envoie</button>
-        <button type="button" class="cf-back" data-cf-back>Revenir</button>
+        <button type="button" class="btn btn-primary btn-wide" data-cf-ok>C’est bon, j’envoie ma candidature</button>
+        <button type="button" class="btn btn-ghost btn-wide cf-back" data-cf-back>Revenir</button>
       </div>`;
     document.body.appendChild(o);
     requestAnimationFrame(() => o.classList.add('on'));

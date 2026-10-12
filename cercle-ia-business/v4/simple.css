@@ -34,23 +34,20 @@
   .join-steps { flex-direction: column; gap: 10px; }
   .join .btn { width: 100%; }
 }
-/* Fenêtre de confirmation avant WhatsApp : le prix visible, la valeur ensuite */
-.cf-overlay { position: fixed; inset: 0; z-index: 400; display: flex; align-items: flex-end; justify-content: center; padding: 14px; background: rgba(11,11,15,.45); backdrop-filter: blur(4px); -webkit-backdrop-filter: blur(4px); opacity: 0; transition: opacity .25s var(--ease); }
+/* Fenêtre de confirmation avant WhatsApp : un rappel, dans la DA du site (mascotte, pastille, liste à coches) */
+.cf-overlay { position: fixed; inset: 0; z-index: 400; display: flex; align-items: flex-end; justify-content: center; padding: 14px; background: rgba(11,11,15,.4); backdrop-filter: blur(4px); -webkit-backdrop-filter: blur(4px); opacity: 0; transition: opacity .25s var(--ease); }
 .cf-overlay.on { opacity: 1; }
-.cf-card { width: 100%; max-width: 430px; background: #fff; border-radius: 28px; padding: 24px 20px 14px; box-shadow: 0 30px 70px -20px rgba(20,20,60,.45); transform: translateY(30px); transition: transform .35s var(--spring); }
+.cf-card { width: 100%; max-width: 420px; background: #fff; border-radius: var(--r); padding: 8px 8px 12px; text-align: center; box-shadow: 0 30px 70px -24px rgba(20,20,60,.4); transform: translateY(30px); transition: transform .4s var(--spring); }
 .cf-overlay.on .cf-card { transform: none; }
-.cf-kicker { font-size: 13px; font-weight: 600; color: var(--ink3); text-transform: uppercase; letter-spacing: .08em; }
-.cf-title { font-size: 24px; font-weight: 600; letter-spacing: -.02em; margin-top: 4px; color: var(--ink); }
-.cf-price { display: flex; align-items: center; gap: 12px; margin-top: 14px; padding: 12px 14px; border-radius: 18px; background: #FFF1F1; border: 1px solid #FFD6D6; }
-.cf-amount { font-size: 30px; font-weight: 700; letter-spacing: -.03em; color: #fff; background: #E5484D; border-radius: 12px; padding: 4px 12px; box-shadow: 0 8px 18px -10px rgba(229,72,77,.9); }
-.cf-dur { font-size: 15.5px; font-weight: 600; color: #B4232A; line-height: 1.25; }
-.cf-dur small { font-size: 13px; font-weight: 500; color: #C94F55; }
-.cf-list { list-style: none; padding: 0; margin: 16px 0 0; display: flex; flex-direction: column; gap: 12px; }
-.cf-list li { display: flex; align-items: flex-start; gap: 12px; }
-.cf-list i { width: 36px; height: 36px; border-radius: 11px; flex: none; display: grid; place-items: center; background: color-mix(in srgb, var(--c) 13%, white); color: var(--c); }
-.cf-list svg { width: 19px; height: 19px; fill: none; stroke: currentColor; stroke-width: 1.7; stroke-linejoin: round; stroke-linecap: round; }
-.cf-list b { display: block; font-size: 15.5px; font-weight: 600; color: var(--ink); }
-.cf-list span { display: block; font-size: 13.5px; color: var(--ink2); margin-top: 1px; line-height: 1.35; }
-.cf-note { font-size: 13px; color: var(--ink3); margin: 16px 0 12px; text-align: center; }
-.cf-back { display: block; width: 100%; margin-top: 4px; background: none; border: 0; color: var(--ink2); font: inherit; font-size: 14.5px; padding: 10px; cursor: pointer; }
+.cf-art { height: 132px; border-radius: 16px; background: var(--s1); display: grid; place-items: center; overflow: hidden; }
+.cf-art img { max-height: 118px; width: auto; }
+.cf-k { display: inline-block; margin-top: 16px; font-size: 13px; font-weight: 600; color: var(--accent); background: var(--accent-soft); padding: 4px 11px; border-radius: 999px; }
+.cf-t { font-size: 22px; font-weight: 600; letter-spacing: -.02em; margin: 10px 12px 6px; }
+.cf-s { color: var(--ink2); font-size: 15px; line-height: 1.5; margin: 0 14px 16px; }
+.cf-s b { color: var(--ink); font-weight: 600; }
+.cf-r { list-style: none; display: grid; gap: 4px; background: var(--s1); border-radius: 16px; padding: 6px; margin: 0 4px 14px; text-align: left; }
+.cf-r li { display: flex; align-items: center; gap: 10px; padding: 10px 12px; font-size: 14.5px; font-weight: 500; background: #fff; border-radius: 11px; }
+.cf-r svg { width: 20px; height: 20px; padding: 3px; flex: none; border-radius: 50%; background: var(--accent); color: #fff; }
+.cf-card .btn-wide { width: calc(100% - 8px); margin: 0 4px; }
+.cf-back { margin-top: 8px !important; }
 @media (min-width: 700px) { .cf-overlay { align-items: center; } }
