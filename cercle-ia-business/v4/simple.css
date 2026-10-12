@@ -1,0 +1,36 @@
+/* Version simplifiée : moins de sections, une seule offre visible, les à-côtés en liste */
+.sec { padding: 80px 24px; }
+.bento3 { grid-template-columns: repeat(3, 1fr); }
+.bento3 .bx-art { min-height: 180px; }
+.join { max-width: 1120px; margin: 18px auto 0; display: flex; align-items: center; gap: 28px; padding: 22px 26px; border-radius: 22px; background: var(--accent-soft); border: 1px solid #d6e3ff; }
+.join-price { display: flex; flex-direction: column; flex: none; }
+.join-price b { font-size: 34px; letter-spacing: -.03em; line-height: 1; }
+.join-price span { font-size: 14px; color: var(--ink2); margin-top: 4px; }
+.join-steps { list-style: none; padding: 0; margin: 0; display: flex; gap: 18px; flex: 1; justify-content: center; }
+.join-steps li { display: flex; align-items: center; gap: 9px; font-size: 15px; font-weight: 500; }
+.join-steps i { font-style: normal; width: 26px; height: 26px; border-radius: 50%; display: grid; place-items: center; background: #fff; color: var(--accent); font-size: 13px; font-weight: 600; flex: none; }
+.more { max-width: 760px; margin: 0 auto; display: flex; flex-direction: column; gap: 10px; }
+.more-i { display: flex; align-items: center; gap: 16px; padding: 16px 18px; border-radius: 18px; background: #fff; border: 1px solid var(--line); transition: transform .3s var(--ease), box-shadow .3s; }
+.more-i:hover { transform: translateY(-2px); box-shadow: 0 16px 34px -24px rgba(20,20,60,.35); }
+.more-i > div { flex: 1; }
+.more-i h3 { font-size: 17px; letter-spacing: -.02em; }
+.more-i p { color: var(--ink2); font-size: 14.5px; margin-top: 2px; }
+.more-i .plan-ic { flex: none; margin: 0; }
+.more-go { width: 20px; height: 20px; fill: none; stroke: var(--ink3); stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; flex: none; }
+@media (max-width: 860px) {
+  .sec { padding: 64px 18px; }
+  .bento3 { grid-template-columns: 1fr; }
+  .bento3 .bx { display: grid; grid-template-columns: 96px 1fr; grid-template-rows: auto auto; align-content: center; column-gap: 6px; padding: 8px; }
+  .bento3 .bx-art { grid-row: 1 / span 2; width: 96px; min-height: 96px; height: 96px; }
+  .bento3 .bx-art img { max-height: 92px; max-width: 90%; }
+  .bento3 .bx-art .live { display: none; }
+  .bento3 .bx h3 { font-size: 16px; margin: 4px 8px 3px; align-self: end; }
+  .bento3 .bx p { font-size: 13.5px; margin: 0 8px 4px; align-self: start; }
+  .grid4 { gap: 12px; }
+  .prev { height: 120px; }
+  .card { padding-bottom: 16px; }
+  .card h3 { margin-top: 14px; }
+  .join { flex-direction: column; align-items: stretch; gap: 16px; padding: 20px; text-align: left; }
+  .join-steps { flex-direction: column; gap: 10px; }
+  .join .btn { width: 100%; }
+}

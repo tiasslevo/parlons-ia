@@ -9,6 +9,7 @@
   <link rel="preconnect" href="https://api.fontshare.com">
   <link href="https://api.fontshare.com/v2/css?f[]=general-sans@400,500,600,700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="./v4/v4.css?v=7">
+  <link rel="stylesheet" href="./v4/simple.css?v=1">
   <script>(function(){var q=location.search.indexOf('intro')>-1;try{if(!q&&matchMedia('(prefers-reduced-motion: reduce)').matches)return;if(!q&&sessionStorage.getItem('cercle-intro-v4'))return;sessionStorage.setItem('cercle-intro-v4','1');}catch(e){}document.documentElement.classList.add('intro-on');})();</script>
   <style>html.intro-on body,html.intro-run body{overflow:hidden}html.intro-on::after{content:"";position:fixed;inset:0;background:#fff;z-index:299}</style>
 </head>
@@ -32,8 +33,8 @@
       <span class="brand-name">Le Cercle <em>IA Business</em></span>
     </a>
     <nav class="nav-links">
-      <a href="#pour-qui">Pour qui</a>
       <a href="#apprendre">Ce que tu apprends</a>
+      <a href="#cercle">Le Cercle</a>
       <a href="#offres">Aller plus loin</a>
     </nav>
     <a class="btn btn-primary btn-sm" href="#candidature" data-intent="cercle">Candidater</a>
@@ -51,53 +52,13 @@
       </div>
 
       <h1 class="hero-title rv">Apprends à mettre l’IA<br>au travail dans <span class="flip" aria-live="polite"><span class="flip-word">ton restaurant</span><span class="flip-dots"></span></span></h1>
-      <p class="hero-sub rv" style="--rd:.08s">Tu portes un business ou une équipe et tes semaines sont trop courtes. Avec Boris et Kévin, deux ingénieurs IA, tu apprends à confier à l’IA ce qui te prend des heures chaque semaine.</p>
+      <p class="hero-sub rv" style="--rd:.08s">Pour les entrepreneurs, dirigeants et managers. Avec Boris et Kévin, deux ingénieurs IA, tu apprends à confier à l’IA ce qui te prend des heures chaque semaine.</p>
       <div class="hero-ctas rv" style="--rd:.16s">
         <a class="btn btn-primary btn-lg" href="#candidature" data-intent="cercle">Rejoindre le Cercle</a>
         <a class="btn btn-ghost btn-lg" href="#candidature" data-intent="decouverte">Réserver un échange</a>
       </div>
-      <ul class="hero-stack rv" style="--rd:.3s">
-        <li><i style="--c:#25c16f"></i>Groupe WhatsApp privé</li>
-        <li><i style="--c:#ec4899"></i>Masterclass en direct</li>
-        <li><i style="--c:#8b5cf6"></i>Suivi individuel</li>
-        <li><i style="--c:#1d6bff"></i>L’actu IA décryptée</li>
-      </ul>
     </section>
 
-    <!-- POUR QUI -->
-    <section class="sec" id="pour-qui">
-      <div class="sec-head">
-        <h2 class="rv">Tu portes un business<br>ou une équipe</h2>
-        <p class="rv" style="--rd:.08s">Messages, devis, documents, réunions, communication, suivi : une grande partie de ta semaine peut être confiée à l’IA. Tu récupères ce temps pour ce qui compte vraiment.</p>
-      </div>
-      <div class="who rv" style="--rd:.14s">
-        <div class="seg" role="tablist">
-          <button role="tab" aria-selected="true" data-who="0">Entrepreneurs</button>
-          <button role="tab" aria-selected="false" data-who="1">Dirigeants</button>
-          <button role="tab" aria-selected="false" data-who="2">Cadres &amp; managers</button>
-          <i class="seg-ind"></i>
-        </div>
-        <div class="who-card">
-          <div class="who-art">
-            <img class="is-on" src="./v4/img/qui-entrepreneur.webp" alt="">
-            <img src="./v4/img/qui-dirigeant.webp" alt="">
-            <img src="./v4/img/qui-cadre.webp" alt="">
-          </div>
-          <div class="who-side">
-            <div class="who-text">
-              <div class="who-t is-on"><h3>Entrepreneurs &amp; indépendants</h3><p>Boutique, restaurant, cabinet, studio ou prestation de services : tu fais tourner ton activité, souvent seul, et chaque heure compte.</p></div>
-              <div class="who-t"><h3>Dirigeants</h3><p>Tu pilotes une structure. Tu veux que tes équipes aillent plus vite et que les tâches répétitives se fassent toutes seules.</p></div>
-              <div class="who-t"><h3>Cadres &amp; managers</h3><p>Tu as des objectifs et une équipe à suivre. Tu veux que l’IA t’aide, toi et ton équipe, à produire plus en moins de temps.</p></div>
-            </div>
-            <ul class="week" data-sets='[["Répondre aux messages clients","Faire les devis","Publier sur les réseaux"],["Préparer le reporting","Accueillir un nouveau salarié","Suivre la concurrence"],["Rédiger les comptes rendus","Synthétiser les documents","Préparer les réunions"]]'>
-              <li><span></span><em><svg><use href="#check"/></svg>Confié à l’IA</em></li>
-              <li><span></span><em><svg><use href="#check"/></svg>Confié à l’IA</em></li>
-              <li><span></span><em><svg><use href="#check"/></svg>Confié à l’IA</em></li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </section>
 
     <!-- APPRENDRE -->
     <section class="sec sec-tint" id="apprendre">
@@ -111,7 +72,7 @@
       </div>
       <div class="sec-head">
         <h2 class="rv">Ce que tu apprends à faire</h2>
-        <p class="rv" style="--rd:.08s">Quatre domaines où l’IA te rend des heures chaque semaine. Chaque sujet part d’un vrai besoin de membre, et tu repars avec quelque chose qui tourne.</p>
+        <p class="rv" style="--rd:.08s">Chaque sujet part d’un vrai besoin, et tu repars avec quelque chose qui tourne.</p>
       </div>
       <div class="grid4">
         <article class="card rv">
@@ -162,147 +123,52 @@
           <span class="ex"><i style="--c:#8b5cf6"></i>Préparer tes devis</span>
         </div>
       </div>
-      <div class="rail rail-rev" aria-hidden="true">
-        <div class="rail-track">
-          <span class="ex"><i style="--c:#f59e0b"></i>Rédiger tes newsletters</span>
-          <span class="ex"><i style="--c:#00c9ad"></i>Suivre tes factures</span>
-          <span class="ex"><i style="--c:#1d6bff"></i>Préparer tes réunions</span>
-          <span class="ex"><i style="--c:#ec4899"></i>Faire ta veille concurrence</span>
-          <span class="ex"><i style="--c:#8b5cf6"></i>Créer tes vidéos courtes</span>
-          <span class="ex"><i style="--c:#25c16f"></i>Qualifier tes prospects</span>
-          <span class="ex"><i style="--c:#1d6bff"></i>Former ton équipe</span>
-        </div>
-      </div>
     </section>
 
-    <!-- AU QUOTIDIEN -->
-    <section class="sec" id="quotidien">
+    <!-- LE CERCLE -->
+    <section class="sec" id="cercle">
       <div class="sec-head">
-        <h2 class="rv">Ce que tu reçois<br>pendant 6 mois</h2>
+        <h2 class="rv">Le Cercle, pendant 6 mois</h2>
       </div>
-      <div class="bento">
-        <article class="bx bx-wide rv">
-          <div class="bx-art"><img src="./v4/img/q-communaute.webp" alt="" loading="lazy"></div>
-          <h3>L’actu IA, décryptée pour ton business</h3>
-          <p>Quand une nouveauté peut te faire gagner du temps, on te la partage avec la façon concrète de l’utiliser.</p>
+      <div class="bento bento3">
+        <article class="bx rv">
+          <div class="bx-art"><img src="./v4/img/q-live.webp" alt="" loading="lazy"><span class="live"><i></i>En direct</span></div>
+          <h3>Une masterclass toutes les deux semaines</h3>
+          <p>Une heure sur un cas concret, avec une méthode que tu appliques dès le lendemain.</p>
         </article>
         <article class="bx rv" style="--rd:.07s">
-          <div class="bx-art"><img src="./v4/img/q-live.webp" alt="" loading="lazy"><span class="live"><i></i>En direct</span></div>
-          <h3>Une masterclass en direct toutes les deux semaines</h3>
-          <p>Une heure sur un cas d’usage concret, pour repartir avec une méthode que tu appliques dès le lendemain.</p>
+          <div class="bx-art"><img src="./v4/img/q-communaute.webp" alt="" loading="lazy"></div>
+          <h3>Le groupe WhatsApp des membres</h3>
+          <p>Tes questions, nos réponses, et l’actu IA utile pour ton business.</p>
         </article>
         <article class="bx rv" style="--rd:.14s">
           <div class="bx-art"><img src="./v4/img/q-point.webp" alt="" loading="lazy"></div>
           <h3>Un suivi individuel</h3>
-          <p>Un premier échange pour cerner tes besoins, puis un point tous les deux mois pour mesurer ce que l’IA a changé dans ton travail.</p>
-        </article>
-        <article class="bx rv" style="--rd:.07s">
-          <div class="bx-art"><img src="./v4/img/q-ressources.webp" alt="" loading="lazy"></div>
-          <h3>Des réponses à tes questions</h3>
-          <p>Un blocage ou un besoin précis ? Tu poses ta question dans le groupe, on t’apporte une solution adaptée.</p>
-        </article>
-        <article class="bx rv" style="--rd:.14s">
-          <div class="bx-art"><img src="./v4/img/q-acces.webp" alt="" loading="lazy"></div>
-          <h3>Un accès prioritaire</h3>
-          <p>Tu passes en priorité pour un diagnostic, un accompagnement ou une mise en place, et tu découvres nos nouveautés en avant-première.</p>
+          <p>Un premier échange sur tes besoins, puis un point tous les deux mois.</p>
         </article>
       </div>
-    </section>
-
-    <!-- ÉTAPES -->
-    <section class="sec sec-tint" id="etapes">
-      <div class="sec-head">
-        <h2 class="rv">Trois étapes pour entrer</h2>
-        <p class="rv" style="--rd:.08s">Pas de lien d’entrée public : chaque membre est accueilli par Boris ou Kévin.</p>
-      </div>
-      <div class="steps">
-        <i class="steps-line" aria-hidden="true"><b></b></i>
-        <article class="step rv">
-          <div class="step-art"><img src="./v4/img/e-candidature.webp" alt="" loading="lazy"></div>
-          <span class="step-n">Étape 1</span>
-          <h3>Tu candidates</h3>
-          <p>Quelques questions sur ton activité, ton équipe et ce qui te prend le plus de temps. Deux minutes.</p>
-        </article>
-        <article class="step rv" style="--rd:.12s">
-          <div class="step-art"><img src="./v4/img/e-echange.webp" alt="" loading="lazy"></div>
-          <span class="step-n">Étape 2</span>
-          <h3>On échange</h3>
-          <p>Boris ou Kévin te répond sur WhatsApp pour mieux comprendre ton besoin.</p>
-        </article>
-        <article class="step rv" style="--rd:.24s">
-          <div class="step-art"><img src="./v4/img/e-bienvenue.webp" alt="" loading="lazy"></div>
-          <span class="step-n">Étape 3</span>
-          <h3>Bienvenue dans le Cercle</h3>
-          <p>Tu règles ton adhésion et tu rejoins le groupe des membres. On attend de chacun qu’il soit actif.</p>
-        </article>
+      <div class="join rv">
+        <div class="join-price"><b>150 €</b><span>pour 6 mois, sur candidature</span></div>
+        <ol class="join-steps">
+          <li><i>1</i>Tu candidates en deux minutes</li>
+          <li><i>2</i>On échange sur WhatsApp</li>
+          <li><i>3</i>Tu rejoins le groupe</li>
+        </ol>
+        <a class="btn btn-primary btn-lg" href="#candidature" data-intent="cercle">Candidater</a>
       </div>
     </section>
 
     <!-- OFFRES -->
-    <section class="sec" id="offres">
+    <section class="sec sec-tint" id="offres">
       <div class="sec-head">
-        <h2 class="rv">150 € pour 6 mois.<br>Ton projet peut aller plus loin.</h2>
-        <p class="rv" style="--rd:.08s">Quand tu veux aller plus vite, on avance avec toi sur ton propre business.</p>
+        <h2 class="rv">Pour aller plus loin</h2>
+        <p class="rv" style="--rd:.08s">En dehors du Cercle, on avance avec toi sur ton propre business.</p>
       </div>
-      <article class="free rv">
-        <div class="free-l">
-          <span class="free-k">Le Cercle</span>
-          <p class="free-p">150 € <small>pour 6 mois</small></p>
-          <p class="free-s">Sur candidature.</p>
-          <a class="btn btn-primary" href="#candidature" data-intent="cercle">Candidater</a>
-        </div>
-        <ul class="free-r">
-          <li><svg><use href="#check"/></svg>Le groupe WhatsApp des membres</li>
-          <li><svg><use href="#check"/></svg>L’actu IA décryptée pour ton business</li>
-          <li><svg><use href="#check"/></svg>Une masterclass en direct toutes les deux semaines</li>
-          <li><svg><use href="#check"/></svg>Un suivi individuel tous les deux mois</li>
-          <li><svg><use href="#check"/></svg>Des réponses à tes questions</li>
-        </ul>
-      </article>
-      <p class="rail-h rv">Pour aller plus loin, en dehors de l’adhésion :</p>
-      <div class="plans">
-        <article class="plan rv">
-          <span class="plan-ic" style="--c:#00c9ad"><svg viewBox="0 0 20 20"><path d="M4 4.5h12v8H9l-4 3v-3H4z"/></svg></span>
-          <h3>Diagnostic IA</h3>
-          <p class="price">Sur demande <small>1 h environ</small></p>
-          <p>Une heure sur ton business : ce qui te prend du temps, ce que l’IA peut en reprendre, et par où commencer.</p>
-          <a class="btn btn-ghost" href="#candidature" data-intent="decouverte">Demander un diagnostic</a>
-        </article>
-        <article class="plan rv" style="--rd:.07s">
-          <span class="plan-ic" style="--c:#ec4899"><svg viewBox="0 0 20 20"><path d="M3 6.5 10 3l7 3.5-7 3.5z"/><path d="M6 8v4.5c1 1 2.4 1.5 4 1.5s3-.5 4-1.5V8"/></svg></span>
-          <h3>Accompagnement</h3>
-          <p class="price">Au mois</p>
-          <p>Tu veux apprendre à le faire toi-même ? Des séances régulières sur ton propre projet.</p>
-          <a class="btn btn-ghost" href="#candidature" data-intent="decouverte">En parler</a>
-        </article>
-        <article class="plan rv" style="--rd:.14s">
-          <span class="plan-ic" style="--c:#8b5cf6"><svg viewBox="0 0 20 20"><path d="m12.5 3.5 4 4-8.5 8.5H4v-4z"/></svg></span>
-          <h3>Mise en place sur-mesure</h3>
-          <p class="price">Sur devis</p>
-          <p>On construit pour toi l’agent, l’automatisation ou l’outil dont ton activité a besoin, et on le fait évoluer.</p>
-          <a class="btn btn-ghost" href="#candidature" data-intent="decouverte">En parler</a>
-        </article>
-        <article class="plan rv" style="--rd:.21s">
-          <span class="plan-ic" style="--c:#f59e0b"><svg viewBox="0 0 20 20"><rect x="3.5" y="6" width="13" height="10" rx="2"/><path d="M7.5 6V4.5h5V6M3.5 10.5h13"/></svg></span>
-          <h3>Entreprises</h3>
-          <p class="price">Sur demande</p>
-          <p>Former vos équipes, ateliers par métier, accompagnement d’un référent IA interne.</p>
-          <a class="btn btn-ghost" href="#candidature" data-intent="decouverte">En parler</a>
-        </article>
-      </div>
-    </section>
-
-    <!-- ÉQUIPE -->
-    <section class="sec sec-tint" id="equipe">
-      <div class="team-wrap">
-        <div class="sec-head left">
-          <h2 class="rv">Deux ingénieurs IA<br>qui construisent</h2>
-          <p class="rv" style="--rd:.08s">Agents, automatisations, documents et contenus : ce qu’on partage dans le Cercle, on l’utilise d’abord pour nous, chaque jour, pour gagner du temps.</p>
-        </div>
-        <div class="team">
-          <article class="person rv"><img src="./img/boris.jpg" alt="Boris Koulevo" loading="lazy"><div><h3>Boris Koulevo</h3><p>Ingénieur IA</p></div></article>
-          <article class="person rv" style="--rd:.08s"><img src="./img/kevin.jpg" alt="Kévin Tiassou" loading="lazy"><div><h3>Kévin Tiassou</h3><p>Ingénieur IA</p></div></article>
-        </div>
+      <div class="more rv">
+        <a class="more-i" href="#candidature" data-intent="decouverte"><span class="plan-ic" style="--c:#00c9ad"><svg viewBox="0 0 20 20"><path d="M4 4.5h12v8H9l-4 3v-3H4z"/></svg></span><div><h3>Diagnostic IA</h3><p>Une heure sur ton business pour savoir par où commencer.</p></div><svg class="more-go" viewBox="0 0 20 20"><path d="M5 10h10M11 6l4 4-4 4"/></svg></a>
+        <a class="more-i" href="#candidature" data-intent="decouverte"><span class="plan-ic" style="--c:#ec4899"><svg viewBox="0 0 20 20"><path d="M3 6.5 10 3l7 3.5-7 3.5z"/><path d="M6 8v4.5c1 1 2.4 1.5 4 1.5s3-.5 4-1.5V8"/></svg></span><div><h3>Accompagnement</h3><p>Des séances régulières pour apprendre à le faire toi-même, sur ton projet.</p></div><svg class="more-go" viewBox="0 0 20 20"><path d="M5 10h10M11 6l4 4-4 4"/></svg></a>
+        <a class="more-i" href="#candidature" data-intent="decouverte"><span class="plan-ic" style="--c:#8b5cf6"><svg viewBox="0 0 20 20"><path d="m12.5 3.5 4 4-8.5 8.5H4v-4z"/></svg></span><div><h3>Mise en place sur mesure</h3><p>On construit pour toi l’agent ou l’automatisation dont tu as besoin.</p></div><svg class="more-go" viewBox="0 0 20 20"><path d="M5 10h10M11 6l4 4-4 4"/></svg></a>
+        <a class="more-i" href="#candidature" data-intent="decouverte"><span class="plan-ic" style="--c:#f59e0b"><svg viewBox="0 0 20 20"><rect x="3.5" y="6" width="13" height="10" rx="2"/><path d="M7.5 6V4.5h5V6M3.5 10.5h13"/></svg></span><div><h3>Entreprises</h3><p>Former tes équipes, avec des ateliers par métier.</p></div><svg class="more-go" viewBox="0 0 20 20"><path d="M5 10h10M11 6l4 4-4 4"/></svg></a>
       </div>
     </section>
 
@@ -310,7 +176,7 @@
     <section class="sec" id="candidature">
       <div class="sec-head">
         <h2 class="rv">Rejoins le Cercle</h2>
-        <p class="rv" style="--rd:.08s">Ton message s’ouvre dans WhatsApp, prêt à être envoyé à Boris ou à Kévin.</p>
+        <p class="rv" style="--rd:.08s">Ton message s’ouvre dans WhatsApp, prêt à être envoyé à Boris ou à Kévin, les deux ingénieurs IA qui animent le Cercle.</p>
       </div>
       <form class="form rv" id="form" novalidate>
         <div class="seg seg-form" role="radiogroup" aria-label="Tu veux">
@@ -351,11 +217,9 @@
       <span class="faq-m mz" data-m="m-bloc" aria-hidden="true" style="--x:85%;--y:50%;--s:96px;--d:.8s"></span>
       <div class="sec-head"><h2 class="rv">Avant de candidater</h2></div>
       <div class="faq rv" style="--rd:.08s">
-        <details><summary>Combien coûte le Cercle ?</summary><p>150 € pour 6 mois, sur candidature. Le diagnostic, l’accompagnement, les mises en place sur mesure et les formations d’équipe sont proposés à part.</p></details>
         <details><summary>Et après 6 mois ?</summary><p>Le Cercle fonctionne par sessions de 6 mois. À la fin d’une session, une nouvelle s’ouvre pour d’autres entrepreneurs et managers. Si tu souhaites continuer, tu peux rester une session de plus pour 300 €.</p></details>
         <details><summary>Faut-il déjà s’y connaître en IA ?</summary><p>Non. Ce qui compte, c’est de porter un business ou une équipe, et de vouloir que l’IA te fasse gagner du temps dans ton vrai travail.</p></details>
         <details><summary>Et si je débute dans la vie pro ou que je suis étudiant ?</summary><p>La communauté <a href="../parlons-ia/">Parlons IA</a> est faite pour toi : ressources, masterclass et entraide.</p></details>
-        <details><summary>Où se passe le Cercle ?</summary><p>Sur WhatsApp, avec des sessions en direct réservées aux membres.</p></details>
       </div>
     </section>
   </main>
