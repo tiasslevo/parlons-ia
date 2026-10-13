@@ -117,10 +117,32 @@ Remplacer les mots vagues ou grandiloquents par le fait précis qu’ils cachent
 - crucial, majeur, incontournable, révolutionnaire ;
 - met en lumière, souligne l’importance, témoigne de ;
 - levier, paradigme, écosystème ou holistique employés sans nécessité ;
+- tension, dimension, dynamique, articulation, enjeu : quand chaque paragraphe
+  « révèle une tension fondamentale » ou « met en lumière une nouvelle
+  dimension », le texte sonne écrit par une IA ;
 - marque un tournant ou change la donne sans preuve concrète.
 
 Utiliser « est », « a » et « fait » lorsque des verbes comme « constitue »,
 « représente » ou « incarne » n’ajoutent rien.
+
+### Annonces avec deux-points
+
+Éviter le schéma « idée annoncée, deux-points, explication » répété phrase après
+phrase (« Cette scène met en évidence une tension essentielle : … »). Garder les
+deux-points pour une vraie liste ou une définition, et dire l'idée directement.
+
+### Démonstratifs en série
+
+Limiter « ce », « cette », « cet » en tête de phrase pour reprendre l'idée
+précédente (« Cette analyse rejoint… Cette idée est illustrée par… »). Nommer la
+chose, relier les phrases autrement, ou fusionner.
+
+### La même idée en plusieurs habits
+
+Repérer les paragraphes qui redisent la même chose avec d'autres mots (« le
+personnage est isolé », puis « le texte montre la solitude », puis « il y a un
+manque de connexion »). Garder la version la plus précise et ajouter ce qui
+manque : un exemple, un fait, une conséquence.
 
 ### Fins de chatbot
 
@@ -135,7 +157,7 @@ fait qui prolonge naturellement le texte.
 
 Ne pas ajouter d’emojis, de gras mécanique ou de listes décoratives si le
 format ne les demande pas. Ne pas utiliser de tiret cadratin. Préférer le point,
-la virgule, les deux-points ou les parenthèses.
+la virgule ou les parenthèses ; les deux-points avec parcimonie.
 
 ## Garder une voix humaine
 
@@ -177,7 +199,7 @@ Avant de livrer :
 
 1. Vérifier les faits, les attributions et le sens.
 2. Couper les préambules et le remplissage.
-3. Scanner les antithèses, triades, anaphores et punchlines artificielles.
+3. Scanner les antithèses, triades, anaphores, annonces avec deux-points, démonstratifs en série, redites et punchlines artificielles.
 4. Vérifier que le rythme ne repose pas sur des fragments courts empilés.
 5. Remplacer les mots vagues par des formulations précises.
 6. Vérifier que le registre correspond au contexte et à l’auteur.
