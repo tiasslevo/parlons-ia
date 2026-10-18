@@ -33,9 +33,17 @@
     .res-badge.free { background: #ecfdf5; color: #047857; }
     .res-badge.full { background: #fef3c7; color: #92400e; }
     .res-badge.soon { background: #f4f4f5; color: #52525b; }
-    .res-skill-visual { aspect-ratio: 4 / 5; display: flex; flex-direction: column; justify-content: space-between; padding: 1.25rem; background: linear-gradient(160deg, #0b100e 0%, #12301f 100%); color: #d1fae5; }
-    .res-skill-visual .name { font-family: "Playfair Display", serif; font-size: 1.6rem; line-height: 1.1; color: #fff; }
-    .res-skill-visual .file { font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: .72rem; opacity: .7; }
+    .sk { aspect-ratio: 4 / 5; position: relative; display: flex; flex-direction: column; padding: 2.6rem 1.1rem 1.1rem; background: #F2EDE4; overflow: hidden; }
+    .sk .sk-name { margin-top: auto; font-family: "Playfair Display", serif; font-size: 1.45rem; line-height: 1.1; color: #18181b; }
+    .sk .sk-kind { font-size: .62rem; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; color: #047857; margin-bottom: .3rem; }
+    .sk .paper { background: #fff; border: 1px solid #e7e1d6; border-radius: .75rem; padding: .75rem; box-shadow: 0 8px 24px -14px rgba(0,0,0,.25); font-size: .72rem; line-height: 1.45; color: #3f3f46; }
+    .sk .strike { text-decoration: line-through; text-decoration-color: #e11d48; text-decoration-thickness: 2px; color: #a1a1aa; }
+    .sk .ok { background: #d1fae5; color: #065f46; border-radius: .25rem; padding: 0 .2rem; }
+    .sk .bubble { border-radius: .9rem; padding: .45rem .7rem; font-size: .7rem; line-height: 1.35; max-width: 85%; }
+    .sk .bubble.me { background: #fff; border: 1px solid #e7e1d6; align-self: flex-end; }
+    .sk .bubble.ai { background: #0b100e; color: #ecfdf5; align-self: flex-start; }
+    .sk .bar { height: .4rem; border-radius: 99px; background: #d4d4d8; margin-top: .3rem; }
+    .sk .chip { display: inline-flex; align-items: center; justify-content: center; width: 3.1rem; height: 3.8rem; border-radius: .5rem; font-size: .68rem; font-weight: 800; color: #fff; box-shadow: 0 8px 18px -10px rgba(0,0,0,.4); }
     .res-group[hidden] { display: none; }
   </style>
 </head>
@@ -73,7 +81,7 @@
           <button class="res-filter is-active" data-filter="all">Tout</button>
           <button class="res-filter" data-filter="images">Images et affiches</button>
           <button class="res-filter" data-filter="video">Vidéo</button>
-          <button class="res-filter" data-filter="skills">Skills Claude</button>
+          <button class="res-filter" data-filter="skills">Skills</button>
         </div>
         <div class="flex flex-wrap items-center gap-3 mt-5 text-xs text-zinc-500">
           <span class="res-badge free">Gratuit</span> tout est sur la page
@@ -129,17 +137,18 @@
       { cat: "skills", href: "../skills/doc-coauthoring/", skill: "Doc Co-Authoring", file: "doc-coauthoring.skill", tag: "Skill · documents", title: "Écrire un document à deux avec Claude", text: "Propositions, comptes rendus, guides : Claude structure avec toi.", access: "free" },
       { cat: "skills", href: "../skills/file-skills/", skill: "File Skills", file: "pdf · word · excel · pptx", tag: "Skill · fichiers", title: "Claude crée tes PDF, Word, Excel et PowerPoint", text: "Le pack pour que Claude te rende de vrais fichiers.", access: "free" }
     ];
+    const SKILL_VIZ = {"NoSlop FR": "<div class=\"paper\"><span class=\"strike\">Dans un monde en constante évolution,</span> l'IA change <span class=\"strike\">profondément</span> notre façon de travailler. <span class=\"strike\">En somme, il est crucial de</span> <span class=\"ok\">Il faut</span> s'y mettre.</div>", "Humanizer FR": "<div class=\"flex flex-col gap-2\"><div class=\"paper\"><span class=\"strike\">Je me permets de revenir vers vous afin de faire suite à notre échange.</span></div><div class=\"paper\"><span class=\"ok\">Je reviens vers toi après notre appel d'hier.</span></div></div>", "Caveman": "<div class=\"flex flex-col gap-2\"><div class=\"paper\"><div class=\"text-[10px] font-bold text-zinc-400 mb-1\">SANS</div><div class=\"bar w-full\"></div><div class=\"bar w-11/12\"></div><div class=\"bar w-full\"></div><div class=\"bar w-10/12\"></div><div class=\"bar w-full\"></div><div class=\"bar w-9/12\"></div></div><div class=\"paper\"><div class=\"text-[10px] font-bold text-emerald-700 mb-1\">AVEC</div><div class=\"bar w-7/12\" style=\"background:#10b981\"></div></div></div>", "Brainstorming FR": "<div class=\"flex flex-col gap-1.5\"><div class=\"bubble me\">J'ai une idée de business…</div><div class=\"bubble ai\">Pour qui, exactement ?</div><div class=\"bubble ai\">Ils paient quoi aujourd'hui ?</div></div>", "Tailored Resume": "<div class=\"paper\"><div class=\"h-2 w-1/2 rounded bg-zinc-800 mb-2\"></div><div class=\"bar w-full\"></div><div class=\"mt-1.5\"><span class=\"ok\">Gestion de projet · 3 ans</span></div><div class=\"bar w-10/12\"></div><div class=\"mt-1.5\"><span class=\"ok\">Excel, Power BI</span></div><div class=\"bar w-9/12\"></div><div class=\"mt-2 inline-block text-[10px] font-bold text-emerald-700 border border-emerald-200 rounded-full px-2 py-0.5\">Adapté à l'offre</div></div>", "Frontend Design": "<div class=\"paper !p-0 overflow-hidden\"><div class=\"flex gap-1 px-2 py-1.5 border-b border-zinc-100\"><i class=\"w-1.5 h-1.5 rounded-full bg-rose-400\"></i><i class=\"w-1.5 h-1.5 rounded-full bg-amber-400\"></i><i class=\"w-1.5 h-1.5 rounded-full bg-emerald-400\"></i></div><div class=\"p-3\" style=\"background:#0b100e\"><div class=\"font-serif text-white text-base leading-tight\">Le café<br><em>Cosy</em></div><div class=\"mt-2 h-1.5 w-1/2 rounded bg-emerald-300/60\"></div><div class=\"mt-3 inline-block rounded-md bg-white text-[9px] font-bold px-2 py-1\">Réserver</div></div></div>", "Doc Co-Authoring": "<div class=\"paper relative\"><div class=\"h-2 w-2/3 rounded bg-zinc-800 mb-2\"></div><div class=\"bar w-full\"></div><div class=\"bar w-11/12\"></div><div class=\"bar w-full\"></div><div class=\"flex items-center gap-1 mt-1\"><div class=\"bar w-5/12\" style=\"margin:0\"></div><i class=\"inline-block w-0.5 h-3 bg-emerald-600\"></i></div><div class=\"absolute -right-1 bottom-3 bubble ai !text-[10px]\">Et si on ajoutait le budget ?</div></div>", "File Skills": "<div class=\"flex flex-wrap gap-2 justify-center pt-2\"><span class=\"chip\" style=\"background:#dc2626\">PDF</span><span class=\"chip\" style=\"background:#2563eb\">DOCX</span><span class=\"chip\" style=\"background:#16a34a\">XLSX</span><span class=\"chip\" style=\"background:#ea580c\">PPTX</span></div>"};
     const GROUPS = [
       { cat: "images", title: "Images et affiches" },
       { cat: "video", title: "Vidéo" },
-      { cat: "skills", title: "Skills Claude en français" }
+      { cat: "skills", title: "Skills" }
     ];
     const badge = (r) => r.soon ? '<span class="res-badge soon">Bientôt</span>'
       : r.access === "full" ? '<span class="res-badge full"><i data-lucide="lock-open" class="w-3 h-3"></i>Gratuit + version complète</span>'
       : '<span class="res-badge free">Gratuit</span>';
     const visual = (r) => r.img
       ? `<div class="card-zoom rounded-xl overflow-hidden mb-5 relative border border-zinc-200 bg-[#F2EDE4]"><img class="w-full aspect-[4/5] object-cover" src="${r.img}" alt="${r.title}" loading="lazy"><span class="absolute top-3 left-3">${badge(r)}</span></div>`
-      : `<div class="card-zoom rounded-xl overflow-hidden mb-5 relative border border-zinc-200"><div class="res-skill-visual"><span class="file">${r.file}</span><span class="name">${r.skill}</span></div><span class="absolute top-3 right-3">${badge(r)}</span></div>`;
+      : `<div class="card-zoom rounded-xl overflow-hidden mb-5 relative border border-zinc-200"><div class="sk">${SKILL_VIZ[r.skill] || ""}<div class="pt-4"><div class="sk-kind">Skill</div><div class="sk-name">${r.skill}</div></div></div><span class="absolute top-3 right-3">${badge(r)}</span></div>`;
     const card = (r) => `
       <a href="${r.href}" class="landing-card group block rounded-2xl border border-zinc-200 bg-white p-3 hover:border-emerald-200${r.soon ? " pointer-events-none opacity-80" : ""}">
         ${visual(r)}
