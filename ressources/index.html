@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="fr" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ressources — Parlons IA</title>
+  <meta name="description" content="Les prompts, guides et skills de Parlons IA : affiches, photos, vidéos et skills Claude en français. Tout ce qu'on partage dans les vidéos, au même endroit.">
+  <meta name="theme-color" content="#0b100e">
+  <script>document.documentElement.classList.add("js");</script>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400;1,500&display=swap" rel="stylesheet">
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', "sans-serif"],
+            serif: ['"Playfair Display"', "serif"]
+          }
+        }
+      }
+    };
+  </script>
+  <link rel="stylesheet" href="../styles.css">
+  <style>
+    .res-filter { border: 1px solid #e4e4e7; background: #fff; color: #3f3f46; font-size: .8rem; font-weight: 600; padding: .5rem 1rem; border-radius: 999px; transition: all .2s; }
+    .res-filter:hover { border-color: #a7f3d0; }
+    .res-filter.is-active { background: #09090b; border-color: #09090b; color: #fff; }
+    .res-badge { display: inline-flex; align-items: center; gap: .35rem; font-size: .68rem; font-weight: 700; letter-spacing: .02em; padding: .25rem .6rem; border-radius: 999px; }
+    .res-badge.free { background: #ecfdf5; color: #047857; }
+    .res-badge.full { background: #fef3c7; color: #92400e; }
+    .res-badge.soon { background: #f4f4f5; color: #52525b; }
+    .res-skill-visual { aspect-ratio: 4 / 5; display: flex; flex-direction: column; justify-content: space-between; padding: 1.25rem; background: linear-gradient(160deg, #0b100e 0%, #12301f 100%); color: #d1fae5; }
+    .res-skill-visual .name { font-family: "Playfair Display", serif; font-size: 1.6rem; line-height: 1.1; color: #fff; }
+    .res-skill-visual .file { font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: .72rem; opacity: .7; }
+    .res-group[hidden] { display: none; }
+  </style>
+</head>
+<body class="min-h-screen flex flex-col antialiased">
+  <header class="site-header sticky top-0 z-40 w-full border-b border-zinc-200/80 bg-white/80 backdrop-blur-md">
+    <div class="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+      <div class="header-inner flex h-16 items-center justify-between">
+        <a href="../parlons-ia/" class="flex items-center gap-2.5 group">
+          <span class="brand-mark h-8 w-8 text-lg">P</span>
+          <span class="text-sm font-semibold tracking-tight text-zinc-900 brand-word">Parlons <b>IA</b></span>
+        </a>
+        <nav class="hidden md:flex items-center gap-8">
+          <a href="../parlons-ia/" class="nav-link">Accueil</a>
+          <a href="./" class="nav-link text-zinc-900">Ressources</a>
+          <a href="../formation/" class="nav-link">Formation</a>
+        </nav>
+        <a data-channel-url target="_blank" rel="noopener" class="inline-flex items-center justify-center rounded-lg text-xs font-semibold px-4 py-2.5 bg-zinc-950 hover:bg-zinc-800 text-white transition">
+          Suivre la chaîne
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <main class="flex-grow">
+    <section class="section-compact section-wash">
+      <div class="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+        <span class="kicker">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M12 3v18M3 12h18M5.6 5.6l12.8 12.8M18.4 5.6 5.6 18.4"/></svg>
+          Ressources
+        </span>
+        <h1 class="display-section text-zinc-900 mt-3 max-w-2xl">Tout ce qu'on partage dans les vidéos</h1>
+        <p class="lead mt-4 max-w-2xl">Les prompts, les guides et les skills, au même endroit. Tu choisis une ressource, tu suis la page, tu obtiens le résultat.</p>
+
+        <div class="flex flex-wrap gap-2 mt-8" role="tablist" aria-label="Filtrer les ressources">
+          <button class="res-filter is-active" data-filter="all">Tout</button>
+          <button class="res-filter" data-filter="images">Images et affiches</button>
+          <button class="res-filter" data-filter="video">Vidéo</button>
+          <button class="res-filter" data-filter="skills">Skills Claude</button>
+        </div>
+        <div class="flex flex-wrap items-center gap-3 mt-5 text-xs text-zinc-500">
+          <span class="res-badge free">Gratuit</span> tout est sur la page
+          <span class="res-badge full ml-2">Gratuit + version complète</span> la méthode est gratuite, le pack complet se débloque
+        </div>
+      </div>
+    </section>
+
+    <section class="pb-20">
+      <div class="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8" id="res-root"></div>
+    </section>
+  </main>
+
+  <footer class="bg-zinc-950 text-zinc-400 pt-12 pb-8 border-t border-zinc-900 text-sm">
+    <div class="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+      <div class="flex flex-col md:flex-row items-center justify-between gap-6 pb-8 border-b border-zinc-900">
+        <a href="../parlons-ia/" class="flex items-center gap-2.5 group">
+          <span class="brand-mark h-7 w-7 text-sm !bg-white !text-zinc-950">P</span>
+          <span class="font-semibold text-white brand-word">Parlons <b>IA</b></span>
+        </a>
+        <nav class="flex flex-wrap items-center justify-center gap-x-7 gap-y-3 text-xs">
+          <a href="../parlons-ia/" class="footer-link">Accueil</a>
+          <a href="./" class="footer-link">Ressources</a>
+          <a href="../formation/" class="footer-link">Formation</a>
+          <a data-channel-url target="_blank" rel="noopener" class="footer-link">La chaîne</a>
+          <a data-community-url target="_blank" rel="noopener" class="footer-link">La communauté</a>
+        </nav>
+      </div>
+      <div class="flex flex-col sm:flex-row items-center justify-between gap-3 pt-7 text-xs text-zinc-600">
+        <span>© <span data-year>2026</span> Parlons IA. Tous droits réservés.</span>
+        <span>Chaîne pour recevoir. Communauté pour échanger.</span>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Une entrée par ressource. access : "free" ou "full" (gratuit + version complète). soon : pas encore publiée.
+    const RESOURCES = [
+      { cat: "images", href: "../articles/branding-chatgpt/", img: "../articles/branding-chatgpt/affiche-serum.jpg", tag: "Guide · 5 min", title: "Ton branding et tes affiches avec ChatGPT", text: "Ta charte graphique à partir de tes photos, puis des affiches à ta marque.", access: "full" },
+      { cat: "images", href: "#", img: "./img/affiches-pinterest.jpg", tag: "Prompt · 4 min", title: "Une affiche pro à partir de Pinterest", text: "Tu choisis une affiche qui te plaît, ChatGPT la refait avec tes infos et ton produit.", access: "free", soon: true },
+      { cat: "images", href: "#", img: "./img/photos-stylees.jpg", tag: "Prompt · 3 min", title: "Tes photos stylées sans studio", text: "Une photo Pinterest, ton selfie, et tu es dans la même scène.", access: "free", soon: true },
+      { cat: "images", href: "../articles/product-photo-prompt/", img: "../articles/product-photo-prompt/hero-after.jpg", tag: "Kit de prompts · 4 min", title: "Product Shoot : ta photo produit en visuel pub", text: "Une photo au téléphone devient un visuel de campagne, étiquette intacte.", access: "free" },
+      { cat: "images", href: "../articles/poster-prompt/", img: "../articles/poster-prompt/after-epices.jpg", tag: "Kit de prompts · 3 min", title: "Poster : des affiches propres et lisibles", text: "Un modèle à remplir pour des affiches qui tiennent la route.", access: "free" },
+      { cat: "images", href: "../articles/ai-portrait/", img: "../articles/ai-portrait/bureau-ceo.jpg", tag: "Kit de prompts · 3 min", title: "Portrait : ton visage dans n'importe quel décor", text: "Un selfie, un lieu, une tenue : un portrait réaliste où on te reconnaît.", access: "free" },
+      { cat: "video", href: "../articles/pub-motion-design-claude/", img: "../articles/pub-motion-design-claude/maison-wari-poster.jpg", tag: "Guide · 10 min", title: "Ta pub en motion design avec Claude", text: "Logo, photos, style, voix off : une vraie pub vidéo pour ton commerce.", access: "free" },
+      { cat: "video", href: "../articles/video-dessinee-claude/", img: "../articles/video-dessinee-claude/inflation-poster.jpg", tag: "Guide · 8 min", title: "Ta vidéo dessinée à la main avec Claude", text: "Une main qui dessine chaque idée au moment où elle est dite.", access: "free" },
+      { cat: "skills", href: "../skills/no-slop-fr/", skill: "NoSlop FR", file: "no-slop-fr.skill", tag: "Skill · écriture", title: "Écrire sans les tics de l'IA", text: "Retire les tournures qui trahissent ChatGPT, sans changer le fond.", access: "free" },
+      { cat: "skills", href: "../skills/humanizer-fr/", skill: "Humanizer FR", file: "humanizer-fr.skill", tag: "Skill · écriture", title: "Des textes qui sonnent humains", text: "Claude réécrit tes textes comme une vraie personne.", access: "free" },
+      { cat: "skills", href: "../skills/caveman/", skill: "Caveman", file: "caveman.skill", tag: "Skill · quota", title: "Utiliser Claude plus longtemps", text: "Des réponses courtes qui consomment moins de ton quota.", access: "free" },
+      { cat: "skills", href: "../skills/brainstorming-fr/", skill: "Brainstorming FR", file: "brainstorming-fr.skill", tag: "Skill · idées", title: "Challenger une idée avant de te lancer", text: "Claude te pose les bonnes questions avant d'écrire quoi que ce soit.", access: "free" },
+      { cat: "skills", href: "../skills/tailored-resume-generator/", skill: "Tailored Resume", file: "tailored-resume.skill", tag: "Skill · CV", title: "Un CV adapté à chaque offre", text: "Ton CV réécrit pour l'offre que tu vises.", access: "free" },
+      { cat: "skills", href: "../skills/frontend-design/", skill: "Frontend Design", file: "frontend-design.skill", tag: "Skill · sites", title: "Des sites qui n'ont pas l'air faits par IA", text: "Le skill d'Anthropic pour des pages plus soignées.", access: "free" },
+      { cat: "skills", href: "../skills/doc-coauthoring/", skill: "Doc Co-Authoring", file: "doc-coauthoring.skill", tag: "Skill · documents", title: "Écrire un document à deux avec Claude", text: "Propositions, comptes rendus, guides : Claude structure avec toi.", access: "free" },
+      { cat: "skills", href: "../skills/file-skills/", skill: "File Skills", file: "pdf · word · excel · pptx", tag: "Skill · fichiers", title: "Claude crée tes PDF, Word, Excel et PowerPoint", text: "Le pack pour que Claude te rende de vrais fichiers.", access: "free" }
+    ];
+    const GROUPS = [
+      { cat: "images", title: "Images et affiches" },
+      { cat: "video", title: "Vidéo" },
+      { cat: "skills", title: "Skills Claude en français" }
+    ];
+    const badge = (r) => r.soon ? '<span class="res-badge soon">Bientôt</span>'
+      : r.access === "full" ? '<span class="res-badge full"><i data-lucide="lock-open" class="w-3 h-3"></i>Gratuit + version complète</span>'
+      : '<span class="res-badge free">Gratuit</span>';
+    const visual = (r) => r.img
+      ? `<div class="card-zoom rounded-xl overflow-hidden mb-5 relative border border-zinc-200 bg-[#F2EDE4]"><img class="w-full aspect-[4/5] object-cover" src="${r.img}" alt="${r.title}" loading="lazy"><span class="absolute top-3 left-3">${badge(r)}</span></div>`
+      : `<div class="card-zoom rounded-xl overflow-hidden mb-5 relative border border-zinc-200"><div class="res-skill-visual"><span class="file">${r.file}</span><span class="name">${r.skill}</span></div><span class="absolute top-3 right-3">${badge(r)}</span></div>`;
+    const card = (r) => `
+      <a href="${r.href}" class="landing-card group block rounded-2xl border border-zinc-200 bg-white p-3 hover:border-emerald-200${r.soon ? " pointer-events-none opacity-80" : ""}">
+        ${visual(r)}
+        <div class="px-1.5 pb-1.5">
+          <span class="drop-tag">${r.tag}</span>
+          <h3 class="font-serif text-xl text-zinc-900 mt-2 mb-2.5 group-hover:text-emerald-800 transition-colors">${r.title}</h3>
+          <p class="text-sm text-zinc-500 leading-relaxed">${r.text}</p>
+          <span class="inline-flex items-center gap-1.5 mt-4 text-xs font-semibold text-zinc-900">${r.soon ? "Bientôt en ligne" : "Voir la ressource"}<i data-lucide="arrow-right" class="w-3.5 h-3.5 transition-transform group-hover:translate-x-1"></i></span>
+        </div>
+      </a>`;
+    document.getElementById("res-root").innerHTML = GROUPS.map((g) => `
+      <div class="res-group pt-12" data-group="${g.cat}">
+        <h2 class="font-serif text-3xl text-zinc-900 mb-7">${g.title}</h2>
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-7">${RESOURCES.filter((r) => r.cat === g.cat).map(card).join("")}</div>
+      </div>`).join("");
+    document.querySelectorAll(".res-filter").forEach((b) => b.addEventListener("click", () => {
+      document.querySelectorAll(".res-filter").forEach((x) => x.classList.toggle("is-active", x === b));
+      document.querySelectorAll(".res-group").forEach((g) => { g.hidden = b.dataset.filter !== "all" && g.dataset.group !== b.dataset.filter; });
+    }));
+  </script>
+  <script src="../script.js"></script>
+</body>
+</html>

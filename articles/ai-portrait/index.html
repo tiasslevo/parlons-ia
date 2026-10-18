@@ -80,12 +80,24 @@
         <div class="article-meta" data-reveal data-delay="2">
           <span class="article-meta-chip"><i data-lucide="clock-3"></i>3 min</span>
           <span class="article-meta-chip"><i data-lucide="user"></i>Boris Koulevo</span>
+          <span class="article-meta-chip"><i data-lucide="calendar-days"></i>Mis à jour en octobre 2026</span>
         </div>
       </div>
 
       <div class="article-visual" data-reveal data-delay="2">
-        <div class="article-single-hero">
-          <img src="./bureau-ceo.jpg" alt="Portrait généré dans un bureau sombre" loading="eager">
+        <div class="article-compare">
+          <div class="article-compare-panel">
+            <span class="article-compare-label">Ton selfie</span>
+            <img src="./selfie.jpg" alt="Selfie de départ" loading="eager">
+          </div>
+          <div class="article-compare-panel">
+            <span class="article-compare-label after">Le portrait</span>
+            <img src="./bureau-ceo.jpg" alt="Portrait généré dans un bureau sombre, même visage" loading="eager">
+          </div>
+          <div class="article-compare-divider"></div>
+          <div class="article-compare-arrow">
+            <i data-lucide="arrow-right"></i>
+          </div>
         </div>
       </div>
     </section>
@@ -96,12 +108,12 @@
         <div class="article-grid-3">
           <div class="article-card" data-reveal>
             <span class="article-step">1</span>
-            <h3>Gemini ou ChatGPT</h3>
-            <p>Gemini reste pratique pour la cohérence des visages, mais la structure fonctionne ailleurs aussi.</p>
+            <h3>ChatGPT</h3>
+            <p>Ses images gardent maintenant ton visage reconnaissable, même avec un seul selfie.</p>
           </div>
           <div class="article-card" data-reveal data-delay="1">
             <span class="article-step">2</span>
-            <h3>Deux ou trois selfies</h3>
+            <h3>Un ou deux selfies</h3>
             <p>Visage net, lumière correcte, angles variés. Évite les filtres et les images trop compressées.</p>
           </div>
           <div class="article-card" data-reveal data-delay="2">
@@ -200,7 +212,7 @@
       <section class="article-section">
         <h2 class="article-section-title" data-reveal>Envie de personnaliser ?</h2>
         <div class="article-callout" data-reveal>
-          <strong>Tu peux déléguer les variantes à une autre IA.</strong> Colle le template dans Claude, ChatGPT ou Gemini et demande : réécris seulement le lieu et la pose pour une ambiance plus créative, sans toucher au reste.
+          <strong>Tu peux déléguer les variantes à une autre IA.</strong> Colle le template dans Claude ou ChatGPT et demande : réécris seulement le lieu et la pose pour une ambiance plus créative, sans toucher au reste.
         </div>
       </section>
 
@@ -326,6 +338,7 @@ Zone B — Tenue :
 
 Zone C — Pose :
 - indique la posture, le regard et l'attitude
+- varie les poses d'un portrait à l'autre (de trois quarts, en mouvement, regard hors cadre) : sans consigne, l'IA met souvent la main au menton
 
 Contraintes fixes :
 - garde le visage cohérent

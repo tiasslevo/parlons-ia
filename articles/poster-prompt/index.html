@@ -80,7 +80,7 @@
         <div class="article-meta" data-reveal data-delay="2">
           <span class="article-meta-chip"><i data-lucide="clock-3"></i>3 min</span>
           <span class="article-meta-chip"><i data-lucide="user"></i>Boris Koulevo</span>
-          <span class="article-meta-chip"><i data-lucide="calendar-days"></i>Mars 2026</span>
+          <span class="article-meta-chip"><i data-lucide="calendar-days"></i>Mis à jour en octobre 2026</span>
         </div>
       </div>
 
@@ -109,7 +109,7 @@
           <div class="article-card" data-reveal>
             <span class="article-step">1</span>
             <h3>Un moteur image</h3>
-            <p>ChatGPT ou Gemini suffisent pour cette structure. Le plus important reste le brief, pas l'outil.</p>
+            <p>ChatGPT et ses images font le travail. Le plus important reste le brief : sans lui, même le meilleur modèle invente.</p>
           </div>
           <div class="article-card" data-reveal data-delay="1">
             <span class="article-step">2</span>
@@ -226,7 +226,7 @@
       <section class="article-section">
         <h2 class="article-section-title" data-reveal>Envie de personnaliser ?</h2>
         <div class="article-callout" data-reveal>
-          <strong>Le plus simple est de faire réécrire les zones par une autre IA.</strong> Donne le template à ChatGPT, Gemini ou Claude et demande : adapte cette affiche à un lancement produit, ou propose trois directions plus sobres.
+          <strong>Le plus simple est de faire réécrire les zones par une autre IA.</strong> Donne le template à ChatGPT ou Claude et demande : adapte cette affiche à un lancement produit, ou propose trois directions plus sobres.
         </div>
       </section>
 
@@ -361,7 +361,8 @@ Moteur :
 - contraste lisible
 - rendu crédible
 - pas d'effet gadget
-- pas de surcharge`
+- pas de surcharge
+- n'invente aucun texte : écris uniquement les mots que je te donne (nom, message, prix, contact)`
     };
 
     window.articlePrompts = [
@@ -369,13 +370,15 @@ Moteur :
         title: "Beurre de karité",
         prompt: `Crée une affiche produit naturelle et chaleureuse pour un beurre de karité.
 Utilise la photo de référence pour garder le produit fidèle.
-Mise en page simple, lisible, ton premium mais calme.`
+Mise en page simple, lisible, ton premium mais calme.
+N'invente aucun texte en dehors de ce qui est sur le produit.`
       },
       {
         title: "Mélange d'épices",
         prompt: `Construis une affiche plus chaude et plus intense autour du mélange d'épices.
 Utilise la photo de référence, ajoute une tension visuelle plus forte et une palette plus épicée.
-Garde une hiérarchie claire et un rendu réaliste.`
+Garde une hiérarchie claire et un rendu réaliste.
+N'invente aucun texte en dehors de ce qui est sur le produit.`
       },
       {
         title: "L'Assiette Bleue",
