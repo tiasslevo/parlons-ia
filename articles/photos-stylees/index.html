@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="fr" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tes photos stylées sans studio — Parlons IA</title>
+  <meta name="description" content="Le prompt pour te mettre dans n'importe quelle photo Pinterest : même cadrage, même lumière, et ton visage reste reconnaissable.">
+  <meta name="theme-color" content="#0b100e">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%22-60 -30 870 890%22 fill=%22none%22 stroke=%22%23ffffff%22 stroke-linecap=%22round%22 stroke-linejoin=%22round%22%3E%3Crect x=%22-60%22 y=%22-30%22 width=%22870%22 height=%22890%22 rx=%22190%22 fill=%22%230b100e%22 stroke=%22none%22/%3E %3Cpath d=%22M355,82 H205 C118,82 58,150 58,262 V432 C58,545 122,622 226,640 V742 L355,662 Z%22 stroke-width=%2232%22/%3E %3Cpath d=%22M432,86 H503 C563,86 597,128 599,186 C652,196 688,246 684,308 C714,340 714,410 677,434 C702,474 690,544 638,562 C636,634 588,690 520,690 H478 C420,690 392,652 392,612 V576 H514%22 stroke-width=%2232%22/%3E %3Cpath d=%22M382,408 C408,404 424,392 442,366 L494,284%22 stroke-width=%2224%22/%3E %3Cpath d=%22M390,490 H444 C478,490 492,470 512,445 C532,420 548,410 570,408%22 stroke-width=%2224%22/%3E %3Ccircle cx=%22510%22 cy=%22262%22 r=%2219%22 stroke-width=%2212%22/%3E %3Ccircle cx=%22590%22 cy=%22405%22 r=%2219%22 stroke-width=%2212%22/%3E %3Ccircle cx=%22536%22 cy=%22566%22 r=%2219%22 stroke-width=%2212%22/%3E %3C/svg%3E ">
+  <script>document.documentElement.classList.add("js");</script>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400;1,500&display=swap" rel="stylesheet">
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', "sans-serif"],
+            serif: ['"Playfair Display"', "serif"]
+          }
+        }
+      }
+    };
+  </script>
+  <link rel="stylesheet" href="../../styles.css">
+  <link rel="stylesheet" href="../../article.css">
+</head>
+<body class="article-page min-h-screen flex flex-col antialiased">
+  <header class="site-header sticky top-0 z-40 w-full border-b border-zinc-200/80 bg-white/80 backdrop-blur-md">
+    <a href="../../formation/" class="contest-banner group">
+      <span class="contest-banner-dot"></span>
+      <span>Formation</span>
+      <strong>Session en cours</strong>
+      <span class="hidden sm:inline">Réserve ta place pour la prochaine</span>
+      <i data-lucide="arrow-right" class="w-3.5 h-3.5 transition-transform group-hover:translate-x-0.5"></i>
+    </a>
+    <div class="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+      <div class="header-inner flex h-16 items-center justify-between">
+        <div class="flex items-center gap-3">
+          <a href="../../parlons-ia/" class="flex items-center gap-2 group">
+            <span class="brand-mark h-8 w-8 text-lg">P</span>
+            <span class="text-sm font-semibold tracking-tight text-zinc-900 brand-word">Parlons <b>IA</b></span>
+          </a>
+        </div>
+
+        <div class="hidden sm:flex items-center gap-3">
+          <a data-channel-url target="_blank" rel="noopener" class="inline-flex items-center justify-center rounded-lg text-xs font-semibold px-4 py-2 border border-zinc-200 bg-white hover:bg-zinc-50 text-zinc-800 transition">
+            Être prévenu
+          </a>
+          <a data-community-url target="_blank" rel="noopener" class="inline-flex items-center justify-center rounded-lg text-xs font-semibold px-4 py-2 bg-zinc-950 hover:bg-zinc-800 text-white transition">
+            Poser une question
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <div class="border-t border-zinc-200 bg-white px-4 py-3 sm:hidden">
+      <div class="flex gap-2">
+        <a data-channel-url target="_blank" rel="noopener" class="flex-1 text-center rounded-lg text-xs font-semibold py-2.5 border border-zinc-200 text-zinc-800 bg-white">
+          Être prévenu
+        </a>
+        <a data-community-url target="_blank" rel="noopener" class="flex-1 text-center rounded-lg text-xs font-semibold py-2.5 bg-zinc-950 text-white">
+          Poser une question
+        </a>
+      </div>
+    </div>
+  </header>
+
+    <main class="flex-grow">
+    <section class="article-hero article-wrap">
+      <div class="article-hero-copy">
+        <span class="article-kicker" data-reveal>Prompt</span>
+        <h1 class="article-title" data-reveal data-delay="1">Tes photos stylées <span>sans studio</span></h1>
+        <p class="article-summary" data-reveal data-delay="2">Une photo Pinterest qui te plaît, ton selfie, et ChatGPT te met dans la même scène : même cadrage, même lumière, et c'est bien toi.</p>
+        <div class="article-meta" data-reveal data-delay="2">
+          <span class="article-meta-chip"><i data-lucide="clock-3"></i>3 min</span>
+          <span class="article-meta-chip"><i data-lucide="user"></i>Boris Koulevo</span>
+          <span class="article-meta-chip"><i data-lucide="calendar-days"></i>Octobre 2026</span>
+        </div>
+      </div>
+      <div class="article-visual" data-reveal data-delay="2">
+        <div class="article-compare">
+          <div class="article-compare-panel">
+            <span class="article-compare-label">Référence</span>
+            <img src="./ref-foule.jpg" alt="Portrait noir et blanc dans une foule, trouvé sur Pinterest" loading="eager">
+          </div>
+          <div class="article-compare-panel">
+            <span class="article-compare-label after">Toi</span>
+            <img src="./resultat-foule.jpg" alt="La même photo avec le visage de Boris" loading="eager">
+          </div>
+          <div class="article-compare-divider"></div>
+          <div class="article-compare-arrow"><i data-lucide="arrow-right"></i></div>
+        </div>
+      </div>
+    </section>
+
+    <div class="article-body">
+      <section class="article-section">
+        <h2 class="article-section-title" data-reveal>Ce qu'il te faut</h2>
+        <div class="article-grid-3">
+          <div class="article-card" data-reveal>
+            <span class="article-step">1</span>
+            <h3>ChatGPT</h3>
+            <p>Avec la création d'images. Il garde ton visage reconnaissable.</p>
+          </div>
+          <div class="article-card" data-reveal data-delay="1">
+            <span class="article-step">2</span>
+            <h3>Un selfie net</h3>
+            <p>De face, bonne lumière, sans filtre. Une photo d'identité fait très bien l'affaire.</p>
+          </div>
+          <div class="article-card" data-reveal data-delay="2">
+            <span class="article-step">3</span>
+            <h3>Une photo Pinterest</h3>
+            <p>Le style, le cadrage et la lumière que tu veux pour ta photo.</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="article-section">
+        <h2 class="article-section-title" data-reveal>Étape 1 · Ta photo</h2>
+        <p class="article-text" data-reveal>Prends une photo simple de toi, de face, avec une lumière correcte. Pas de filtre, pas de lunettes de soleil, pas d'image trop compressée. Plus elle est nette, plus on te reconnaît sur le résultat.</p>
+        <img class="w-full max-w-xs aspect-[4/5] object-cover rounded-2xl border border-zinc-200 mt-6" src="./selfie.jpg" alt="Selfie de départ de Boris" loading="lazy" data-reveal>
+      </section>
+
+      <section class="article-section">
+        <h2 class="article-section-title" data-reveal>Étape 2 · Choisir la référence</h2>
+        <p class="article-text" data-reveal>Sur Pinterest, cherche par exemple « portrait cinématique », « street portrait », « portrait noir et blanc » ou « portrait éditorial ». Choisis une photo avec une seule personne bien visible au premier plan. ChatGPT reprend tout le reste : la pose, le cadrage, la lumière, le décor, même le flou de mouvement.</p>
+      </section>
+
+      <section class="article-section">
+        <h2 class="article-section-title" data-reveal>Étape 3 · Envoyer les deux photos et le prompt</h2>
+        <p class="article-text" data-reveal>Ouvre une nouvelle conversation dans ChatGPT et joins les deux photos. Précise laquelle est laquelle, par exemple : « La première photo est la référence, la deuxième, c'est moi. » Colle ensuite le prompt et envoie.</p>
+        <div class="prompt-panel" onclick="openPromptModal(0)" data-reveal>
+          <div class="prompt-panel-main">
+            <div class="prompt-panel-icon"><i data-lucide="camera"></i></div>
+            <div>
+              <div class="prompt-panel-label">Le prompt · Toi dans la photo de référence</div>
+              <div class="prompt-panel-sub">À coller avec la référence et ton selfie</div>
+            </div>
+          </div>
+          <div class="prompt-panel-actions">
+            <button class="prompt-button solid" onclick="event.stopPropagation(); copyPrompt(0, this)">Copier</button>
+            <button class="prompt-button" onclick="event.stopPropagation(); openPromptModal(0)">Voir</button>
+          </div>
+        </div>      </section>
+
+      <section class="article-section">
+        <h2 class="article-section-title" data-reveal>Ce que ça donne</h2>
+        <p class="article-text" data-reveal>Sur l'exemple, tout vient de la référence : la gare, la foule floue, la doudoune, le noir et blanc. Seule la personne change. Voici d'autres résultats obtenus avec d'autres références.</p>
+        <div class="grid grid-cols-3 gap-3 mt-6" data-reveal>
+          <img class="w-full aspect-[4/5] object-cover rounded-2xl border border-zinc-200" src="./resultat-lumiere-doree.jpg" alt="Gros plan en contre-plongée, bande de lumière dorée" loading="lazy">
+          <img class="w-full aspect-[4/5] object-cover rounded-2xl border border-zinc-200" src="./resultat-noir-blanc.jpg" alt="Portrait noir et blanc pensif, main au menton" loading="lazy">
+          <img class="w-full aspect-[4/5] object-cover rounded-2xl border border-zinc-200" src="./resultat-lunettes.jpg" alt="Portrait avec lunettes rondes et ombres de store" loading="lazy">
+        </div>
+      </section>
+
+      <section class="article-section">
+        <h2 class="article-section-title" data-reveal>Si un détail cloche</h2>
+        <p class="article-text" data-reveal>Si le visage ne te ressemble pas assez ou si la pose a changé, réponds dans la même conversation. Tu peux aussi joindre un deuxième selfie pris sous un autre angle.</p>
+        <div class="prompt-panel" onclick="openPromptModal(1)" data-reveal>
+          <div class="prompt-panel-main">
+            <div class="prompt-panel-icon"><i data-lucide="wrench"></i></div>
+            <div>
+              <div class="prompt-panel-label">Les phrases pour corriger</div>
+              <div class="prompt-panel-sub">Ressemblance, pose, effet montage</div>
+            </div>
+          </div>
+          <div class="prompt-panel-actions">
+            <button class="prompt-button solid" onclick="event.stopPropagation(); copyPrompt(1, this)">Copier</button>
+            <button class="prompt-button" onclick="event.stopPropagation(); openPromptModal(1)">Voir</button>
+          </div>
+        </div>      </section>
+
+      <section class="article-section">
+        <h2 class="article-section-title" data-reveal>Ça pourrait te plaire</h2>
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-5 mt-6" data-reveal>
+          <a href="../ai-portrait/" class="landing-card group flex gap-4 items-center rounded-2xl border border-zinc-200 bg-white p-3 hover:border-emerald-200">
+            <img class="w-24 h-28 object-cover rounded-xl border border-zinc-200 shrink-0" src="../ai-portrait/bureau-ceo.jpg" alt="" loading="lazy">
+            <div>
+              <span class="drop-tag">Kit de prompts · 3 min</span>
+              <h3 class="font-serif text-lg text-zinc-900 mt-1 mb-1 group-hover:text-emerald-800 transition-colors">Portrait : ton visage dans n'importe quel décor</h3>
+              <p class="text-xs text-zinc-500 leading-relaxed">Pas de référence sous la main ? Décris le lieu, la tenue et la pose.</p>
+            </div>
+          </a>
+          <a href="../affiche-pinterest/" class="landing-card group flex gap-4 items-center rounded-2xl border border-zinc-200 bg-white p-3 hover:border-emerald-200">
+            <img class="w-24 h-28 object-cover rounded-xl border border-zinc-200 shrink-0" src="../affiche-pinterest/affiche-canard.jpg" alt="" loading="lazy">
+            <div>
+              <span class="drop-tag">Prompt · 4 min</span>
+              <h3 class="font-serif text-lg text-zinc-900 mt-1 mb-1 group-hover:text-emerald-800 transition-colors">Ton affiche pro à partir de Pinterest</h3>
+              <p class="text-xs text-zinc-500 leading-relaxed">La même idée pour les affiches de ton business.</p>
+            </div>
+          </a>
+        </div>
+      </section>
+
+    </div>
+  </main>
+
+  <footer class="bg-zinc-950 text-zinc-400 py-12 border-t border-zinc-900 text-xs">
+    <div class="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+      <div class="flex flex-col md:flex-row items-center justify-between gap-6 pb-8 border-b border-zinc-900">
+        <div class="flex items-center gap-2">
+          <span class="brand-mark h-7 w-7 text-sm !bg-white !text-zinc-950">P</span>
+          <span class="font-semibold text-white brand-word">Parlons <b>IA</b></span>
+        </div>
+        <div class="flex items-center gap-6">
+          <a href="../../parlons-ia/" class="footer-link">Accueil</a>
+          <a href="../../ateliers/" class="footer-link">Masterclass</a>
+          <a href="../../formation/" class="footer-link">Formation</a>
+          <a href="../../concours/" class="footer-link">Concours</a>
+        </div>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4 pt-8">
+        <div class="rounded-2xl border border-zinc-800 bg-zinc-900/60 p-5">
+          <p class="text-[10px] uppercase tracking-wider text-zinc-600 font-semibold">La chaîne</p>
+          <h3 class="font-semibold text-white text-sm mt-2">Recevoir les prochains kits</h3>
+          <p class="text-zinc-400 text-xs leading-relaxed mt-2">
+            Guides, annonces et prompts à tester.
+          </p>
+          <a data-channel-url target="_blank" rel="noopener" class="inline-flex items-center justify-center rounded-lg text-xs font-semibold px-4 py-2 mt-4 bg-white text-zinc-950 hover:bg-zinc-100 transition">
+            Suivre la chaîne
+          </a>
+        </div>
+
+        <div class="rounded-2xl border border-zinc-800 bg-zinc-900/60 p-5">
+          <p class="text-[10px] uppercase tracking-wider text-zinc-600 font-semibold">La communauté</p>
+          <h3 class="font-semibold text-white text-sm mt-2">Partager ses essais</h3>
+          <p class="text-zinc-400 text-xs leading-relaxed mt-2">
+            Questions, retours et exemples de prompts.
+          </p>
+          <a data-community-url target="_blank" rel="noopener" class="inline-flex items-center justify-center rounded-lg text-xs font-semibold px-4 py-2 mt-4 border border-zinc-700 text-white hover:bg-zinc-800 transition">
+            Rejoindre la communauté
+          </a>
+        </div>
+      </div>
+
+      <div class="flex flex-col sm:flex-row items-center justify-between gap-3 mt-8 pt-6 border-t border-zinc-900 text-xs text-zinc-600">
+        <span>© <span data-year>2026</span> Parlons IA. Tous droits réservés.</span>
+        <span>Chaîne pour recevoir. Communauté pour échanger.</span>
+      </div>
+    </div>
+  </footer>
+
+  <div id="prompt-modal" class="article-modal-backdrop" onclick="closePromptModal(event)">
+    <div class="article-modal" onclick="event.stopPropagation()">
+      <div class="article-modal-header">
+        <h3 id="prompt-modal-title" class="article-modal-title">Prompt</h3>
+        <button class="article-modal-close" onclick="closePromptModal()">
+          <i data-lucide="x"></i>
+        </button>
+      </div>
+      <div class="article-modal-body">
+        <pre id="prompt-modal-content"></pre>
+      </div>
+      <div class="article-modal-footer">
+        <button id="prompt-modal-copy" class="prompt-button solid" onclick="copyPromptFromModal(this)">Copier</button>
+      </div>
+    </div>
+
+  <script>
+    window.articlePrompts = [
+  {
+    "title": "Toi dans la photo de référence",
+    "prompt": "Use the scene reference image to recreate the image as faithfully as possible: preserve the composition, framing, camera angle, perspective, pose, body position, gaze direction, lighting, environment, colors, mood, motion effects, depth of field and overall photographic style.\n\nUse the identity photo to replace the main subject with that person.\n\nThe new subject must clearly look like the person in the identity photo and preserve their identity, facial proportions, natural features, skin tone, age appearance, hair characteristics and distinctive traits.\n\nDo not create a face-swap, pasted head or 2D collage effect. Reconstruct the same person naturally in 3D so the face, head, hair and anatomy adapt correctly to the pose, camera angle, perspective, expression, gaze and lighting of the reference scene.\n\nKeep the reference scene highly faithful, but let the new subject retain their own natural identity and personal features. The final result must look like this person was genuinely photographed in the reference scene."
+  },
+  {
+    "title": "Les phrases pour corriger",
+    "prompt": "Le visage ne me ressemble pas assez. Garde exactement la scène, et reprends mon visage tel qu'il est sur ma photo : forme du visage, yeux, nez, bouche, barbe, coiffure.\n\nGarde ma tête, mais remets la pose et le cadrage exacts de la photo de référence.\n\nOn voit que c'est un montage : le visage est collé. Reconstruis-moi naturellement dans la scène, avec la même lumière et les mêmes ombres que la référence."
+  }
+];
+  </script>
+  <script src="../../script.js"></script>
+  <script src="../../article.js"></script>
+</body>
+</html>

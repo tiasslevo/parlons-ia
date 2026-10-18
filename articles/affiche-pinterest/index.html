@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="fr" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ton affiche pro à partir de Pinterest — Parlons IA</title>
+  <meta name="description" content="Le prompt pour refaire une affiche Pinterest avec ton produit, ton prix et tes infos : ChatGPT garde le style et adapte tout le reste.">
+  <meta name="theme-color" content="#0b100e">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%22-60 -30 870 890%22 fill=%22none%22 stroke=%22%23ffffff%22 stroke-linecap=%22round%22 stroke-linejoin=%22round%22%3E%3Crect x=%22-60%22 y=%22-30%22 width=%22870%22 height=%22890%22 rx=%22190%22 fill=%22%230b100e%22 stroke=%22none%22/%3E %3Cpath d=%22M355,82 H205 C118,82 58,150 58,262 V432 C58,545 122,622 226,640 V742 L355,662 Z%22 stroke-width=%2232%22/%3E %3Cpath d=%22M432,86 H503 C563,86 597,128 599,186 C652,196 688,246 684,308 C714,340 714,410 677,434 C702,474 690,544 638,562 C636,634 588,690 520,690 H478 C420,690 392,652 392,612 V576 H514%22 stroke-width=%2232%22/%3E %3Cpath d=%22M382,408 C408,404 424,392 442,366 L494,284%22 stroke-width=%2224%22/%3E %3Cpath d=%22M390,490 H444 C478,490 492,470 512,445 C532,420 548,410 570,408%22 stroke-width=%2224%22/%3E %3Ccircle cx=%22510%22 cy=%22262%22 r=%2219%22 stroke-width=%2212%22/%3E %3Ccircle cx=%22590%22 cy=%22405%22 r=%2219%22 stroke-width=%2212%22/%3E %3Ccircle cx=%22536%22 cy=%22566%22 r=%2219%22 stroke-width=%2212%22/%3E %3C/svg%3E ">
+  <script>document.documentElement.classList.add("js");</script>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400;1,500&display=swap" rel="stylesheet">
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', "sans-serif"],
+            serif: ['"Playfair Display"', "serif"]
+          }
+        }
+      }
+    };
+  </script>
+  <link rel="stylesheet" href="../../styles.css">
+  <link rel="stylesheet" href="../../article.css">
+</head>
+<body class="article-page min-h-screen flex flex-col antialiased">
+  <header class="site-header sticky top-0 z-40 w-full border-b border-zinc-200/80 bg-white/80 backdrop-blur-md">
+    <a href="../../formation/" class="contest-banner group">
+      <span class="contest-banner-dot"></span>
+      <span>Formation</span>
+      <strong>Session en cours</strong>
+      <span class="hidden sm:inline">Réserve ta place pour la prochaine</span>
+      <i data-lucide="arrow-right" class="w-3.5 h-3.5 transition-transform group-hover:translate-x-0.5"></i>
+    </a>
+    <div class="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+      <div class="header-inner flex h-16 items-center justify-between">
+        <div class="flex items-center gap-3">
+          <a href="../../parlons-ia/" class="flex items-center gap-2 group">
+            <span class="brand-mark h-8 w-8 text-lg">P</span>
+            <span class="text-sm font-semibold tracking-tight text-zinc-900 brand-word">Parlons <b>IA</b></span>
+          </a>
+        </div>
+
+        <div class="hidden sm:flex items-center gap-3">
+          <a data-channel-url target="_blank" rel="noopener" class="inline-flex items-center justify-center rounded-lg text-xs font-semibold px-4 py-2 border border-zinc-200 bg-white hover:bg-zinc-50 text-zinc-800 transition">
+            Être prévenu
+          </a>
+          <a data-community-url target="_blank" rel="noopener" class="inline-flex items-center justify-center rounded-lg text-xs font-semibold px-4 py-2 bg-zinc-950 hover:bg-zinc-800 text-white transition">
+            Poser une question
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <div class="border-t border-zinc-200 bg-white px-4 py-3 sm:hidden">
+      <div class="flex gap-2">
+        <a data-channel-url target="_blank" rel="noopener" class="flex-1 text-center rounded-lg text-xs font-semibold py-2.5 border border-zinc-200 text-zinc-800 bg-white">
+          Être prévenu
+        </a>
+        <a data-community-url target="_blank" rel="noopener" class="flex-1 text-center rounded-lg text-xs font-semibold py-2.5 bg-zinc-950 text-white">
+          Poser une question
+        </a>
+      </div>
+    </div>
+  </header>
+
+    <main class="flex-grow">
+    <section class="article-hero article-wrap">
+      <div class="article-hero-copy">
+        <span class="article-kicker" data-reveal>Prompt</span>
+        <h1 class="article-title" data-reveal data-delay="1">Ton affiche pro <span>à partir de Pinterest</span></h1>
+        <p class="article-summary" data-reveal data-delay="2">Tu trouves une affiche qui te plaît sur Pinterest. ChatGPT la refait avec ton produit, ton prix et tes infos, dans le même style.</p>
+        <div class="article-meta" data-reveal data-delay="2">
+          <span class="article-meta-chip"><i data-lucide="clock-3"></i>4 min</span>
+          <span class="article-meta-chip"><i data-lucide="user"></i>Boris Koulevo</span>
+          <span class="article-meta-chip"><i data-lucide="calendar-days"></i>Octobre 2026</span>
+        </div>
+      </div>
+      <div class="article-visual" data-reveal data-delay="2">
+        <div class="article-compare">
+          <div class="article-compare-panel">
+            <span class="article-compare-label">Référence</span>
+            <img src="./ref-boeuf.jpg" alt="Affiche de plat de bœuf trouvée sur Pinterest" loading="eager">
+          </div>
+          <div class="article-compare-panel">
+            <span class="article-compare-label after">Ton affiche</span>
+            <img src="./affiche-canard.jpg" alt="La même mise en page refaite pour un magret de canard" loading="eager">
+          </div>
+          <div class="article-compare-divider"></div>
+          <div class="article-compare-arrow"><i data-lucide="arrow-right"></i></div>
+        </div>
+      </div>
+    </section>
+
+    <div class="article-body">
+      <section class="article-section">
+        <h2 class="article-section-title" data-reveal>Ce qu'il te faut</h2>
+        <div class="article-grid-3">
+          <div class="article-card" data-reveal>
+            <span class="article-step">1</span>
+            <h3>ChatGPT</h3>
+            <p>Avec la création d'images. C'est lui qui analyse l'affiche et la refait.</p>
+          </div>
+          <div class="article-card" data-reveal data-delay="1">
+            <span class="article-step">2</span>
+            <h3>Une affiche Pinterest</h3>
+            <p>Celle dont la mise en page te plaît. Plus elle est pro, plus ton résultat le sera.</p>
+          </div>
+          <div class="article-card" data-reveal data-delay="2">
+            <span class="article-step">3</span>
+            <h3>La photo de ton produit</h3>
+            <p>Ton plat, ton produit ou ton lieu, net et bien éclairé.</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="article-section">
+        <h2 class="article-section-title" data-reveal>Étape 1 · Trouver ta référence</h2>
+        <p class="article-text" data-reveal>Va sur Pinterest et tape « affiche » suivi de ton domaine : affiche restaurant, affiche plat, affiche cosmétique, affiche concert. Choisis l'affiche dont la composition te plaît, même si le produit n'a rien à voir avec le tien. Ici, une affiche de plat de bœuf sert de base pour un magret de canard. Télécharge-la.</p>
+      </section>
+
+      <section class="article-section">
+        <h2 class="article-section-title" data-reveal>Étape 2 · Envoyer l'affiche et le prompt</h2>
+        <p class="article-text" data-reveal>Ouvre une nouvelle conversation dans ChatGPT, joins l'affiche, colle le prompt et envoie. Le prompt est en anglais pour être précis, mais ChatGPT te répondra en français.</p>
+        <div class="prompt-panel" onclick="openPromptModal(0)" data-reveal>
+          <div class="prompt-panel-main">
+            <div class="prompt-panel-icon"><i data-lucide="image"></i></div>
+            <div>
+              <div class="prompt-panel-label">Le prompt · Ton affiche à partir d'une référence</div>
+              <div class="prompt-panel-sub">À coller avec l'affiche Pinterest dans une nouvelle conversation</div>
+            </div>
+          </div>
+          <div class="prompt-panel-actions">
+            <button class="prompt-button solid" onclick="event.stopPropagation(); copyPrompt(0, this)">Copier</button>
+            <button class="prompt-button" onclick="event.stopPropagation(); openPromptModal(0)">Voir</button>
+          </div>
+        </div>      </section>
+
+      <section class="article-section">
+        <h2 class="article-section-title" data-reveal>Étape 3 · Répondre à ses questions</h2>
+        <p class="article-text" data-reveal>ChatGPT ne génère rien tout de suite. Il analyse l'affiche, puis te renvoie la liste courte de ce que tu peux remplacer : le titre, le prix, la livraison, l'accroche, le site, selon ce qu'il y a sur ta référence. Il te demande aussi la photo de ton produit ou de ton plat.</p>
+        <p class="article-text" data-reveal>Tu remplis seulement ce que tu veux voir sur ton affiche. Ce que tu laisses vide disparaît, il n'invente rien à la place. Pour l'exemple, les réponses tenaient en cinq lignes : « Magret de canard aux figues et au miel », « 15 euros », « Livraison gratuite », « Livraison à Paris », « Le canard comme jamais », avec cette photo du plat.</p>
+        <img class="w-full max-w-sm aspect-square object-cover rounded-2xl border border-zinc-200 mt-6" src="./plat-canard.jpg" alt="Photo du magret de canard envoyée à ChatGPT" loading="lazy" data-reveal>
+      </section>
+
+      <section class="article-section">
+        <h2 class="article-section-title" data-reveal>Étape 4 · Ton affiche</h2>
+        <p class="article-text" data-reveal>ChatGPT garde la composition de la référence : le grand titre, le macaron du prix, la vague bleue, la flèche de livraison. Il change aussi les petits décors pour qu'ils collent à ton produit. Les piments et les tomates du bœuf sont devenus des figues et du miel.</p>
+        <div class="example-grid example-grid-single">
+          <article class="example-card" data-reveal>
+            <div class="example-compare">
+              <span class="example-label before">Référence</span>
+              <span class="example-label after">Ton affiche</span>
+              <img src="./ref-boeuf.jpg" alt="Affiche de référence" loading="lazy">
+              <img src="./affiche-canard.jpg" alt="Affiche du magret de canard" loading="lazy">
+              <div class="example-divider"></div>
+              <div class="example-arrow"><i data-lucide="move-right"></i></div>
+            </div>
+            <div class="example-copy">
+              <h3>Magret de canard aux figues</h3>
+              <p>Même mise en page que l'affiche de bœuf, avec le plat, le prix et la livraison du restaurant.</p>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section class="article-section">
+        <h2 class="article-section-title" data-reveal>Si un détail cloche</h2>
+        <p class="article-text" data-reveal>Réponds dans la même conversation avec une phrase précise : le texte exact, ce qu'il faut garder, ce qu'il faut changer. Quelques phrases qui marchent bien :</p>
+        <div class="prompt-panel" onclick="openPromptModal(1)" data-reveal>
+          <div class="prompt-panel-main">
+            <div class="prompt-panel-icon"><i data-lucide="wrench"></i></div>
+            <div>
+              <div class="prompt-panel-label">Les phrases pour corriger</div>
+              <div class="prompt-panel-sub">Faute, texte en trop, plat, couleurs</div>
+            </div>
+          </div>
+          <div class="prompt-panel-actions">
+            <button class="prompt-button solid" onclick="event.stopPropagation(); copyPrompt(1, this)">Copier</button>
+            <button class="prompt-button" onclick="event.stopPropagation(); openPromptModal(1)">Voir</button>
+          </div>
+        </div>      </section>
+
+      <section class="article-section">
+        <h2 class="article-section-title" data-reveal>Deux bonus</h2>
+        <p class="article-text" data-reveal><strong>Modifier l'affiche dans Canva.</strong> Si tu as branché l'application Canva dans ChatGPT, demande-lui de rendre l'image modifiable. Tu récupères l'affiche dans Canva avec ses textes séparés, et tu changes un prix ou une date sans tout regénérer.</p>
+        <p class="article-text" data-reveal><strong>L'imprimer en grand.</strong> Une affiche faite par ChatGPT est nette sur un téléphone, mais elle peut paraître floue sur une bâche. Passe-la dans un outil d'agrandissement comme Crystal Upscaler, qui la sort en 4K ou plus, juste avant l'impression.</p>
+      </section>
+
+      <section class="article-section">
+        <h2 class="article-section-title" data-reveal>Ça pourrait te plaire</h2>
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-5 mt-6" data-reveal>
+          <a href="../branding-chatgpt/" class="landing-card group flex gap-4 items-center rounded-2xl border border-zinc-200 bg-white p-3 hover:border-emerald-200">
+            <img class="w-24 h-28 object-cover rounded-xl border border-zinc-200 shrink-0" src="../branding-chatgpt/affiche-serum.jpg" alt="" loading="lazy">
+            <div>
+              <span class="drop-tag">Guide · 5 min</span>
+              <h3 class="font-serif text-lg text-zinc-900 mt-1 mb-1 group-hover:text-emerald-800 transition-colors">Ton branding et tes affiches</h3>
+              <p class="text-xs text-zinc-500 leading-relaxed">Tu publies souvent ? Crée d'abord ta charte, puis toutes tes affiches dans ta marque.</p>
+            </div>
+          </a>
+          <a href="../photos-stylees/" class="landing-card group flex gap-4 items-center rounded-2xl border border-zinc-200 bg-white p-3 hover:border-emerald-200">
+            <img class="w-24 h-28 object-cover rounded-xl border border-zinc-200 shrink-0" src="./../photos-stylees/resultat-foule.jpg" alt="" loading="lazy">
+            <div>
+              <span class="drop-tag">Prompt · 3 min</span>
+              <h3 class="font-serif text-lg text-zinc-900 mt-1 mb-1 group-hover:text-emerald-800 transition-colors">Tes photos stylées sans studio</h3>
+              <p class="text-xs text-zinc-500 leading-relaxed">La même méthode avec une photo Pinterest et ton selfie.</p>
+            </div>
+          </a>
+        </div>
+      </section>
+
+    </div>
+  </main>
+
+  <footer class="bg-zinc-950 text-zinc-400 py-12 border-t border-zinc-900 text-xs">
+    <div class="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+      <div class="flex flex-col md:flex-row items-center justify-between gap-6 pb-8 border-b border-zinc-900">
+        <div class="flex items-center gap-2">
+          <span class="brand-mark h-7 w-7 text-sm !bg-white !text-zinc-950">P</span>
+          <span class="font-semibold text-white brand-word">Parlons <b>IA</b></span>
+        </div>
+        <div class="flex items-center gap-6">
+          <a href="../../parlons-ia/" class="footer-link">Accueil</a>
+          <a href="../../ateliers/" class="footer-link">Masterclass</a>
+          <a href="../../formation/" class="footer-link">Formation</a>
+          <a href="../../concours/" class="footer-link">Concours</a>
+        </div>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4 pt-8">
+        <div class="rounded-2xl border border-zinc-800 bg-zinc-900/60 p-5">
+          <p class="text-[10px] uppercase tracking-wider text-zinc-600 font-semibold">La chaîne</p>
+          <h3 class="font-semibold text-white text-sm mt-2">Recevoir les prochains kits</h3>
+          <p class="text-zinc-400 text-xs leading-relaxed mt-2">
+            Guides, annonces et prompts à tester.
+          </p>
+          <a data-channel-url target="_blank" rel="noopener" class="inline-flex items-center justify-center rounded-lg text-xs font-semibold px-4 py-2 mt-4 bg-white text-zinc-950 hover:bg-zinc-100 transition">
+            Suivre la chaîne
+          </a>
+        </div>
+
+        <div class="rounded-2xl border border-zinc-800 bg-zinc-900/60 p-5">
+          <p class="text-[10px] uppercase tracking-wider text-zinc-600 font-semibold">La communauté</p>
+          <h3 class="font-semibold text-white text-sm mt-2">Partager ses essais</h3>
+          <p class="text-zinc-400 text-xs leading-relaxed mt-2">
+            Questions, retours et exemples de prompts.
+          </p>
+          <a data-community-url target="_blank" rel="noopener" class="inline-flex items-center justify-center rounded-lg text-xs font-semibold px-4 py-2 mt-4 border border-zinc-700 text-white hover:bg-zinc-800 transition">
+            Rejoindre la communauté
+          </a>
+        </div>
+      </div>
+
+      <div class="flex flex-col sm:flex-row items-center justify-between gap-3 mt-8 pt-6 border-t border-zinc-900 text-xs text-zinc-600">
+        <span>© <span data-year>2026</span> Parlons IA. Tous droits réservés.</span>
+        <span>Chaîne pour recevoir. Communauté pour échanger.</span>
+      </div>
+    </div>
+  </footer>
+
+  <div id="prompt-modal" class="article-modal-backdrop" onclick="closePromptModal(event)">
+    <div class="article-modal" onclick="event.stopPropagation()">
+      <div class="article-modal-header">
+        <h3 id="prompt-modal-title" class="article-modal-title">Prompt</h3>
+        <button class="article-modal-close" onclick="closePromptModal()">
+          <i data-lucide="x"></i>
+        </button>
+      </div>
+      <div class="article-modal-body">
+        <pre id="prompt-modal-content"></pre>
+      </div>
+      <div class="article-modal-footer">
+        <button id="prompt-modal-copy" class="prompt-button solid" onclick="copyPromptFromModal(this)">Copier</button>
+      </div>
+    </div>
+
+  <script>
+    window.articlePrompts = [
+  {
+    "title": "Ton affiche à partir d'une référence",
+    "prompt": "You are an expert Art Director, Graphic Designer, and Visual Layout Analyst specializing in professional poster recreation and adaptation.\n\nI will provide you with a reference poster/image.\n\nYour job is to use that poster as the visual and structural reference for creating a NEW version with my own content.\n\nLANGUAGE RULE\n\nThis instruction prompt is written in English for clarity and precision, but you MUST always communicate with me in FRENCH.\n\nEvery question, explanation, request for information, notice, and user-facing response must be written in natural, concise French.\n\nDo not answer me in English unless I explicitly ask you to.\n\n⸻\n\nPHASE 1 — ANALYZE THE REFERENCE POSTER\n\nFirst, carefully analyze the uploaded poster before asking me anything.\n\nInternally identify:\n\n* The overall visual direction and art direction\n* The poster’s composition and layout\n* Visual hierarchy\n* Main title / headline\n* Secondary title, subtitle, tagline, or supporting text\n* Dates, times, locations, prices, contact details, calls to action, etc.\n* Names, labels, descriptions, speaker names, artist names, product names, menu items, or any other relevant information\n* Logos, sponsors, social handles, websites, QR codes, badges, icons, decorative elements, etc.\n* Images used in the composition\n* Whether those images represent:\n    * a person / speaker / artist\n    * a product\n    * food or a dish\n    * an object\n    * a venue\n    * an event\n    * a background image\n    * a lifestyle image\n    * another specific visual subject\n* Typography hierarchy\n* Text placement\n* Image placement\n* Alignment\n* Spacing\n* Visual balance\n* Shapes, frames, overlays, textures, gradients, shadows, lighting, effects, and decorative elements\n* Color palette\n* Overall mood and aesthetic\n* Aspect ratio / format\n\nUnderstand the DESIGN SYSTEM of the poster, not only its text.\n\nAlso distinguish between:\n\n* PRIMARY CONTENT: the main subject, important photos, text, names, products, people, logos, or information that may need to be replaced.\n* SECONDARY VISUAL ELEMENTS: decorative objects, particles, ingredients, accessories, thematic motifs, background objects, supporting visual cues, textures, symbols, floating elements, atmospheric effects, or graphic details that support the main subject.\n\nDo NOT give me a long explanation of your analysis.\n\nDo NOT recreate the poster yet.\n\n⸻\n\nPHASE 2 — ASK ME ONLY FOR THE CONTENT YOU NEED\n\nAfter analyzing the poster, reply with a SHORT and CLEAR list of the information I can replace.\n\nAdapt the questions specifically to the poster you see.\n\nDo not use a generic questionnaire if the poster does not contain those elements.\n\nFor example, depending on the poster, you may ask:\n\nTitre principal :\nQue souhaitez-vous afficher ?\n\nSous-titre :\nQue souhaitez-vous mettre à la place ?\n\nDate / heure :\nQuelle date ou quelle heure doit apparaître ?\n\nLieu :\nQuel lieu doit apparaître ?\n\nIntervenant / artiste :\nQuel est son nom et sa fonction ?\n\nProduit :\nQuel produit souhaitez-vous mettre en avant ?\n\nPrix :\nQuel prix doit apparaître ?\n\nOnly ask for elements that are actually relevant to the reference design.\n\nKeep the questionnaire concise.\n\nPreserve the hierarchy of the original poster when ordering the questions: ask for the most important information first.\n\n⸻\n\nIMAGE / PHOTO REFERENCES\n\nIf the original poster contains an important photograph or visual subject that should logically be replaced, explicitly ask me to upload the corresponding image.\n\nExamples:\n\n* If the poster features a speaker → ask for the speaker’s photo + name/title if relevant.\n* If it features several speakers → ask for each speaker’s photo + corresponding name.\n* If it features a product → ask me to upload the product photo.\n* If it features food → ask me to upload the photo of the dish/food.\n* If it features a person/model → ask for the person’s photo.\n* If it features a specific venue → ask for the venue image if needed.\n* If a company logo is important → ask me to upload the logo.\n* If there is a QR code → ask me for the QR code or the destination it should represent, when relevant.\n* If another image is essential to the composition → clearly tell me what kind of image I should upload.\n\nDo NOT ask me to upload visual assets that are merely decorative and can reasonably be recreated or adapted automatically.\n\n⸻\n\nIMPORTANT — AUTOMATIC ADAPTATION OF SECONDARY VISUAL ELEMENTS\n\nWhen I replace the main image, main product, main person, main dish, main object, or main visual subject, you must intelligently adapt the SECONDARY VISUAL ELEMENTS around it.\n\nThese secondary elements should remain consistent with the new subject.\n\nDo NOT mechanically preserve decorative elements from the original poster if they no longer make sense with the new main subject.\n\nInstead, reinterpret them while preserving the same visual role, energy, composition, density, movement, scale, and art direction.\n\nFor example, if the original poster contains small thematic elements surrounding the main subject, these elements should be replaced by new thematic elements that logically match the new subject.\n\nThe objective is NOT to copy every decorative object literally.\n\nThe objective is to preserve the DESIGN LOGIC.\n\nYou must automatically determine:\n\n* Which decorative elements are linked to the original subject\n* Which elements should remain\n* Which elements should be replaced\n* What new elements would make sense with the new subject\n* How those new elements should be positioned and styled to preserve the original composition\n\nDo this automatically.\n\nDo NOT ask me to provide every small decorative object, ingredient, texture, particle, accessory, symbol, or atmospheric element unless it is genuinely important or specific to my brand.\n\nIf I only provide the new MAIN image or subject, you should infer and create the appropriate secondary visual environment around it.\n\nThe adapted secondary elements must:\n\n* Match the new subject\n* Make semantic sense\n* Preserve the visual density of the reference\n* Preserve the original movement and composition\n* Preserve the overall art direction\n* Support the main subject rather than compete with it\n* Look intentional, not random\n\n⸻\n\nRESPONSE FORMAT FOR PHASE 2\n\nMake your response easy to fill in.\n\nUse a compact format such as:\n\n1. Titre principal :\n→\n\n2. Sous-titre :\n→\n\n3. Date :\n→\n\n4. Lieu :\n→\n\n5. Personne mise en avant :\n→ Nom :\n→ Fonction :\n\n6. Photo principale :\n→ Merci d’envoyer l’image que vous souhaitez utiliser.\n\nAdjust this structure intelligently to the actual poster.\n\nDo not ask unnecessary questions.\n\nDo not explain obvious design details.\n\nAt the END of your message, always display this notice very visibly:\n\n⚠️ IMPORTANT : vous n’êtes pas obligé de tout remplir.\nIndiquez uniquement les informations que vous souhaitez voir apparaître sur l’affiche finale.\nSi vous laissez un élément vide ou si vous ne le fournissez pas, il sera simplement supprimé de la nouvelle création.\n\n⸻\n\nPHASE 3 — CREATE THE NEW POSTER\n\nOnce I reply with my information and upload any requested assets, switch immediately into creation mode.\n\nDo NOT repeat the full questionnaire.\n\nDo NOT give me another long analysis.\n\nDo NOT ask for confirmation before creating the poster unless a genuinely critical piece of information makes the design impossible to produce.\n\nUse everything I provided and create the finished poster.\n\nYour goal is to produce a highly professional design that preserves the visual identity and design language of the reference poster while adapting it intelligently to my new content.\n\n⸻\n\nDESIGN RECREATION RULES\n\nThe final poster should closely preserve the reference poster’s:\n\n* Art direction\n* Composition logic\n* Visual hierarchy\n* Typography style and typographic relationships\n* Text scale relationships\n* Alignment\n* Spacing\n* Image positioning\n* Cropping style\n* Color relationships\n* Shapes and graphic elements\n* Background treatment\n* Lighting\n* Texture\n* Effects\n* Depth\n* Visual rhythm\n* Overall mood\n* Premium/professional appearance\n\nDo not merely place my new text or new photo on top of the original image.\n\nRebuild and adapt the composition so that the new content feels NATIVELY DESIGNED for that poster.\n\nPreserve the visual grammar of the original, not necessarily every literal object.\n\n⸻\n\nINTELLIGENT ADAPTATION\n\nMy replacement text may be longer or shorter than the original.\n\nWhen this happens:\n\n* Adjust font size intelligently.\n* Adjust line breaks.\n* Adjust spacing.\n* Slightly reposition elements when necessary.\n* Maintain the original hierarchy.\n* Maintain visual balance.\n* Avoid overcrowding.\n* Never stretch or distort text.\n* Never sacrifice readability simply to force the new text into the exact original dimensions.\n\nThe new poster should look as though it was designed from the beginning with my content.\n\nIf I provide fewer pieces of information than the original poster contains, remove the unused elements cleanly and rebalance the composition.\n\nDo NOT invent missing names, dates, prices, addresses, claims, contact details, or other factual information.\n\nIf I did not provide something, omit it.\n\n⸻\n\nPROVIDED PHOTOS AND ASSETS\n\nWhen I upload photos, products, portraits, food images, logos, or other visual references:\n\n* Use the correct asset for the corresponding element.\n* Preserve recognizable identity and important product details.\n* Integrate the asset naturally into the composition.\n* Match the reference poster’s crop, scale, lighting, depth, framing, and visual treatment whenever appropriate.\n* Do not arbitrarily replace my supplied subject with a different person or product.\n* Keep logos and brand marks visually accurate when supplied.\n\nIf several people or products are provided, make sure each name corresponds to the correct image.\n\nWhen adapting the main image, also adapt all subject-dependent decorative elements around it automatically.\n\n⸻\n\nTEXT ACCURACY\n\nText accuracy is critical.\n\nUse exactly the information I provide.\n\nDouble-check:\n\n* Names\n* Spelling\n* Dates\n* Times\n* Prices\n* Locations\n* Social handles\n* Websites\n* Phone numbers\n* Titles\n* Labels\n* Calls to action\n\nDo not introduce spelling mistakes or random text.\n\nDo not invent filler text.\n\n⸻\n\nFINAL OBJECTIVE\n\nThe result should NOT feel like a rough template edit.\n\nIt should feel like a professionally art-directed, polished, production-ready poster belonging to the SAME VISUAL UNIVERSE as the reference.\n\nThe final composition must look coherent with the NEW subject, not simply copied from the old one.\n\nPrioritize:\n\n1. Visual fidelity to the reference art direction\n2. Intelligent adaptation to the new main subject\n3. Strong composition\n4. Correct hierarchy\n5. Professional typography\n6. Accurate integration of my content\n7. Contextually relevant secondary visual elements\n8. High-quality image integration\n9. Readability\n10. Clean, premium finishing\n\nWhen all required information/assets have been provided, proceed directly to generating the final visual."
+  },
+  {
+    "title": "Les phrases pour corriger",
+    "prompt": "Le titre a une faute : écris exactement « [ton titre] ». Garde tout le reste identique.\n\nLe plat n'est pas assez net et appétissant. Garde la composition, refais seulement la photo du plat à partir de mon image.\n\nRetire la mention « [texte en trop] » : je ne l'ai pas donnée. Rééquilibre la mise en page sans elle.\n\nLes couleurs sont trop proches de la référence. Garde la mise en page, mais passe aux couleurs de mon logo."
+  }
+];
+  </script>
+  <script src="../../script.js"></script>
+  <script src="../../article.js"></script>
+</body>
+</html>
