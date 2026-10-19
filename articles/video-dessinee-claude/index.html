@@ -122,17 +122,19 @@
       <section class="article-section">
         <h2 class="article-section-title" data-reveal>Étape 1 · Coller le prompt de départ</h2>
         <p class="article-text" data-reveal>Ouvre une nouvelle conversation dans Claude et colle ce prompt. Claude commence par te poser quelques questions : ton sujet, la durée, le format, la voix. Réponds simplement.</p>
-        <div class="prompt-panel" onclick="openPromptModal(0)" data-reveal>
+        <div class="prompt-panel is-locked" onclick="document.getElementById('pack').scrollIntoView({behavior:'smooth'})" data-reveal>
           <div class="prompt-panel-main">
-            <div class="prompt-panel-icon"><i data-lucide="pen-tool"></i></div>
+            <div class="prompt-panel-icon"><i data-lucide="lock"></i></div>
             <div>
               <div class="prompt-panel-label">Le prompt de départ</div>
-              <div class="prompt-panel-sub">À coller dans une nouvelle conversation Claude</div>
+              <div class="prompt-panel-sub">Inclus dans le Pack Vidéo dessinée</div>
             </div>
           </div>
+          <pre class="locked-preview">Je veux faire une vidéo racontée dans le style « dessiné à la main » des chaînes After Skool : une main tient un feutre et dessine chaque scène à l'encre pendant que la voix raconte. Tu la fabriques entièrement en code, jusqu'au MP4 final. Les images viendront de ChatGPT : c'est moi qui ferai le lien entre vous deux.
+
+AVANT TOUT</pre>
           <div class="prompt-panel-actions">
-            <button class="prompt-button solid" onclick="event.stopPropagation(); copyPrompt(0, this)">Copier</button>
-            <button class="prompt-button" onclick="event.stopPropagation(); openPromptModal(0)">Voir</button>
+            <a class="prompt-button solid" href="#pack">Débloquer</a>
           </div>
         </div>
       </section>
@@ -150,30 +152,34 @@
           <figure class="relative overflow-hidden rounded-2xl border border-zinc-200 bg-white"><span class="article-compare-label after">Une illustration</span><img class="w-full aspect-square object-contain" src="./lustig-illustration.jpg" alt="Illustration de Victor Lustig à l'encre, générée par ChatGPT" loading="lazy"></figure>
         </div>
         <p class="article-text" data-reveal>Si tu veux préparer tes images avant, voici les deux prompts qu'on a utilisés.</p>
-        <div class="prompt-panel" onclick="openPromptModal(1)" data-reveal>
+        <div class="prompt-panel is-locked" onclick="document.getElementById('pack').scrollIntoView({behavior:'smooth'})" data-reveal>
           <div class="prompt-panel-main">
-            <div class="prompt-panel-icon"><i data-lucide="hand"></i></div>
+            <div class="prompt-panel-icon"><i data-lucide="lock"></i></div>
             <div>
               <div class="prompt-panel-label">ChatGPT : la main au feutre</div>
-              <div class="prompt-panel-sub">Une seule fois, elle sert pour toute la vidéo</div>
+              <div class="prompt-panel-sub">Inclus dans le Pack Vidéo dessinée</div>
             </div>
           </div>
+          <pre class="locked-preview">Génère une image : une main qui tient un feutre noir de tableau blanc, vue de dessus, comme si elle allait écrire sur une feuille posée devant elle. [Précise la couleur de peau que tu veux.]
+Photo réaliste, lumière douce. La pointe du feutre est bien visible en haut à gauche, le poignet sort du cadre en bas à droite.
+Fond transparent (PNG). Si ce n'est pas possible : fond blanc pur uni, sans ombre portée. Rien d'autre dans l'image. Format carré.</pre>
           <div class="prompt-panel-actions">
-            <button class="prompt-button solid" onclick="event.stopPropagation(); copyPrompt(1, this)">Copier</button>
-            <button class="prompt-button" onclick="event.stopPropagation(); openPromptModal(1)">Voir</button>
+            <a class="prompt-button solid" href="#pack">Débloquer</a>
           </div>
         </div>
-        <div class="prompt-panel" onclick="openPromptModal(2)" data-reveal>
+        <div class="prompt-panel is-locked" onclick="document.getElementById('pack').scrollIntoView({behavior:'smooth'})" data-reveal>
           <div class="prompt-panel-main">
-            <div class="prompt-panel-icon"><i data-lucide="image"></i></div>
+            <div class="prompt-panel-icon"><i data-lucide="lock"></i></div>
             <div>
               <div class="prompt-panel-label">ChatGPT : une illustration</div>
-              <div class="prompt-panel-sub">Une par idée, même style pour toutes</div>
+              <div class="prompt-panel-sub">Inclus dans le Pack Vidéo dessinée</div>
             </div>
           </div>
+          <pre class="locked-preview">Génère une illustration de [ta scène, par exemple : un escroc élégant des années 1920 qui serre la main d'un acheteur au pied de la tour Eiffel].
+Style des vidéos After Skool : dessin au feutre noir à main levée, encrage expressif avec quelques hachures, et des zones coloriées au feutre à alcool vif (rouge, turquoise, jaune ou vert) sur un ou deux éléments seulement, le reste en noir et blanc.
+Fond blanc pur, 2 à 4 éléments, marge blanche autour. Aucun texte, aucune lettre, aucun chiffre. Format vertical 2:3.</pre>
           <div class="prompt-panel-actions">
-            <button class="prompt-button solid" onclick="event.stopPropagation(); copyPrompt(2, this)">Copier</button>
-            <button class="prompt-button" onclick="event.stopPropagation(); openPromptModal(2)">Voir</button>
+            <a class="prompt-button solid" href="#pack">Débloquer</a>
           </div>
         </div>
       </section>
@@ -191,35 +197,63 @@
           <figure class="relative overflow-hidden rounded-2xl border border-zinc-200 bg-white"><span class="article-compare-label after">La couleur</span><img class="w-full aspect-[2/3] object-contain" src="./scene-couleur.jpg" alt="La même scène, avec ses touches de couleur" loading="lazy"></figure>
         </div>
         <p class="article-text" data-reveal>La première version est rarement parfaite. Regarde-la en entier, puis donne des retours précis, avec le moment concerné. Voici les phrases qui servent le plus :</p>
-        <div class="prompt-panel" onclick="openPromptModal(3)" data-reveal>
+        <div class="prompt-panel is-locked" onclick="document.getElementById('pack').scrollIntoView({behavior:'smooth'})" data-reveal>
           <div class="prompt-panel-main">
-            <div class="prompt-panel-icon"><i data-lucide="wrench"></i></div>
+            <div class="prompt-panel-icon"><i data-lucide="lock"></i></div>
             <div>
               <div class="prompt-panel-label">Les phrases pour corriger</div>
-              <div class="prompt-panel-sub">Rythme, synchronisation, lisibilité</div>
+              <div class="prompt-panel-sub">Inclus dans le Pack Vidéo dessinée</div>
             </div>
           </div>
+          <pre class="locked-preview">À [0:12], le dessin arrive avant que je le dise : cale son début sur le mot « [mot] ».
+C'est trop rapide : laisse au moins une seconde sur chaque dessin terminé avant de passer à la suite.
+La main cache ce qu'elle dessine : décale-la pour qu'on voie le trait se faire.</pre>
           <div class="prompt-panel-actions">
-            <button class="prompt-button solid" onclick="event.stopPropagation(); copyPrompt(3, this)">Copier</button>
-            <button class="prompt-button" onclick="event.stopPropagation(); openPromptModal(3)">Voir</button>
+            <a class="prompt-button solid" href="#pack">Débloquer</a>
           </div>
         </div>
       </section>
 
-      <section class="article-section">
+            <section class="article-section pack-block" id="pack" data-reveal>
+        <span class="pack-kicker"><i data-lucide="lock-open"></i>Version complète</span>
+        <h2 class="pack-title">Pack Vidéo dessinée</h2>
+        <p class="pack-pitch">Le workflow complet pour qu'une main dessine chaque idée au moment où elle est dite, de ton sujet au MP4 final.</p>
+        <div class="pack-results"><img src="./inflation-poster.jpg" alt="" loading="lazy"><img src="./tour-eiffel-poster.jpg" alt="" loading="lazy"><img src="./scene-couleur.jpg" alt="" loading="lazy"><img src="./usine-color.jpg" alt="" loading="lazy"></div>
+        <p class="pack-caption">Ce que tu obtiens avec la méthode complète.</p>
+        <div class="pack-grid">
+          <div>
+            <h3 class="pack-sub">Dans le pack</h3>
+            <ul class="pack-list"><li><i data-lucide="check"></i>Le prompt de départ qui écrit le script et prépare tout le montage avec Claude</li><li><i data-lucide="check"></i>Les 2 prompts ChatGPT : la main au feutre et les illustrations</li><li><i data-lucide="check"></i>Le prompt pour copier le style de n'importe quelle vidéo de référence</li><li><i data-lucide="check"></i>Les phrases pour corriger le dessin, le rythme et la voix</li><li><i data-lucide="check"></i>Un PDF à garder, et la version web pour copier les prompts d'un clic</li></ul>
+          </div>
+          <div class="pack-preview"><pre>Je veux faire une vidéo racontée dans le style « dessiné à la main » des chaînes After Skool : une main tient un feutre et dessine chaque scène à l'encre pendant que la voix raconte. Tu la fabriques entièrement en code, jusqu'au MP4 final. Les images viendront de ChatGPT : c'est moi qui ferai le lien entre vous deux.
+
+AVANT TOUT
+Pose-moi en un seul message court ces questions, rien d'autre :
+- le sujet (une histoire vraie, un concept, ton offre…) et ce que la personne doit retenir à la fin ;
+- à qui s'adresse la vidéo ;</pre><div class="pack-preview-fade"><i data-lucide="lock"></i>La suite du prompt est dans le pack</div></div>
+        </div>
+        <div class="pack-buy">
+          <div><div class="pack-price">3 000 FCFA</div><div class="pack-price-sub">Paiement Mobile Money ou carte · accès immédiat</div></div>
+          <a class="pack-button" href="#" data-chariow="video-dessinee-claude">Débloquer sur Chariow <i data-lucide="arrow-right"></i></a>
+        </div>
+      </section>
+
+<section class="article-section">
         <h2 class="article-section-title" data-reveal>Et pour n'importe quel autre style</h2>
         <p class="article-text" data-reveal>Le prompt de départ décrit le style dessiné à la main, mais la méthode marche pour tous les styles. Tu as vu une vidéo dont tu aimes la façon de faire ? Commence par elle. Donne-la à Claude, ou quelques captures d'écran si la vidéo ne passe pas, et demande-lui d'analyser comment elle est construite. Il en tire les règles du style, et tu les utilises à la place des miennes dans le prompt de départ.</p>
-        <div class="prompt-panel" onclick="openPromptModal(4)" data-reveal>
+        <div class="prompt-panel is-locked" onclick="document.getElementById('pack').scrollIntoView({behavior:'smooth'})" data-reveal>
           <div class="prompt-panel-main">
-            <div class="prompt-panel-icon"><i data-lucide="scan-search"></i></div>
+            <div class="prompt-panel-icon"><i data-lucide="lock"></i></div>
             <div>
               <div class="prompt-panel-label">Analyser une vidéo de référence</div>
-              <div class="prompt-panel-sub">À envoyer avec la vidéo ou ses captures</div>
+              <div class="prompt-panel-sub">Inclus dans le Pack Vidéo dessinée</div>
             </div>
           </div>
+          <pre class="locked-preview">Je t'envoie une vidéo [ou : des captures d'une vidéo] dont j'aime le style. Analyse comment elle est construite, sans t'arrêter aux détails (couleurs exactes, logos, cadres) :
+- comment l'information apparaît : dans quel ordre, à quel moment par rapport à la voix, avec quel mouvement ;
+- ce qui est dessiné, écrit ou montré, et comment c'est mis en page ;</pre>
           <div class="prompt-panel-actions">
-            <button class="prompt-button solid" onclick="event.stopPropagation(); copyPrompt(4, this)">Copier</button>
-            <button class="prompt-button" onclick="event.stopPropagation(); openPromptModal(4)">Voir</button>
+            <a class="prompt-button solid" href="#pack">Débloquer</a>
           </div>
         </div>
         <div class="article-callout" data-reveal><strong>Ne copie pas les détails de la référence.</strong> Ce qui compte, c'est sa façon de raconter : ce qui apparaît, à quel moment, et comment. Les couleurs, les cadres ou les polices peuvent être les tiens.</div>
@@ -306,59 +340,28 @@
       </div>
 
       <div class="flex flex-col sm:flex-row items-center justify-between gap-3 mt-8 pt-6 border-t border-zinc-900 text-xs text-zinc-600">
-        <span>© <span data-year>2026</span> Parlons IA. Tous droits réservés.</span>
-        <span>Chaîne pour recevoir. Communauté pour échanger.</span>
-      </div>
-    </div>
-  </footer>
-
-  <div id="prompt-modal" class="article-modal-backdrop" onclick="closePromptModal(event)">
-    <div class="article-modal" onclick="event.stopPropagation()">
-      <div class="article-modal-header">
-        <h3 id="prompt-modal-title" class="article-modal-title">Prompt</h3>
-        <button class="article-modal-close" onclick="closePromptModal()">
-          <i data-lucide="x"></i>
-        </button>
-      </div>
-      <div class="article-modal-body">
-        <pre id="prompt-modal-content"></pre>
-      </div>
-      <div class="article-modal-footer">
-        <button id="prompt-modal-copy" class="prompt-button solid" onclick="copyPromptFromModal(this)">Copier</button>
-      </div>
-    </div>
-  </div>
-
-  <div id="prompt-modal" class="article-modal-backdrop" onclick="closePromptModal(event)">
-    <div class="article-modal" onclick="event.stopPropagation()">
-      <div class="article-modal-header">
-        <h3 id="prompt-modal-title" class="article-modal-title">Prompt</h3>
-        <button class="article-modal-close" onclick="closePromptModal()">
-          <i data-lucide="x"></i>
-        </button>
-      </div>
-      <div class="article-modal-body">
-        <pre id="prompt-modal-content"></pre>
-      </div>
-      <div class="article-modal-footer">
-        <button id="prompt-modal-copy" class="prompt-button solid" onclick="copyPromptFromModal(this)">Copier</button>
-      </div>
-    </div>
-  </div>
-
-  <script>
-    window.articlePrompts = [
+        <span>© <span data-year>2026</span>[
   {
     "title": "Le prompt de départ",
-    "prompt": "Je veux faire une vidéo racontée dans le style « dessiné à la main » des chaînes After Skool : une main tient un feutre et dessine chaque scène à l'encre pendant que la voix raconte. Tu la fabriques entièrement en code, jusqu'au MP4 final. Les images viendront de ChatGPT : c'est moi qui ferai le lien entre vous deux.\n\nAVANT TOUT\nPose-moi en un seul message court ces questions, rien d'autre :\n- le sujet (une histoire vraie, un concept, ton offre…) et ce que la personne doit retenir à la fin ;\n- à qui s'adresse la vidéo ;\n- la durée (par défaut 45 secondes) et le format (vertical 9:16 par défaut, ou horizontal 16:9) ;\n- la voix : je l'enregistre moi-même, ou tu la génères avec ElevenLabs (et quel type de voix) ;\n- la fin : un appel à l'action, ou rien.\n\nENSUITE, DANS CET ORDRE, EN ATTENDANT MA VALIDATION À CHAQUE ÉTAPE\n1. Le script, découpé en scènes de 3 à 8 secondes : pour chaque scène, le texte dit, ce qui est dessiné, et le titre ou la bulle écrits à la main. Phrases courtes, un ton simple et parlé.\n2. La liste des images à créer : la main au feutre, puis UNE illustration par scène (8 à 10 en tout). Pour chacune, un prompt prêt à coller dans ChatGPT, tous dans le même style : encre noire à main levée, quelques hachures, des touches de feutre vif (rouge, turquoise, jaune ou vert) sur un ou deux éléments seulement, fond blanc pur, format vertical 2:3, sans texte.\n3. Quand je t'envoie les images : vérifie-les et dis-moi si une doit être refaite.\n4. La voix : génère-la, ou attends mon enregistrement. Repère le moment où chaque mot est dit pour caler les scènes dessus.\n5. L'animation, puis le MP4.\n\nLES RÈGLES DU STYLE\n- Un long tableau blanc. Les scènes se suivent de haut en bas : à chaque nouvelle scène, la caméra glisse vers le bas en environ 1,5 seconde, et le bas de la scène précédente reste visible en haut de l'écran.\n- Chaque illustration apparaît d'abord en traits noirs, tracés progressivement sous la pointe du feutre (extrais les contours de l'image en code, élément par élément), puis la couleur se pose en fondu à la fin de la scène.\n- La main suit la pointe du trait pendant qu'elle dessine. Entre deux dessins, elle sort du cadre par le bas.\n- Au-dessus de chaque scène, un titre court écrit à la main en capitales rouges (un nom, une date, l'idée clé). Les répliques vont dans des bulles dessinées à la main. Jamais une phrase entière.\n- Des sous-titres mot à mot en bas de l'écran, le mot prononcé en couleur, pour les réseaux.\n- La voix d'abord : pas de musique forte, éventuellement un léger bruit de feutre.\n\nLIVRAISON\nUn MP4 en 30 images par seconde, au format choisi, avec le son. Avant de me l'envoyer, regarde toi-même quelques images de la vidéo pour vérifier qu'aucun texte ne déborde et que rien ne se chevauche."
+    "prompt": "Ce prompt est dans le Pack Vidéo dessinée."
   },
   {
     "title": "ChatGPT : la main au feutre",
-    "prompt": "Génère une image : une main qui tient un feutre noir de tableau blanc, vue de dessus, comme si elle allait écrire sur une feuille posée devant elle. [Précise la couleur de peau que tu veux.]\nPhoto réaliste, lumière douce. La pointe du feutre est bien visible en haut à gauche, le poignet sort du cadre en bas à droite.\nFond transparent (PNG). Si ce n'est pas possible : fond blanc pur uni, sans ombre portée. Rien d'autre dans l'image. Format carré."
+    "prompt": "Ce prompt est dans le Pack Vidéo dessinée."
   },
   {
     "title": "ChatGPT : une illustration",
-    "prompt": "Génère une illustration de [ta scène, par exemple : un escroc élégant des années 1920 qui serre la main d'un acheteur au pied de la tour Eiffel].\nStyle des vidéos After Skool : dessin au feutre noir à main levée, encrage expressif avec quelques hachures, et des zones coloriées au feutre à alcool vif (rouge, turquoise, jaune ou vert) sur un ou deux éléments seulement, le reste en noir et blanc.\nFond blanc pur, 2 à 4 éléments, marge blanche autour. Aucun texte, aucune lettre, aucun chiffre. Format vertical 2:3.\nGarde exactement le même style et les mêmes personnages pour toutes les illustrations que je vais te demander."
+    "prompt": "Ce prompt est dans le Pack Vidéo dessinée."
+  },
+  {
+    "title": "Les phrases pour corriger",
+    "prompt": "Ce prompt est dans le Pack Vidéo dessinée."
+  },
+  {
+    "title": "Analyser une vidéo de référence",
+    "prompt": "Ce prompt est dans le Pack Vidéo dessinée."
+  }
+]r. Aucun texte, aucune lettre, aucun chiffre. Format vertical 2:3.\nGarde exactement le même style et les mêmes personnages pour toutes les illustrations que je vais te demander."
   },
   {
     "title": "Les phrases pour corriger",
