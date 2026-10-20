@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="fr" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Guide : tes vidéos faceless avec Claude — Parlons IA</title>
+  <meta name="description" content="Une charte graphique pour ton business et des affiches dans ta marque, générées avec ChatGPT. Le pack complet avec tous les prompts.">
+  <meta name="robots" content="noindex, nofollow">
+  <meta name="theme-color" content="#0b100e">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%22-60 -30 870 890%22 fill=%22none%22 stroke=%22%23ffffff%22 stroke-linecap=%22round%22 stroke-linejoin=%22round%22%3E%3Crect x=%22-60%22 y=%22-30%22 width=%22870%22 height=%22890%22 rx=%22190%22 fill=%22%230b100e%22 stroke=%22none%22/%3E %3Cpath d=%22M355,82 H205 C118,82 58,150 58,262 V432 C58,545 122,622 226,640 V742 L355,662 Z%22 stroke-width=%2232%22/%3E %3Cpath d=%22M432,86 H503 C563,86 597,128 599,186 C652,196 688,246 684,308 C714,340 714,410 677,434 C702,474 690,544 638,562 C636,634 588,690 520,690 H478 C420,690 392,652 392,612 V576 H514%22 stroke-width=%2232%22/%3E %3Cpath d=%22M382,408 C408,404 424,392 442,366 L494,284%22 stroke-width=%2224%22/%3E %3Cpath d=%22M390,490 H444 C478,490 492,470 512,445 C532,420 548,410 570,408%22 stroke-width=%2224%22/%3E %3Ccircle cx=%22510%22 cy=%22262%22 r=%2219%22 stroke-width=%2212%22/%3E %3Ccircle cx=%22590%22 cy=%22405%22 r=%2219%22 stroke-width=%2212%22/%3E %3Ccircle cx=%22536%22 cy=%22566%22 r=%2219%22 stroke-width=%2212%22/%3E %3C/svg%3E ">
+  <script>document.documentElement.classList.add("js");</script>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400;1,500&display=swap" rel="stylesheet">
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', "sans-serif"],
+            serif: ['"Playfair Display"', "serif"]
+          }
+        }
+      }
+    };
+  </script>
+  <link rel="stylesheet" href="../../styles.css">
+  <link rel="stylesheet" href="../../article.css">
+</head>
+<body class="article-page min-h-screen flex flex-col antialiased">
+  <header class="site-header sticky top-0 z-40 w-full border-b border-zinc-200/80 bg-white/80 backdrop-blur-md">
+    <a href="../../formation/" class="contest-banner group">
+      <span class="contest-banner-dot"></span>
+      <span>Formation</span>
+      <strong>Session en cours</strong>
+      <span class="hidden sm:inline">Réserve ta place pour la prochaine</span>
+      <i data-lucide="arrow-right" class="w-3.5 h-3.5 transition-transform group-hover:translate-x-0.5"></i>
+    </a>
+    <div class="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+      <div class="header-inner flex h-16 items-center justify-between">
+        <div class="flex items-center gap-3">
+          <a href="../../parlons-ia/" class="flex items-center gap-2 group">
+            <span class="brand-mark h-8 w-8 text-lg">P</span>
+            <span class="text-sm font-semibold tracking-tight text-zinc-900 brand-word">Parlons <b>IA</b></span>
+          </a>
+        </div>
+
+        <div class="hidden sm:flex items-center gap-3">
+          <a data-channel-url target="_blank" rel="noopener" class="inline-flex items-center justify-center rounded-lg text-xs font-semibold px-4 py-2 border border-zinc-200 bg-white hover:bg-zinc-50 text-zinc-800 transition">
+            Être prévenu
+          </a>
+          <a data-community-url target="_blank" rel="noopener" class="inline-flex items-center justify-center rounded-lg text-xs font-semibold px-4 py-2 bg-zinc-950 hover:bg-zinc-800 text-white transition">
+            Poser une question
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <div class="border-t border-zinc-200 bg-white px-4 py-3 sm:hidden">
+      <div class="flex gap-2">
+        <a data-channel-url target="_blank" rel="noopener" class="flex-1 text-center rounded-lg text-xs font-semibold py-2.5 border border-zinc-200 text-zinc-800 bg-white">
+          Être prévenu
+        </a>
+        <a data-community-url target="_blank" rel="noopener" class="flex-1 text-center rounded-lg text-xs font-semibold py-2.5 bg-zinc-950 text-white">
+          Poser une question
+        </a>
+      </div>
+    </div>
+  </header>
+
+    <main class="flex-grow">
+    <div class="pack-thanks">Merci pour ton achat. Voici ton guide, avec les messages à copier.</div>
+    <section class="article-wrap guide-body" style="max-width:760px;margin:2rem auto 4rem">
+<h1>Guide express : tes vidéos faceless avec Claude</h1>
+<p>Ton personnage dessiné explique à ta place (voix IA, ta voix, ou texte seul). Claude fait le reste avec toi.</p>
+<h2>Ce qu'il te faut</h2>
+<ul>
+<li><strong>Claude</strong> (abonnement Pro recommandé), avec <strong>l'exécution de code activée</strong> : Paramètres → Capacités → « Exécution de code et création de fichiers ».</li>
+<li><strong>ChatGPT</strong> (ou un autre générateur d'images) pour ton personnage.</li>
+<li>Pour la voix, au choix : <strong>ElevenLabs</strong> relié à Claude (Paramètres → Connecteurs), <strong>ta voix</strong> au téléphone, ou <strong>pas de voix</strong>.</li>
+</ul>
+<p>À retenir : le <strong>skill</strong> (installé une fois) apporte la méthode. Ton <strong>kit de série</strong> (créé à ta première vidéo) garde ton style. Le skill est le même pour tous, le kit est à toi.</p>
+<h2>1. Installer le skill (5 min, sur ordinateur ou sur claude.ai)</h2>
+<ol>
+<li>Télécharge <code>video-faceless.zip</code>. Ne le décompresse pas.</li>
+<li>Dans Claude : <strong>Personnaliser → Skills</strong> (Customize → Skills), <strong>+</strong>, <strong>Créer un skill</strong> (Create skill), <strong>Importer un skill</strong> (Upload a skill), choisis le ZIP.</li>
+<li>Vérifie que le skill est <strong>activé</strong>.</li>
+<li>Crée un <strong>Projet</strong> : Projets → Nouveau projet → « Ma série ».</li>
+</ol>
+<p>Claude Code : décompresse le ZIP et copie le dossier dans <code>~/.claude/skills/video-faceless/</code>.</p>
+<h2>2. Ta première vidéo</h2>
+<p>Ouvre une conversation <strong>dans ton Projet</strong> et colle :</p>
+<div class="pdf-copy"><pre>Utilise le skill video-faceless. Je veux créer une série faceless.
+Mon sujet : [de quoi tu parles]. Mon public : [qui, quel pays].
+Pose-moi tes questions une par une pour trouver mon personnage et mon style.
+</pre><button class="prompt-button solid" onclick="navigator.clipboard.writeText(this.previousElementSibling.innerText);this.textContent='Copié'">Copier</button></div>
+<p>Ensuite, laisse-toi guider :</p>
+<ol>
+<li><strong>Réponds aux questions</strong> (personnage, ambiance, couleur, écriture, rythme, ton). « Je ne sais pas » est une bonne réponse : Claude te montre des exemples.</li>
+<li><strong>Colle dans ChatGPT</strong> les demandes d'images qu'il te donne (une conversation ChatGPT pour toute la série), télécharge les images, renvoie-les à Claude.</li>
+<li><strong>Valide le script</strong> (« je valide »). Rien n'est dépensé avant.</li>
+<li><strong>Voix</strong> : écoute et choisis, ou envoie tes enregistrements, ou dis « sans voix ».</li>
+<li><strong>Regarde la planche d'images</strong>, dis ce qui ne va pas, puis <strong>télécharge la vidéo</strong>.</li>
+<li><strong>Récupère ton kit</strong> <code>kit-&lt;ta-serie&gt;.zip</code> (sinon demande : « Fais-moi le kit de ma série »).</li>
+</ol>
+<h2>3. Ranger ton kit</h2>
+<p>Garde une copie du ZIP sur ton téléphone. Puis décompresse-le et ajoute dans les <strong>fichiers de ton Projet</strong> : <code>serie.md</code>, <code>apercu-da.jpg</code> et les images du dossier <code>persos/</code>.</p>
+<h2>4. Les vidéos suivantes</h2>
+<p><strong>Dans ton Projet</strong> : nouvelle conversation, colle :</p>
+<div class="pdf-copy"><pre>Nouvelle vidéo de ma série sur : [sujet]. Garde exactement mon style et mon personnage.
+</pre><button class="prompt-button solid" onclick="navigator.clipboard.writeText(this.previousElementSibling.innerText);this.textContent='Copié'">Copier</button></div>
+<p><strong>Hors Projet</strong> : joins le ZIP du kit avec ce même message. <strong>Claude Code</strong> : ouvre-le dans le dossier de ta série.</p>
+<p>Ton style change ? Dis « Mets à jour le kit de ma série », puis remplace les anciens fichiers du Projet.</p>
+<h2>5. Publier sur TikTok</h2>
+<p>Importe la vidéo, colle la légende et les hashtags donnés par Claude, active « Contenu généré par IA » si la voix est IA. Musique : un son TikTok à très bas volume, si tu veux.</p>
+<h2>Si quelque chose cloche</h2>
+<table>
+<thead>
+<tr>
+<th>Problème</th>
+<th>Écris à Claude</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Le personnage change de tête</td>
+<td>« Repars de l'image de référence, même tenue, mêmes couleurs. »</td>
+</tr>
+<tr>
+<td>Texte coupé ou trop petit</td>
+<td>« Le texte de la scène 3 dépasse / est trop petit, corrige. »</td>
+</tr>
+<tr>
+<td>Ça défile trop vite (sans voix)</td>
+<td>« Laisse chaque phrase plus longtemps à l'écran. »</td>
+</tr>
+<tr>
+<td>Vidéo de plus de 30 Mo</td>
+<td>« Sors-la en qualité légère. »</td>
+</tr>
+<tr>
+<td>Claude ne connaît plus ta série</td>
+<td>« Voici le kit de ma série » + le ZIP.</td>
+</tr>
+<tr>
+<td>Pas de montage possible</td>
+<td>Active l'exécution de code, ou demande « la feuille de montage CapCut ».</td>
+</tr>
+</tbody>
+</table>
+<h2>Trois exemples faits avec le skill</h2>
+<ul>
+<li><strong>Chez Awa</strong> (13 s, voix IA) : la pub d'un salon de coiffure. Une coiffeuse en 3D douce, fond rose poudré, 3 raisons qui se cochent sur la voix, adresse, bouton « Réserve sur WhatsApp ».</li>
+<li><strong>Awa la commerçante</strong> (14 s, voix IA) : 3 réflexes pour économiser 20 000 F par mois. Personnage façon Pixar, fond blanc et jaune, compteur qui roule, liste cochée, tampon « Objectif atteint ».</li>
+<li><strong>Chez Ousmane</strong> (12 s, voix IA) : la pub d'un restaurant. Petit chef en papier découpé, fond crème et orange, ingrédients qui arrivent un par un, bouton « Commande sur WhatsApp ».</li>
+</ul>
+    <p style="margin-top:2rem"><a class="prompt-button solid" href="../../articles/video-faceless/">Revoir les démos</a></p>
+    </section>
+    </main>
+  <style>.guide-body h1{font-family:"Playfair Display",serif;font-size:2.2rem;margin-bottom:1rem}.guide-body h2{font-family:"Playfair Display",serif;font-size:1.5rem;margin:2.2rem 0 .8rem}.guide-body p,.guide-body li{line-height:1.7;color:#3f3f46}.guide-body ul,.guide-body ol{padding-left:1.3rem;list-style:revert}.guide-body table{width:100%;border-collapse:collapse;font-size:.9rem}.guide-body td,.guide-body th{border:1px solid #e4e4e7;padding:.5rem;text-align:left;vertical-align:top}.pdf-copy{background:#0b100e;border-radius:14px;padding:1rem;margin:1rem 0}.pdf-copy pre{white-space:pre-wrap;color:#a7f3d0;font-size:.85rem;margin:0 0 .8rem}</style>
+  <script src="../../script.js"></script>
+</body>
+</html>
