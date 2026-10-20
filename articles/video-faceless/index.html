@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="fr" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ta série faceless : ton personnage explique à ta place — Parlons IA</title>
+  <meta name="description" content="Crée ta série TikTok sans te filmer : un personnage à toi, ta DA, ta voix. Le skill Claude qui écrit, prépare et monte tes vidéos animées.">
+  <meta name="theme-color" content="#0b100e">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%22-60 -30 870 890%22 fill=%22none%22 stroke=%22%23ffffff%22 stroke-linecap=%22round%22 stroke-linejoin=%22round%22%3E%3Crect x=%22-60%22 y=%22-30%22 width=%22870%22 height=%22890%22 rx=%22190%22 fill=%22%230b100e%22 stroke=%22none%22/%3E %3Cpath d=%22M355,82 H205 C118,82 58,150 58,262 V432 C58,545 122,622 226,640 V742 L355,662 Z%22 stroke-width=%2232%22/%3E %3Cpath d=%22M432,86 H503 C563,86 597,128 599,186 C652,196 688,246 684,308 C714,340 714,410 677,434 C702,474 690,544 638,562 C636,634 588,690 520,690 H478 C420,690 392,652 392,612 V576 H514%22 stroke-width=%2232%22/%3E %3Cpath d=%22M382,408 C408,404 424,392 442,366 L494,284%22 stroke-width=%2224%22/%3E %3Cpath d=%22M390,490 H444 C478,490 492,470 512,445 C532,420 548,410 570,408%22 stroke-width=%2224%22/%3E %3Ccircle cx=%22510%22 cy=%22262%22 r=%2219%22 stroke-width=%2212%22/%3E %3Ccircle cx=%22590%22 cy=%22405%22 r=%2219%22 stroke-width=%2212%22/%3E %3Ccircle cx=%22536%22 cy=%22566%22 r=%2219%22 stroke-width=%2212%22/%3E %3C/svg%3E ">
+  <script>document.documentElement.classList.add("js");</script>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400;1,500&display=swap" rel="stylesheet">
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', "sans-serif"],
+            serif: ['"Playfair Display"', "serif"]
+          }
+        }
+      }
+    };
+  </script>
+  <link rel="stylesheet" href="../../styles.css">
+  <link rel="stylesheet" href="../../article.css">
+</head>
+<body class="article-page min-h-screen flex flex-col antialiased">
+  <header class="site-header sticky top-0 z-40 w-full border-b border-zinc-200/80 bg-white/80 backdrop-blur-md">
+    <a href="../../formation/" class="contest-banner group">
+      <span class="contest-banner-dot"></span>
+      <span>Formation</span>
+      <strong>Session en cours</strong>
+      <span class="hidden sm:inline">Réserve ta place pour la prochaine</span>
+      <i data-lucide="arrow-right" class="w-3.5 h-3.5 transition-transform group-hover:translate-x-0.5"></i>
+    </a>
+    <div class="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+      <div class="header-inner flex h-16 items-center justify-between">
+        <div class="flex items-center gap-3">
+          <a href="../../parlons-ia/" class="flex items-center gap-2 group">
+            <span class="brand-mark h-8 w-8 text-lg">P</span>
+            <span class="text-sm font-semibold tracking-tight text-zinc-900 brand-word">Parlons <b>IA</b></span>
+          </a>
+        </div>
+
+        <div class="hidden sm:flex items-center gap-3">
+          <a data-channel-url target="_blank" rel="noopener" class="inline-flex items-center justify-center rounded-lg text-xs font-semibold px-4 py-2 border border-zinc-200 bg-white hover:bg-zinc-50 text-zinc-800 transition">
+            Être prévenu
+          </a>
+          <a data-community-url target="_blank" rel="noopener" class="inline-flex items-center justify-center rounded-lg text-xs font-semibold px-4 py-2 bg-zinc-950 hover:bg-zinc-800 text-white transition">
+            Poser une question
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <div class="border-t border-zinc-200 bg-white px-4 py-3 sm:hidden">
+      <div class="flex gap-2">
+        <a data-channel-url target="_blank" rel="noopener" class="flex-1 text-center rounded-lg text-xs font-semibold py-2.5 border border-zinc-200 text-zinc-800 bg-white">
+          Être prévenu
+        </a>
+        <a data-community-url target="_blank" rel="noopener" class="flex-1 text-center rounded-lg text-xs font-semibold py-2.5 bg-zinc-950 text-white">
+          Poser une question
+        </a>
+      </div>
+    </div>
+  </header>
+
+    <main class="flex-grow">
+    <section class="article-hero article-wrap">
+      <div class="article-hero-copy">
+        <span class="article-kicker" data-reveal>Skill</span>
+        <h1 class="article-title" data-reveal data-delay="1">Ta série faceless <span>sans te filmer</span></h1>
+        <p class="article-summary" data-reveal data-delay="2">Crée ta série TikTok sans jamais te filmer : un personnage à toi, dans ton style, avec une voix IA ou la tienne.</p>
+        <div class="article-meta" data-reveal data-delay="2">
+          <span class="article-meta-chip"><i data-lucide="clock-3"></i>2 min</span>
+          <span class="article-meta-chip"><i data-lucide="user"></i>Boris Koulevo</span>
+          <span class="article-meta-chip"><i data-lucide="calendar-days"></i>Octobre 2026</span>
+        </div>
+      </div>
+      <div class="article-visual" data-reveal data-delay="2">
+        <div class="flex justify-center"><video class="rounded-2xl w-full max-w-[340px] aspect-[9/16] bg-zinc-100" src="./mamie.mp4" poster="./mamie-poster.jpg" controls playsinline preload="metadata"></video></div>
+      </div>
+    </section>
+
+    <div class="article-body">
+
+      <section class="article-section">
+        <h2 class="article-section-title" data-reveal>Ce que tu obtiens</h2>
+        <p class="article-text" data-reveal>Trois vidéos faites avec exactement le même skill, sur trois sujets différents. À chaque fois, un autre personnage, une autre DA, d'autres animations.</p>
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-5 mt-6 justify-items-center items-start" data-reveal>
+          <video class="rounded-2xl w-full max-w-[340px] aspect-[9/16] bg-zinc-100 object-cover" src="./robot.mp4" poster="./robot-poster.jpg" controls playsinline preload="metadata"></video>
+          <video class="rounded-2xl w-full max-w-[340px] aspect-[9/16] bg-zinc-100 object-cover" src="./perroquet.mp4" poster="./perroquet-poster.jpg" controls playsinline preload="metadata"></video>
+        </div>
+        <p class="article-text" data-reveal>Grand-mère en cartoon qui démonte les arnaques au Mobile Money, robot en pâte à modeler qui explique le ciel bleu, perroquet en formes plates qui liste les erreurs d'un restaurant.</p>
+      </section>
+
+      <section class="article-section">
+        <h2 class="article-section-title" data-reveal>Ton style, pas celui d'un autre</h2>
+        <p class="article-text" data-reveal>À ta première vidéo, Claude te pose quelques questions : quel personnage, quelle ambiance, quelle couleur, quel rythme. Il en tire ta DA et ton kit de série. Ensuite, chaque vidéo garde ton style sans que tu aies à le réexpliquer.</p>
+        <div class="mt-6" data-reveal>
+          <img class="w-full h-auto rounded-2xl border border-zinc-200" src="./planche-da.jpg" alt="Huit directions artistiques possibles" loading="lazy">
+        </div>
+      </section>
+
+      <section class="article-section">
+        <h2 class="article-section-title" data-reveal>Pour qui</h2>
+        <p class="article-text" data-reveal>Tu as des choses à expliquer : tes droits, l'argent, la santé, la cuisine, ton produit, ton métier. Tu veux publier régulièrement sur TikTok ou Instagram, sans te montrer et sans passer tes soirées sur un logiciel de montage.</p>
+      </section>
+
+      <section class="article-section pack-block" id="pack" data-reveal>
+        <span class="pack-kicker"><i data-lucide="lock-open"></i>Version complète</span>
+        <h2 class="pack-title">Skill vidéo faceless</h2>
+        <p class="pack-pitch">Ton personnage, ta DA, ton sujet. Claude écrit le script, prépare la voix et les images, et monte une vraie vidéo animée avec toi.</p>
+        <div class="pack-results"><img src="./mamie-poster.jpg" alt="" loading="lazy"><img src="./robot-poster.jpg" alt="" loading="lazy"><img src="./perroquet-poster.jpg" alt="" loading="lazy"><img src="./planche-da.jpg" alt="" loading="lazy"></div>
+        <p class="pack-caption">Ce que tu obtiens avec la méthode complète.</p>
+        <div class="pack-grid">
+          <div>
+            <h3 class="pack-sub">Dans le pack</h3>
+            <ul class="pack-list"><li><i data-lucide="check"></i>Le skill Claude à installer en une minute, avec ses programmes de montage</li><li><i data-lucide="check"></i>Un entretien guidé pour trouver ton personnage et ta DA</li><li><i data-lucide="check"></i>Les prompts d'images pour ChatGPT : ton personnage, ses expressions, sa bouche qui bouge</li><li><i data-lucide="check"></i>Une grande bibliothèque d'animations : transitions, textes sur la voix, listes, compteurs, notifications, graphiques</li><li><i data-lucide="check"></i>Ton kit de série à garder, pour que chaque vidéo reprenne ta DA</li><li><i data-lucide="check"></i>Un PDF à garder, et la version web pour copier les prompts d'un clic</li></ul>
+          </div>
+          <div class="pack-preview"><pre>Je veux créer ma série de vidéos faceless avec le skill video-faceless.
+Mon sujet : les arnaques au Mobile Money.
+Mon public : les familles en Afrique de l'Ouest.
+Pose-moi tes questions pour trouver mon personnage et ma DA.</pre><div class="pack-preview-fade"><i data-lucide="lock"></i>La suite du prompt est dans le pack</div></div>
+        </div>
+        <div class="pack-buy">
+          <div><div class="pack-price">5 000 FCFA</div><div class="pack-price-sub">environ 7,60 € · accès immédiat</div></div>
+          <a class="pack-button" href="#" data-chariow="video-faceless">Débloquer sur Chariow <i data-lucide="arrow-right"></i></a>
+        </div>
+      </section>
+
+      <section class="article-section">
+        <h2 class="article-section-title" data-reveal>Ce qu'il te faut</h2>
+        <div class="article-grid-3">
+          <div class="article-card" data-reveal>
+            <span class="article-step">1</span>
+            <h3>Claude Pro</h3>
+            <p>Ou plus, avec l'exécution de code activée.</p>
+          </div>
+          <div class="article-card" data-reveal data-delay="1">
+            <span class="article-step">2</span>
+            <h3>ChatGPT</h3>
+            <p>Pour les images de ton personnage et des objets.</p>
+          </div>
+          <div class="article-card" data-reveal data-delay="2">
+            <span class="article-step">3</span>
+            <h3>Une voix</h3>
+            <p>Une voix ElevenLabs, ou la tienne enregistrée au téléphone.</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="article-section">
+        <h2 class="article-section-title" data-reveal>Questions</h2>
+        <div class="grid gap-3 mt-4" data-reveal>
+          <details class="rounded-2xl border border-zinc-200 bg-white p-4">
+            <summary class="cursor-pointer font-semibold text-sm text-zinc-900">Je dois savoir coder ou monter ?</summary>
+            <p class="text-sm text-zinc-600 mt-2 leading-relaxed">Non. Tu parles à Claude normalement. Il lance lui-même le montage, toi tu choisis et tu valides.</p>
+          </details>
+          <details class="rounded-2xl border border-zinc-200 bg-white p-4">
+            <summary class="cursor-pointer font-semibold text-sm text-zinc-900">Ça marche sur l'app Claude, sans ordinateur puissant ?</summary>
+            <p class="text-sm text-zinc-600 mt-2 leading-relaxed">Oui, dans l'app Claude avec l'exécution de code. Le mieux est de créer un Projet Claude pour ta série : ta DA y reste d'une vidéo à l'autre. Sur ordinateur, Claude Code donne le rendu le plus complet.</p>
+          </details>
+          <details class="rounded-2xl border border-zinc-200 bg-white p-4">
+            <summary class="cursor-pointer font-semibold text-sm text-zinc-900">Mes vidéos vont ressembler à celles des autres ?</summary>
+            <p class="text-sm text-zinc-600 mt-2 leading-relaxed">Non. Le personnage, les couleurs, la typo et la façon dont les éléments apparaissent viennent de tes réponses. Les trois exemples de cette page ont été faits avec le même skill.</p>
+          </details>
+          <details class="rounded-2xl border border-zinc-200 bg-white p-4">
+            <summary class="cursor-pointer font-semibold text-sm text-zinc-900">Comment je reçois le pack ?</summary>
+            <p class="text-sm text-zinc-600 mt-2 leading-relaxed">Après le paiement sur Chariow, tu reçois tout de suite un PDF avec la méthode complète, et un lien vers la version web où tu copies les prompts d'un clic.</p>
+          </details>
+        </div>
+      </section>
+
+      <section class="article-section">
+        <h2 class="article-section-title" data-reveal>Pour commencer gratuitement</h2>
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-5 mt-6" data-reveal>
+          <a href="../photos-stylees/" class="landing-card group flex gap-4 items-center rounded-2xl border border-zinc-200 bg-white p-3 hover:border-emerald-200">
+            <img class="w-24 h-28 object-cover rounded-xl border border-zinc-200 shrink-0" src="../photos-stylees/resultat-foule.jpg" alt="" loading="lazy">
+            <div>
+              <span class="drop-tag">Prompt gratuit · 3 min</span>
+              <h3 class="font-serif text-lg text-zinc-900 mt-1 mb-1 group-hover:text-emerald-800 transition-colors">Tes photos stylées sans studio</h3>
+              <p class="text-xs text-zinc-500 leading-relaxed">Une photo Pinterest, ton selfie, et tu es dans la même scène.</p>
+            </div>
+          </a>
+        </div>
+      </section>
+
+    </div>
+  </main>
+
+  <footer class="bg-zinc-950 text-zinc-400 py-12 border-t border-zinc-900 text-xs">
+    <div class="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+      <div class="flex flex-col md:flex-row items-center justify-between gap-6 pb-8 border-b border-zinc-900">
+        <div class="flex items-center gap-2">
+          <span class="brand-mark h-7 w-7 text-sm !bg-white !text-zinc-950">P</span>
+          <span class="font-semibold text-white brand-word">Parlons <b>IA</b></span>
+        </div>
+        <div class="flex items-center gap-6">
+          <a href="../../parlons-ia/" class="footer-link">Accueil</a>
+          <a href="../../ateliers/" class="footer-link">Masterclass</a>
+          <a href="../../formation/" class="footer-link">Formation</a>
+          <a href="../../concours/" class="footer-link">Concours</a>
+        </div>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4 pt-8">
+        <div class="rounded-2xl border border-zinc-800 bg-zinc-900/60 p-5">
+          <p class="text-[10px] uppercase tracking-wider text-zinc-600 font-semibold">La chaîne</p>
+          <h3 class="font-semibold text-white text-sm mt-2">Recevoir les prochains kits</h3>
+          <p class="text-zinc-400 text-xs leading-relaxed mt-2">
+            Guides, annonces et prompts à tester.
+          </p>
+          <a data-channel-url target="_blank" rel="noopener" class="inline-flex items-center justify-center rounded-lg text-xs font-semibold px-4 py-2 mt-4 bg-white text-zinc-950 hover:bg-zinc-100 transition">
+            Suivre la chaîne
+          </a>
+        </div>
+
+        <div class="rounded-2xl border border-zinc-800 bg-zinc-900/60 p-5">
+          <p class="text-[10px] uppercase tracking-wider text-zinc-600 font-semibold">La communauté</p>
+          <h3 class="font-semibold text-white text-sm mt-2">Partager ses essais</h3>
+          <p class="text-zinc-400 text-xs leading-relaxed mt-2">
+            Questions, retours et exemples de prompts.
+          </p>
+          <a data-community-url target="_blank" rel="noopener" class="inline-flex items-center justify-center rounded-lg text-xs font-semibold px-4 py-2 mt-4 border border-zinc-700 text-white hover:bg-zinc-800 transition">
+            Rejoindre la communauté
+          </a>
+        </div>
+      </div>
+
+      <div class="flex flex-col sm:flex-row items-center justify-between gap-3 mt-8 pt-6 border-t border-zinc-900 text-xs text-zinc-600">
+        <span>© <span data-year>2026</span> Parlons IA. Tous droits réservés.</span>
+        <span>Chaîne pour recevoir. Communauté pour échanger.</span>
+      </div>
+    </div>
+  </footer>
+
+  <div id="prompt-modal" class="article-modal-backdrop" onclick="closePromptModal(event)">
+    <div class="article-modal" onclick="event.stopPropagation()">
+      <div class="article-modal-header">
+        <h3 id="prompt-modal-title" class="article-modal-title">Prompt</h3>
+        <button class="article-modal-close" onclick="closePromptModal()">
+          <i data-lucide="x"></i>
+        </button>
+      </div>
+      <div class="article-modal-body">
+        <pre id="prompt-modal-content"></pre>
+      </div>
+      <div class="article-modal-footer">
+        <button id="prompt-modal-copy" class="prompt-button solid" onclick="copyPromptFromModal(this)">Copier</button>
+      </div>
+    </div>
+
+  <script>
+    window.articlePrompts = [];
+  </script>
+  <script src="../../script.js"></script>
+  <script src="../../article.js"></script>
+</body>
+</html>
