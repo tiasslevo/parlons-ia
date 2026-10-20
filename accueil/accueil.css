@@ -102,3 +102,15 @@ a:hover .arrow{transform:translateX(3px)}
 .b2-chan{background:#25D366;color:#fff;box-shadow:0 10px 22px -14px rgba(37,211,102,.9)}
 .b2-form{background:#fff;color:var(--ink);border:1px solid var(--line)}
 .b2-form .ico{color:#d97706}
+
+/* ressource du moment : la bande en haut, vers la ressource de la dernière vidéo */
+.now{display:flex;align-items:center;gap:12px;padding:10px 12px 10px 10px;border-radius:20px;background:var(--ink);color:#fff;box-shadow:0 18px 36px -20px rgba(11,11,15,.7);transition:transform .4s var(--ease)}
+.now:active{transform:scale(.98)}
+.now-img{width:58px;height:72px;object-fit:cover;border-radius:12px;flex:none;border:2px solid rgba(255,255,255,.15)}
+.now-t{flex:1;display:flex;flex-direction:column;gap:3px;min-width:0}
+.now-t small{display:flex;align-items:center;gap:6px;font-size:11px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:#6ee7b7}
+.now-t b{font-weight:600;font-size:18px;line-height:1.15;letter-spacing:-.02em}
+.now-t span{font-size:13px;line-height:1.35;color:rgba(255,255,255,.72)}
+.now-dot{width:7px;height:7px;border-radius:50%;background:#10b981;flex:none;animation:pulse-g 2s infinite}
+@keyframes pulse-g{70%{box-shadow:0 0 0 7px rgba(16,185,129,0)}100%{box-shadow:0 0 0 0 rgba(16,185,129,0)}}
+.now-go{width:40px;height:40px;border-radius:12px;background:var(--emerald);display:grid;place-items:center;flex:none}
