@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="fr" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tes vidéos face caméra montées par Claude — Parlons IA</title>
+  <meta name="description" content="Tu te filmes, Claude monte : coupes, décor remplacé, titres, illustrations, écran séparé. Le skill de montage pour Claude Code.">
+  <meta name="theme-color" content="#0b100e">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%22-60 -30 870 890%22 fill=%22none%22 stroke=%22%23ffffff%22 stroke-linecap=%22round%22 stroke-linejoin=%22round%22%3E%3Crect x=%22-60%22 y=%22-30%22 width=%22870%22 height=%22890%22 rx=%22190%22 fill=%22%230b100e%22 stroke=%22none%22/%3E %3Cpath d=%22M355,82 H205 C118,82 58,150 58,262 V432 C58,545 122,622 226,640 V742 L355,662 Z%22 stroke-width=%2232%22/%3E %3Cpath d=%22M432,86 H503 C563,86 597,128 599,186 C652,196 688,246 684,308 C714,340 714,410 677,434 C702,474 690,544 638,562 C636,634 588,690 520,690 H478 C420,690 392,652 392,612 V576 H514%22 stroke-width=%2232%22/%3E %3Cpath d=%22M382,408 C408,404 424,392 442,366 L494,284%22 stroke-width=%2224%22/%3E %3Cpath d=%22M390,490 H444 C478,490 492,470 512,445 C532,420 548,410 570,408%22 stroke-width=%2224%22/%3E %3Ccircle cx=%22510%22 cy=%22262%22 r=%2219%22 stroke-width=%2212%22/%3E %3Ccircle cx=%22590%22 cy=%22405%22 r=%2219%22 stroke-width=%2212%22/%3E %3Ccircle cx=%22536%22 cy=%22566%22 r=%2219%22 stroke-width=%2212%22/%3E %3C/svg%3E ">
+  <script>document.documentElement.classList.add("js");</script>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400;1,500&display=swap" rel="stylesheet">
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', "sans-serif"],
+            serif: ['"Playfair Display"', "serif"]
+          }
+        }
+      }
+    };
+  </script>
+  <link rel="stylesheet" href="../../styles.css">
+  <link rel="stylesheet" href="../../article.css">
+</head>
+<body class="article-page min-h-screen flex flex-col antialiased">
+  <header class="site-header sticky top-0 z-40 w-full border-b border-zinc-200/80 bg-white/80 backdrop-blur-md">
+    <a href="../../formation/" class="contest-banner group">
+      <span class="contest-banner-dot"></span>
+      <span>Formation</span>
+      <strong>Session en cours</strong>
+      <span class="hidden sm:inline">Réserve ta place pour la prochaine</span>
+      <i data-lucide="arrow-right" class="w-3.5 h-3.5 transition-transform group-hover:translate-x-0.5"></i>
+    </a>
+    <div class="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+      <div class="header-inner flex h-16 items-center justify-between">
+        <div class="flex items-center gap-3">
+          <a href="../../parlons-ia/" class="flex items-center gap-2 group">
+            <span class="brand-mark h-8 w-8 text-lg">P</span>
+            <span class="text-sm font-semibold tracking-tight text-zinc-900 brand-word">Parlons <b>IA</b></span>
+          </a>
+        </div>
+
+        <div class="hidden sm:flex items-center gap-3">
+          <a data-channel-url target="_blank" rel="noopener" class="inline-flex items-center justify-center rounded-lg text-xs font-semibold px-4 py-2 border border-zinc-200 bg-white hover:bg-zinc-50 text-zinc-800 transition">
+            Être prévenu
+          </a>
+          <a data-community-url target="_blank" rel="noopener" class="inline-flex items-center justify-center rounded-lg text-xs font-semibold px-4 py-2 bg-zinc-950 hover:bg-zinc-800 text-white transition">
+            Poser une question
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <div class="border-t border-zinc-200 bg-white px-4 py-3 sm:hidden">
+      <div class="flex gap-2">
+        <a data-channel-url target="_blank" rel="noopener" class="flex-1 text-center rounded-lg text-xs font-semibold py-2.5 border border-zinc-200 text-zinc-800 bg-white">
+          Être prévenu
+        </a>
+        <a data-community-url target="_blank" rel="noopener" class="flex-1 text-center rounded-lg text-xs font-semibold py-2.5 bg-zinc-950 text-white">
+          Poser une question
+        </a>
+      </div>
+    </div>
+  </header>
+
+    <main class="flex-grow">
+    <section class="article-hero article-wrap">
+      <div class="article-hero-copy">
+        <span class="article-kicker" data-reveal>Skill · Claude Code</span>
+        <h1 class="article-title" data-reveal data-delay="1">Tes vidéos face caméra <span>montées par Claude</span></h1>
+        <p class="article-summary" data-reveal data-delay="2">Tu te filmes au téléphone. Claude coupe les blancs et les reprises, remplace ton décor, ajoute tes titres et illustre ce que tu dis. Tu valides, tu publies.</p>
+        <div class="article-meta" data-reveal data-delay="2">
+          <span class="article-meta-chip"><i data-lucide="clock-3"></i>2 min</span>
+          <span class="article-meta-chip"><i data-lucide="user"></i>Boris Koulevo</span>
+          <span class="article-meta-chip"><i data-lucide="calendar-days"></i>Octobre 2026</span>
+        </div>
+      </div>
+      <div class="article-visual" data-reveal data-delay="2">
+        <div class="flex justify-center"><video class="rounded-2xl w-full max-w-[340px] aspect-[9/16] bg-zinc-100" src="./montage-demo.mp4" poster="./montage-poster.jpg" controls playsinline preload="metadata"></video></div>
+      </div>
+    </section>
+
+    <div class="article-body">
+
+      <section class="article-section">
+        <h2 class="article-section-title" data-reveal>Ce que tu obtiens</h2>
+        <p class="article-text" data-reveal>La vidéo du haut part d'un vrai rush de 34 secondes, filmé au téléphone. Le skill l'a monté tout seul en alternant trois façons de montrer les choses.</p>
+        <div class="grid grid-cols-3 gap-3 mt-6" data-reveal>
+          <figure class="text-center">
+            <img class="w-full aspect-[9/16] object-cover rounded-2xl border border-zinc-200" src="./face-camera.jpg" alt="Face caméra" loading="lazy">
+            <figcaption class="mt-2"><span class="block font-semibold text-sm text-zinc-900">Face caméra</span><span class="block text-xs text-zinc-500 leading-relaxed mt-1">Ton fond remplacé, des éléments qui montent derrière ta tête.</span></figcaption>
+          </figure>
+          <figure class="text-center">
+            <img class="w-full aspect-[9/16] object-cover rounded-2xl border border-zinc-200" src="./ecran-separe.jpg" alt="Écran séparé" loading="lazy">
+            <figcaption class="mt-2"><span class="block font-semibold text-sm text-zinc-900">Écran séparé</span><span class="block text-xs text-zinc-500 leading-relaxed mt-1">Toi dans un cadre en bas, ta tête qui dépasse.</span></figcaption>
+          </figure>
+          <figure class="text-center">
+            <img class="w-full aspect-[9/16] object-cover rounded-2xl border border-zinc-200" src="./illustration.jpg" alt="Illustration" loading="lazy">
+            <figcaption class="mt-2"><span class="block font-semibold text-sm text-zinc-900">Illustration</span><span class="block text-xs text-zinc-500 leading-relaxed mt-1">Ta voix continue sur une scène dessinée.</span></figcaption>
+          </figure>
+        </div>
+        <p class="article-text" data-reveal>Par défaut, Claude alterne les trois. Tu peux aussi lui demander une seule façon de monter. Il adapte le cadrage à ta prise, nettoie ta voix et glisse les bruitages en dessous, sans couvrir ce que tu dis.</p>
+      </section>
+
+      <section class="article-section">
+        <h2 class="article-section-title" data-reveal>Pour qui</h2>
+        <p class="article-text" data-reveal>Tu parles face caméra sur TikTok ou Instagram : tu expliques ton métier, tu donnes des conseils, tu présentes ton business. Tu as les idées et les rushs, mais le montage te prend des heures. Ici tu choisis ton style une fois, puis Claude monte chaque nouvelle vidéo dans le même style.</p>
+      </section>
+
+      <section class="article-section pack-block" id="pack" data-reveal>
+        <span class="pack-kicker"><i data-lucide="lock-open"></i>Version complète</span>
+        <h2 class="pack-title">Skill de montage</h2>
+        <p class="pack-pitch">Tu te filmes, Claude monte : coupes, décor, titres, zooms, sous-titres et illustrations, dans ton style. Le skill tourne dans Claude Code, sur ton ordinateur.</p>
+        <div class="pack-results"><img src="./face-camera.jpg" alt="" loading="lazy" style="object-position:top"><img src="./ecran-separe.jpg" alt="" loading="lazy" style="object-position:top"><img src="./illustration.jpg" alt="" loading="lazy" style="object-position:top"><img src="./montage-poster.jpg" alt="" loading="lazy" style="object-position:top"></div>
+        <p class="pack-caption">Quatre moments de la même vidéo, montée par le skill.</p>
+        <div class="pack-grid">
+          <div>
+            <h3 class="pack-sub">Dans le pack</h3>
+            <ul class="pack-list"><li><i data-lucide="check"></i>Le skill à installer dans Claude Code en un message : coupes, titres, zooms, sous-titres, détourage, rendu jusqu'à la vidéo finale</li><li><i data-lucide="check"></i>4 façons de monter : face caméra avec fond remplacé, écran séparé, illustration complète, ou l'alternance des trois</li><li><i data-lucide="check"></i>Ta voix nettoyée et mise au bon niveau, les bruitages bien en dessous</li><li><i data-lucide="check"></i>Un cadrage qui s'adapte à ta prise : tel quel ou plus serré</li><li><i data-lucide="check"></i>Les prompts d'images que Claude écrit pour ChatGPT : ton décor, tes illustrations</li><li><i data-lucide="check"></i>Ton kit de style, pour que chaque vidéo ressemble à la précédente</li><li><i data-lucide="check"></i>Un guide PDF, et la version web pour copier les messages d'un clic</li></ul>
+          </div>
+          <div class="pack-preview"><pre>Monte ma vidéo avec le skill montage-face-camera.
+Le fichier : IMG_3976.MOV.
+Façon de monter : alternance.
+Ma vision : propose-moi.</pre><div class="pack-preview-fade"><i data-lucide="lock"></i>La suite est dans le pack</div></div>
+        </div>
+        <div class="pack-buy">
+          <div><div class="pack-price">6 500 FCFA</div><div class="pack-price-sub">environ 9,90 € · accès immédiat</div></div>
+          <a class="pack-button" href="#" data-chariow="skill-montage">Débloquer sur Chariow <i data-lucide="arrow-right"></i></a>
+        </div>
+      </section>
+
+      <section class="article-section">
+        <h2 class="article-section-title" data-reveal>Ce qu'il te faut</h2>
+        <div class="article-grid-3">
+          <div class="article-card" data-reveal>
+            <span class="article-step">1</span>
+            <h3>Claude Code sur ordinateur</h3>
+            <p>L'onglet Code de l'app Claude pour ordinateur, avec un abonnement Pro. L'app Claude seule ne suffit pas.</p>
+          </div>
+          <div class="article-card" data-reveal data-delay="1">
+            <span class="article-step">2</span>
+            <h3>ChatGPT</h3>
+            <p>Pour ton décor et tes illustrations. La version gratuite suffit pour essayer.</p>
+          </div>
+          <div class="article-card" data-reveal data-delay="2">
+            <span class="article-step">3</span>
+            <h3>Ta vidéo</h3>
+            <p>Filmée au téléphone, à la verticale.</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="article-section">
+        <h2 class="article-section-title" data-reveal>Questions</h2>
+        <div class="grid gap-3 mt-4" data-reveal>
+          <details class="rounded-2xl border border-zinc-200 bg-white p-4">
+            <summary class="cursor-pointer font-semibold text-sm text-zinc-900">Je dois savoir monter ou coder ?</summary>
+            <p class="text-sm text-zinc-600 mt-2 leading-relaxed">Non. Tu choisis ta façon de monter et ton style, tu colles les prompts dans ChatGPT et tu valides. Claude fait les coupes, l'animation et le rendu. Il installe aussi ses outils tout seul au premier lancement.</p>
+          </details>
+          <details class="rounded-2xl border border-zinc-200 bg-white p-4">
+            <summary class="cursor-pointer font-semibold text-sm text-zinc-900">Ça marche sur téléphone ou dans l'app Claude ?</summary>
+            <p class="text-sm text-zinc-600 mt-2 leading-relaxed">Le montage se fait dans Claude Code, sur ordinateur (Windows, Mac ou Linux) : il faut de la place et de la puissance pour la transcription, le détourage et les fichiers vidéo. Depuis ton téléphone, tu peux seulement préparer tes plans et tes images dans un Projet Claude.</p>
+          </details>
+          <details class="rounded-2xl border border-zinc-200 bg-white p-4">
+            <summary class="cursor-pointer font-semibold text-sm text-zinc-900">Ça va ressembler à tes vidéos ?</summary>
+            <p class="text-sm text-zinc-600 mt-2 leading-relaxed">Tu retrouves ma façon de couper, mes titres et les éléments qui montent derrière la tête. Les couleurs, les polices et le style des illustrations, flat ou papier découpé, sont les tiens.</p>
+          </details>
+          <details class="rounded-2xl border border-zinc-200 bg-white p-4">
+            <summary class="cursor-pointer font-semibold text-sm text-zinc-900">Comment je reçois le pack ?</summary>
+            <p class="text-sm text-zinc-600 mt-2 leading-relaxed">Après le paiement sur Chariow, tu reçois tout de suite le skill à installer, un PDF avec le guide, et un lien vers la version web où tu copies les messages d'un clic.</p>
+          </details>
+        </div>
+      </section>
+
+      <section class="article-section">
+        <h2 class="article-section-title" data-reveal>Pour commencer gratuitement</h2>
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-5 mt-6" data-reveal>
+          <a href="../photos-stylees/" class="landing-card group flex gap-4 items-center rounded-2xl border border-zinc-200 bg-white p-3 hover:border-emerald-200">
+            <img class="w-24 h-28 object-cover rounded-xl border border-zinc-200 shrink-0" src="../photos-stylees/resultat-foule.jpg" alt="" loading="lazy">
+            <div>
+              <span class="drop-tag">Prompt gratuit · 3 min</span>
+              <h3 class="font-serif text-lg text-zinc-900 mt-1 mb-1 group-hover:text-emerald-800 transition-colors">Tes photos stylées sans studio</h3>
+              <p class="text-xs text-zinc-500 leading-relaxed">Une photo Pinterest, ton selfie, et tu es dans la même scène. Parfait pour tes miniatures.</p>
+            </div>
+          </a>
+        </div>
+      </section>
+
+    </div>
+  </main>
+
+  <footer class="bg-zinc-950 text-zinc-400 py-12 border-t border-zinc-900 text-xs">
+    <div class="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+      <div class="flex flex-col md:flex-row items-center justify-between gap-6 pb-8 border-b border-zinc-900">
+        <div class="flex items-center gap-2">
+          <span class="brand-mark h-7 w-7 text-sm !bg-white !text-zinc-950">P</span>
+          <span class="font-semibold text-white brand-word">Parlons <b>IA</b></span>
+        </div>
+        <div class="flex items-center gap-6">
+          <a href="../../parlons-ia/" class="footer-link">Accueil</a>
+          <a href="../../ateliers/" class="footer-link">Masterclass</a>
+          <a href="../../formation/" class="footer-link">Formation</a>
+          <a href="../../concours/" class="footer-link">Concours</a>
+        </div>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4 pt-8">
+        <div class="rounded-2xl border border-zinc-800 bg-zinc-900/60 p-5">
+          <p class="text-[10px] uppercase tracking-wider text-zinc-600 font-semibold">La chaîne</p>
+          <h3 class="font-semibold text-white text-sm mt-2">Recevoir les prochains kits</h3>
+          <p class="text-zinc-400 text-xs leading-relaxed mt-2">
+            Guides, annonces et prompts à tester.
+          </p>
+          <a data-channel-url target="_blank" rel="noopener" class="inline-flex items-center justify-center rounded-lg text-xs font-semibold px-4 py-2 mt-4 bg-white text-zinc-950 hover:bg-zinc-100 transition">
+            Suivre la chaîne
+          </a>
+        </div>
+
+        <div class="rounded-2xl border border-zinc-800 bg-zinc-900/60 p-5">
+          <p class="text-[10px] uppercase tracking-wider text-zinc-600 font-semibold">La communauté</p>
+          <h3 class="font-semibold text-white text-sm mt-2">Partager ses essais</h3>
+          <p class="text-zinc-400 text-xs leading-relaxed mt-2">
+            Questions, retours et exemples de prompts.
+          </p>
+          <a data-community-url target="_blank" rel="noopener" class="inline-flex items-center justify-center rounded-lg text-xs font-semibold px-4 py-2 mt-4 border border-zinc-700 text-white hover:bg-zinc-800 transition">
+            Rejoindre la communauté
+          </a>
+        </div>
+      </div>
+
+      <div class="flex flex-col sm:flex-row items-center justify-between gap-3 mt-8 pt-6 border-t border-zinc-900 text-xs text-zinc-600">
+        <span>© <span data-year>2026</span> Parlons IA. Tous droits réservés.</span>
+        <span>Chaîne pour recevoir. Communauté pour échanger.</span>
+      </div>
+    </div>
+  </footer>
+
+  <div id="prompt-modal" class="article-modal-backdrop" onclick="closePromptModal(event)">
+    <div class="article-modal" onclick="event.stopPropagation()">
+      <div class="article-modal-header">
+        <h3 id="prompt-modal-title" class="article-modal-title">Prompt</h3>
+        <button class="article-modal-close" onclick="closePromptModal()">
+          <i data-lucide="x"></i>
+        </button>
+      </div>
+      <div class="article-modal-body">
+        <pre id="prompt-modal-content"></pre>
+      </div>
+      <div class="article-modal-footer">
+        <button id="prompt-modal-copy" class="prompt-button solid" onclick="copyPromptFromModal(this)">Copier</button>
+      </div>
+    </div>
+
+  <script>
+    window.articlePrompts = [];
+  </script>
+  <script src="../../script.js"></script>
+  <script src="../../article.js"></script>
+</body>
+</html>
