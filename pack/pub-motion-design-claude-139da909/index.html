@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Guide : tes pubs motion design avec Claude — Parlons IA</title>
-  <meta name="description" content="Une charte graphique pour ton business et des affiches dans ta marque, générées avec ChatGPT. Le pack complet avec tous les prompts.">
+  <title>Guide : Skill Motion Design — Parlons IA</title>
+  <meta name="description" content="Le guide du Skill Motion Design : installer le skill (Claude Code ou claude.ai), ton premier film avec Claude, les films suivants.">
   <meta name="robots" content="noindex, nofollow">
   <meta name="theme-color" content="#0b100e">
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%22-60 -30 870 890%22 fill=%22none%22 stroke=%22%23ffffff%22 stroke-linecap=%22round%22 stroke-linejoin=%22round%22%3E%3Crect x=%22-60%22 y=%22-30%22 width=%22870%22 height=%22890%22 rx=%22190%22 fill=%22%230b100e%22 stroke=%22none%22/%3E %3Cpath d=%22M355,82 H205 C118,82 58,150 58,262 V432 C58,545 122,622 226,640 V742 L355,662 Z%22 stroke-width=%2232%22/%3E %3Cpath d=%22M432,86 H503 C563,86 597,128 599,186 C652,196 688,246 684,308 C714,340 714,410 677,434 C702,474 690,544 638,562 C636,634 588,690 520,690 H478 C420,690 392,652 392,612 V576 H514%22 stroke-width=%2232%22/%3E %3Cpath d=%22M382,408 C408,404 424,392 442,366 L494,284%22 stroke-width=%2224%22/%3E %3Cpath d=%22M390,490 H444 C478,490 492,470 512,445 C532,420 548,410 570,408%22 stroke-width=%2224%22/%3E %3Ccircle cx=%22510%22 cy=%22262%22 r=%2219%22 stroke-width=%2212%22/%3E %3Ccircle cx=%22590%22 cy=%22405%22 r=%2219%22 stroke-width=%2212%22/%3E %3Ccircle cx=%22536%22 cy=%22566%22 r=%2219%22 stroke-width=%2212%22/%3E %3C/svg%3E ">
@@ -73,52 +73,66 @@
     <main class="flex-grow">
     <div class="pack-thanks">Merci pour ton achat. Voici ton guide, avec les messages à copier.</div>
     <section class="article-wrap guide-body" style="max-width:760px;margin:2rem auto 4rem">
-<h1>Guide express : tes pubs vidéo avec Claude</h1>
-<p>Claude fabrique avec toi une pub animée pour ton commerce (TikTok, Reels, statut WhatsApp), en
-vertical, de 10 secondes à 1 minute, avec musique.</p>
+<h1>Guide express : Skill Motion Design</h1>
+<p>Présente ton produit avec un vrai film animé, fait avec Claude. Pour une app, un produit, un commerce ou un service. Claude te pose les questions, tu valides chaque étape, il fabrique la vidéo.</p>
 <h2>Ce qu'il te faut</h2>
 <ul>
-<li><strong>Claude</strong> (abonnement Pro recommandé) avec <strong>l'exécution de code activée</strong> : Paramètres → Capacités → « Exécution de code et création de fichiers ».</li>
-<li><strong>ChatGPT</strong> (ou un autre générateur d'images), seulement s'il manque des images.</li>
-<li>Pour la voix, au choix : <strong>ElevenLabs</strong> relié à Claude (Paramètres → Connecteurs), <strong>ta voix</strong>, ou <strong>pas de voix</strong>.</li>
+<li><strong>Claude</strong>, avec un abonnement payant (Pro ou plus).</li>
+<li>C'est tout. Le reste est facultatif : ton logo, des captures de ton app ou de ton site, des photos, une voix, une musique. Claude te dit à chaque fois ce que ça apporte, et il avance même si tu n'as rien.</li>
+<li><strong>ChatGPT</strong> (ou un autre générateur d'images), si tu veux des images sur mesure : Claude t'écrit les prompts.</li>
+<li><strong>ElevenLabs</strong>, si tu veux une musique de fond ou une voix off. Les bruitages sont déjà inclus.</li>
 </ul>
-<h2>1. Installer le skill (5 min, une seule fois)</h2>
-<ol>
-<li>Télécharge <code>pub-motion.zip</code>. Ne le décompresse pas.</li>
-<li>Dans Claude : <strong>Personnaliser → Skills</strong>, <strong>+</strong>, <strong>Importer un skill</strong>, choisis le ZIP. Vérifie qu'il est activé.</li>
-<li>Crée un <strong>Projet</strong> : Projets → Nouveau projet → le nom de ton commerce.</li>
-</ol>
-<p>Claude Code : décompresse le ZIP dans <code>~/.claude/skills/pub-motion/</code>.</p>
-<h2>Ta voix, trois choix</h2>
+<h2>Où l'utiliser</h2>
+<p>Les deux marchent. Choisis celui que tu as :</p>
 <ul>
-<li><strong>Une voix IA</strong> : la plus simple. Branche ElevenLabs à Claude une fois (Paramètres → Connecteurs → ElevenLabs), et Claude te fait écouter des voix.</li>
-<li><strong>Ta propre voix, sans te prendre la tête</strong> : sur le site ElevenLabs, enregistre 1 à 2 minutes de ta voix pour créer ta « voix clonée ». Ensuite, Claude fait parler ta voix à chaque vidéo. Ça marche partout, même sur ton téléphone.</li>
-<li><strong>Ta voix enregistrée toi-même</strong> : tu parles librement et tu envoies ton audio. Pour ça, il faut l'application Claude installée sur ton ordinateur. Claude y installe tout seul un petit outil qui écoute ton audio et écrit ce que tu dis, pour mettre les bons mots à l'écran. Sur le site web ou le téléphone, ça ne marche pas : prends plutôt ta voix clonée.</li>
+<li><strong>Claude Code</strong> (dans le terminal, ou dans l'onglet <strong>Code</strong> de l'app Claude Desktop) : <strong>recommandé</strong> si tu l'as. La vidéo se fabrique plus vite et tes films restent rangés sur ton ordinateur.</li>
+<li><strong>claude.ai</strong> (le site ou l'app Claude) : rien à installer sur ton ordinateur. Tu importes le skill une fois et c'est parti.</li>
 </ul>
-<h2>2. Ta première pub</h2>
-<p>Dans ton Projet, nouvelle conversation, colle :</p>
-<div class="pdf-copy"><pre>Utilise le skill pub-motion. Je veux une pub vidéo pour mon commerce : [nom, ce que je vends, ville].
-Ma vision : [décris la pub que tu imagines : l'histoire, l'ambiance, ce qu'on voit en premier,
-comment les choses apparaissent. Ou écris « propose-moi »]. Durée : [15 s, 30 s, 1 min].
-Je joins mon logo et mes photos.
+<h2>1. Installer le skill (une seule fois)</h2>
+<h3>Avec Claude Code (recommandé)</h3>
+<p>Télécharge <code>motion-design.zip</code>, ouvre Claude Code et colle ce message. Claude installe tout seul.</p>
+<div class="pdf-copy"><pre>Installe le skill motion-design pour moi. Le ZIP est ici : [chemin du fichier, par exemple Téléchargements/motion-design.zip].
+1. Décompresse-le dans ~/.claude/skills/motion-design/ (le fichier SKILL.md doit être directement dans ce dossier).
+2. Prépare tout ce qu'il faut pour fabriquer les vidéos, comme le skill l'explique. S'il manque un logiciel sur mon ordinateur, demande-moi avant de l'installer.
+3. Fais un petit essai et dis-moi si tout marche.
+Explique-moi chaque étape simplement, je ne suis pas développeur.
 </pre><button class="prompt-button solid" onclick="navigator.clipboard.writeText(this.previousElementSibling.innerText);this.textContent='Copié'">Copier</button></div>
-<p>Puis : réponds aux questions → si tu as décrit ta vision, Claude la construit ; sinon choisis 1 des 3 propositions (une image chacune) → valide le fil →
-colle les prompts dans ChatGPT et renvoie les images → valide les 4 images → reçois tes deux vidéos
-(avec musique, et sans musique pour mettre un son TikTok).</p>
-<h2>3. Ton kit de marque</h2>
-<p>À la fin, Claude te donne <code>kit-&lt;ta-marque&gt;.zip</code> (couleurs, polices, logo, ce qui t'a plu). Garde-le
-sur ton téléphone. Décompresse-le et ajoute dans les <strong>fichiers de ton Projet</strong> : <code>marque.md</code>,
-<code>apercu.jpg</code>, ton logo et les images du dossier <code>elements/</code>.</p>
-<h2>4. Les pubs suivantes</h2>
-<p>Dans ton Projet, colle :</p>
-<div class="pdf-copy"><pre>Nouvelle pub pour : [produit, offre ou événement]. Garde ma marque, propose-moi une autre idée.
+<p>Ensuite, ferme et rouvre Claude Code pour qu'il voie le skill.</p>
+<h3>Sur claude.ai</h3>
+<ol>
+<li>Télécharge <code>motion-design.zip</code>. <strong>Ne le décompresse pas.</strong></li>
+<li>Active l'exécution de code : <strong>Paramètres → Capacités → Exécution de code et création de fichiers</strong>.</li>
+<li>Dans Claude : <strong>Personnaliser → Skills → + → Importer un skill</strong>, et choisis <code>motion-design.zip</code> tel quel.</li>
+<li>Vérifie que le skill est <strong>activé</strong>.</li>
+<li>Conseillé : crée un <strong>Projet</strong> au nom de ta marque (Projets → Nouveau projet). Ton logo et tes infos y restent d'une conversation à l'autre.</li>
+</ol>
+<p>Au début de chaque conversation, Claude prépare son atelier : ça prend une minute, laisse-le faire.</p>
+<h2>2. Ton premier film</h2>
+<p>Ouvre une nouvelle conversation (dans ton Projet sur claude.ai) et colle :</p>
+<div class="pdf-copy"><pre>Utilise le skill motion-design. Je veux un film animé pour [ton app, ton produit, ton commerce ou ton service : son nom et ce qu'il fait].
+Pose-moi tes questions une par une, et attends ma validation à chaque étape.
 </pre><button class="prompt-button solid" onclick="navigator.clipboard.writeText(this.previousElementSibling.innerText);this.textContent='Copié'">Copier</button></div>
-<p>Hors Projet : joins le ZIP du kit avec ce message. Ta marque change ? « Mets à jour mon kit », puis
-remplace les anciens fichiers du Projet.</p>
-<h2>5. Publier</h2>
-<p>Télécharge la vidéo, publie-la avec la légende donnée par Claude. Version sans musique : ajoute un son
-TikTok. Voix IA : active « contenu généré par IA ».</p>
-<h2>Si ça cloche</h2>
+<p>Ensuite, Claude te guide, une étape à la fois :</p>
+<ol>
+<li><strong>Le sujet et le but</strong> : ce que les gens doivent retenir après le film (télécharger l'app, réserver, venir en boutique, retenir ton nom).</li>
+<li><strong>Le public</strong> : à qui tu parles, et où le film sera vu.</li>
+<li><strong>Le format et la durée</strong> : 16:9 pour ton site, YouTube ou une présentation ; carré ou vertical pour Instagram, TikTok, le statut WhatsApp. 30 secondes à 1 minute en général.</li>
+<li><strong>Ta marque</strong> : ton site, des captures de ton app, ton logo, tes couleurs. Rien n'est obligatoire : si tu donnes juste ton site, Claude va le voir lui-même ; si tu n'as rien, il te propose un style adapté à ton sujet.</li>
+<li><strong>L'histoire</strong> : Claude te propose deux idées de film, puis raconte celle que tu choisis, moment par moment. Dis ce qui ne va pas, puis « je valide ».</li>
+<li><strong>Les images</strong> : s'il en faut, Claude te dit lesquelles et pourquoi. Trois choix : tu les génères avec les prompts qu'il te donne dans la conversation (à coller dans ChatGPT), il les cherche lui-même sur internet, ou il les dessine en code.</li>
+<li><strong>Le son</strong> : les bruitages sont toujours là. Musique ou voix off en plus ? Relie ElevenLabs (claude.ai : Paramètres → Connecteurs → ElevenLabs). Sinon, bruitages seuls, ou envoie ta propre musique.</li>
+<li><strong>L'aperçu</strong> : Claude te montre quelques images du film avant de le fabriquer. Corrige ce qui ne va pas.</li>
+<li><strong>Le film</strong> : Claude fabrique la vidéo et te donne le MP4. Télécharge-le.</li>
+</ol>
+<p>Tu veux aller vite ? Dis-le : Claude choisit le plus simple à chaque étape et te montre le résultat.</p>
+<p>À la fin, demande : « Fais-moi le récap de ma marque pour mes prochains films. » Range ce récap et ton logo dans les fichiers de ton Projet (ou garde-les sur ton ordinateur).</p>
+<h2>3. Les films suivants</h2>
+<p>Nouvelle conversation, dans ton Projet :</p>
+<div class="pdf-copy"><pre>Utilise le skill motion-design. Nouveau film pour [nouveau produit, nouvelle offre, nouvel événement].
+Reprends ma marque (récap dans les fichiers du Projet). Pose-moi tes questions une par une.
+</pre><button class="prompt-button solid" onclick="navigator.clipboard.writeText(this.previousElementSibling.innerText);this.textContent='Copié'">Copier</button></div>
+<p>Hors Projet, joins le récap et ton logo avec ce message.</p>
+<h2>Si quelque chose cloche</h2>
 <table>
 <thead>
 <tr>
@@ -128,43 +142,41 @@ TikTok. Voix IA : active « contenu généré par IA ».</p>
 </thead>
 <tbody>
 <tr>
-<td>Les 3 propositions se ressemblent</td>
-<td>« Propose 3 idées vraiment différentes. »</td>
+<td>Claude pose toutes les questions d'un coup</td>
+<td>« Une question à la fois, s'il te plaît. »</td>
 </tr>
 <tr>
-<td>On ne voit pas tout de suite ce que je vends</td>
-<td>« Montre le produit dès la première seconde. »</td>
+<td>Le film ressemble à un diaporama</td>
+<td>« Les éléments doivent se transformer les uns en les autres, pas juste apparaître. »</td>
 </tr>
 <tr>
-<td>Texte trop petit ou caché</td>
-<td>« Le texte de la fin est trop petit / caché, corrige et vérifie. »</td>
+<td>Un texte trop petit ou trop rapide</td>
+<td>« Le texte "…" est trop petit / passe trop vite, corrige. »</td>
 </tr>
 <tr>
-<td>Mon numéro est faux</td>
-<td>« Mon numéro exact est : … »</td>
+<td>Les couleurs ne sont pas les miennes</td>
+<td>« Reprends exactement les couleurs de mon site : [lien]. »</td>
 </tr>
 <tr>
-<td>C'est trop rapide (ou trop lent)</td>
-<td>« Laisse plus de temps pour lire » / « Ajoute de l'action. »</td>
+<td>Les bruitages sont trop forts</td>
+<td>« Baisse les bruitages. »</td>
 </tr>
 <tr>
-<td>La musique ne me plaît pas</td>
-<td>« Change de musique. »</td>
+<td>La vidéo ne se fabrique pas</td>
+<td>Sur claude.ai, vérifie que l'exécution de code est activée, puis : « Vérifie ton installation et répare-la. »</td>
 </tr>
 <tr>
-<td>Vidéo trop lourde</td>
-<td>« Sors-la en qualité légère. »</td>
-</tr>
-<tr>
-<td>Claude ne connaît plus ma marque</td>
-<td>« Voici le kit de ma marque » + le ZIP.</td>
+<td>Vidéo trop lourde à envoyer</td>
+<td>« Sors une version légère pour WhatsApp. »</td>
 </tr>
 </tbody>
 </table>
+<h2>Les démos</h2>
+<p>Trois films faits avec ce skill : Parlons IA (vertical), Studio Visuel (16:9) et Créneau, une auto-école (carré). Revois-les sur la page du skill.</p>
     <p style="margin-top:2rem"><a class="prompt-button solid" href="../../articles/pub-motion-design-claude/">Revoir les démos</a></p>
     </section>
     </main>
-  <style>.guide-body h1{font-family:"Playfair Display",serif;font-size:2.2rem;margin-bottom:1rem}.guide-body h2{font-family:"Playfair Display",serif;font-size:1.5rem;margin:2.2rem 0 .8rem}.guide-body p,.guide-body li{line-height:1.7;color:#3f3f46}.guide-body ul,.guide-body ol{padding-left:1.3rem;list-style:revert}.guide-body table{width:100%;border-collapse:collapse;font-size:.9rem}.guide-body td,.guide-body th{border:1px solid #e4e4e7;padding:.5rem;text-align:left;vertical-align:top}.pdf-copy{background:#0b100e;border-radius:14px;padding:1rem;margin:1rem 0}.pdf-copy pre{white-space:pre-wrap;color:#a7f3d0;font-size:.85rem;margin:0 0 .8rem}</style>
+  <style>.guide-body h1{font-family:"Playfair Display",serif;font-size:2.2rem;margin-bottom:1rem}.guide-body h2{font-family:"Playfair Display",serif;font-size:1.5rem;margin:2.2rem 0 .8rem}.guide-body p,.guide-body li{line-height:1.7;color:#3f3f46}.guide-body ul,.guide-body ol{padding-left:1.3rem;list-style:revert}.guide-body table{width:100%;border-collapse:collapse;font-size:.9rem}.guide-body td,.guide-body th{border:1px solid #e4e4e7;padding:.5rem;text-align:left;vertical-align:top}.pdf-copy{background:#0b100e;border-radius:14px;padding:1rem;margin:1rem 0}.guide-body h3{font-weight:700;color:#047857;margin:1.4rem 0 .4rem}.guide-body blockquote{margin:1rem 0;padding:1rem 1.2rem;background:#fef9c3;border:2px dashed #ca8a04;border-radius:14px}.guide-body blockquote p{color:#713f12;margin:0}.pdf-copy pre{white-space:pre-wrap;color:#a7f3d0;font-size:.85rem;margin:0 0 .8rem}</style>
   <script src="../../script.js"></script>
 </body>
 </html>

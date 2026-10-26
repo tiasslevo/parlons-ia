@@ -230,7 +230,7 @@
     o.setAttribute('role', 'dialog'); o.setAttribute('aria-modal', 'true'); o.setAttribute('aria-labelledby', 'cf-title');
     o.innerHTML = `
       <div class="cf-card">
-        <div class="cf-art"><img src="./v4/img/e-candidature.webp" alt=""></div>
+        <div class="cf-art"><img src="./img/e-candidature.webp" alt=""></div>
         <span class="cf-k" id="cf-title">Petit rappel</span>
         <p class="cf-t">Tu as bien vu les infos ?</p>
         <p class="cf-s">Le Cercle, c’est <b>150 € pour 6 mois</b>, renouvelable. Tu règles l’adhésion après ton échange avec Boris ou Kévin.</p>
