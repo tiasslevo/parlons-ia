@@ -1,0 +1,29 @@
+/* « Pour aller plus loin » : cartes d'offres (esprit cartes tarifs BoardUI) */
+.offers{max-width:1080px;margin:0 auto;display:grid;grid-template-columns:repeat(2,1fr);gap:20px}
+.of{background:#fff;border:1px solid #e6ebf3;border-radius:26px;padding:26px;display:flex;flex-direction:column;box-shadow:0 10px 30px rgba(11,11,15,.04);transition:transform .25s,box-shadow .25s}
+.of:hover{transform:translateY(-4px);box-shadow:0 18px 40px rgba(11,11,15,.08)}
+.of-top{display:flex;justify-content:space-between;align-items:center;margin-bottom:18px}
+.of-ic{width:46px;height:46px;border-radius:14px;background:color-mix(in srgb,var(--c) 12%,#fff);display:grid;place-items:center}
+.of-ic svg{width:22px;height:22px;fill:none;stroke:var(--c);stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}
+.of-fmt{font:600 12.5px/1 'General Sans',sans-serif;color:var(--c);background:color-mix(in srgb,var(--c) 10%,#fff);padding:7px 11px;border-radius:999px}
+.of h3{margin:0 0 6px;font:700 23px/1.15 'General Sans',sans-serif;letter-spacing:-.02em}
+.of>p{margin:0 0 18px;color:#5b6475;font:500 15.5px/1.45 'General Sans',sans-serif}
+.of ul{list-style:none;margin:0 0 22px;padding:16px 0 0;border-top:1px solid #eef1f6;display:flex;flex-direction:column;gap:11px;flex:1}
+.of li{display:flex;gap:10px;align-items:flex-start;font:500 15px/1.4 'General Sans',sans-serif;color:#0b0b0f}
+.of li i{flex:none;width:20px;height:20px;border-radius:50%;background:var(--c);display:grid;place-items:center;margin-top:1px}
+.of li svg{width:13px;height:13px;fill:none;stroke:#fff;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round}
+.of-foot{display:flex;justify-content:space-between;align-items:center;padding-top:16px;border-top:1px solid #eef1f6}
+.of-foot span{font:700 16px/1 'General Sans',sans-serif;color:#0b0b0f}
+@media (max-width:760px){.offers{grid-template-columns:1fr}.of{padding:22px}.of h3{font-size:21px}}
+.of-art{height:150px;margin:-6px -6px 16px;border-radius:18px;background:color-mix(in srgb,var(--c) 7%,#fff);display:grid;place-items:center;overflow:hidden}
+.of-art img{max-height:132px;max-width:88%;object-fit:contain}
+@media (max-width:760px){.of-art{height:130px}.of-art img{max-height:112px}}
+/* empilement au scroll, comme « ce que tu apprends » */
+.offers{display:block;max-width:960px}
+.of{position:sticky;top:calc(92px + var(--k)*16px);margin-bottom:30vh;display:grid;grid-template-columns:.95fr 1.05fr;grid-template-areas:"art top" "art h" "art p" "art ul" "art foot";column-gap:30px;align-items:start;padding:28px;transform-origin:50% 0;box-shadow:0 -8px 34px rgba(11,11,15,.07)}
+.of:last-child{margin-bottom:6vh}
+.of:hover{transform:none}
+.of-art{grid-area:art;height:100%;min-height:300px;margin:0}
+.of-art img{max-height:240px}
+.of-top{grid-area:top}.of h3{grid-area:h}.of>p{grid-area:p}.of ul{grid-area:ul}.of-foot{grid-area:foot}
+@media (max-width:760px){.of{grid-template-columns:1fr;grid-template-areas:"top" "art" "h" "p" "ul" "foot";top:calc(70px + var(--k)*10px);margin-bottom:24vh;padding:20px}.of-art{min-height:0;height:130px;margin:0 0 14px}.of-art img{max-height:112px}}

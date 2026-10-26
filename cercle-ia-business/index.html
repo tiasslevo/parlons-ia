@@ -10,8 +10,10 @@
   <link href="https://api.fontshare.com/v2/css?f[]=general-sans@400,500,600,700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="./v4/v4.css?v=7">
   <link rel="stylesheet" href="./v4/simple.css?v=3">
-  <script>(function(){var q=location.search.indexOf('intro')>-1;try{if(!q&&matchMedia('(prefers-reduced-motion: reduce)').matches)return;if(!q&&sessionStorage.getItem('cercle-intro-v4'))return;sessionStorage.setItem('cercle-intro-v4','1');}catch(e){}document.documentElement.classList.add('intro-on');})();</script>
-  <style>html.intro-on body,html.intro-run body{overflow:hidden}html.intro-on::after{content:"";position:fixed;inset:0;background:#fff;z-index:299}</style>
+  <link rel="stylesheet" href="./v5/stack.css?v=3">
+  <link rel="stylesheet" href="./v5/offers.css?v=3">
+  <style>.card .tags{display:flex;flex-wrap:wrap;gap:6px;margin-top:12px}.card .tags span{padding:5px 10px;border-radius:999px;background:#f1f4fa;color:#2b3242;font:600 12.5px/1 'General Sans',sans-serif}.p-vid{display:flex;flex-direction:column;gap:10px;justify-content:center;padding:14px}.vid-screen{position:relative;height:74px;border-radius:12px;background:linear-gradient(135deg,#eef3ff,#f7f0ff);overflow:hidden}.vid-play{position:absolute;left:50%;top:50%;width:30px;height:30px;margin:-15px 0 0 -15px;border-radius:50%;background:#fff;box-shadow:0 4px 12px rgba(29,107,255,.25)}.vid-play::after{content:"";position:absolute;left:12px;top:9px;border-left:9px solid #1d6bff;border-top:6px solid transparent;border-bottom:6px solid transparent}.vid-shape{position:absolute;border-radius:50%;animation:vs 3s ease-in-out infinite}.vid-shape.s1{width:22px;height:22px;background:#9cc4ff;left:12%;top:18%}.vid-shape.s2{width:14px;height:14px;background:#00c9ad;right:16%;top:22%;animation-delay:.6s}.vid-shape.s3{width:18px;height:18px;background:#f9a8d4;right:28%;bottom:12%;border-radius:5px;animation-delay:1.2s}@keyframes vs{50%{transform:translateY(-8px) rotate(25deg)}}.vid-track{position:relative;display:flex;gap:3px;height:16px}.vid-track i{width:var(--w);border-radius:4px;background:var(--c);opacity:.8}.vid-head{position:absolute;top:-4px;bottom:-4px;width:2px;background:#0b0b0f;left:0;animation:vh 4s linear infinite}@keyframes vh{to{left:100%}}html.intro-on .metier-ill,html.intro-run .metier-ill{visibility:hidden}.metier-ill{position:relative;width:min(440px,82vw);aspect-ratio:4/3;margin:34px auto 0}.metier-ill img{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;opacity:0;transform:translateY(14px) scale(.96);transition:opacity .45s ease,transform .55s cubic-bezier(.3,1.4,.5,1)}.metier-ill img.on{opacity:1;transform:none}@media (max-width:640px){.hero{display:flex;flex-direction:column;padding-top:110px}.hero .metier-ill{order:2;width:min(250px,64vw);margin:6px auto 4px}.hero-title{order:1}.hero-sub{order:3}.hero-ctas{order:4}.hero .aurora,.hero .floaters{order:0}}
+</style>
 </head>
 <body>
   <svg width="0" height="0" style="position:absolute" aria-hidden="true">
@@ -52,12 +54,20 @@
       </div>
 
       <h1 class="hero-title rv">Apprends à mettre l’IA<br>au travail dans <span class="flip" aria-live="polite"><span class="flip-word">ton restaurant</span><span class="flip-dots"></span></span></h1>
-      <p class="hero-sub rv" style="--rd:.08s">Pour les entrepreneurs, dirigeants et managers. Avec Boris et Kévin, deux ingénieurs IA, tu apprends à confier à l’IA ce qui te prend des heures chaque semaine.</p>
+      <p class="hero-sub rv" style="--rd:.08s">Resto, boutique, cabinet ou agence : Boris et Kévin, deux ingénieurs IA, te montrent les bons outils pour gagner des heures chaque semaine.</p>
       <div class="hero-ctas rv" style="--rd:.16s">
         <a class="btn btn-primary btn-lg" href="#candidature" data-intent="cercle">Rejoindre le Cercle</a>
         <a class="btn btn-ghost btn-lg" href="#candidature" data-intent="decouverte">Réserver un échange</a>
       </div>
-    </section>
+          <div class="metier-ill rv" style="--rd:.22s" aria-hidden="true">
+        <img class="on" data-w="ton restaurant" src="./v5/metier-restaurant.webp" alt="">
+        <img data-w="ta boutique" src="./v5/metier-boutique.webp" alt="">
+        <img data-w="ton cabinet" src="./v5/metier-cabinet.webp" alt="">
+        <img data-w="ton entreprise" src="./v5/metier-entreprise.webp" alt="">
+        <img data-w="ton équipe" src="./v5/metier-equipe.webp" alt="">
+        <img data-w="ton agence" src="./v5/metier-agence.webp" alt="">
+      </div>
+</section>
 
 
     <!-- APPRENDRE -->
@@ -72,57 +82,24 @@
       </div>
       <div class="sec-head">
         <h2 class="rv">Ce que tu apprends à faire</h2>
-        <p class="rv" style="--rd:.08s">Chaque sujet part d’un vrai besoin, et tu repars avec quelque chose qui tourne.</p>
+        <p class="rv" style="--rd:.08s">Cinq domaines où l’IA change déjà le quotidien d’un business.</p>
       </div>
-      <div class="grid4">
-        <article class="card rv">
-          <div class="prev p-brand">
-            <span class="brand-tile big"><svg><use href="#seuil"/></svg></span>
-            <div class="sw"><i style="background:#1d6bff"></i><i style="background:#9cc4ff"></i><i style="background:#00c9ad"></i><i style="background:#0b0b0f"></i></div>
-            <div class="aa">Aa</div>
-          </div>
-          <h3>Communiquer</h3>
-          <p>Posts, visuels, réponses aux clients et image de marque cohérente, dans ton style.</p>
-        </article>
-        <article class="card rv" style="--rd:.07s">
-          <div class="prev p-gen">
-            <div class="gen-load"><svg viewBox="0 0 80 80"><circle cx="40" cy="40" r="30"/></svg><span class="gen-n">3</span></div>
-            <div class="gen-out"><b>Rapport du mois</b><i></i><i></i></div>
-          </div>
-          <h3>Produire</h3>
-          <p>Devis, rapports, présentations et documents prêts en quelques minutes.</p>
-        </article>
-        <article class="card rv" style="--rd:.14s">
-          <div class="prev p-think">
-            <p><i class="tk"></i><span>Tri des emails du jour</span></p>
-            <p><i class="tk"></i><span>Résumé de la réunion</span></p>
-            <p><i class="tk"></i><span>Tâches envoyées à l’équipe</span></p>
-          </div>
-          <h3>Organiser</h3>
-          <p>Tes emails triés, tes réunions résumées, le suivi de ton équipe préparé pour toi.</p>
-        </article>
-        <article class="card rv" style="--rd:.21s">
-          <div class="prev p-flow">
-            <span class="node">Formulaire</span><i class="edge"></i><span class="node">Devis PDF</span><i class="edge"></i><span class="node">Email envoyé</span>
-          </div>
-          <h3>Automatiser</h3>
-          <p>Des agents et des automatisations qui font le travail répétitif à ta place, du formulaire jusqu’à l’envoi.</p>
-        </article>
-      </div>
-
-      <p class="rail-h rv">Par exemple, tu pourras confier à l’IA :</p>
-      <div class="rail">
-        <div class="rail-track">
-          <span class="ex"><i style="--c:#25c16f"></i>Répondre aux avis clients</span>
-          <span class="ex"><i style="--c:#1d6bff"></i>Relancer les devis sans réponse</span>
-          <span class="ex"><i style="--c:#8b5cf6"></i>Résumer une réunion</span>
-          <span class="ex"><i style="--c:#ec4899"></i>Écrire tes posts LinkedIn</span>
-          <span class="ex"><i style="--c:#f59e0b"></i>Trier tes emails</span>
-          <span class="ex"><i style="--c:#00c9ad"></i>Créer des visuels produits</span>
-          <span class="ex"><i style="--c:#1d6bff"></i>Gérer les prises de rendez-vous</span>
-          <span class="ex"><i style="--c:#8b5cf6"></i>Préparer tes devis</span>
-        </div>
-      </div>
+      <div class="stack"><article class="sc" style="--bg:#e8faf6;--ac:#0aa58b;--i:0">
+          <div class="sc-txt"><span class="sc-n">01</span><h3>Tes propres assistants IA</h3><p class="sc-lead">Tu apprends à créer des assistants qui travaillent pour ton business, à ta manière.</p><ul class="sc-pts"><li><span class="sc-ic"><svg viewBox="0 0 24 24"><path d="M9 4a3 3 0 0 0-3 3 3 3 0 0 0-2 5 3 3 0 0 0 3 5 3 3 0 0 0 5 1V4.5A2.5 2.5 0 0 0 9 4zM15 4a3 3 0 0 1 3 3 3 3 0 0 1 2 5 3 3 0 0 1-3 5 3 3 0 0 1-5 1"/></svg></span><div><b>Ils connaissent ton business par cœur</b><span>Tes offres, tes tarifs, tes clients.</span></div></li><li><span class="sc-ic"><svg viewBox="0 0 24 24"><path d="M4 4h16v16H4zM4 9h16M9 9v11"/></svg></span><div><b>Ils travaillent avec tes modèles</b><span>Devis, rapports, courriers au format de ta maison.</span></div></li><li><span class="sc-ic"><svg viewBox="0 0 24 24"><path d="M12 21a9 9 0 1 0 0-18 9 9 0 0 0 0 18zM12 7v5l3 2"/></svg></span><div><b>Ils te rendent des heures</b><span>Le répétitif pour eux, les décisions pour toi.</span></div></li></ul></div>
+          <div class="sc-art"><img src="./v5/learn-assist.webp" alt="" loading="lazy"></div>
+        </article><article class="sc" style="--bg:#fff7e0;--ac:#c98a00;--i:1">
+          <div class="sc-txt"><span class="sc-n">02</span><h3>Des visuels dignes d’une agence</h3><p class="sc-lead">Tu apprends à créer avec l’IA des images de qualité professionnelle pour ta marque.</p><ul class="sc-pts"><li><span class="sc-ic"><svg viewBox="0 0 24 24"><path d="M5 3h14v18H5zM8 14l3-4 3 3 2-2 2 3M9 7.5h.01"/></svg></span><div><b>Affiches et flyers</b><span>Des visuels qui donnent envie, à chaque promo.</span></div></li><li><span class="sc-ic"><svg viewBox="0 0 24 24"><path d="M12 3a9 9 0 1 0 0 18c1 0 1.5-.8 1.5-1.6 0-1-.7-1.4-.7-2.2 0-.9.7-1.6 1.6-1.6H17a4 4 0 0 0 4-4C21 6.6 17 3 12 3zM7.5 11h.01M10 7.5h.01M14.5 7.5h.01"/></svg></span><div><b>Ton identité de marque</b><span>Logo, couleurs, typos : un branding cohérent.</span></div></li><li><span class="sc-ic"><svg viewBox="0 0 24 24"><path d="M4 8h3l2-3h6l2 3h3v11H4zM12 17a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7z"/></svg></span><div><b>Photos produits</b><span>Tes produits mis en scène comme en studio.</span></div></li></ul></div>
+          <div class="sc-art"><img src="./v5/learn-images.webp" alt="" loading="lazy"></div>
+        </article><article class="sc" style="--bg:#f3efff;--ac:#7c4dff;--i:2">
+          <div class="sc-txt"><span class="sc-n">03</span><h3>Tes documents, délégués à l’IA</h3><p class="sc-lead">Tes notes ou tes chiffres deviennent des documents prêts à envoyer.</p><ul class="sc-pts"><li><span class="sc-ic"><svg viewBox="0 0 24 24"><path d="M3 5h18v11H3zM8 21l4-5 4 5"/></svg></span><div><b>Présentations</b><span>Structurées et mises en page en quelques minutes.</span></div></li><li><span class="sc-ic"><svg viewBox="0 0 24 24"><path d="M4 20V10M10 20V4M16 20v-7M22 20H2"/></svg></span><div><b>Rapports et tableaux</b><span>Tes données Excel analysées et mises au propre.</span></div></li><li><span class="sc-ic"><svg viewBox="0 0 24 24"><path d="M5 4h14v16H5zM8 9h8M8 13h8M8 17h5"/></svg></span><div><b>Comptes rendus</b><span>Une réunion résumée, décisions et actions comprises.</span></div></li></ul></div>
+          <div class="sc-art"><img src="./v5/learn-docs.webp" alt="" loading="lazy"></div>
+        </article><article class="sc" style="--bg:#eef3ff;--ac:#1d6bff;--i:3">
+          <div class="sc-txt"><span class="sc-n">04</span><h3>Des vidéos qui font vendre</h3><p class="sc-lead">Tu apprends à produire tes vidéos avec l’IA, de l’idée au fichier prêt à publier.</p><ul class="sc-pts"><li><span class="sc-ic"><svg viewBox="0 0 24 24"><path d="M4 4h7v7H4zM17.5 7.5m-3.5 0a3.5 3.5 0 1 0 7 0a3.5 3.5 0 1 0-7 0M4 20l3.5-6 3.5 6z"/></svg></span><div><b>Motion design</b><span>Des animations pour présenter tes offres.</span></div></li><li><span class="sc-ic"><svg viewBox="0 0 24 24"><path d="M12 12a4 4 0 1 0 0-8 4 4 0 0 0 0 8zM4 21a8 8 0 0 1 16 0"/></svg></span><div><b>Présentateurs IA réalistes</b><span>Une personne réaliste présente ton produit face caméra.</span></div></li><li><span class="sc-ic"><svg viewBox="0 0 24 24"><path d="M6 6a3 3 0 1 0 0 .1M6 18a3 3 0 1 0 0 .1M8.5 7.5 20 17M8.5 16.5 20 7"/></svg></span><div><b>Montage assisté</b><span>Coupes, sous-titres et illustrations faits pour toi.</span></div></li></ul></div>
+          <div class="sc-art"><img src="./v5/learn-video.webp" alt="" loading="lazy"></div>
+        </article><article class="sc" style="--bg:#fff0f6;--ac:#e0448a;--i:4">
+          <div class="sc-txt"><span class="sc-n">05</span><h3>Les bons outils, au bon moment</h3><p class="sc-lead">On fait le tri dans les nouveautés et on t’apprend à t’en servir.</p><ul class="sc-pts"><li><span class="sc-ic"><svg viewBox="0 0 24 24"><path d="M6 16V11a6 6 0 0 1 12 0v5l2 2H4zM10 21h4"/></svg></span><div><b>Veille business</b><span>Seulement ce qui sert ton activité.</span></div></li><li><span class="sc-ic"><svg viewBox="0 0 24 24"><path d="M5 12l4 4 10-10"/></svg></span><div><b>Outils testés</b><span>Essayés avant qu’on t’en parle.</span></div></li><li><span class="sc-ic"><svg viewBox="0 0 24 24"><path d="M4 5a2 2 0 0 1 2-2h14v16H6a2 2 0 0 0-2 2zM8 7h8"/></svg></span><div><b>Mise en pratique</b><span>Comment l’utiliser dans ton travail.</span></div></li></ul></div>
+          <div class="sc-art"><img src="./v5/learn-veille.webp" alt="" loading="lazy"></div>
+        </article></div>
     </section>
 
     <!-- LE CERCLE -->
@@ -134,17 +111,17 @@
         <article class="bx rv">
           <div class="bx-art"><img src="./v4/img/q-live.webp" alt="" loading="lazy"><span class="live"><i></i>En direct</span></div>
           <h3>Une masterclass toutes les deux semaines</h3>
-          <p>Une heure sur un cas concret, avec une méthode que tu appliques dès le lendemain.</p>
+          <p>En direct, un outil ou une méthode à appliquer dès le lendemain.</p>
         </article>
         <article class="bx rv" style="--rd:.07s">
           <div class="bx-art"><img src="./v4/img/q-communaute.webp" alt="" loading="lazy"></div>
-          <h3>Le groupe WhatsApp des membres</h3>
-          <p>Tes questions, nos réponses, et l’actu IA utile pour ton business.</p>
+          <h3>Tes questions, tes blocages</h3>
+          <p>Tu bloques ? On t’aide à t’en sortir. Et on te dit quels nouveaux outils valent le coup.</p>
         </article>
         <article class="bx rv" style="--rd:.14s">
           <div class="bx-art"><img src="./v4/img/q-point.webp" alt="" loading="lazy"></div>
-          <h3>Un suivi individuel</h3>
-          <p>Un premier échange sur tes besoins, puis un point tous les deux mois.</p>
+          <h3>Le suivi de tes progrès</h3>
+          <p>Un point au départ, puis tous les deux mois sur ce que l’IA a changé pour toi.</p>
         </article>
       </div>
       <div class="join rv">
@@ -162,14 +139,29 @@
     <section class="sec sec-tint" id="offres">
       <div class="sec-head">
         <h2 class="rv">Pour aller plus loin</h2>
-        <p class="rv" style="--rd:.08s">En dehors du Cercle, on avance avec toi sur ton propre business.</p>
+        <p class="rv" style="--rd:.08s">En plus du Cercle, on t’accompagne directement sur ton business.</p>
       </div>
-      <div class="more rv">
-        <a class="more-i" href="#candidature" data-intent="decouverte"><span class="plan-ic" style="--c:#00c9ad"><svg viewBox="0 0 20 20"><path d="M4 4.5h12v8H9l-4 3v-3H4z"/></svg></span><div><h3>Diagnostic IA</h3><p>Une heure sur ton business pour savoir par où commencer.</p></div><svg class="more-go" viewBox="0 0 20 20"><path d="M5 10h10M11 6l4 4-4 4"/></svg></a>
-        <a class="more-i" href="#candidature" data-intent="decouverte"><span class="plan-ic" style="--c:#ec4899"><svg viewBox="0 0 20 20"><path d="M3 6.5 10 3l7 3.5-7 3.5z"/><path d="M6 8v4.5c1 1 2.4 1.5 4 1.5s3-.5 4-1.5V8"/></svg></span><div><h3>Accompagnement</h3><p>Des séances régulières pour apprendre à le faire toi-même, sur ton projet.</p></div><svg class="more-go" viewBox="0 0 20 20"><path d="M5 10h10M11 6l4 4-4 4"/></svg></a>
-        <a class="more-i" href="#candidature" data-intent="decouverte"><span class="plan-ic" style="--c:#8b5cf6"><svg viewBox="0 0 20 20"><path d="m12.5 3.5 4 4-8.5 8.5H4v-4z"/></svg></span><div><h3>Mise en place sur mesure</h3><p>On construit pour toi l’agent ou l’automatisation dont tu as besoin.</p></div><svg class="more-go" viewBox="0 0 20 20"><path d="M5 10h10M11 6l4 4-4 4"/></svg></a>
-        <a class="more-i" href="#candidature" data-intent="decouverte"><span class="plan-ic" style="--c:#f59e0b"><svg viewBox="0 0 20 20"><rect x="3.5" y="6" width="13" height="10" rx="2"/><path d="M7.5 6V4.5h5V6M3.5 10.5h13"/></svg></span><div><h3>Entreprises</h3><p>Former tes équipes, avec des ateliers par métier.</p></div><svg class="more-go" viewBox="0 0 20 20"><path d="M5 10h10M11 6l4 4-4 4"/></svg></a>
-      </div>
+      <div class="offers"><article class="of rv" style="--k:0;--c:#7c4dff;--rd:0.00s">
+          <div class="of-top"><span class="of-ic"><svg viewBox="0 0 20 20"><path d="M3 6.5 10 3l7 3.5-7 3.5zM6 8v4.5c1 1 2.4 1.5 4 1.5s3-.5 4-1.5V8"/></svg></span><span class="of-fmt">En individuel ou en petit groupe</span></div>
+          <div class="of-art"><img src="./v5/offre-formation.webp" alt="" loading="lazy"></div><h3>Formations avancées</h3><p>Aller plus loin que les bases, sur un sujet précis.</p>
+          <ul><li><i><svg viewBox="0 0 16 16"><path d="m4.2 8.3 2.5 2.5 5.1-5.2"/></svg></i>Créer tes propres agents IA</li><li><i><svg viewBox="0 0 16 16"><path d="m4.2 8.3 2.5 2.5 5.1-5.2"/></svg></i>Automatiser un processus de bout en bout</li><li><i><svg viewBox="0 0 16 16"><path d="m4.2 8.3 2.5 2.5 5.1-5.2"/></svg></i>Un programme adapté à ton niveau et à ton activité</li></ul>
+          <div class="of-foot"><span>Sur devis</span><a class="btn btn-ghost btn-sm" href="#candidature" data-intent="decouverte">En parler</a></div>
+        </article><article class="of rv" style="--k:1;--c:#1d6bff;--rd:0.07s">
+          <div class="of-top"><span class="of-ic"><svg viewBox="0 0 20 20"><path d="m12.5 3.5 4 4-8.5 8.5H4v-4z"/></svg></span><span class="of-fmt">Clé en main</span></div>
+          <div class="of-art"><img src="./v5/offre-mise-en-place.webp" alt="" loading="lazy"></div><h3>Mise en place sur mesure</h3><p>On construit et on installe la solution IA dans ton business.</p>
+          <ul><li><i><svg viewBox="0 0 16 16"><path d="m4.2 8.3 2.5 2.5 5.1-5.2"/></svg></i>Un agent WhatsApp qui répond à tes clients</li><li><i><svg viewBox="0 0 16 16"><path d="m4.2 8.3 2.5 2.5 5.1-5.2"/></svg></i>Des automatisations entre tes outils</li><li><i><svg viewBox="0 0 16 16"><path d="m4.2 8.3 2.5 2.5 5.1-5.2"/></svg></i>La prise en main, puis un suivi après l’installation</li></ul>
+          <div class="of-foot"><span>Sur devis</span><a class="btn btn-ghost btn-sm" href="#candidature" data-intent="decouverte">En parler</a></div>
+        </article><article class="of rv" style="--k:2;--c:#0aa58b;--rd:0.14s">
+          <div class="of-top"><span class="of-ic"><svg viewBox="0 0 20 20"><path d="M4 4.5h12v8H9l-4 3v-3H4z"/></svg></span><span class="of-fmt">En visio, une heure</span></div>
+          <div class="of-art"><img src="./v5/offre-diagnostic.webp" alt="" loading="lazy"></div><h3>Diagnostic et conseil</h3><p>Une heure avec un ingénieur IA, centrée sur ton activité.</p>
+          <ul><li><i><svg viewBox="0 0 16 16"><path d="m4.2 8.3 2.5 2.5 5.1-5.2"/></svg></i>On analyse ce qui te prend du temps</li><li><i><svg viewBox="0 0 16 16"><path d="m4.2 8.3 2.5 2.5 5.1-5.2"/></svg></i>On identifie les outils adaptés</li><li><i><svg viewBox="0 0 16 16"><path d="m4.2 8.3 2.5 2.5 5.1-5.2"/></svg></i>Tu repars avec un plan d’action</li></ul>
+          <div class="of-foot"><span>Sur devis</span><a class="btn btn-ghost btn-sm" href="#candidature" data-intent="decouverte">En parler</a></div>
+        </article><article class="of rv" style="--k:3;--c:#e0448a;--rd:0.21s">
+          <div class="of-top"><span class="of-ic"><svg viewBox="0 0 20 20"><path d="M3.5 6h13v10h-13zM7.5 6V4.5h5V6M3.5 10.5h13"/></svg></span><span class="of-fmt">Pour les équipes</span></div>
+          <div class="of-art"><img src="./v5/offre-entreprise.webp" alt="" loading="lazy"></div><h3>Entreprises</h3><p>Former tes équipes à utiliser l’IA au quotidien.</p>
+          <ul><li><i><svg viewBox="0 0 16 16"><path d="m4.2 8.3 2.5 2.5 5.1-5.2"/></svg></i>Des ateliers par métier</li><li><i><svg viewBox="0 0 16 16"><path d="m4.2 8.3 2.5 2.5 5.1-5.2"/></svg></i>Des cas concrets tirés de ton activité</li><li><i><svg viewBox="0 0 16 16"><path d="m4.2 8.3 2.5 2.5 5.1-5.2"/></svg></i>Des sessions adaptées à la taille de ton équipe</li></ul>
+          <div class="of-foot"><span>Sur devis</span><a class="btn btn-ghost btn-sm" href="#candidature" data-intent="decouverte">En parler</a></div>
+        </article></div>
     </section>
 
     <!-- CANDIDATURE -->
@@ -234,12 +226,14 @@
     </div>
   </footer>
 
-  <script src="./v4/intro.js?v=1" data-base="./"></script>
   <script src="./v4/mascots.js?v=1"></script>
   <script src="./v4/mascots-render.js?v=1"></script>
   <script src="./v4/v4.js?v=8"></script>
   <script type="importmap">{ "imports": { "three": "./vendor/three.module.min.js" } }</script>
   <script type="module" src="./footer-logo.js?v=2"></script>
   <script src="./inapp.js"></script>
+<script>(function(){var fw=document.querySelector('.flip-word');if(!fw)return;var imgs=[].slice.call(document.querySelectorAll('.metier-ill img'));var cur='ton restaurant';new MutationObserver(function(){var t=fw.textContent.replace(/\u00a0/g,' ').trim();var hit=imgs.filter(function(im){return im.dataset.w===t})[0];if(hit&&t!==cur){cur=t;imgs.forEach(function(im){im.classList.toggle('on',im===hit)})}}).observe(fw,{childList:true,subtree:true,characterData:true});})();</script>
+
+<script>(function(){var groups=[[].slice.call(document.querySelectorAll('.sc')),[].slice.call(document.querySelectorAll('.of'))];function f(){groups.forEach(function(cs){cs.forEach(function(c,i){var n=cs[i+1];if(!n){c.style.transform='';return}var r=n.getBoundingClientRect(),top=parseFloat(getComputedStyle(c).top)||0,h=c.offsetHeight,p=Math.min(1,Math.max(0,1-(r.top-top)/h));c.style.transform='scale('+(1-p*0.06)+')';c.style.filter='brightness('+(1-p*0.06)+')'})})}addEventListener('scroll',f,{passive:true});f();})();</script>
 </body>
 </html>
