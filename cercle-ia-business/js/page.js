@@ -173,6 +173,14 @@
   /* ---------- formulaire ---------- */
   const NUMBERS = { boris: '33782988589', kevin: '33781270587' };
   const NAMES = { boris: 'Boris', kevin: 'Kévin' };
+  // Google Sheet « Candidatures Cercle IA Business » (Apps Script déployé en application Web) ; vide = pas d'envoi
+  const SHEET_URL = 'https://script.google.com/macros/s/AKfycbzNhuNVqCzlvgKOu8sC5cCTNcDCM0-cVM4FFIkQKiThEn-P4Cf69c8uIMw3sJEjCu6_oA/exec';
+  // fuseau du visiteur, lu sur son téléphone, et décalage avec Paris
+  const TZ = (Intl.DateTimeFormat().resolvedOptions().timeZone || 'Europe/Paris');
+  const offsetOf = (tz) => { const d = new Date(); const l = new Date(d.toLocaleString('en-US', { timeZone: tz })); const u = new Date(d.toLocaleString('en-US', { timeZone: 'UTC' })); return Math.round((l - u) / 36e5); };
+  const DIFF = offsetOf('Europe/Paris') - offsetOf(TZ);
+  const CITY = TZ.split('/').pop().replace(/_/g, ' ');
+  const toParis = (txt) => (DIFF === 0 ? txt : txt.replace(/(\d{1,2}) h/g, (m, h) => `${(+h + DIFF + 24) % 24} h`));
   const form = $('#form');
   if (form) {
     const err = $('.form-error', form), seg = $('.seg-form', form);
@@ -191,12 +199,20 @@
       s.addEventListener('change', paint); paint();
     });
     sync();
+    const tz = $('.dispo .tz', form);
+    if (tz) tz.textContent = DIFF === 0 ? `Heures de ${CITY}, là où tu es.` : `Heures de ${CITY}, là où tu es (${DIFF > 0 ? '+' : '−'}${Math.abs(DIFF)} h à Paris).`;
     form.addEventListener('submit', (ev) => {
       ev.preventDefault();
       const v = (n) => (form[n] && form[n].value ? form[n].value.trim() : '');
       const cercle = form.intent.value === 'cercle';
       if (['nom', 'profil', 'activite', 'tache'].some((n) => !v(n))) {
         err.textContent = 'Merci de remplir ton nom, ton profil, ton activité et ce que tu veux confier à l’IA.';
+        return;
+      }
+      const picked = (n) => $$(`input[name="${n}"]:checked`, form).map((i) => i.value);
+      const sem = picked('semaine'), we = picked('weekend');
+      if (!sem.length && !we.length) {
+        err.textContent = 'Coche au moins un créneau pour que je puisse t’appeler.';
         return;
       }
       if (cercle && !form.engage.checked) {
@@ -215,7 +231,19 @@
         `Ce que j’aimerais confier à l’IA : ${v('tache')}`,
         cercle && v('invest') ? `Déjà investi dans un outil, une formation ou un prestataire : ${v('invest')}` : null,
         cercle ? 'Je m’engage à partager où j’en suis dans le Cercle.' : null,
+        '',
+        `Disponible pour un appel (heure de ${CITY}) :`,
+        sem.length ? `• En semaine : ${sem.join(', ')}` : null,
+        we.length ? `• Le week-end : ${we.join(', ')}` : null,
+        v('precision') ? `• Précision : ${v('precision')}` : null,
       ].filter((l) => l !== null);
+      if (SHEET_URL) {
+        const data = { nom: v('nom'), profil: v('profil'), activite: v('activite'), equipe: v('equipe'), invest: v('invest'), tache: v('tache'),
+          semaine: sem.join(', '), weekend: we.join(', '), precision: v('precision'), fuseau: TZ,
+          heureParis: [sem.length ? 'Semaine : ' + toParis(sem.join(', ')) : '', we.length ? 'Week-end : ' + toParis(we.join(', ')) : ''].filter(Boolean).join(' · '),
+          to: NAMES[to], intention: cercle ? 'Cercle' : 'Échange' };
+        try { fetch(SHEET_URL, { method: 'POST', mode: 'no-cors', keepalive: true, headers: { 'Content-Type': 'text/plain' }, body: JSON.stringify(data) }); } catch (e) {}
+      }
       const send = () => window.open(`https://wa.me/${NUMBERS[to]}?text=${encodeURIComponent(lines.join('\n'))}`, '_blank', 'noopener');
       if (!cercle) { send(); return; }
       // Rejoindre le Cercle : on rappelle le prix et la durée avant d'ouvrir WhatsApp

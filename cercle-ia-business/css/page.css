@@ -443,3 +443,18 @@ svg { flex: none; }
 .foot-dark .brand-name, .foot-dark .brand-name em { color: #fff; }
 .foot-dark .foot-by { color: rgba(255,255,255,.65); }
 @media (max-width: 760px) { .foot-dark .foot-logo3d { height: 220px; } .foot-dark .foot-row { flex-direction: column; } }
+
+/* créneaux d’appel */
+.dispo .chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:10px}
+.dispo .chips label{cursor:pointer}
+.dispo .chips input{position:absolute;opacity:0;pointer-events:none}
+.dispo .chips b{display:inline-block;padding:10px 16px;border-radius:999px;border:1.5px solid #d9e2f2;background:#fff;font-weight:600;font-size:15px;color:#1d1b18;transition:.15s}
+.dispo .chips input:checked+b{background:#1d6bff;border-color:#1d6bff;color:#fff}
+.dispo .hint{margin:6px 0 0;font-size:14px;color:#4b5563}
+.dispo .slot{margin-top:12px;padding:14px;border:1.5px solid #e3e9f4;border-radius:18px;background:#f8faff}
+.dispo .slot-h{display:flex;align-items:baseline;gap:8px}
+.dispo .slot-h b{font-size:16px;color:#1d1b18}
+.dispo .slot-h i{font-style:normal;font-size:13px;color:#6b7280}
+.dispo .chips b small{font-weight:500;opacity:.7;margin-left:4px;color:inherit}
+.dispo .slot-note{margin-top:12px;width:100%;box-sizing:border-box;padding:12px 14px;border-radius:14px;border:1.5px solid #e3e9f4;background:#fff;font:inherit;font-size:15px}
+.dispo .tz{margin:10px 0 0;font-size:13px;color:#6b7280}

@@ -8,7 +8,7 @@
   <link rel="icon" href="./brand/logos/favicon.svg?v=2" type="image/svg+xml">
   <link rel="preconnect" href="https://api.fontshare.com">
   <link href="https://api.fontshare.com/v2/css?f[]=general-sans@400,500,600,700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="./css/page.css?v=7">
+  <link rel="stylesheet" href="./css/page.css?v=8">
   <link rel="stylesheet" href="./css/simple.css?v=3">
   <link rel="stylesheet" href="./css/stack.css?v=3">
   <link rel="stylesheet" href="./css/offers.css?v=3">
@@ -57,7 +57,6 @@
       <p class="hero-sub rv" style="--rd:.08s">Resto, boutique, cabinet ou agence : Boris et Kévin, deux ingénieurs IA, te montrent les bons outils pour gagner des heures chaque semaine.</p>
       <div class="hero-ctas rv" style="--rd:.16s">
         <a class="btn btn-primary btn-lg" href="#candidature" data-intent="cercle">Rejoindre le Cercle</a>
-        <a class="btn btn-ghost btn-lg" href="#candidature" data-intent="decouverte">Réserver un échange</a>
       </div>
           <div class="metier-ill rv" style="--rd:.22s" aria-hidden="true">
         <img class="on" data-w="ton restaurant" src="./img/metier-restaurant.webp" alt="">
@@ -168,10 +167,10 @@
     <section class="sec" id="candidature">
       <div class="sec-head">
         <h2 class="rv">Rejoins le Cercle</h2>
-        <p class="rv" style="--rd:.08s">Ton message s’ouvre dans WhatsApp, prêt à être envoyé à Boris ou à Kévin, les deux ingénieurs IA qui animent le Cercle.</p>
+        <p class="rv" style="--rd:.08s">Candidate en deux minutes et dis-moi quand t’appeler : je te rappelle pour t’expliquer le Cercle de vive voix.</p>
       </div>
       <form class="form rv" id="form" novalidate>
-        <div class="seg seg-form" role="radiogroup" aria-label="Tu veux">
+        <div class="seg seg-form" role="radiogroup" aria-label="Tu veux" hidden>
           <label><input type="radio" name="intent" value="cercle" checked><span>Rejoindre le Cercle</span></label>
           <label><input type="radio" name="intent" value="decouverte"><span>Échange découverte</span></label>
           <i class="seg-ind"></i>
@@ -185,6 +184,28 @@
             <select name="equipe"><option value="">Choisir</option><option>Je travaille seul</option><option>2 à 5</option><option>6 à 20</option><option>Plus de 20</option></select></label>
           <label class="f cercle-only"><span>Déjà investi en IA ? <small>(outil, formation, prestataire)</small></span>
             <select name="invest"><option value="">Choisir</option><option>Oui</option><option>Non</option></select></label>
+          <div class="f dispo"><span>Quand est-ce que je peux t’appeler ? <small>(10-15 min)</small></span>
+            <p class="hint">Coche tous les créneaux qui t’arrangent : plus tu en coches, plus vite je t’appelle.</p>
+            <div class="slot">
+              <div class="slot-h"><b>En semaine</b><i>lundi → vendredi</i></div>
+              <div class="chips">
+                <label><input type="checkbox" name="semaine" value="18 h – 19 h"><b>18 h – 19 h</b></label>
+                <label><input type="checkbox" name="semaine" value="19 h – 20 h"><b>19 h – 20 h</b></label>
+                <label><input type="checkbox" name="semaine" value="20 h – 21 h"><b>20 h – 21 h</b></label>
+                <label><input type="checkbox" name="semaine" value="21 h – 22 h"><b>21 h – 22 h</b></label>
+              </div>
+            </div>
+            <div class="slot">
+              <div class="slot-h"><b>Le week-end</b><i>samedi et dimanche</i></div>
+              <div class="chips">
+                <label><input type="checkbox" name="weekend" value="Le matin (9 h – 12 h)"><b>Le matin <small>9 h – 12 h</small></b></label>
+                <label><input type="checkbox" name="weekend" value="L’après-midi (14 h – 18 h)"><b>L’après-midi <small>14 h – 18 h</small></b></label>
+                <label><input type="checkbox" name="weekend" value="Le soir (18 h – 21 h)"><b>Le soir <small>18 h – 21 h</small></b></label>
+              </div>
+            </div>
+            <input class="slot-note" name="precision" placeholder="Une précision sur tes disponibilités ? (facultatif)">
+            <p class="tz"></p>
+          </div>
           <div class="f"><span>Envoyer à</span>
             <div class="to">
               <label><input type="radio" name="to" value="boris" checked><img src="./img/boris.jpg" alt=""><b>Boris</b></label>
@@ -228,7 +249,7 @@
 
   <script src="./js/mascots.js?v=1"></script>
   <script src="./js/mascots-render.js?v=1"></script>
-  <script src="./js/page.js?v=8"></script>
+  <script src="./js/page.js?v=9"></script>
   <script type="importmap">{ "imports": { "three": "./vendor/three.module.min.js" } }</script>
   <script type="module" src="./footer-logo.js?v=2"></script>
   <script src="./inapp.js"></script>
