@@ -237,14 +237,16 @@
         we.length ? `• Le week-end : ${we.join(', ')}` : null,
         v('precision') ? `• Précision : ${v('precision')}` : null,
       ].filter((l) => l !== null);
-      if (SHEET_URL) {
+      // la ligne part dans le Sheet seulement quand WhatsApp s'ouvre (prix accepté pour le Cercle)
+      const toSheet = () => {
+        if (!SHEET_URL) return;
         const data = { nom: v('nom'), profil: v('profil'), activite: v('activite'), equipe: v('equipe'), invest: v('invest'), tache: v('tache'),
           semaine: sem.join(', '), weekend: we.join(', '), precision: v('precision'), fuseau: TZ,
           heureParis: [sem.length ? 'Semaine : ' + toParis(sem.join(', ')) : '', we.length ? 'Week-end : ' + toParis(we.join(', ')) : ''].filter(Boolean).join(' · '),
           to: NAMES[to], intention: cercle ? 'Cercle' : 'Échange' };
         try { fetch(SHEET_URL, { method: 'POST', mode: 'no-cors', keepalive: true, headers: { 'Content-Type': 'text/plain' }, body: JSON.stringify(data) }); } catch (e) {}
-      }
-      const send = () => window.open(`https://wa.me/${NUMBERS[to]}?text=${encodeURIComponent(lines.join('\n'))}`, '_blank', 'noopener');
+      };
+      const send = () => { toSheet(); window.open(`https://wa.me/${NUMBERS[to]}?text=${encodeURIComponent(lines.join('\n'))}`, '_blank', 'noopener'); };
       if (!cercle) { send(); return; }
       // Rejoindre le Cercle : on rappelle le prix et la durée avant d'ouvrir WhatsApp
       lines.push('J’ai bien noté l’adhésion : 150 € pour 6 mois.');
