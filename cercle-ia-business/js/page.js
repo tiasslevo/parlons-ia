@@ -266,8 +266,8 @@
         <p class="cf-s">Le Cercle, c’est <b>150 € pour 6 mois</b>, renouvelable. Tu règles l’adhésion après ton échange avec Boris ou Kévin.</p>
         <ul class="cf-r">
           <li><svg><use href="#check"/></svg>Des réponses adaptées à tes questions</li>
-          <li><svg><use href="#check"/></svg>Une masterclass en direct toutes les deux semaines</li>
-          <li><svg><use href="#check"/></svg>Formations à prix réduit et accès prioritaire</li>
+          <li><svg><use href="#check"/></svg>Un point chaque mois sur tes progrès</li>
+          <li><svg><use href="#check"/></svg>Deux formations incluses et des ressources exclusives</li>
         </ul>
         <button type="button" class="btn btn-primary btn-wide" data-cf-ok>C’est bon, j’envoie ma candidature</button>
         <button type="button" class="btn btn-ghost btn-wide cf-back" data-cf-back>Revenir</button>
