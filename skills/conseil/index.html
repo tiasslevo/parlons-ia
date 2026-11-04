@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="fr" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Le conseil des 5 — Parlons IA</title>
+  <meta name="description" content="Ton IA te dit toujours oui. Passe ton idée devant 5 conseillers qui se disputent, puis un président tranche. Le prompt pour n'importe quelle IA et le skill pour Claude.">
+  <meta name="theme-color" content="#0b100e">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%22-60 -30 870 890%22 fill=%22none%22 stroke=%22%23ffffff%22 stroke-linecap=%22round%22 stroke-linejoin=%22round%22%3E%3Crect x=%22-60%22 y=%22-30%22 width=%22870%22 height=%22890%22 rx=%22190%22 fill=%22%230b100e%22 stroke=%22none%22/%3E %3Cpath d=%22M355,82 H205 C118,82 58,150 58,262 V432 C58,545 122,622 226,640 V742 L355,662 Z%22 stroke-width=%2232%22/%3E %3Cpath d=%22M432,86 H503 C563,86 597,128 599,186 C652,196 688,246 684,308 C714,340 714,410 677,434 C702,474 690,544 638,562 C636,634 588,690 520,690 H478 C420,690 392,652 392,612 V576 H514%22 stroke-width=%2232%22/%3E %3Cpath d=%22M382,408 C408,404 424,392 442,366 L494,284%22 stroke-width=%2224%22/%3E %3Cpath d=%22M390,490 H444 C478,490 492,470 512,445 C532,420 548,410 570,408%22 stroke-width=%2224%22/%3E %3Ccircle cx=%22510%22 cy=%22262%22 r=%2219%22 stroke-width=%2212%22/%3E %3Ccircle cx=%22590%22 cy=%22405%22 r=%2219%22 stroke-width=%2212%22/%3E %3Ccircle cx=%22536%22 cy=%22566%22 r=%2219%22 stroke-width=%2212%22/%3E %3C/svg%3E ">
+  <script>document.documentElement.classList.add("js");</script>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400;1,500&display=swap" rel="stylesheet">
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', "sans-serif"],
+            serif: ['"Playfair Display"', "serif"]
+          }
+        }
+      }
+    };
+  </script>
+  <link rel="stylesheet" href="../../styles.css">
+</head>
+<body class="min-h-screen flex flex-col antialiased">
+  <header class="site-header sticky top-0 z-40 w-full border-b border-zinc-200/80 bg-white/80 backdrop-blur-md">
+    <a href="../../formation/" class="contest-banner group">
+      <span class="contest-banner-dot"></span>
+      <span>Formation</span>
+      <strong>Session en cours</strong>
+      <span class="hidden sm:inline">Réserve ta place pour la prochaine</span>
+      <i data-lucide="arrow-right" class="w-3.5 h-3.5 transition-transform group-hover:translate-x-0.5"></i>
+    </a>
+    <div class="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+      <div class="header-inner flex h-16 items-center justify-between">
+        <div class="flex items-center gap-3">
+          <a href="../../parlons-ia/" class="flex items-center gap-2 group">
+            <span class="brand-mark h-8 w-8 text-lg">P</span>
+            <span class="text-sm font-semibold tracking-tight text-zinc-900 brand-word">Parlons <b>IA</b></span>
+          </a>
+        </div>
+
+        <div class="hidden sm:flex items-center gap-3">
+          <a href="../3-meilleurs-skills/" class="inline-flex items-center justify-center rounded-lg text-xs font-semibold px-4 py-2 border border-zinc-200 bg-white hover:bg-zinc-50 text-zinc-800 transition shadow-sm">
+            Retour a la selection
+          </a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main class="flex-grow">
+    <section class="section-compact bg-white border-b border-zinc-200/60 relative overflow-hidden">
+      <div class="absolute inset-0 bg-[radial-gradient(#e4e4e7_1px,transparent_1px)] [background-size:24px_24px] opacity-40"></div>
+      <div class="relative mx-auto max-w-4xl px-4 sm:px-6 lg:px-8 text-center">
+        <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-zinc-900 text-white text-[10px] font-semibold tracking-wider uppercase mb-4">
+          Ressource directe
+        </span>
+        <h1 class="editorial-title text-4xl sm:text-5xl font-normal text-zinc-900 tracking-tight leading-tight">
+          Le conseil des 5
+        </h1>
+        <p class="text-sm sm:text-base text-zinc-500 max-w-2xl mx-auto mt-4 leading-relaxed font-light font-sans">
+          Ton IA te dit toujours que ton idée est géniale. Ici, elle passe devant cinq conseillers qui se disputent, puis un président tranche. Une idée d'Andrej Karpathy, cofondateur d'OpenAI.
+        </p>
+      </div>
+    </section>
+
+    <section class="section-compact section-wash-soft">
+      <div class="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
+        <div class="bg-white rounded-2xl border border-zinc-200 shadow-[0_8px_30px_rgb(0,0,0,0.02)] p-6 sm:p-10 mb-8">
+          <div class="border-b border-zinc-100 pb-8 mb-8">
+            <div class="max-w-2xl">
+              <span class="text-[10px] font-bold tracking-wider text-emerald-600 uppercase">La méthode</span>
+              <h2 class="font-serif text-2xl sm:text-3xl text-zinc-900 mt-2">Comment ça marche</h2>
+              <p class="text-sm text-zinc-600 leading-relaxed mt-5">Ta question passe devant cinq conseillers, chacun avec son rôle :</p>
+              <ul class="text-sm text-zinc-600 leading-relaxed mt-3 space-y-1.5 list-disc pl-5">
+                <li><strong class="text-zinc-900">Le pessimiste</strong> cherche tout ce qui va rater.</li>
+                <li><strong class="text-zinc-900">Le retour aux bases</strong> se demande si tu règles le bon problème.</li>
+                <li><strong class="text-zinc-900">Le visionnaire</strong> voit dix fois plus grand.</li>
+                <li><strong class="text-zinc-900">L'extérieur</strong> ne connaît rien au sujet et pose les questions qui fâchent.</li>
+                <li><strong class="text-zinc-900">L'exécutant</strong> te dit quoi faire dès demain.</li>
+              </ul>
+              <p class="text-sm text-zinc-600 leading-relaxed mt-3">Ils relisent ensuite les avis des autres sans savoir qui a dit quoi, et un président rend le verdict avec la première action à faire.</p>
+            </div>
+          </div>
+
+          <div class="border-b border-zinc-100 pb-8 mb-8">
+            <div class="max-w-2xl">
+              <span class="text-[10px] font-bold tracking-wider text-emerald-600 uppercase">Option 1 · Dans n'importe quelle IA</span>
+              <h2 class="font-serif text-2xl sm:text-3xl text-zinc-900 mt-2">Le prompt à copier</h2>
+              <p class="text-sm text-zinc-600 leading-relaxed mt-5">Marche dans ChatGPT, Claude ou Gemini, même en gratuit. Remplace la ligne entre crochets par ta question.</p>
+              <pre id="q4" class="mt-5 whitespace-pre-wrap text-sm leading-relaxed text-zinc-800 bg-zinc-50 border border-zinc-200 rounded-xl p-5 font-sans">Tu vas jouer un conseil de 5 conseillers qui ne sont pas d&#x27;accord entre eux. Ne cherche pas à me faire plaisir : je veux la vérité.
+
+Ma question : [ta question, avec ton contexte : objectif, public, budget, contraintes]
+
+1. Chaque conseiller donne son avis séparément, en 5 à 8 lignes, précis pour mon cas :
+- Le pessimiste : tout ce qui va rater, les risques, les coûts cachés, pourquoi les gens n&#x27;achèteront pas.
+- Le retour aux bases : est-ce que je règle le bon problème ? Repars de zéro.
+- Le visionnaire : ce que je rate en voyant trop petit, ce qui rendrait l&#x27;idée dix fois plus grande.
+- L&#x27;extérieur : il ne connaît rien au sujet et pose les questions naïves que j&#x27;oublie.
+- L&#x27;exécutant : ce que je fais concrètement dès demain, le test le moins cher, le calendrier.
+
+2. Relecture anonyme : renomme les avis A à E dans le désordre, dis lequel est le plus solide, le plus faible, et ce que tous ont raté.
+
+3. Le président tranche : verdict (go, go avec changements ou stop) en une phrase, ce sur quoi le conseil est d&#x27;accord, là où il se dispute, l&#x27;angle mort, la recommandation et la première action dès demain. Sois direct, n&#x27;invente aucun chiffre.</pre>
+              <button class="mt-4 inline-flex items-center justify-center rounded-lg text-xs font-semibold px-5 py-3 bg-zinc-950 hover:bg-zinc-800 text-white transition shadow-sm" onclick="navigator.clipboard.writeText(document.getElementById('q4').innerText).then(()=>{this.textContent='Copié !';setTimeout(()=>this.textContent='Copier le prompt',1800)})">Copier le prompt</button>
+            </div>
+          </div>
+
+          <div class="border-b border-zinc-100 pb-8 mb-8">
+            <div class="max-w-2xl">
+              <span class="text-[10px] font-bold tracking-wider text-emerald-600 uppercase">Option 2 · Le skill</span>
+              <h2 class="font-serif text-2xl sm:text-3xl text-zinc-900 mt-2">Récupérer le skill</h2>
+              <p class="text-sm text-zinc-600 leading-relaxed mt-5">
+                Installe-le une fois dans Claude, puis écris « conseil : » suivi de ta question. Dans Claude Code, chaque conseiller travaille dans son coin, sans voir les autres. Garde-le pour les grosses décisions : il fait plusieurs passages et consomme plus de ton quota.
+              </p>
+              <div class="flex flex-col sm:flex-row gap-3 mt-6">
+                <a class="inline-flex items-center justify-center rounded-lg text-xs font-semibold px-5 py-3 bg-zinc-950 hover:bg-zinc-800 text-white transition shadow-sm" href="./conseil.zip" download="conseil.zip">Télécharger le skill</a>
+                <a class="inline-flex items-center justify-center rounded-lg text-xs font-semibold px-5 py-3 border border-zinc-200 bg-white hover:bg-zinc-50 text-zinc-800 transition shadow-sm" href="https://github.com/tenfoldmarc/llm-council-skill" target="_blank" rel="noopener">Le skill original (LLM Council)</a>
+              </div>
+              <p class="text-xs text-zinc-400 mt-4">
+                Notre version est en français et marche aussi dans l'appli Claude. L'original, en anglais, est fait pour Claude Code et génère un rapport visuel. Besoin d'aide pour installer un skill ? <a href="https://vm.tiktok.com/ZNRtxKk3P/" target="_blank" rel="noopener" class="text-zinc-700 underline underline-offset-4 hover:text-zinc-900">Regarde la vidéo d'installation</a>.
+              </p>
+            </div>
+          </div>
+
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-4 bg-zinc-50 rounded-xl p-6 border border-zinc-200/60 text-xs">
+            <div><h3 class="font-bold text-zinc-900 mb-2">Fini le oui à tout</h3><p class="text-zinc-500 leading-relaxed">Cinq points de vue opposés au lieu d'une IA qui te flatte.</p></div>
+            <div><h3 class="font-bold text-zinc-900 mb-2">Un vrai verdict</h3><p class="text-zinc-500 leading-relaxed">Go, go avec changements ou stop, avec l'angle mort repéré.</p></div>
+            <div><h3 class="font-bold text-zinc-900 mb-2">Une action demain</h3><p class="text-zinc-500 leading-relaxed">Le président finit toujours par la première chose à faire.</p></div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="bg-zinc-950 text-zinc-400 py-12 border-t border-zinc-900 text-xs">
+    <div class="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+      <div class="flex flex-col md:flex-row items-center justify-between gap-6 pb-8 border-b border-zinc-900">
+        <div class="flex items-center gap-2">
+          <span class="brand-mark h-7 w-7 text-sm !bg-white !text-zinc-950">P</span>
+          <span class="font-semibold text-white brand-word">Parlons <b>IA</b></span>
+        </div>
+        <div class="flex items-center gap-6">
+          <a href="../../parlons-ia/" class="footer-link">Accueil</a>
+          <a href="../../ateliers/" class="footer-link">Ateliers</a>
+          <a href="../../concours/" class="footer-link">Concours</a>
+        </div>
+      </div>
+
+      <div class="flex flex-col sm:flex-row items-center justify-between gap-3 mt-8 pt-6 border-t border-zinc-900 text-xs text-zinc-600">
+        <span>© <span data-year>2026</span> Parlons IA. Tous droits réservés.</span>
+        <span>Chaîne pour recevoir. Communauté pour échanger.</span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="../../script.js"></script>
+</body>
+</html>

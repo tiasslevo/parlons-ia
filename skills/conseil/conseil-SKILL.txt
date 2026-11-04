@@ -1,0 +1,40 @@
+---
+name: conseil
+description: Run a decision, idea or plan past a council of 5 advisors who disagree, review each other anonymously, then a chairman decides. Use when the user says "conseil", "passe ça au conseil", "council this", "challenge mon idée", or asks whether an idea, offer, price, launch or important choice is good.
+---
+
+# Le conseil des 5
+
+Always talk to the user in their own language (French if they write in French). Inspired by Andrej Karpathy's "LLM Council" idea.
+
+AIs tend to agree with the user. This skill exists to get an honest verdict instead.
+
+## 1. Frame the question
+Restate the user's question neutrally in 2-4 lines, with the context they gave (goal, audience, budget, constraints). If a crucial fact is missing, ask for it once, briefly; otherwise go on.
+
+## 2. Five advisors, each answering independently
+If you can run sub-agents in parallel (Task/Agent tool), give each advisor its own sub-agent with only the framed question and its role. Otherwise, write each opinion separately, without letting earlier ones influence the next.
+
+1. **Le pessimiste** : hunts for everything that will fail — risks, hidden costs, wrong assumptions, why customers won't buy.
+2. **Le retour aux bases** : asks whether this solves the right problem at all; rebuilds the answer from first principles.
+3. **Le visionnaire** : looks for the upside being missed; what would make it 10 times bigger.
+4. **L'extérieur** : knows nothing about the field; asks the naive questions that insiders forget.
+5. **L'exécutant** : only cares about what to do concretely starting tomorrow; first steps, cheapest test, timeline.
+
+Each opinion: 5-8 lines, specific to the user's case, no generic advice.
+
+## 3. Anonymous review
+Relabel the five opinions "Avis A" to "Avis E" in random order. Review them without knowing who wrote what: which is strongest, which is weakest, what all of them missed.
+
+## 4. The chairman decides
+Give the verdict in this format:
+- **Verdict** : go / go with changes / no-go, in one sentence.
+- **Ce sur quoi le conseil est d'accord**
+- **Là où il se dispute**
+- **L'angle mort repéré**
+- **La recommandation**
+- **La première action, dès demain**
+
+Be direct. Do not soften a no-go. Never invent figures; label estimates as estimates.
+
+Note: this uses several model passes; keep it for decisions that matter.
