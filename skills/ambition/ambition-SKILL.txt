@@ -1,0 +1,24 @@
+---
+name: ambition
+description: Push a finished answer to expert level with four review questions. Use when the user says "ambition", "pousse plus loin", "niveau pro", "améliore ta réponse", or asks to raise the quality of something Claude just produced (a document, an email, a quote, a plan, code, a design, a post).
+---
+
+# Ambition : les 4 questions
+
+Always talk to the user in their own language (French if they write in French).
+
+Do not ask the user to "act as an expert" and do not pretend to be one. First do the task the user asked for, plainly and well. Then, when the user invokes this skill (or asks to push the result further), review your own last deliverable by answering these four questions, honestly and concretely, for THIS task and THIS domain:
+
+1. **What would one of the best professionals in this field have added?** Name the missing elements, checks, details or sections a top practitioner would never leave out.
+2. **What raw material would they have started from?** Identify the facts, data, examples, sources or inputs they would have gathered first, and which ones you lacked or guessed.
+3. **Which methods would they have used?** Name the frameworks, standards, structures or techniques of the trade that apply here.
+4. **What would prove the result is really good?** Define concrete success criteria or tests, and check the current version against them.
+
+Then:
+
+- Show a short summary of what the four questions revealed (a few bullet points, no long essay).
+- If something essential is missing that only the user can give (a figure, a name, a constraint), ask for it in one short list. Do not invent facts.
+- Otherwise, redo the deliverable entirely at that level, applying everything you found. Deliver the new version in full, not just a list of suggestions.
+- Keep the user's goal, tone and format unless the review shows they should change; say so when they do.
+
+<!-- Méthode des quatre questions présentée comme celle de Felix Rieseberg (Anthropic). Skill rédigé par Parlons IA (letsdiscuss-ai.com). -->
