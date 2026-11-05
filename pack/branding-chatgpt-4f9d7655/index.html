@@ -28,6 +28,146 @@
   </script>
   <link rel="stylesheet" href="../../styles.css">
   <link rel="stylesheet" href="../../article.css">
+  <style>
+    /* ---------- Ajouts V2 (écran) ---------- */
+    .print-only, .print-prompt { display: none; }
+    .prompt-code {
+      margin: 0;
+      font-family: "DejaVu Sans Mono", ui-monospace, SFMono-Regular, Menlo, Consolas, "Liberation Mono", monospace;
+      font-variant-ligatures: none;
+      font-feature-settings: "liga" 0, "calt" 0;
+      hyphens: none;
+      -webkit-hyphens: none;
+      white-space: pre-wrap;
+      overflow-wrap: normal;
+      word-break: normal;
+      tab-size: 2;
+    }
+    .article-modal-body pre { font-family: "DejaVu Sans Mono", ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; font-variant-ligatures: none; hyphens: none; word-break: normal; }
+    .step-optional { display: inline-block; margin-left: .5rem; padding: .2rem .6rem; border-radius: 999px; background: #f4f4f5; color: #52525b; font-family: "Plus Jakarta Sans", sans-serif; font-size: .7rem; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; vertical-align: middle; }
+    .logo-duo { display: grid; grid-template-columns: 1.45fr 1fr; gap: .75rem; margin-top: 1.5rem; }
+    .logo-duo figure { margin: 0; }
+    .logo-duo img { width: 100%; height: 100%; object-fit: cover; border-radius: 16px; border: 1px solid #e4e4e7; background: #fff; display: block; aspect-ratio: 1600 / 1080; }
+    .logo-duo figure:last-child img { object-fit: contain; background: #fff2dd; }
+    .figure-caption { margin-top: .6rem; font-size: .8rem; color: #71717a; }
+    .article-list { margin-top: 1rem; display: grid; gap: .6rem; color: #52525b; line-height: 1.75; font-size: .95rem; }
+    .article-list li { display: flex; gap: .7rem; }
+    .article-list li::before { content: ""; flex: none; width: 6px; height: 6px; margin-top: .7rem; border-radius: 999px; background: #10b981; }
+    .article-link { color: #047857; font-weight: 700; text-decoration: underline; text-underline-offset: 3px; word-break: break-word; }
+    .fix-list { display: grid; gap: .75rem; margin-top: 1.4rem; }
+    .fix-row { position: relative; display: flex; align-items: center; justify-content: space-between; gap: 1rem; padding: 1rem 1.1rem; border: 1px solid rgba(16, 185, 129, 0.24); border-radius: 16px; background: #09090b; color: #f4f4f5; }
+    .fix-main { min-width: 0; flex: 1; }
+    .fix-title { font-size: .8rem; font-weight: 700; color: #6ee7b7; }
+    .fix-text { margin-top: .35rem; font-size: .8rem; line-height: 1.6; color: #e4e4e7; }
+    .fix-copy { flex: none; }
+    .fix-row .fix-text { white-space: normal; }
+    .article-section-title, .article-title { font-variant-numeric: lining-nums; }
+    .photo-grid img { aspect-ratio: 4 / 5; }
+    .charte-grid img { aspect-ratio: 3 / 2 !important; }
+    .krok-grid .example-compare img, .gong-grid .example-compare img { aspect-ratio: 3 / 4; }
+    .logo-duo-fit figure:first-child img { object-fit: contain; background: #f4f3ef; }
+    @media (max-width: 640px) {
+      .logo-duo { grid-template-columns: 1fr; }
+      .fix-row { flex-direction: column; align-items: stretch; }
+    }
+
+    /* ---------- Impression / PDF ---------- */
+    @page { size: A4; margin: 15mm 15mm 14mm; }
+    @media print {
+      html, body, .article-page { background: #ffffff !important; }
+      body, body * { text-rendering: geometricPrecision !important; }
+      .article-section-title, .print-cover h1, .cover-toc h2 { font-variant-numeric: lining-nums; }
+      .site-header, footer, .pack-thanks, .article-hero, .prompt-panel, .section-wash, #prompt-modal, .fix-copy, .screen-only { display: none !important; }
+      .print-only { display: block; }
+      [data-reveal] { opacity: 1 !important; transform: none !important; transition: none !important; }
+      *, *::before, *::after { box-shadow: none !important; transition: none !important; }
+
+      .print-cover { height: 262mm; display: flex; flex-direction: column; break-after: page; }
+      .print-cover .cover-kicker { font-size: 8pt; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; color: #047857; }
+      .print-cover h1 { margin-top: 4mm; font-family: "Playfair Display", serif; font-size: 30pt; line-height: 1.05; color: #09090b; }
+      .print-cover h1 span { color: #71717a; font-style: italic; }
+      .print-cover .cover-lead { margin-top: 4mm; font-size: 11pt; line-height: 1.55; color: #3f3f46; max-width: 150mm; }
+      .cover-visual { display: grid; grid-template-columns: repeat(3, 1fr); gap: 3mm; margin-top: 9mm; width: 100%; }
+      .cover-caption { margin-top: 2.5mm; font-size: 8.5pt; color: #71717a; }
+      .cover-visual img { width: 100%; aspect-ratio: 3 / 4; object-fit: cover; border-radius: 3mm; border: 1px solid #e4e4e7; }
+      .cover-bottom { margin-top: auto; display: grid; grid-template-columns: 1fr 1fr; gap: 8mm; align-items: end; }
+      .cover-box { padding: 5mm 5.5mm; border-radius: 4mm; background: #0b100e; color: #f4f4f5; font-size: 9.5pt; line-height: 1.55; }
+            .cover-box p + p { margin-top: 2.5mm; color: #a1a1aa; font-size: 8.5pt; }
+      .cover-toc h2 { font-family: "Playfair Display", serif; font-size: 13pt; color: #09090b; }
+      .cover-toc ol { margin-top: 2.5mm; display: grid; gap: 1.4mm; font-size: 9.5pt; color: #3f3f46; counter-reset: toc -1; }
+      .cover-toc li { counter-increment: toc; display: flex; gap: 2.5mm; }
+      .cover-toc li::before { content: counter(toc); width: 5mm; color: #047857; font-weight: 700; }
+      .cover-toc li.no-num::before { content: "+"; }
+      .cover-note { margin-top: 5mm; font-size: 8pt; color: #71717a; }
+
+      .article-body { max-width: none; padding: 0; }
+      .article-section { padding-top: 7mm; }
+      .print-new-page { break-before: page; padding-top: 0; }
+      .print-ayo { break-inside: avoid; }
+      .article-section-title { font-size: 17pt; break-after: avoid; }
+      .article-text, .article-list { font-size: 10pt; line-height: 1.6; margin-top: 2.5mm; }
+      .article-list { gap: 1.2mm; }
+      .article-list li::before { margin-top: 2.2mm; }
+      .article-callout { font-size: 9.5pt; padding: 3.5mm 4mm; margin-top: 3.5mm; break-inside: avoid; }
+      .article-grid-3 { grid-template-columns: repeat(3, 1fr) !important; gap: 3mm; margin-top: 4mm; }
+      .article-card { padding: 3.5mm; break-inside: avoid; }
+      .article-card h3 { font-size: 9.5pt; margin-top: 2mm; }
+      .article-card p { font-size: 8.8pt; line-height: 1.5; }
+      .grid { break-inside: avoid; }
+      .logo-duo { break-inside: avoid; margin-top: 4mm; }
+      .figure-caption { font-size: 8.5pt; }
+      .photo-grid { margin-top: 4mm !important; }
+      .photo-grid img { width: 100%; }
+      .charte-grid { margin-top: 4mm !important; gap: 3mm !important; }
+
+      .example-grid { gap: 4mm; margin-top: 3.5mm; }
+      .example-grid.example-grid-single { grid-template-columns: 1fr; }
+      .example-card { break-inside: avoid; display: grid; grid-template-columns: 106mm 1fr; align-items: center; }
+      .example-compare { grid-template-columns: 1fr 1fr !important; }
+      .example-compare img { aspect-ratio: 3 / 4 !important; }
+      .example-copy { padding: 0 5mm; }
+      .example-copy h3 { font-size: 11pt; }
+      .example-copy p { font-size: 9.5pt; line-height: 1.55; }
+      .example-divider, .example-arrow { display: flex !important; }
+      .example-divider { display: block !important; }
+      .example-label.after { right: .85rem !important; left: auto !important; top: .85rem !important; bottom: auto !important; }
+      .ayo-grid { grid-template-columns: 1fr 1fr !important; }
+      .ayo-grid .example-card { display: block; }
+      .ayo-grid .example-copy { padding: 3mm 4mm 4mm; }
+
+      .print-prompt { display: block; margin-top: 4mm; }
+      .print-prompt.new-page { break-before: page; }
+      .print-prompt-head { padding: 3mm 4mm; border-radius: 3mm 3mm 0 0; background: #0b100e; color: #fafafa; break-after: avoid; }
+      .print-prompt-label { font-size: 10.5pt; font-weight: 700; }
+      .print-prompt-sub { margin-top: .8mm; font-size: 8.5pt; color: #a1a1aa; }
+      .print-prompt .prompt-code {
+        padding: 3.5mm 4mm;
+        border: 1px solid #d1fae5;
+        border-top: 0;
+        border-radius: 0 0 3mm 3mm;
+        background: #f6fbf8;
+        color: #18181b;
+        font-size: 7.9pt;
+        line-height: 1.42;
+        white-space: pre;
+        overflow: hidden;
+        -webkit-box-decoration-break: clone;
+        box-decoration-break: clone;
+        orphans: 3;
+        widows: 3;
+      }
+      .fix-list { gap: 2mm; margin-top: 3.5mm; }
+      .fix-row { display: block; padding: 2.4mm 4mm; background: #f6fbf8; color: #18181b; border: 1px solid #d1fae5; border-radius: 3mm; break-inside: avoid; }
+      .fix-row::before { display: none; }
+      .fix-title { color: #047857; font-size: 9pt; }
+      .fix-row .fix-text { color: #18181b; font-size: 7.9pt; line-height: 1.42; white-space: pre; margin-top: 1.2mm; }
+      .print-end { margin-top: 5mm; padding: 4mm 5mm; border-radius: 4mm; background: #0b100e; color: #f4f4f5; font-size: 10pt; line-height: 1.7; break-inside: avoid; }
+      .print-end strong { font-size: 11pt; }
+      .print-end a { color: #6ee7b7; font-weight: 700; text-decoration: underline; }
+      .print-end span { color: #a1a1aa; font-size: 8.5pt; }
+      a[href^="http"] { color: #047857; }
+    }
+  </style>
 </head>
 <body class="article-page min-h-screen flex flex-col antialiased">
   <header class="site-header sticky top-0 z-40 w-full border-b border-zinc-200/80 bg-white/80 backdrop-blur-md">
@@ -70,8 +210,43 @@
     </div>
   </header>
 
+
     <main class="flex-grow">
     <div class="pack-thanks">Merci pour ton achat. Voici la version complète, avec tous les prompts à copier.</div>
+
+    <section class="print-only print-cover">
+      <div class="cover-kicker">Parlons IA · Pack</div>
+      <h1>Ton branding et tes affiches <span>avec ChatGPT</span></h1>
+      <p class="cover-lead">Deux prompts. Le premier crée la charte graphique de ton business à partir de tes photos. Le second transforme n'importe quelle affiche Pinterest en affiche à tes couleurs, avec ton logo et tes infos.</p>
+      <div class="cover-visual">
+        <img src="img/krok-affiche-ref18.jpg" alt="Affiche KROK : Double Smash">
+        <img src="img/gong-affiche-ref07.jpg" alt="Affiche GONG : ouvert dès 6h">
+        <img src="img/ayo-affiche-serum.jpg" alt="Affiche Ayo : Sérum Éclat">
+      </div>
+      <p class="cover-caption">Trois marques, trois secteurs, la même méthode : KROK, GONG et Ayo.</p>
+      <div class="cover-bottom">
+        <div class="cover-toc">
+          <h2>Dans ce guide</h2>
+          <ol>
+            <li>Pas encore de logo ? (facultatif)</li>
+            <li>Tes photos et le prompt 1</li>
+            <li>Ta charte en quatre images</li>
+            <li>Ta référence sur Pinterest</li>
+            <li>Le prompt 2 et ton affiche</li>
+            <li class="no-num">Les exemples KROK, GONG et Ayo</li>
+            <li class="no-num">Les phrases pour corriger</li>
+          </ol>
+        </div>
+        <div>
+          <div class="cover-box">
+            <p>Merci pour ton achat. Ce PDF contient toute la méthode et les prompts complets.</p>
+            <p>Chaque prompt se copie tel quel depuis ce PDF. Pour les copier d'un clic, le lien de la version web est à la dernière page.</p>
+          </div>
+          <p class="cover-note">Une question ? Rejoins la communauté Parlons IA sur WhatsApp.</p>
+        </div>
+      </div>
+    </section>
+
     <section class="article-hero article-wrap">
       <div class="article-hero-copy">
         <span class="article-kicker" data-reveal>Guide pas à pas</span>
@@ -80,9 +255,9 @@
           Deux prompts. Le premier crée la charte graphique de ton business à partir de tes photos. Le second transforme n'importe quelle affiche Pinterest en affiche à tes couleurs, avec ton logo et tes infos.
         </p>
         <div class="article-meta" data-reveal data-delay="2">
-          <span class="article-meta-chip"><i data-lucide="clock-3"></i>5 min</span>
+          <span class="article-meta-chip"><i data-lucide="clock-3"></i>7 min</span>
           <span class="article-meta-chip"><i data-lucide="user"></i>Boris Koulevo</span>
-          <span class="article-meta-chip"><i data-lucide="calendar-days"></i>Octobre 2026</span>
+          <span class="article-meta-chip"><i data-lucide="calendar-days"></i>Novembre 2026</span>
         </div>
       </div>
 
@@ -90,11 +265,11 @@
         <div class="article-compare">
           <div class="article-compare-panel">
             <span class="article-compare-label">Référence</span>
-            <img src="../../articles/branding-chatgpt/ref-serum.jpg" alt="Affiche trouvée sur Pinterest, utilisée comme référence" loading="eager">
+            <img src="img/ref18.jpg" alt="Affiche trouvée sur Pinterest, utilisée comme référence" loading="eager">
           </div>
           <div class="article-compare-panel">
             <span class="article-compare-label after">Ta marque</span>
-            <img src="../../articles/branding-chatgpt/affiche-serum.jpg" alt="La même composition refaite pour la marque Ayo" loading="eager">
+            <img src="img/krok-affiche-ref18.jpg" alt="La même composition refaite pour la marque KROK" loading="eager">
           </div>
           <div class="article-compare-divider"></div>
           <div class="article-compare-arrow"><i data-lucide="arrow-right"></i></div>
@@ -106,19 +281,51 @@
       <section class="article-section">
         <h2 class="article-section-title" data-reveal>Pourquoi une charte</h2>
         <p class="article-text" data-reveal>Si tu publies souvent, on doit reconnaître tes affiches au premier coup d'œil : le même logo, les mêmes couleurs, le même style. C'est ce qui fait qu'on se souvient de toi et que ton business a l'air sérieux. La méthode tient en deux étapes, avec ChatGPT et ses images.</p>
-        <p class="article-text" data-reveal>L'exemple de tout le guide est <strong>Ayo</strong>, une marque de soins naturels pour peaux noires et métissées. Elle a été inventée pour la démonstration : photos, branding et affiches sont tous générés.</p>
+        <p class="article-text" data-reveal>L'exemple de tout le guide est <strong>KROK</strong>, une street food de quartier : burgers smashés, poulet croustillant, wraps. Elle a été inventée pour la démonstration. Le logo a été fait avec le skill Logo Design, puis les photos, la charte et les affiches avec ce pack.</p>
+      </section>
+
+      <section class="article-section">
+        <h2 class="article-section-title" data-reveal>Étape 0 · Pas encore de logo ? <span class="step-optional">Facultatif</span></h2>
+        <p class="article-text" data-reveal>Crée-le d'abord avec le skill Logo Design dans Claude. Il écarte les clichés de ton secteur, te propose trois pistes et te livre un logo simple, en deux couleurs. ChatGPT reprend ensuite ce logo tel quel, sur ta charte comme sur toutes tes affiches. Un logo inventé par ChatGPT, lui, change un peu d'une image à l'autre.</p>
+        <p class="article-text" data-reveal>Le guide du skill, avec le téléchargement : <a class="article-link" href="https://letsdiscuss-ai.com/articles/logo-sans-cliches/" target="_blank" rel="noopener">letsdiscuss-ai.com/articles/logo-sans-cliches</a></p>
+        <div class="logo-duo" data-reveal>
+          <figure>
+            <img src="img/krok-pistes.jpg" alt="Les trois pistes de logo proposées par le skill pour KROK" loading="lazy">
+          </figure>
+          <figure>
+            <img src="img/krok-logo.jpg" alt="Le logo KROK retenu" loading="lazy">
+          </figure>
+        </div>
+        <p class="figure-caption" data-reveal>Les trois pistes du skill pour KROK, et le logo retenu : le O se brise comme une bouchée croustillante.</p>
+        <p class="article-text" data-reveal><strong>Pour le donner au prompt 1 :</strong></p>
+        <ul class="article-list" data-reveal>
+          <li>Exporte-le en PNG, à plat sur un fond clair. Pas de SVG, pas de fond transparent.</li>
+          <li>Joins-le en premier, avant tes photos.</li>
+          <li>Après le prompt 1, dans le même message, ajoute cette phrase :</li>
+        </ul>
+        <div class="fix-list">
+          <div class="fix-row" data-reveal>
+            <div class="fix-main">
+              <div class="fix-title">La phrase à ajouter après le prompt 1</div>
+              <pre class="prompt-code fix-text" data-prompt="La phrase à ajouter après le prompt 1">Mon logo est le premier fichier joint. Garde ce logo et ces couleurs tels quels, ne le
+redessine pas.</pre>
+            </div>
+            <button class="prompt-button solid fix-copy" onclick="copyPrompt(0, this)">Copier</button>
+          </div>
+        </div>
       </section>
 
       <section class="article-section">
         <h2 class="article-section-title" data-reveal>Étape 1 · Envoyer tes photos</h2>
-        <p class="article-text" data-reveal>Prends quelques photos de ton business : ta boutique, ton produit, ton logo si tu en as un. Trois ou quatre suffisent. Si tu n'as pas de logo, ChatGPT t'en proposera un. Si tu en as un, il le reprend tel quel au lieu d'en inventer un autre.</p>
-        <div class="grid grid-cols-3 gap-3 mt-6" data-reveal>
-          <img class="w-full aspect-square object-cover rounded-2xl border border-zinc-200" src="../../articles/branding-chatgpt/photo-produits.jpg" alt="Photo des produits Ayo" loading="lazy">
-          <img class="w-full aspect-square object-cover rounded-2xl border border-zinc-200" src="../../articles/branding-chatgpt/photo-serum.jpg" alt="Photo du sérum Ayo" loading="lazy">
-          <img class="w-full aspect-square object-cover rounded-2xl border border-zinc-200" src="../../articles/branding-chatgpt/photo-usage.jpg" alt="Photo d'une cliente qui applique le sérum" loading="lazy">
+        <p class="article-text" data-reveal>Prends quelques photos de ton business : ta boutique, ton comptoir, ton logo si tu en as un. Ajoute une photo nette de <strong>chaque produit</strong> que tu voudras mettre en affiche : le burger, le poulet, le wrap. Sans sa photo, ChatGPT invente le produit.</p>
+        <p class="article-text" data-reveal>Si tu n'as pas de logo, ChatGPT t'en proposera un. Si tu en as un, il le reprend tel quel au lieu d'en inventer un autre.</p>
+        <div class="grid grid-cols-3 gap-3 mt-6 photo-grid" data-reveal>
+          <img class="w-full object-cover rounded-2xl border border-zinc-200" src="img/krok-devanture.jpg" alt="Photo de la devanture KROK" loading="lazy">
+          <img class="w-full object-cover rounded-2xl border border-zinc-200" src="img/krok-interieur.jpg" alt="Photo de l'intérieur KROK et du comptoir" loading="lazy">
+          <img class="w-full object-cover rounded-2xl border border-zinc-200" src="img/krok-menu.jpg" alt="Photo du menu KROK" loading="lazy">
         </div>
-        <p class="article-text" data-reveal>Ouvre une nouvelle conversation dans ChatGPT, joins tes photos, colle le premier prompt et envoie.</p>
-        <div class="prompt-panel" onclick="openPromptModal(0)" data-reveal>
+        <p class="article-text" data-reveal>Ouvre une nouvelle conversation dans ChatGPT, joins ton logo puis tes photos, colle le premier prompt et envoie.</p>
+        <div class="prompt-panel" onclick="openPromptModal(1)" data-reveal>
           <div class="prompt-panel-main">
             <div class="prompt-panel-icon"><i data-lucide="palette"></i></div>
             <div>
@@ -127,47 +334,286 @@
             </div>
           </div>
           <div class="prompt-panel-actions">
-            <button class="prompt-button solid" onclick="event.stopPropagation(); copyPrompt(0, this)">Copier</button>
-            <button class="prompt-button" onclick="event.stopPropagation(); openPromptModal(0)">Voir</button>
+            <button class="prompt-button solid" onclick="event.stopPropagation(); copyPrompt(1, this)">Copier</button>
+            <button class="prompt-button" onclick="event.stopPropagation(); openPromptModal(1)">Voir</button>
           </div>
+        </div>
+        <div class="print-prompt new-page">
+          <div class="print-prompt-head">
+            <div class="print-prompt-label">Prompt 1 · Ta charte graphique</div>
+            <div class="print-prompt-sub">À coller tel quel dans une nouvelle conversation ChatGPT, avec ton logo et tes photos.</div>
+          </div>
+          <pre class="prompt-code" data-prompt="Prompt 1 · Ta charte graphique">You are a senior brand strategist and art director.
+
+Your job is to build a short, essential visual identity for my business from the images
+I attach and the answers I give you. It can be anything: a shop, a restaurant, a
+product, an online business, an app, a service, a personal brand.
+
+LANGUAGE RULE
+This prompt is written in English for precision, but you MUST always talk to me in
+natural, concise FRENCH, and write all the text inside the identity in French, unless I
+ask for another language.
+
+⸻
+
+PHASE 1 — ANALYZE MY IMAGES (silently)
+
+Look at every attached image (logo file, place, products, screenshots, website, app,
+packaging, portraits, existing visuals).
+Work out internally:
+- what kind of business it is: physical place, product, online business, service,
+personal brand;
+- its atmosphere, colors, materials, light, textures;
+- whether a LOGO already exists: as a separate logo file (usually the first image, flat
+on a light background) or on a sign, a cup, a bag, a screen, a document…
+
+Do not describe your analysis. Do not create anything yet.
+
+⸻
+
+PHASE 2 — ASK ME ONLY WHAT YOU NEED
+
+Reply with a SHORT questionnaire in French, pre-filled with what you understood, so I
+only confirm or correct:
+
+1. Nom de la marque :
+→
+2. Ton activité (ce que j'ai compris : …) :
+→
+3. Tes clients :
+→
+4. L'ambiance en 3 mots :
+→
+5. Ce que tu veux éviter :
+→
+6. Logo :
+→ (j'en vois un / je n'en vois pas). Si tu en as un en bonne qualité, envoie-le.
+7. Tes coordonnées (téléphone, adresse, réseaux, site) :
+→
+
+At the end, always display:
+⚠ IMPORTANT : tu n'es pas obligé de tout remplir. Pour le reste, je décide à partir de
+tes images.
+
+⸻
+
+PHASE 3 — CREATE THE IDENTITY
+
+As soon as I answer, create it without asking for confirmation.
+
+LOGO RULE
+- If I attached a clean logo file: it is final. Keep this logo and its exact colors as
+they are, letter by letter and shape by shape. Do not redraw it, do not "improve" it.
+Build the palette around its colors.
+- If a logo only appears in my photos: recreate THAT logo faithfully as a clean, flat,
+vector-style version (same name, same letterforms, same symbol, same proportions, same
+colors). Do not redesign it, do not invent another one.
+- In both cases, you may only add simple variations of it (icon alone, horizontal
+version, light and dark versions).
+- If no logo exists: propose one credible, simple, distinctive logo that fits this
+business, with few shapes and two main colors.
+
+Make strong, specific choices based on my answers and my images. It must feel like THIS
+business, not a generic trendy style. Avoid the default colors, materials and fonts that
+everyone associates with this category: choose what makes this business distinctive and
+desirable, while staying credible for its activity.
+
+Create exactly 4 images, one aspect per image, in landscape 3:2 format, with large
+readable text, lots of space, few strong elements, no tiny captions.
+Create the LOGO image first, then reuse exactly that logo, unchanged, in the 3 other
+images.
+1. ESSENCE — brand name, logo, one short sentence of positioning, three personality
+words, one or two of my images reframed, and my contact details if I gave them.
+2. LOGO — the main logo and its few variations, on light and dark backgrounds.
+3. COULEURS ET TYPOGRAPHIES — 4 to 6 colors with HEX codes and names, a title font style
+and a text font style with a short sample.
+4. UNIVERS ET APPLICATIONS — graphic motifs, photo style, and 2 or 3 applications that
+make sense for THIS business:
+- physical place: sign, packaging, menu or bag;
+- product: packaging, label, product visual;
+- online business or app: app or website screen, social post, ad;
+- service or personal brand: social post, presentation slide, business card.
+
+Never invent facts (prices, addresses, phone numbers, claims) that I did not give you.</pre>
         </div>
       </section>
 
       <section class="article-section">
         <h2 class="article-section-title" data-reveal>Étape 2 · Répondre à ses questions</h2>
         <p class="article-text" data-reveal>ChatGPT ne génère rien tout de suite. Il te renvoie un court questionnaire déjà pré-rempli avec ce qu'il a compris de tes photos : nom, activité, clients, ambiance, ce que tu veux éviter, logo, coordonnées. Tu corriges ce qui est faux et tu complètes ce que tu veux. Tu n'es pas obligé de tout remplir : pour le reste, il décide à partir de tes images.</p>
-        <p class="article-text" data-reveal>Ensuite, il crée quatre images : l'essence de la marque, le logo et ses variantes, les couleurs et les typographies, puis l'univers avec quelques exemples d'application.</p>
-        <div class="grid grid-cols-2 gap-3 mt-6" data-reveal>
-          <img class="w-full aspect-square object-cover rounded-2xl border border-zinc-200" src="../../articles/branding-chatgpt/branding-1.jpg" alt="Branding Ayo : essence" loading="lazy">
-          <img class="w-full aspect-square object-cover rounded-2xl border border-zinc-200" src="../../articles/branding-chatgpt/branding-2.jpg" alt="Branding Ayo : logo" loading="lazy">
-          <img class="w-full aspect-square object-cover rounded-2xl border border-zinc-200" src="../../articles/branding-chatgpt/branding-3.jpg" alt="Branding Ayo : couleurs et typographies" loading="lazy">
-          <img class="w-full aspect-square object-cover rounded-2xl border border-zinc-200" src="../../articles/branding-chatgpt/branding-4.jpg" alt="Branding Ayo : univers et applications" loading="lazy">
+        <p class="article-text" data-reveal>Ensuite, il crée quatre images : l'essence de la marque, le logo et ses variantes, les couleurs et les typographies, puis l'univers avec quelques exemples d'application. Il fait d'abord la planche du logo, puis la réutilise sur les trois autres.</p>
+        <div class="grid grid-cols-2 gap-3 mt-6 charte-grid" data-reveal>
+          <img class="w-full object-cover rounded-2xl border border-zinc-200" src="img/krok-charte-1.jpg" alt="Charte KROK : essence" loading="lazy">
+          <img class="w-full object-cover rounded-2xl border border-zinc-200" src="img/krok-charte-2.jpg" alt="Charte KROK : logo" loading="lazy">
+          <img class="w-full object-cover rounded-2xl border border-zinc-200" src="img/krok-charte-3.jpg" alt="Charte KROK : couleurs et typographies" loading="lazy">
+          <img class="w-full object-cover rounded-2xl border border-zinc-200" src="img/krok-charte-4.jpg" alt="Charte KROK : univers et applications" loading="lazy">
         </div>
         <div class="article-callout" data-reveal><strong>Garde ces quatre images.</strong> Enregistre-les sur ton téléphone ou ton ordinateur : tu les joindras à chaque nouvelle affiche.</div>
       </section>
 
       <section class="article-section">
         <h2 class="article-section-title" data-reveal>Étape 3 · Choisir une affiche sur Pinterest</h2>
-        <p class="article-text" data-reveal>Quand tu veux publier une affiche, va sur Pinterest et cherche par exemple « affiche produit », « affiche cosmétique » ou « affiche restaurant ». Choisis celle dont la composition te plaît le plus et télécharge-la. Elle peut venir d'un tout autre secteur que le tien : une pub de canette peut très bien devenir l'affiche de ton sérum.</p>
+        <p class="article-text" data-reveal>Quand tu veux publier une affiche, va sur Pinterest et cherche par exemple « affiche produit », « affiche food » ou « affiche restaurant ». Choisis celle dont la composition te plaît le plus et télécharge-la. Elle peut venir d'un tout autre secteur que le tien : une pub de brunch peut très bien devenir l'affiche de ton menu du midi.</p>
+        <p class="article-text" data-reveal>Avant de la télécharger, compte ses textes : le titre, les petits textes dans les coins, les étiquettes, les pastilles, les noms de plats. Prépare une phrase pour chacun. Si un objet de la référence n'a pas de sens pour ton produit, ChatGPT le remplace : une fourchette plantée dans un burger devient une main ou un papier.</p>
       </section>
 
       <section class="article-section">
         <h2 class="article-section-title" data-reveal>Étape 4 · Le second prompt</h2>
-        <p class="article-text" data-reveal>Dans une nouvelle conversation, joins l'affiche de référence, les quatre images de ta charte et la photo du produit à mettre en avant. Colle le second prompt et envoie.</p>
-        <div class="prompt-panel" onclick="openPromptModal(1)" data-reveal>
+        <p class="article-text" data-reveal>Dans une nouvelle conversation, joins l'affiche de référence, les quatre images de ta charte et la photo du produit de cette affiche. Colle le second prompt et envoie.</p>
+        <div class="prompt-panel" onclick="openPromptModal(2)" data-reveal>
           <div class="prompt-panel-main">
             <div class="prompt-panel-icon"><i data-lucide="layout-template"></i></div>
             <div>
               <div class="prompt-panel-label">Prompt 2 · Ton affiche dans ta marque</div>
-              <div class="prompt-panel-sub">Avec la référence Pinterest, ta charte et ta photo produit</div>
+              <div class="prompt-panel-sub">Avec la référence Pinterest, ta charte et la photo du produit</div>
             </div>
           </div>
           <div class="prompt-panel-actions">
-            <button class="prompt-button solid" onclick="event.stopPropagation(); copyPrompt(1, this)">Copier</button>
-            <button class="prompt-button" onclick="event.stopPropagation(); openPromptModal(1)">Voir</button>
+            <button class="prompt-button solid" onclick="event.stopPropagation(); copyPrompt(2, this)">Copier</button>
+            <button class="prompt-button" onclick="event.stopPropagation(); openPromptModal(2)">Voir</button>
           </div>
         </div>
-        <p class="article-text" data-reveal>ChatGPT te demande d'abord à quoi sert l'affiche : ce que tu veux annoncer ou montrer. Puis le titre, l'accroche, le prix ou la date, les contacts. Ce que tu laisses vide est simplement retiré de l'affiche, il n'invente rien.</p>
+        <div class="print-prompt new-page">
+          <div class="print-prompt-head">
+            <div class="print-prompt-label">Prompt 2 · Ton affiche dans ta marque</div>
+            <div class="print-prompt-sub">À coller tel quel dans une nouvelle conversation, avec la référence, ta charte et la photo du produit.</div>
+          </div>
+          <pre class="prompt-code" data-prompt="Prompt 2 · Ton affiche dans ta marque">You are an expert Art Director, Graphic Designer and Visual Layout Analyst.
+
+I will attach:
+- my brand identity images (logo, colors, fonts, universe);
+- a photo of the product, place or service to show on this poster;
+- optionally, a REFERENCE POSTER I like (for example from Pinterest).
+
+LANGUAGE RULE
+This prompt is written in English for precision, but you MUST always talk to me in
+natural, concise FRENCH. The text on the poster uses the language of the information I
+give you.
+
+⸻
+
+PHASE 1 — ANALYZE (silently)
+
+Sort the images: brand identity, my product photos, reference poster.
+
+If there is a reference poster, analyze it in depth, as a designer would before
+recreating it:
+- format and overall composition;
+- exact position and size of every block (title, subtitle, image, product, logo, badges,
+contact lines, icons, decorative objects), as if you drew a precise wireframe;
+- EVERY text zone, even the smallest: title, subtitle, small texts in the corners,
+labels, badges, stickers, dish or product names, descriptions, footer lines;
+- whether the reference shows a logo or a brand name, and where;
+- visual hierarchy and text scale relationships;
+- how much empty space there is and where;
+- background treatment (plain, texture, photo, gradient, light);
+- its dominant color (main background, big title, big shapes);
+- typography style (serif, script, bold condensed, vertical text…) and how texts are
+placed;
+- decorative and secondary elements (floating objects, 3D elements, stickers, badges,
+frames, shapes, particles) and their role, density and movement;
+- lighting, depth, image treatment and mood.
+
+Do not describe the analysis. Do not create anything yet.
+
+⸻
+
+PHASE 2 — ASK ME WHAT THE POSTER MUST SAY
+
+The reference poster only gives the layout and the style. Its subject does not tell you
+what my poster is about: a brioche reference can become a poster for anything I sell or
+announce. So ask me first what I want to show.
+
+Reply with a short questionnaire in French, most important first:
+
+1. À quoi sert cette affiche ? (ce que tu veux annoncer ou montrer, explique en une
+phrase) :
+→
+2. Then list EVERY text zone of the reference, one line each, in reading order. Name
+each zone by its role and position, and show in brackets what it says on the reference.
+Do not skip small zones: corners, labels, badges, stickers, dish names, footer lines.
+For example:
+Titre principal, en haut, très gros (sur la référence : « … ») :
+→
+Petit texte en haut à gauche (sur la référence : « … ») :
+→
+Pastille de prix (sur la référence : « … ») :
+→
+Pied de page (sur la référence : « … ») :
+→ (pre-fill contact zones with the details shown in my brand identity, if any)
+3. Produit à montrer :
+→ If a product photo is attached, do not ask for it again: only ask which product, or
+which part of it, to show. If none is attached, ask me to send one photo of the product
+for this poster.
+4. Couleur dominante :
+→ Propose the color of my palette closest to the reference's dominant color (dark for
+dark, bright for bright), and one other color of my palette, so that my posters do not
+all look the same.
+
+At the end, always display:
+⚠ IMPORTANT : tu n'es pas obligé de tout remplir. Ce que tu ne donnes pas sera
+simplement retiré de l'affiche.
+
+⸻
+
+PHASE 3 — CREATE THE POSTER
+
+As soon as I answer, create it without asking for confirmation. Default format: the
+format of the reference, otherwise 9:16.
+
+WITH A REFERENCE POSTER — the reference is the master layout.
+Recreate the reference poster element by element with my content, so that someone who
+knows the reference immediately recognizes it:
+- same composition and same wireframe: every block stays at the same place, with the
+same size and the same proportions;
+- same amount and placement of empty space;
+- same hierarchy and text scale relationships;
+- same background treatment (plain, texture, photo, gradient, light); if it is neutral
+(white, light, plain), keep it as is, otherwise recolor it with my brand colors;
+- same typography style and text placement as the reference; use the brand fonts only if
+they fit that style;
+- same lighting, depth and image treatment;
+- same secondary elements in the same roles, positions and density, but reinterpreted to
+match my product (for example floating objects or 3D elements related to my product
+instead of the original ones);
+- if an object of the reference makes no sense with my product (for example a fork stuck
+in a burger), replace it with the closest natural equivalent for my product (a hand, a
+paper wrap, a tray…), at the same place and with the same size.
+Replace only: the main subject by my product, the texts by my texts, the reference's
+brand by my brand.
+From my brand identity, bring only:
+- my LOGO, always visible, faithful to my identity, placed where the reference puts its
+logo or brand name. If the reference has no logo, place it small in a logical, discreet
+spot (a calm corner or the footer line), without filling the empty spaces of the
+reference;
+- my COLORS. Replace the dominant color of the reference with the brand color chosen in
+the questionnaire (by default, the brand color closest to it in value: dark for dark,
+bright for bright; not always the same one). Replace the other strong colors of the
+reference with my brand colors too, keeping the same contrast and the same color
+proportions. The poster must never be dominated by a color that does not exist in my
+brand. Only neutral colors (white, off-white, light grey, black) may stay as they are.
+Fonts are flexible: keep the reference's typography style if my brand fonts do not fit
+it.
+Never copy the reference's logo, brand name, texts or products. Do not merely paste my
+product on the reference: rebuild the poster so it looks natively designed for my
+content, in the same visual grammar.
+
+WITHOUT A REFERENCE POSTER
+Create a clean, strong poster in my brand identity: my logo, my colors, my fonts, my
+motifs, my photo style.
+
+ALWAYS
+- Put in each text zone exactly the text I gave for it, letter by letter, accents
+included.
+- Never add a text, a price, a date or a contact I did not give you.
+- Remove cleanly every zone for which I gave no information and rebalance the layout.
+- Show my product exactly as in my photo: same shape, same ingredients, same colors.
+- If one of my texts does not match the product shown, tell me in one short sentence
+after the poster.</pre>
+        </div>
+        <p class="article-text" data-reveal>ChatGPT te demande d'abord à quoi sert l'affiche. Puis il liste chaque zone de texte de ta référence (titre, sous-titre, étiquettes, pastilles, coins, noms de plats) et te demande quoi y mettre. Ce que tu laisses vide est retiré de l'affiche, il n'invente rien.</p>
+        <p class="article-text" data-reveal>Il te propose aussi une couleur dominante prise dans ta charte. Change-la d'une affiche à l'autre : ta série reste reconnaissable sans être monotone.</p>
+        <div class="article-callout" data-reveal><strong>Dans tes réponses, évite les « · » pour séparer tes infos.</strong> ChatGPT les recopie sur l'affiche. Écris plutôt une info par ligne.</div>
         <div class="article-grid-3">
           <div class="article-card" data-reveal>
             <span class="article-step">1</span>
@@ -177,26 +623,173 @@
           <div class="article-card" data-reveal data-delay="1">
             <span class="article-step">2</span>
             <h3>Ta charte donne la marque</h3>
-            <p>Ton logo à la place du leur, et tes couleurs à la place de leur couleur principale.</p>
+            <p>Ton logo à la place du leur, ou dans un coin discret si elle n'en a pas. Tes couleurs à la place des leurs.</p>
           </div>
           <div class="article-card" data-reveal data-delay="2">
             <span class="article-step">3</span>
             <h3>Tes infos donnent le message</h3>
-            <p>Ton produit, ton titre, ton prix. Rien d'autre.</p>
+            <p>Ton produit, ton titre, ton prix, un texte par zone. Rien d'autre.</p>
           </div>
         </div>
       </section>
 
-      <section class="article-section">
-        <h2 class="article-section-title" data-reveal>Des styles différents, la même marque</h2>
-        <p class="article-text" data-reveal>Cinq références Pinterest très différentes, passées dans le même branding Ayo. À gauche la référence, à droite le résultat.</p>
-        <div class="example-grid example-grid-single">
+      <section class="article-section print-new-page">
+        <h2 class="article-section-title" data-reveal>Trois références, la même marque</h2>
+        <p class="article-text" data-reveal>Trois affiches Pinterest très différentes, passées dans la charte KROK. À gauche la référence, à droite le résultat. Pour KROK, on n'avait pas de photo des plats : on les a décrits dans les réponses. Pour ton vrai produit, joins sa photo, sinon ChatGPT en dessine un qui n'est pas le tien.</p>
+        <div class="example-grid example-grid-single krok-grid">
+          <article class="example-card" data-reveal>
+            <div class="example-compare">
+              <span class="example-label before">Référence</span>
+              <span class="example-label after">KROK</span>
+              <img src="img/ref18.jpg" alt="Référence Pinterest" loading="lazy">
+              <img src="img/krok-affiche-ref18.jpg" alt="Affiche KROK : Double Smash, écrasé à la commande" loading="lazy">
+              <div class="example-divider"></div>
+              <div class="example-arrow"><i data-lucide="move-right"></i></div>
+            </div>
+            <div class="example-copy">
+              <h3>Double Smash</h3>
+              <p>Le titre géant et la ligne manuscrite restent. La référence n'a pas de logo : KROK prend la place du petit texte à gauche, sans toucher aux espaces vides.</p>
+            </div>
+          </article>
+          <article class="example-card" data-reveal data-delay="1">
+            <div class="example-compare">
+              <span class="example-label before">Référence</span>
+              <span class="example-label after">KROK</span>
+              <img src="img/ref08.jpg" alt="Référence Pinterest" loading="lazy">
+              <img src="img/krok-affiche-ref08.jpg" alt="Affiche KROK : menu midi à 9,90" loading="lazy">
+              <div class="example-divider"></div>
+              <div class="example-arrow"><i data-lucide="move-right"></i></div>
+            </div>
+            <div class="example-copy">
+              <h3>Le midi, ça croque</h3>
+              <p>Le plateau de brunch devient un plateau burger, frites et tenders. L'orange devient cobalt, le badge prix et les horaires gardent leur place.</p>
+            </div>
+          </article>
+          <article class="example-card" data-reveal>
+            <div class="example-compare">
+              <span class="example-label before">Référence</span>
+              <span class="example-label after">KROK</span>
+              <img src="img/ref02.jpg" alt="Référence Pinterest" loading="lazy">
+              <img src="img/krok-affiche-ref02.jpg" alt="Affiche KROK : KROK livre chez toi" loading="lazy">
+              <div class="example-divider"></div>
+              <div class="example-arrow"><i data-lucide="move-right"></i></div>
+            </div>
+            <div class="example-copy">
+              <h3>KROK livre chez toi</h3>
+              <p>Les bols posés sur les marches deviennent les boîtes et les cornets KROK. Le grand disque rouge passe en cobalt.</p>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section class="article-section print-new-page">
+        <h2 class="article-section-title" data-reveal>Un autre exemple : GONG</h2>
+        <p class="article-text" data-reveal><strong>GONG</strong> est une salle de sport de quartier : musculation, boxe, cours collectifs, coaching. Elle aussi a été inventée pour la démonstration, avec le même chemin que KROK : le logo avec le skill Logo Design, puis la charte et les affiches avec ce pack.</p>
+        <div class="logo-duo logo-duo-fit" data-reveal>
+          <figure>
+            <img src="img/gong-pistes.jpg" alt="Les trois pistes de logo proposées par le skill pour GONG" loading="lazy">
+          </figure>
+          <figure>
+            <img src="img/gong-logo.jpg" alt="Le logo GONG retenu" loading="lazy">
+          </figure>
+        </div>
+        <p class="figure-caption" data-reveal>Les trois pistes du skill pour GONG, et le logo retenu : le O est frappé comme un gong et résonne. On lit aussi « GO ».</p>
+        <p class="article-text" data-reveal>Le logo joint en premier, la charte garde ses couleurs exactes : vermillon, craie, encre.</p>
+        <div class="grid grid-cols-2 gap-3 mt-6 charte-grid" data-reveal>
+          <img class="w-full object-cover rounded-2xl border border-zinc-200" src="img/gong-charte-1.jpg" alt="Charte GONG : essence" loading="lazy">
+          <img class="w-full object-cover rounded-2xl border border-zinc-200" src="img/gong-charte-2.jpg" alt="Charte GONG : logo" loading="lazy">
+          <img class="w-full object-cover rounded-2xl border border-zinc-200" src="img/gong-charte-3.jpg" alt="Charte GONG : couleurs et typographies" loading="lazy">
+          <img class="w-full object-cover rounded-2xl border border-zinc-200" src="img/gong-charte-4.jpg" alt="Charte GONG : univers et applications" loading="lazy">
+        </div>
+      </section>
+
+      <section class="article-section print-new-page">
+        <h2 class="article-section-title" data-reveal>Cinq affiches GONG</h2>
+        <p class="article-text" data-reveal>Une barre chocolatée, une soupe, une tartine, une crème, un soda : aucune référence ne vient du sport. Chaque fois, ChatGPT garde la mise en page et remplace les objets par ceux de la salle.</p>
+        <div class="example-grid example-grid-single gong-grid">
+          <article class="example-card" data-reveal>
+            <div class="example-compare">
+              <span class="example-label before">Référence</span>
+              <span class="example-label after">GONG</span>
+              <img src="img/ref05.jpg" alt="Référence Pinterest" loading="lazy">
+              <img src="img/gong-affiche-ref05.jpg" alt="Affiche GONG : cours de boxe" loading="lazy">
+              <div class="example-divider"></div>
+              <div class="example-arrow"><i data-lucide="move-right"></i></div>
+            </div>
+            <div class="example-copy">
+              <h3>Boxe, tous niveaux</h3>
+              <p>La barre chocolatée devient un gant de boxe, les mots géants passent en vermillon et encre. Vérifie toujours les lettres des mots géants répétés : c'est là que ChatGPT se trompe le plus.</p>
+            </div>
+          </article>
+          <article class="example-card" data-reveal data-delay="1">
+            <div class="example-compare">
+              <span class="example-label before">Référence</span>
+              <span class="example-label after">GONG</span>
+              <img src="img/ref07.jpg" alt="Référence Pinterest" loading="lazy">
+              <img src="img/gong-affiche-ref07.jpg" alt="Affiche GONG : ouvert dès 6h" loading="lazy">
+              <div class="example-divider"></div>
+              <div class="example-arrow"><i data-lucide="move-right"></i></div>
+            </div>
+            <div class="example-copy">
+              <h3>Ouvert dès 6h</h3>
+              <p>Le bol et la fourchette n'ont pas de sens pour une salle : ils deviennent un kettlebell, une corde et une gourde. Le grand titre et la pastille restent.</p>
+            </div>
+          </article>
+          <article class="example-card" data-reveal>
+            <div class="example-compare">
+              <span class="example-label before">Référence</span>
+              <span class="example-label after">GONG</span>
+              <img src="img/ref18.jpg" alt="Référence Pinterest" loading="lazy">
+              <img src="img/gong-affiche-ref18.jpg" alt="Affiche GONG : cours collectifs" loading="lazy">
+              <div class="example-divider"></div>
+              <div class="example-arrow"><i data-lucide="move-right"></i></div>
+            </div>
+            <div class="example-copy">
+              <h3>Cours collectifs</h3>
+              <p>La même référence que le Double Smash de KROK. Deux marques, deux affiches : seule la mise en page est commune.</p>
+            </div>
+          </article>
+          <article class="example-card" data-reveal data-delay="1">
+            <div class="example-compare">
+              <span class="example-label before">Référence</span>
+              <span class="example-label after">GONG</span>
+              <img src="img/ref13.jpg" alt="Référence Pinterest" loading="lazy">
+              <img src="img/gong-affiche-ref13.jpg" alt="Affiche GONG : tarif étudiant" loading="lazy">
+              <div class="example-divider"></div>
+              <div class="example-arrow"><i data-lucide="move-right"></i></div>
+            </div>
+            <div class="example-copy">
+              <h3>Ce tarif est pour toi</h3>
+              <p>Le pot de crème devient la carte d'adhérent GONG. La pastille ronde annonce « Sans frais d'inscription ».</p>
+            </div>
+          </article>
+          <article class="example-card" data-reveal>
+            <div class="example-compare">
+              <span class="example-label before">Référence</span>
+              <span class="example-label after">GONG</span>
+              <img src="img/ref04.jpg" alt="Référence Pinterest" loading="lazy">
+              <img src="img/gong-affiche-ref04.jpg" alt="Affiche GONG : la rentrée" loading="lazy">
+              <div class="example-divider"></div>
+              <div class="example-arrow"><i data-lucide="move-right"></i></div>
+            </div>
+            <div class="example-copy">
+              <h3>La rentrée, c'est ici</h3>
+              <p>La glacière de canettes devient un bac de gants de boxe. L'orange du soda devient le vermillon de GONG.</p>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section class="article-section print-ayo">
+        <h2 class="article-section-title" data-reveal>Un autre secteur : Ayo</h2>
+        <p class="article-text" data-reveal>La même méthode sur <strong>Ayo</strong>, une marque de soins naturels, elle aussi inventée pour la démonstration. Une pub de canette ou de jus devient l'affiche d'un sérum.</p>
+        <div class="example-grid ayo-grid">
           <article class="example-card" data-reveal>
             <div class="example-compare">
               <span class="example-label before">Référence</span>
               <span class="example-label after">Ayo</span>
-              <img src="../../articles/branding-chatgpt/ref-serum.jpg" alt="Référence Pinterest" loading="lazy">
-              <img src="../../articles/branding-chatgpt/affiche-serum.jpg" alt="Affiche Ayo : Sérum Éclat" loading="lazy">
+              <img src="img/ayo-ref-serum.jpg" alt="Référence Pinterest" loading="lazy">
+              <img src="img/ayo-affiche-serum.jpg" alt="Affiche Ayo : Sérum Éclat" loading="lazy">
               <div class="example-divider"></div>
               <div class="example-arrow"><i data-lucide="move-right"></i></div>
             </div>
@@ -209,50 +802,8 @@
             <div class="example-compare">
               <span class="example-label before">Référence</span>
               <span class="example-label after">Ayo</span>
-              <img src="../../articles/branding-chatgpt/ref-brille.jpg" alt="Référence Pinterest" loading="lazy">
-              <img src="../../articles/branding-chatgpt/affiche-brille.jpg" alt="Affiche Ayo : Brille au naturel" loading="lazy">
-              <div class="example-divider"></div>
-              <div class="example-arrow"><i data-lucide="move-right"></i></div>
-            </div>
-            <div class="example-copy">
-              <h3>Brille au naturel</h3>
-              <p>Le grand titre vertical et le portrait restent, la marque et les couleurs changent.</p>
-            </div>
-          </article>
-          <article class="example-card" data-reveal>
-            <div class="example-compare">
-              <span class="example-label before">Référence</span>
-              <span class="example-label after">Ayo</span>
-              <img src="../../articles/branding-chatgpt/ref-vraie-peau.jpg" alt="Référence Pinterest" loading="lazy">
-              <img src="../../articles/branding-chatgpt/affiche-vraie-peau.jpg" alt="Affiche Ayo : Vraie peau. Zéro filtre." loading="lazy">
-              <div class="example-divider"></div>
-              <div class="example-arrow"><i data-lucide="move-right"></i></div>
-            </div>
-            <div class="example-copy">
-              <h3>Vraie peau. Zéro filtre.</h3>
-              <p>La pose et la lumière de la référence, avec le flacon Ayo dans la main.</p>
-            </div>
-          </article>
-          <article class="example-card" data-reveal data-delay="1">
-            <div class="example-compare">
-              <span class="example-label before">Référence</span>
-              <span class="example-label after">Ayo</span>
-              <img src="../../articles/branding-chatgpt/ref-automne.jpg" alt="Référence Pinterest" loading="lazy">
-              <img src="../../articles/branding-chatgpt/affiche-automne.jpg" alt="Affiche Ayo : L’automne en douceur" loading="lazy">
-              <div class="example-divider"></div>
-              <div class="example-arrow"><i data-lucide="move-right"></i></div>
-            </div>
-            <div class="example-copy">
-              <h3>L’automne en douceur</h3>
-              <p>Une affiche de baskets devient une affiche de saison pour le sérum.</p>
-            </div>
-          </article>
-          <article class="example-card" data-reveal>
-            <div class="example-compare">
-              <span class="example-label before">Référence</span>
-              <span class="example-label after">Ayo</span>
-              <img src="../../articles/branding-chatgpt/ref-coffret.jpg" alt="Référence Pinterest" loading="lazy">
-              <img src="../../articles/branding-chatgpt/affiche-coffret.jpg" alt="Affiche Ayo : Offre-toi quelque chose de BON" loading="lazy">
+              <img src="img/ayo-ref-coffret.jpg" alt="Référence Pinterest" loading="lazy">
+              <img src="img/ayo-affiche-coffret.jpg" alt="Affiche Ayo : Offre-toi quelque chose de BON" loading="lazy">
               <div class="example-divider"></div>
               <div class="example-arrow"><i data-lucide="move-right"></i></div>
             </div>
@@ -264,24 +815,86 @@
         </div>
       </section>
 
-      <section class="article-section">
+      <section class="article-section print-new-page">
         <h2 class="article-section-title" data-reveal>Si un détail cloche</h2>
-        <p class="article-text" data-reveal>La première version est souvent très proche. Quand un détail ne va pas, réponds dans la même conversation avec une phrase précise. Quelques exemples qui ont servi pour ces affiches :</p>
-        <div class="prompt-panel" onclick="openPromptModal(2)" data-reveal>
-          <div class="prompt-panel-main">
-            <div class="prompt-panel-icon"><i data-lucide="wrench"></i></div>
-            <div>
-              <div class="prompt-panel-label">Les phrases pour corriger</div>
-              <div class="prompt-panel-sub">Main, texte, couleur, logo</div>
+        <p class="article-text" data-reveal>La première version est souvent très proche. Quand un détail ne va pas, réponds dans la même conversation avec une seule phrase précise. Copie celle qui correspond et remplace ce qui est entre crochets.</p>
+        <div class="fix-list">
+          <div class="fix-row" data-reveal>
+            <div class="fix-main">
+              <div class="fix-title">Le texte est mal écrit</div>
+              <pre class="prompt-code fix-text" data-prompt="Le texte est mal écrit">Le texte « [texte] » est mal écrit. Corrige-le lettre par lettre, accents compris, sans
+rien changer d'autre.</pre>
             </div>
+            <button class="prompt-button solid fix-copy" onclick="copyPrompt(3, this)">Copier</button>
           </div>
-          <div class="prompt-panel-actions">
-            <button class="prompt-button solid" onclick="event.stopPropagation(); copyPrompt(2, this)">Copier</button>
-            <button class="prompt-button" onclick="event.stopPropagation(); openPromptModal(2)">Voir</button>
+          <div class="fix-row" data-reveal>
+            <div class="fix-main">
+              <div class="fix-title">Un texte a été inventé</div>
+              <pre class="prompt-code fix-text" data-prompt="Un texte a été inventé">Tu as ajouté un texte que je ne t'ai pas donné : « [texte] ». Retire-le sans rien
+changer d'autre.</pre>
+            </div>
+            <button class="prompt-button solid fix-copy" onclick="copyPrompt(4, this)">Copier</button>
+          </div>
+          <div class="fix-row" data-reveal>
+            <div class="fix-main">
+              <div class="fix-title">Le logo ne ressemble pas au tien</div>
+              <pre class="prompt-code fix-text" data-prompt="Le logo ne ressemble pas au tien">Le logo ne ressemble pas au mien. Reprends exactement le logo de ma charte, sans le
+redessiner.</pre>
+            </div>
+            <button class="prompt-button solid fix-copy" onclick="copyPrompt(5, this)">Copier</button>
+          </div>
+          <div class="fix-row" data-reveal>
+            <div class="fix-main">
+              <div class="fix-title">Le logo est mal placé</div>
+              <pre class="prompt-code fix-text" data-prompt="Le logo est mal placé">Le logo est mal placé. Mets-le [à tel endroit], en gardant les espaces vides de la
+référence, sans rien changer d'autre.</pre>
+            </div>
+            <button class="prompt-button solid fix-copy" onclick="copyPrompt(6, this)">Copier</button>
+          </div>
+          <div class="fix-row" data-reveal>
+            <div class="fix-main">
+              <div class="fix-title">Le produit est différent de ta photo</div>
+              <pre class="prompt-code fix-text" data-prompt="Le produit est différent de ta photo">Le produit ne ressemble pas à ma photo. Reprends-le exactement comme sur ma photo : même
+forme, mêmes ingrédients, mêmes couleurs.</pre>
+            </div>
+            <button class="prompt-button solid fix-copy" onclick="copyPrompt(7, this)">Copier</button>
+          </div>
+          <div class="fix-row" data-reveal>
+            <div class="fix-main">
+              <div class="fix-title">Un objet n'a pas de sens</div>
+              <pre class="prompt-code fix-text" data-prompt="Un objet n'a pas de sens">[Objet] ne va pas avec mon produit. Remplace-le par [objet adapté], au même endroit et à
+la même taille.</pre>
+            </div>
+            <button class="prompt-button solid fix-copy" onclick="copyPrompt(8, this)">Copier</button>
+          </div>
+          <div class="fix-row" data-reveal>
+            <div class="fix-main">
+              <div class="fix-title">La couleur n'est pas la tienne</div>
+              <pre class="prompt-code fix-text" data-prompt="La couleur n'est pas la tienne">La couleur dominante est encore celle de la référence. Remplace-la par une des couleurs
+principales de ma charte.</pre>
+            </div>
+            <button class="prompt-button solid fix-copy" onclick="copyPrompt(9, this)">Copier</button>
+          </div>
+          <div class="fix-row" data-reveal>
+            <div class="fix-main">
+              <div class="fix-title">La main est fausse</div>
+              <pre class="prompt-code fix-text" data-prompt="La main est fausse">La main est fausse : le pouce est du mauvais côté et le bras n'est pas naturel. Refais
+l'affiche en gardant tout le reste, avec la main et le bras exactement comme sur la
+référence.</pre>
+            </div>
+            <button class="prompt-button solid fix-copy" onclick="copyPrompt(10, this)">Copier</button>
+          </div>
+          <div class="fix-row" data-reveal>
+            <div class="fix-main">
+              <div class="fix-title">On ne reconnaît plus la référence</div>
+              <pre class="prompt-code fix-text" data-prompt="On ne reconnaît plus la référence">On ne reconnaît plus la référence. Reprends sa composition bloc par bloc : mêmes places,
+mêmes tailles, mêmes espaces vides.</pre>
+            </div>
+            <button class="prompt-button solid fix-copy" onclick="copyPrompt(11, this)">Copier</button>
           </div>
         </div>
+        <div class="print-only print-end"><strong>La version web</strong><br>Pour copier les prompts d'un clic, ouvre la version web du guide :<br><a href="https://letsdiscuss-ai.com/pack/branding-chatgpt-4f9d7655/">https://letsdiscuss-ai.com/pack/branding-chatgpt-4f9d7655/</a><br><span>Ce lien est réservé aux acheteurs du pack.</span></div>
       </section>
-
 
       <section class="section-compact section-wash relative overflow-hidden mt-16 rounded-[28px] border border-zinc-200" data-reveal>
         <div class="absolute inset-0 bg-zinc-50/35"></div>
@@ -386,38 +999,12 @@
     </div>
   </div>
 
-  <div id="prompt-modal" class="article-modal-backdrop" onclick="closePromptModal(event)">
-    <div class="article-modal" onclick="event.stopPropagation()">
-      <div class="article-modal-header">
-        <h3 id="prompt-modal-title" class="article-modal-title">Prompt</h3>
-        <button class="article-modal-close" onclick="closePromptModal()">
-          <i data-lucide="x"></i>
-        </button>
-      </div>
-      <div class="article-modal-body">
-        <pre id="prompt-modal-content"></pre>
-      </div>
-      <div class="article-modal-footer">
-        <button id="prompt-modal-copy" class="prompt-button solid" onclick="copyPromptFromModal(this)">Copier</button>
-      </div>
-    </div>
-  </div>
-
   <script>
-    window.articlePrompts = [
-  {
-    "title": "Prompt 1 · Ta charte graphique",
-    "prompt": "You are a senior brand strategist and art director.\n\nYour job is to build a short, essential visual identity for my business from the images I attach and the answers I give you. It can be anything: a shop, a restaurant, a product, an online business, an app, a service, a personal brand.\n\nLANGUAGE RULE\nThis prompt is written in English for precision, but you MUST always talk to me in natural, concise FRENCH, and write all the text inside the identity in French, unless I ask for another language.\n\n⸻\n\nPHASE 1 — ANALYZE MY IMAGES (silently)\n\nLook at every attached image (place, products, screenshots, website, app, packaging, portraits, existing visuals, logo).\nWork out internally:\n- what kind of business it is: physical place, product, online business, service, personal brand;\n- its atmosphere, colors, materials, light, textures;\n- whether a LOGO already exists in the images (on a sign, a cup, a bag, a screen, a document…).\n\nDo not describe your analysis. Do not create anything yet.\n\n⸻\n\nPHASE 2 — ASK ME ONLY WHAT YOU NEED\n\nReply with a SHORT questionnaire in French, pre-filled with what you understood, so I only confirm or correct:\n\n1. Nom de la marque :\n→\n2. Ton activité (ce que j'ai compris : …) :\n→\n3. Tes clients :\n→\n4. L'ambiance en 3 mots :\n→\n5. Ce que tu veux éviter :\n→\n6. Logo :\n→ (j'en vois un / je n'en vois pas). Si tu en as un en bonne qualité, envoie-le.\n7. Tes coordonnées (téléphone, adresse, réseaux, site) :\n→\n\nAt the end, always display:\n⚠️ IMPORTANT : tu n'es pas obligé de tout remplir. Pour le reste, je décide à partir de tes images.\n\n⸻\n\nPHASE 3 — CREATE THE IDENTITY\n\nAs soon as I answer, create it without asking for confirmation.\n\nLOGO RULE\n- If a logo exists in my images: recreate THAT logo faithfully as a clean, flat, vector-style version (same name, same letterforms, same symbol, same proportions, same colors). Do not redesign it, do not invent another one. You may only add simple variations of it (icon alone, horizontal version, light and dark versions).\n- If no logo exists: propose one credible, simple, distinctive logo that fits this business.\n\nMake strong, specific choices based on my answers and my images. It must feel like THIS business, not a generic trendy style. Avoid the default colors, materials and fonts that everyone associates with this category: choose what makes this business distinctive and desirable, while staying credible for its activity.\n\nCreate exactly 4 images, one aspect per image, with large readable text, lots of space, few strong elements, no tiny captions:\n1. ESSENCE — brand name, logo, one short sentence of positioning, three personality words, one or two of my images reframed, and my contact details if I gave them.\n2. LOGO — the main logo and its few variations, on light and dark backgrounds.\n3. COULEURS ET TYPOGRAPHIES — 4 to 6 colors with HEX codes and names, a title font style and a text font style with a short sample.\n4. UNIVERS ET APPLICATIONS — graphic motifs, photo style, and 2 or 3 applications that make sense for THIS business:\n   physical place → sign, packaging, menu or bag;\n   product → packaging, label, product visual;\n   online business or app → app or website screen, social post, ad;\n   service or personal brand → social post, presentation slide, business card.\n\nNever invent facts (prices, addresses, phone numbers, claims) that I did not give you."
-  },
-  {
-    "title": "Prompt 2 · Ton affiche dans ta marque",
-    "prompt": "You are an expert Art Director, Graphic Designer and Visual Layout Analyst.\n\nI will attach:\n- my brand identity images (logo, colors, fonts, universe);\n- photos of my product, place or service;\n- optionally, a REFERENCE POSTER I like (for example from Pinterest).\n\nLANGUAGE RULE\nThis prompt is written in English for precision, but you MUST always talk to me in natural, concise FRENCH. The text on the poster uses the language of the information I give you.\n\n⸻\n\nPHASE 1 — ANALYZE (silently)\n\nSort the images: brand identity, my product photos, reference poster.\n\nIf there is a reference poster, analyze it in depth, as a designer would before recreating it:\n- format and overall composition;\n- exact position and size of every block (title, subtitle, image, product, logo, badges, contact lines, icons, decorative objects), as if you drew a precise wireframe;\n- visual hierarchy and text scale relationships;\n- how much empty space there is and where;\n- background treatment (plain, texture, photo, gradient, light);\n- typography style (serif, script, bold condensed, vertical text…) and how texts are placed;\n- decorative and secondary elements (floating objects, 3D elements, stickers, badges, frames, shapes, particles) and their role, density and movement;\n- lighting, depth, image treatment and mood.\n\nDo not describe the analysis. Do not create anything yet.\n\n⸻\n\nPHASE 2 — ASK ME WHAT THE POSTER MUST SAY\n\nThe reference poster only gives the layout and the style. Its subject does not tell you what my poster is about: a brioche reference can become a poster for anything I sell or announce. So ask me first what I want to show.\n\nReply with a short questionnaire in French. Ask only for what is relevant to this poster, most important first. For example:\n\n1. À quoi sert cette affiche ? (ce que tu veux annoncer ou montrer, explique en une phrase) :\n→\n2. Titre principal :\n→\n3. Sous-titre / accroche :\n→\n4. Prix, date, horaire, offre :\n→\n5. Contact, adresse, réseaux :\n→ (pre-fill with the ones shown in my brand identity, if any)\n6. Photo du produit à mettre en avant :\n→ Envoie-la si ce n'est pas déjà fait.\n\nAt the end, always display:\n⚠️ IMPORTANT : tu n'es pas obligé de tout remplir. Ce que tu ne donnes pas sera simplement retiré de l'affiche.\n\n⸻\n\nPHASE 3 — CREATE THE POSTER\n\nAs soon as I answer, create it without asking for confirmation. Default format: the format of the reference, otherwise 9:16.\n\nWITH A REFERENCE POSTER — the reference is the master layout.\nRecreate the reference poster element by element with my content, so that someone who knows the reference immediately recognizes it:\n- same composition and same wireframe: every block stays at the same place, with the same size and the same proportions;\n- same amount and placement of empty space;\n- same hierarchy and text scale relationships;\n- same background treatment (plain, texture, photo, gradient, light); if it is neutral (white, light, plain), keep it as is, otherwise recolor it with my brand colors;\n- same typography style and text placement as the reference; use the brand fonts only if they fit that style;\n- same lighting, depth and image treatment;\n- same secondary elements in the same roles, positions and density, but reinterpreted to match my product (for example floating objects or 3D elements related to my product instead of the original ones).\nReplace only: the main subject by my product, the texts by my texts, the reference's brand by my brand.\nFrom my brand identity, bring only:\n- my LOGO, always visible, faithful to my identity, placed where the reference puts its logo or brand name;\n- my COLORS. Identify the dominant color of the reference (the color that defines the poster: main background, big title, big shapes) and replace it with one of my brand's main colors. Replace the other strong colors of the reference with my brand colors too, keeping the same contrast and the same color proportions. The poster must never be dominated by a color that does not exist in my brand. Only neutral colors (white, off-white, light grey, black) may stay as they are.\nFonts are flexible: keep the reference's typography style if my brand fonts do not fit it.\nNever copy the reference's logo, brand name, texts or products. Do not merely paste my product on the reference: rebuild the poster so it looks natively designed for my content, in the same visual grammar.\n\nWITHOUT A REFERENCE POSTER\nCreate a clean, strong poster in my brand identity: my logo, my colors, my fonts, my motifs, my photo style.\n\nALWAYS\n- Use exactly the text I give you, letter by letter, accents included. No invented text, prices, dates or contacts.\n- Remove cleanly every element for which I gave no information and rebalance the layout.\n- Show my product exactly as in my photos."
-  },
-  {
-    "title": "Les phrases pour corriger",
-    "prompt": "La main est fausse : le pouce est du mauvais côté et le bras n'est pas naturel. Refais l'affiche en gardant tout le reste, avec la main et le bras exactement comme sur la référence.\nLe texte « [texte] » est mal écrit. Corrige-le lettre par lettre, accents compris, sans rien changer d'autre.\nLa couleur dominante est encore celle de la référence. Remplace-la par une des couleurs principales de ma charte.\nLe logo ne ressemble pas au mien. Reprends exactement le logo de ma charte, sans le redessiner.\nOn ne reconnaît plus la référence. Reprends sa composition bloc par bloc : mêmes places, mêmes tailles, mêmes espaces vides."
-  }
-];
+    // Source unique : le texte copié est celui des blocs [data-prompt] de la page (et du PDF).
+    window.articlePrompts = Array.from(document.querySelectorAll("[data-prompt]")).map((node) => ({
+      title: node.dataset.prompt,
+      prompt: node.textContent
+    }));
   </script>
   <script src="../../script.js"></script>
   <script src="../../article.js"></script>
