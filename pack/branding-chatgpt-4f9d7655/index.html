@@ -29,7 +29,7 @@
   <link rel="stylesheet" href="../../styles.css">
   <link rel="stylesheet" href="../../article.css">
   <style>
-    /* ---------- Ajouts V2 (écran) ---------- */
+    /* ---------- Ajouts (écran) ---------- */
     .print-only, .print-prompt { display: none; }
     .prompt-code {
       margin: 0;
@@ -92,7 +92,8 @@
       .cover-visual img { width: 100%; aspect-ratio: 3 / 4; object-fit: cover; border-radius: 3mm; border: 1px solid #e4e4e7; }
       .cover-bottom { margin-top: auto; display: grid; grid-template-columns: 1fr 1fr; gap: 8mm; align-items: end; }
       .cover-box { padding: 5mm 5.5mm; border-radius: 4mm; background: #0b100e; color: #f4f4f5; font-size: 9.5pt; line-height: 1.55; }
-            .cover-box p + p { margin-top: 2.5mm; color: #a1a1aa; font-size: 8.5pt; }
+            .cover-box p + p { margin-top: 2.5mm; color: #d4d4d8; font-size: 9pt; }
+      .cover-box strong { color: #6ee7b7; }
       .cover-toc h2 { font-family: "Playfair Display", serif; font-size: 13pt; color: #09090b; }
       .cover-toc ol { margin-top: 2.5mm; display: grid; gap: 1.4mm; font-size: 9.5pt; color: #3f3f46; counter-reset: toc -1; }
       .cover-toc li { counter-increment: toc; display: flex; gap: 2.5mm; }
@@ -161,10 +162,11 @@
       .fix-row::before { display: none; }
       .fix-title { color: #047857; font-size: 9pt; }
       .fix-row .fix-text { color: #18181b; font-size: 7.9pt; line-height: 1.42; white-space: pre; margin-top: 1.2mm; }
-      .print-end { margin-top: 5mm; padding: 4mm 5mm; border-radius: 4mm; background: #0b100e; color: #f4f4f5; font-size: 10pt; line-height: 1.7; break-inside: avoid; }
-      .print-end strong { font-size: 11pt; }
-      .print-end a { color: #6ee7b7; font-weight: 700; text-decoration: underline; }
-      .print-end span { color: #a1a1aa; font-size: 8.5pt; }
+      .print-end { margin-top: 8mm; padding: 8mm 8mm 7mm; border-radius: 5mm; background: #0b100e; color: #f4f4f5; break-inside: avoid; }
+      .print-end-title { font-family: "Playfair Display", serif; font-size: 22pt; line-height: 1.15; color: #ffffff; }
+      .print-end p { margin-top: 3mm; font-size: 11pt; color: #d4d4d8; }
+      .print-end a { display: block; margin-top: 5mm; padding: 4mm 5mm; border-radius: 3mm; background: #059669; color: #ffffff !important; font-size: 12.5pt; font-weight: 700; text-decoration: none; word-break: break-all; }
+      .print-end span { display: block; margin-top: 3mm; color: #a1a1aa; font-size: 9pt; }
       a[href^="http"] { color: #047857; }
     }
   </style>
@@ -240,7 +242,7 @@
         <div>
           <div class="cover-box">
             <p>Merci pour ton achat. Ce PDF contient toute la méthode et les prompts complets.</p>
-            <p>Chaque prompt se copie tel quel depuis ce PDF. Pour les copier d'un clic, le lien de la version web est à la dernière page.</p>
+            <p>Chaque prompt se copie tel quel depuis ce PDF. <strong>Le lien vers la version web, pour copier les prompts facilement, est à la dernière page.</strong></p>
           </div>
           <p class="cover-note">Une question ? Rejoins la communauté Parlons IA sur WhatsApp.</p>
         </div>
@@ -287,7 +289,8 @@
       <section class="article-section">
         <h2 class="article-section-title" data-reveal>Étape 0 · Pas encore de logo ? <span class="step-optional">Facultatif</span></h2>
         <p class="article-text" data-reveal>Crée-le d'abord avec le skill Logo Design dans Claude. Il écarte les clichés de ton secteur, te propose trois pistes et te livre un logo simple, en deux couleurs. ChatGPT reprend ensuite ce logo tel quel, sur ta charte comme sur toutes tes affiches. Un logo inventé par ChatGPT, lui, change un peu d'une image à l'autre.</p>
-        <p class="article-text" data-reveal>Le guide du skill, avec le téléchargement : <a class="article-link" href="https://letsdiscuss-ai.com/articles/logo-sans-cliches/" target="_blank" rel="noopener">letsdiscuss-ai.com/articles/logo-sans-cliches</a></p>
+        <p class="article-text screen-only" data-reveal>Le guide du skill, avec le téléchargement : <a class="article-link" href="https://letsdiscuss-ai.com/articles/logo-sans-cliches/" target="_blank" rel="noopener">letsdiscuss-ai.com/articles/logo-sans-cliches</a></p>
+        <p class="article-text print-only" data-reveal>Le guide du skill, avec le téléchargement, est sur le site Parlons IA : « Des logos de pro sans les clichés de l'IA ».</p>
         <div class="logo-duo" data-reveal>
           <figure>
             <img src="img/krok-pistes.jpg" alt="Les trois pistes de logo proposées par le skill pour KROK" loading="lazy">
@@ -893,7 +896,7 @@ mêmes tailles, mêmes espaces vides.</pre>
             <button class="prompt-button solid fix-copy" onclick="copyPrompt(11, this)">Copier</button>
           </div>
         </div>
-        <div class="print-only print-end"><strong>La version web</strong><br>Pour copier les prompts d'un clic, ouvre la version web du guide :<br><a href="https://letsdiscuss-ai.com/pack/branding-chatgpt-4f9d7655/">https://letsdiscuss-ai.com/pack/branding-chatgpt-4f9d7655/</a><br><span>Ce lien est réservé aux acheteurs du pack.</span></div>
+        <div class="print-only print-end"><div class="print-end-title">Copie les prompts en un clic</div><p>Ouvre la version web du guide : chaque prompt a son bouton Copier.</p><a href="https://letsdiscuss-ai.com/pack/branding-chatgpt-4f9d7655/">https://letsdiscuss-ai.com/pack/branding-chatgpt-4f9d7655/</a><span>Ce lien est réservé aux acheteurs du pack.</span></div>
       </section>
 
       <section class="section-compact section-wash relative overflow-hidden mt-16 rounded-[28px] border border-zinc-200" data-reveal>
