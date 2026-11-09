@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="fr" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Faire apprendre Claude pendant que tu dors — Parlons IA</title>
+  <meta name="description" content="Une tâche planifiée relit tes conversations du soir et te propose le matin de nouvelles règles pour Claude. Tu acceptes ou tu refuses. Guide pas à pas.">
+  <meta name="theme-color" content="#0b100e">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%22-60 -30 870 890%22 fill=%22none%22 stroke=%22%23ffffff%22 stroke-linecap=%22round%22 stroke-linejoin=%22round%22%3E%3Crect x=%22-60%22 y=%22-30%22 width=%22870%22 height=%22890%22 rx=%22190%22 fill=%22%230b100e%22 stroke=%22none%22/%3E %3Cpath d=%22M355,82 H205 C118,82 58,150 58,262 V432 C58,545 122,622 226,640 V742 L355,662 Z%22 stroke-width=%2232%22/%3E %3Cpath d=%22M432,86 H503 C563,86 597,128 599,186 C652,196 688,246 684,308 C714,340 714,410 677,434 C702,474 690,544 638,562 C636,634 588,690 520,690 H478 C420,690 392,652 392,612 V576 H514%22 stroke-width=%2232%22/%3E %3Cpath d=%22M382,408 C408,404 424,392 442,366 L494,284%22 stroke-width=%2224%22/%3E %3Cpath d=%22M390,490 H444 C478,490 492,470 512,445 C532,420 548,410 570,408%22 stroke-width=%2224%22/%3E %3Ccircle cx=%22510%22 cy=%22262%22 r=%2219%22 stroke-width=%2212%22/%3E %3Ccircle cx=%22590%22 cy=%22405%22 r=%2219%22 stroke-width=%2212%22/%3E %3Ccircle cx=%22536%22 cy=%22566%22 r=%2219%22 stroke-width=%2212%22/%3E %3C/svg%3E ">
+  <script>document.documentElement.classList.add("js");</script>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400;1,500&display=swap" rel="stylesheet">
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', "sans-serif"],
+            serif: ['"Playfair Display"', "serif"]
+          }
+        }
+      }
+    };
+  </script>
+  <link rel="stylesheet" href="../../styles.css">
+</head>
+<body class="min-h-screen flex flex-col antialiased">
+  <header class="site-header sticky top-0 z-40 w-full border-b border-zinc-200/80 bg-white/80 backdrop-blur-md">
+    <a href="../../formation/" class="contest-banner group">
+      <span class="contest-banner-dot"></span>
+      <span>Formation</span>
+      <strong>Session en cours</strong>
+      <span class="hidden sm:inline">Réserve ta place pour la prochaine</span>
+      <i data-lucide="arrow-right" class="w-3.5 h-3.5 transition-transform group-hover:translate-x-0.5"></i>
+    </a>
+    <div class="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+      <div class="header-inner flex h-16 items-center justify-between">
+        <div class="flex items-center gap-3">
+          <a href="../../parlons-ia/" class="flex items-center gap-2 group">
+            <span class="brand-mark h-8 w-8 text-lg">P</span>
+            <span class="text-sm font-semibold tracking-tight text-zinc-900 brand-word">Parlons <b>IA</b></span>
+          </a>
+        </div>
+
+        <div class="hidden sm:flex items-center gap-3">
+          <a href="../3-meilleurs-skills/" class="inline-flex items-center justify-center rounded-lg text-xs font-semibold px-4 py-2 border border-zinc-200 bg-white hover:bg-zinc-50 text-zinc-800 transition shadow-sm">
+            Retour a la selection
+          </a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main class="flex-grow">
+    <section class="section-compact bg-white border-b border-zinc-200/60 relative overflow-hidden">
+      <div class="absolute inset-0 bg-[radial-gradient(#e4e4e7_1px,transparent_1px)] [background-size:24px_24px] opacity-40"></div>
+      <div class="relative mx-auto max-w-4xl px-4 sm:px-6 lg:px-8 text-center">
+        <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-zinc-900 text-white text-[10px] font-semibold tracking-wider uppercase mb-4">
+          Guide pas à pas
+        </span>
+        <h1 class="editorial-title text-4xl sm:text-5xl font-normal text-zinc-900 tracking-tight leading-tight">
+          Faire apprendre Claude pendant que tu dors
+        </h1>
+        <p class="text-sm sm:text-base text-zinc-500 max-w-2xl mx-auto mt-4 leading-relaxed font-light font-sans">
+          Chaque soir, une tâche planifiée relit tes conversations du jour et repère ce que tu as dû corriger. Le matin, elle te propose de nouvelles règles. Tu acceptes ou tu refuses, et rien ne change sans toi.
+        </p>
+      </div>
+    </section>
+
+    <section class="section-compact section-wash-soft">
+      <div class="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
+        <div class="bg-white rounded-2xl border border-zinc-200 shadow-[0_8px_30px_rgb(0,0,0,0.02)] p-6 sm:p-10 mb-8">
+          <div class="border-b border-zinc-100 pb-8 mb-8">
+            <div class="max-w-2xl">
+              <span class="text-[10px] font-bold tracking-wider text-emerald-600 uppercase">Le principe</span>
+              <h2 class="font-serif text-2xl sm:text-3xl text-zinc-900 mt-2">Ce que fait la tâche chaque soir</h2>
+              <p class="text-sm text-zinc-600 leading-relaxed mt-5">Tu dis à Claude d'arrêter les emojis, et le lendemain il en remet. Tu lui demandes de te tutoyer, et il recommence à te vouvoyer. À force, c'est toi qui travailles pour lui.</p>
+              <p class="text-sm text-zinc-600 leading-relaxed mt-3">Ici, tu programmes une tâche qui tourne tous les soirs à 23 h, même si ton ordinateur est éteint. Elle fait quatre choses :</p>
+              <ol class="text-sm text-zinc-600 leading-relaxed mt-3 space-y-2 list-decimal pl-5"><li>elle cherche tes conversations de la journée ;</li><li>elle repère les moments où tu l'as corrigé, ce que tu as répété plusieurs fois, et ce que tu as refait toi-même ;</li><li>elle compare avec ce que Claude sait déjà de toi, pour ne pas te proposer deux fois la même chose ;</li><li>elle écrit au plus cinq règles courtes, et elle s'arrête là. Elle n'enregistre rien toute seule.</li></ol>
+              <p class="text-sm text-zinc-600 leading-relaxed mt-3">Le matin, tu lis ses propositions et tu gardes celles qui te parlent. Les règles acceptées vont dans la mémoire de Claude, qu'il utilise dans tes prochaines conversations.</p>
+            </div>
+          </div>
+          <div class="border-b border-zinc-100 pb-8 mb-8">
+            <div class="max-w-2xl">
+              <span class="text-[10px] font-bold tracking-wider text-emerald-600 uppercase">Avant de commencer</span>
+              <h2 class="font-serif text-2xl sm:text-3xl text-zinc-900 mt-2">Ce qu'il te faut</h2>
+              <ul class="text-sm text-zinc-600 leading-relaxed mt-5 space-y-2 list-disc pl-5"><li><strong class="text-zinc-900">Un abonnement payant à Claude</strong> : Pro, Max, Ultra, Team ou Enterprise. Les tâches planifiées et la recherche dans tes anciennes conversations ne sont pas dans l'offre gratuite.</li><li><strong class="text-zinc-900">Sur Team ou Enterprise</strong>, c'est l'administrateur de ton compte qui active Cowork (là où vivent les tâches planifiées) et la mémoire. S'ils sont absents chez toi, demande-lui.</li><li><strong class="text-zinc-900">Cinq minutes</strong>, sur l'appli Claude de ton ordinateur ou sur claude.ai.</li></ul>
+            </div>
+          </div>
+          <div class="border-b border-zinc-100 pb-8 mb-8">
+            <div class="max-w-2xl">
+              <span class="text-[10px] font-bold tracking-wider text-emerald-600 uppercase">Étape 1</span>
+              <h2 class="font-serif text-2xl sm:text-3xl text-zinc-900 mt-2">Active la mémoire et la recherche</h2>
+              <p class="text-sm text-zinc-600 leading-relaxed mt-5">Dans Claude, ouvre <strong class="text-zinc-900">Settings</strong> (Paramètres), puis <strong class="text-zinc-900">Your Claude</strong>. Sur l'ancienne présentation, c'est <strong class="text-zinc-900">Settings &gt; Memory</strong>. Vérifie que ces deux interrupteurs sont allumés :</p>
+              <ul class="text-sm text-zinc-600 leading-relaxed mt-3 space-y-2 list-disc pl-5"><li><strong class="text-zinc-900">Generate memory from chats</strong> : Claude se souvient de ce que tu lui dis d'une conversation à l'autre ;</li><li><strong class="text-zinc-900">Search and reference chats</strong> : Claude peut chercher dans tes anciennes conversations. C'est ce qui permet à la tâche de relire ta journée.</li></ul>
+              <p class="text-sm text-zinc-600 leading-relaxed mt-3">Bon à savoir : les conversations en mode incognito ne sont pas retrouvées par la recherche. Ce que tu y dis ne sera pas relu le soir.</p>
+            </div>
+          </div>
+          <div class="border-b border-zinc-100 pb-8 mb-8">
+            <div class="max-w-2xl">
+              <span class="text-[10px] font-bold tracking-wider text-emerald-600 uppercase">Étape 2</span>
+              <h2 class="font-serif text-2xl sm:text-3xl text-zinc-900 mt-2">Copie la consigne du soir</h2>
+              <p class="text-sm text-zinc-600 leading-relaxed mt-5">C'est le texte que la tâche suivra chaque soir. Copie-le en entier, tu vas le coller à l'étape suivante.</p>
+              <pre id="q1" class="mt-4 whitespace-pre-wrap text-sm leading-relaxed text-zinc-800 bg-zinc-50 border border-zinc-200 rounded-xl p-5 font-mono" style="overflow-wrap:anywhere">Tu fais ma relecture du soir. Le but : que je n'aie plus à te répéter les mêmes choses.
+
+1. Cherche dans mes conversations d'aujourd'hui (utilise la recherche dans mes anciennes conversations). Si tu ne trouves aucune conversation datée d'aujourd'hui, dis-le clairement et arrête-toi là, n'invente rien.
+
+2. Repère uniquement :
+- les moments où je t'ai corrigé ou contredit (« non », « pas comme ça », « je t'ai déjà dit », « arrête de… ») ;
+- les consignes que j'ai dû répéter plusieurs fois ;
+- les préférences que j'ai exprimées clairement (ton, format, longueur, tutoiement, mots à éviter) ;
+- ce que j'ai refait moi-même parce que ta réponse n'allait pas.
+
+3. Compare avec ce que tu sais déjà de moi (ta mémoire). Ne me propose pas une règle que tu connais déjà, sauf si tu ne l'as pas respectée aujourd'hui : dans ce cas, signale-le à part.
+
+4. Propose au maximum 5 nouvelles règles, les plus utiles d'abord. Pour chacune :
+- la règle, en une phrase courte, écrite à l'impératif (exemple : « Ne mets pas d'emojis dans mes posts. ») ;
+- pourquoi : ce qui s'est passé aujourd'hui, en une ligne ;
+- combien de fois c'est arrivé.
+Ne garde que ce qui reviendra. Ignore les détails d'un seul projet ou d'un seul jour.
+
+5. Si une règle contredit une chose que tu as en mémoire, montre les deux et demande-moi laquelle garder.
+
+6. N'enregistre rien et ne modifie rien toi-même. Termine par cette phrase : « Réponds par exemple "Retiens 1 et 3" dans une conversation, et je l'ajoute à ma mémoire. »
+
+Format : un titre « Règles proposées cette nuit », la date, puis la liste numérotée. Pas d'emojis, pas de blabla. S'il n'y a rien d'utile, écris simplement : « Rien de nouveau aujourd'hui. »
+
+Ne lis pas et ne cite pas de données sensibles (santé, argent, mots de passe, numéros).</pre>
+              <button class="mt-3 inline-flex items-center justify-center rounded-lg text-xs font-semibold px-5 py-3 bg-zinc-950 hover:bg-zinc-800 text-white transition shadow-sm" onclick="navigator.clipboard.writeText(document.getElementById('q1').innerText).then(()=>{this.textContent='Copié';setTimeout(()=>this.textContent='Copier',1500)})">Copier</button>
+              <p class="text-sm text-zinc-600 leading-relaxed mt-4">La dernière ligne compte : elle évite que Claude lise ou recopie tes infos de santé, d'argent ou tes mots de passe dans son résumé.</p>
+            </div>
+          </div>
+          <div class="border-b border-zinc-100 pb-8 mb-8">
+            <div class="max-w-2xl">
+              <span class="text-[10px] font-bold tracking-wider text-emerald-600 uppercase">Étape 3</span>
+              <h2 class="font-serif text-2xl sm:text-3xl text-zinc-900 mt-2">Programme la tâche tous les soirs</h2>
+              <p class="text-sm text-zinc-600 leading-relaxed mt-5">Selon ta version de Claude, tu as deux façons de faire. Elles donnent le même résultat.</p>
+              <p class="text-sm text-zinc-600 leading-relaxed mt-4"><strong class="text-zinc-900">Le plus simple : depuis une conversation.</strong> Ouvre une nouvelle conversation, envoie ce message, puis colle la consigne juste en dessous :</p>
+              <pre id="q2" class="mt-4 whitespace-pre-wrap text-sm leading-relaxed text-zinc-800 bg-zinc-50 border border-zinc-200 rounded-xl p-5 font-mono" style="overflow-wrap:anywhere">Programme cette tâche tous les soirs à 23 h. Appelle-la « Relecture du soir ». Voici la consigne :</pre>
+              <button class="mt-3 inline-flex items-center justify-center rounded-lg text-xs font-semibold px-5 py-3 bg-zinc-950 hover:bg-zinc-800 text-white transition shadow-sm" onclick="navigator.clipboard.writeText(document.getElementById('q2').innerText).then(()=>{this.textContent='Copié';setTimeout(()=>this.textContent='Copier',1500)})">Copier</button>
+              <p class="text-sm text-zinc-600 leading-relaxed mt-4">Claude peut te poser une ou deux questions. Il te montre ensuite le nom, l'heure et la consigne. Vérifie, puis clique sur <strong class="text-zinc-900">Schedule</strong>.</p>
+              <p class="text-sm text-zinc-600 leading-relaxed mt-4"><strong class="text-zinc-900">Ou à la main, dans Cowork :</strong></p>
+              <ol class="text-sm text-zinc-600 leading-relaxed mt-3 space-y-2 list-decimal pl-5"><li>dans la barre de gauche, clique sur <strong class="text-zinc-900">Scheduled</strong> ;</li><li>en haut à droite, clique sur <strong class="text-zinc-900">New task</strong>, puis sur <strong class="text-zinc-900">Set up manually</strong> ;</li><li>nom : <strong class="text-zinc-900">Relecture du soir</strong> ;</li><li>dans le champ de la consigne (prompt), colle le texte de l'étape 2 ;</li><li>fréquence : <strong class="text-zinc-900">Daily</strong> (tous les jours), à 23 h ;</li><li>pour le mode d'approbation, choisis celui qui te demande ton accord avant d'agir ;</li><li>laisse le dossier vide : la tâche n'a pas besoin de tes fichiers. Clique sur <strong class="text-zinc-900">Save</strong>.</li></ol>
+              <p class="text-sm text-zinc-600 leading-relaxed mt-4">La tâche tourne chez Anthropic. Elle passe à l'heure prévue même si ton ordinateur dort ou que l'appli est fermée.</p>
+            </div>
+          </div>
+          <div class="border-b border-zinc-100 pb-8 mb-8">
+            <div class="max-w-2xl">
+              <span class="text-[10px] font-bold tracking-wider text-emerald-600 uppercase">Étape 4</span>
+              <h2 class="font-serif text-2xl sm:text-3xl text-zinc-900 mt-2">Teste-la une fois, ce soir</h2>
+              <p class="text-sm text-zinc-600 leading-relaxed mt-5">N'attends pas demain pour savoir si ça marche. Ouvre <strong class="text-zinc-900">Scheduled</strong>, choisis ta tâche et lance-la tout de suite (tu peux la lancer à la demande depuis cette page).</p>
+              <p class="text-sm text-zinc-600 leading-relaxed mt-3">Regarde le résultat : il doit citer des choses que tu as vraiment dites aujourd'hui. Si c'est le cas, c'est bon. S'il te répond qu'il ne trouve aucune conversation du jour, passe à la partie « Si ça ne marche pas » plus bas.</p>
+            </div>
+          </div>
+          <div class="border-b border-zinc-100 pb-8 mb-8">
+            <div class="max-w-2xl">
+              <span class="text-[10px] font-bold tracking-wider text-emerald-600 uppercase">Étape 5</span>
+              <h2 class="font-serif text-2xl sm:text-3xl text-zinc-900 mt-2">Le matin, lis sa proposition</h2>
+              <p class="text-sm text-zinc-600 leading-relaxed mt-5">Chaque passage de la tâche crée une session à part. Pour la lire, ouvre <strong class="text-zinc-900">Scheduled</strong> dans la barre de gauche, puis la dernière exécution de ta tâche. Ça ressemble à ceci (exemple inventé) :</p>
+              <div class="mt-4 bg-zinc-50 border border-zinc-200 rounded-xl p-5 text-sm text-zinc-700 leading-relaxed">
+                <p class="font-serif text-lg text-zinc-900">Règles proposées cette nuit</p>
+                <p class="text-xs text-zinc-400 mt-1">Lundi 9 novembre</p>
+                <ol class="mt-4 space-y-3 list-decimal pl-5"><li><strong class="text-zinc-900">Ne mets pas d'emojis dans mes posts.</strong><br>Pourquoi : tu les as retirés à la main de deux posts LinkedIn.<br>Combien de fois : 3.</li><li><strong class="text-zinc-900">Tutoie-moi toujours.</strong><br>Pourquoi : tu m'as repris deux fois quand je t'ai vouvoyé.<br>Combien de fois : 2.</li><li><strong class="text-zinc-900">Quand je pose une question rapide, réponds en cinq lignes maximum.</strong><br>Pourquoi : tu as écrit « plus court » après trois longues réponses.<br>Combien de fois : 3.</li></ol>
+                <p class="mt-4 text-zinc-500">Déjà en mémoire mais pas respecté aujourd'hui : « Signe mes mails avec mon prénom seulement ».</p>
+                <p class="mt-4">Réponds par exemple « Retiens 1 et 3 » dans une conversation, et je l'ajoute à ma mémoire.</p>
+              </div>
+              <p class="text-sm text-zinc-600 leading-relaxed mt-4">Les jours calmes, tu liras simplement « Rien de nouveau aujourd'hui. » C'est normal, et c'est bon signe.</p>
+            </div>
+          </div>
+          <div class="border-b border-zinc-100 pb-8 mb-8">
+            <div class="max-w-2xl">
+              <span class="text-[10px] font-bold tracking-wider text-emerald-600 uppercase">Étape 6</span>
+              <h2 class="font-serif text-2xl sm:text-3xl text-zinc-900 mt-2">Accepte ou refuse chaque règle</h2>
+              <p class="text-sm text-zinc-600 leading-relaxed mt-5"><strong class="text-zinc-900">Pour accepter</strong>, ouvre une conversation normale (pas la session de la tâche) et dis-lui ce qu'il doit retenir, avec les mots de la règle :</p>
+              <pre id="q3" class="mt-4 whitespace-pre-wrap text-sm leading-relaxed text-zinc-800 bg-zinc-50 border border-zinc-200 rounded-xl p-5 font-mono" style="overflow-wrap:anywhere">Retiens ces règles pour la suite :
+1. Ne mets pas d'emojis dans mes posts.
+3. Quand je pose une question rapide, réponds en cinq lignes maximum.</pre>
+              <button class="mt-3 inline-flex items-center justify-center rounded-lg text-xs font-semibold px-5 py-3 bg-zinc-950 hover:bg-zinc-800 text-white transition shadow-sm" onclick="navigator.clipboard.writeText(document.getElementById('q3').innerText).then(()=>{this.textContent='Copié';setTimeout(()=>this.textContent='Copier',1500)})">Copier</button>
+              <p class="text-sm text-zinc-600 leading-relaxed mt-4">Remplace les deux lignes par tes propres règles. Recopie-les en entier : une nouvelle conversation ne sait pas forcément ce que « la règle 1 » veut dire. La mise à jour s'applique à ta conversation suivante.</p>
+              <p class="text-sm text-zinc-600 leading-relaxed mt-3"><strong class="text-zinc-900">Pour refuser</strong>, ne fais rien. La tâche n'enregistre rien elle-même, donc une règle que tu ne valides pas n'existe nulle part.</p>
+              <p class="text-sm text-zinc-600 leading-relaxed mt-3"><strong class="text-zinc-900">Pour vérifier</strong>, va dans <strong class="text-zinc-900">Settings &gt; Your Claude</strong> et clique sur <strong class="text-zinc-900">Manage</strong> à côté de <strong class="text-zinc-900">Your memory</strong>. Tout ce que Claude retient y est rangé par sujets. Tu peux ouvrir un sujet, le modifier avec l'icône crayon ou le supprimer avec <strong class="text-zinc-900">Delete</strong>.</p>
+              <p class="text-sm text-zinc-600 leading-relaxed mt-3"><strong class="text-zinc-900">Tu as accepté une règle trop vite ?</strong> Dis simplement dans une conversation : « Oublie la règle sur les emojis. »</p>
+            </div>
+          </div>
+          <div class="border-b border-zinc-100 pb-8 mb-8">
+            <div class="max-w-2xl">
+              <span class="text-[10px] font-bold tracking-wider text-emerald-600 uppercase">Étape 7</span>
+              <h2 class="font-serif text-2xl sm:text-3xl text-zinc-900 mt-2">Ajuste la consigne à ta façon</h2>
+              <p class="text-sm text-zinc-600 leading-relaxed mt-5">La consigne n'est pas figée. Ouvre <strong class="text-zinc-900">Scheduled</strong>, choisis ta tâche et modifie ses instructions ou son horaire. Tu peux aussi la mettre en pause ou la supprimer depuis cette page.</p>
+              <p class="text-sm text-zinc-600 leading-relaxed mt-3">Quelques changements utiles :</p>
+              <ul class="text-sm text-zinc-600 leading-relaxed mt-3 space-y-2 list-disc pl-5"><li><strong class="text-zinc-900">Tu te couches tard ?</strong> Change l'heure. La tâche doit passer après ta dernière conversation de la journée.</li><li><strong class="text-zinc-900">Trop de règles à lire ?</strong> Remplace « au maximum 5 » par « au maximum 3 ».</li><li><strong class="text-zinc-900">Tu veux qu'il regarde un sujet précis ?</strong> Ajoute une ligne à l'étape 2 de la consigne, par exemple : « les moments où je t'ai corrigé sur mes prix ou mes offres ».</li><li><strong class="text-zinc-900">Tu utilises Claude pour le perso et le travail ?</strong> Ajoute : « Ne regarde que les conversations sur mon activité. »</li></ul>
+            </div>
+          </div>
+          <div class="border-b border-zinc-100 pb-8 mb-8">
+            <div class="max-w-2xl">
+              <span class="text-[10px] font-bold tracking-wider text-emerald-600 uppercase">Étape 8</span>
+              <h2 class="font-serif text-2xl sm:text-3xl text-zinc-900 mt-2">Après une semaine, fais le tri</h2>
+              <p class="text-sm text-zinc-600 leading-relaxed mt-5">Au bout de sept jours, tu as accepté quelques règles. Prends cinq minutes pour relire ta mémoire dans <strong class="text-zinc-900">Manage</strong> : supprime ce qui ne sert plus, et regarde si les mêmes erreurs reviennent encore.</p>
+              <p class="text-sm text-zinc-600 leading-relaxed mt-3">Tu peux aussi demander à Claude de faire ce tri avec toi, dans une conversation :</p>
+              <pre id="q4" class="mt-4 whitespace-pre-wrap text-sm leading-relaxed text-zinc-800 bg-zinc-50 border border-zinc-200 rounded-xl p-5 font-mono" style="overflow-wrap:anywhere">Relis tout ce que tu as en mémoire sur ma façon de travailler. Dis-moi les règles en double, celles qui se contredisent et celles qui semblent dépassées. Propose une version nettoyée, mais ne change rien avant que je te dise lesquelles garder.</pre>
+              <button class="mt-3 inline-flex items-center justify-center rounded-lg text-xs font-semibold px-5 py-3 bg-zinc-950 hover:bg-zinc-800 text-white transition shadow-sm" onclick="navigator.clipboard.writeText(document.getElementById('q4').innerText).then(()=>{this.textContent='Copié';setTimeout(()=>this.textContent='Copier',1500)})">Copier</button>
+              <p class="text-sm text-zinc-600 leading-relaxed mt-4">Si la tâche répond « Rien de nouveau aujourd'hui » presque tous les soirs, c'est qu'elle a fait son travail. Passe-la en <strong class="text-zinc-900">Weekly</strong> (une fois par semaine) et remplace « aujourd'hui » par « cette semaine » dans la consigne.</p>
+              <p class="text-sm text-zinc-600 leading-relaxed mt-3">Garde en tête que Claude suit beaucoup mieux ses règles, mais qu'il peut encore se tromper. Quand ça arrive, la tâche du soir le verra et te le signalera à part.</p>
+            </div>
+          </div>
+          <div class="border-b border-zinc-100 pb-8 mb-8">
+            <div class="max-w-2xl">
+              <span class="text-[10px] font-bold tracking-wider text-emerald-600 uppercase">Plan B</span>
+              <h2 class="font-serif text-2xl sm:text-3xl text-zinc-900 mt-2">Si ça ne marche pas</h2>
+              <ul class="text-sm text-zinc-600 leading-relaxed mt-5 space-y-3 list-disc pl-5"><li><strong class="text-zinc-900">Tu ne vois pas « Scheduled » ?</strong> Vérifie ton abonnement : les tâches planifiées demandent une offre payante. Sur Team ou Enterprise, ton administrateur doit avoir activé Cowork.</li><li><strong class="text-zinc-900">Elle dit ne trouver aucune conversation du jour ?</strong> Vérifie d'abord que <strong class="text-zinc-900">Search and reference chats</strong> est allumé (étape 1) et que tu n'as pas discuté en incognito. Si le problème continue, change la première étape de la consigne : « Relis ce que tu as en mémoire sur moi, signale les règles en double ou dépassées, et propose une version plus claire. » Elle fera le ménage dans ta mémoire au lieu de relire ta journée.</li><li><strong class="text-zinc-900">Tu veux être sûr qu'elle ait de quoi relire ?</strong> En fin de journée, écris dans une conversation trois lignes sur ce que tu as dû corriger, en commençant par « Note de la journée ». La tâche du soir la retrouvera plus facilement.</li><li><strong class="text-zinc-900">Elle n'a pas tourné ?</strong> Ouvre <strong class="text-zinc-900">Scheduled</strong> : tu y vois les exécutions passées et à venir. Relance-la à la main pour voir ce qui bloque.</li></ul>
+            </div>
+          </div>
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-4 bg-zinc-50 rounded-xl p-6 border border-zinc-200/60 text-xs">
+            <div><h3 class="font-bold text-zinc-900 mb-2">Pendant ton sommeil</h3><p class="text-zinc-500 leading-relaxed">La tâche tourne même si ton ordinateur est éteint.</p></div>
+            <div><h3 class="font-bold text-zinc-900 mb-2">Toi aux commandes</h3><p class="text-zinc-500 leading-relaxed">Elle propose, tu valides. Rien n'entre en mémoire sans toi.</p></div>
+            <div><h3 class="font-bold text-zinc-900 mb-2">De moins en moins de corrections</h3><p class="text-zinc-500 leading-relaxed">Chaque règle acceptée, c'est une chose que tu n'auras plus à répéter.</p></div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="bg-zinc-950 text-zinc-400 py-12 border-t border-zinc-900 text-xs">
+    <div class="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+      <div class="flex flex-col md:flex-row items-center justify-between gap-6 pb-8 border-b border-zinc-900">
+        <div class="flex items-center gap-2">
+          <span class="brand-mark h-7 w-7 text-sm !bg-white !text-zinc-950">P</span>
+          <span class="font-semibold text-white brand-word">Parlons <b>IA</b></span>
+        </div>
+        <div class="flex items-center gap-6">
+          <a href="../../parlons-ia/" class="footer-link">Accueil</a>
+          <a href="../../ateliers/" class="footer-link">Ateliers</a>
+          <a href="../../concours/" class="footer-link">Concours</a>
+        </div>
+      </div>
+
+      <div class="flex flex-col sm:flex-row items-center justify-between gap-3 mt-8 pt-6 border-t border-zinc-900 text-xs text-zinc-600">
+        <span>© <span data-year>2026</span> Parlons IA. Tous droits réservés.</span>
+        <span>Chaîne pour recevoir. Communauté pour échanger.</span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="../../script.js"></script>
+</body>
+</html>
