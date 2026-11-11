@@ -490,7 +490,6 @@ function detectInAppBrowser() {
   const ua = navigator.userAgent || "";
   if (/BytedanceWebview|musical_ly|TikTok|trill_|ByteLocale/i.test(ua)) return "TikTok";
   if (/Instagram/i.test(ua)) return "Instagram";
-  if (/FBAN|FBAV|FB_IAB|FBIOS/i.test(ua)) return "Facebook";
   if (/Snapchat/i.test(ua)) return "Snapchat";
   return null;
 }
