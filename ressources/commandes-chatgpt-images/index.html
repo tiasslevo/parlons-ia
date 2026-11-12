@@ -1,0 +1,1751 @@
+<!DOCTYPE html>
+<html lang="fr" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>301 commandes ChatGPT pour tes images — Parlons IA</title>
+  <meta name="description" content="301 commandes à taper dans ChatGPT après avoir importé ta photo : packshot, affiche, mannequin, illustration, retouche. Recherche, filtres, copie en un clic et PDF gratuit.">
+  <meta name="theme-color" content="#0b100e">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%22-60 -30 870 890%22 fill=%22none%22 stroke=%22%23ffffff%22 stroke-linecap=%22round%22 stroke-linejoin=%22round%22%3E%3Crect x=%22-60%22 y=%22-30%22 width=%22870%22 height=%22890%22 rx=%22190%22 fill=%22%230b100e%22 stroke=%22none%22/%3E %3Cpath d=%22M355,82 H205 C118,82 58,150 58,262 V432 C58,545 122,622 226,640 V742 L355,662 Z%22 stroke-width=%2232%22/%3E %3Cpath d=%22M432,86 H503 C563,86 597,128 599,186 C652,196 688,246 684,308 C714,340 714,410 677,434 C702,474 690,544 638,562 C636,634 588,690 520,690 H478 C420,690 392,652 392,612 V576 H514%22 stroke-width=%2232%22/%3E %3Cpath d=%22M382,408 C408,404 424,392 442,366 L494,284%22 stroke-width=%2224%22/%3E %3Cpath d=%22M390,490 H444 C478,490 492,470 512,445 C532,420 548,410 570,408%22 stroke-width=%2224%22/%3E %3Ccircle cx=%22510%22 cy=%22262%22 r=%2219%22 stroke-width=%2212%22/%3E %3Ccircle cx=%22590%22 cy=%22405%22 r=%2219%22 stroke-width=%2212%22/%3E %3Ccircle cx=%22536%22 cy=%22566%22 r=%2219%22 stroke-width=%2212%22/%3E %3C/svg%3E ">
+  <script>document.documentElement.classList.add("js");</script>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400;1,500&display=swap" rel="stylesheet">
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', "sans-serif"],
+            serif: ['"Playfair Display"', "serif"]
+          }
+        }
+      }
+    };
+  </script>
+  <link rel="stylesheet" href="../../styles.css">
+  <link rel="stylesheet" href="../../article.css">
+  <style>
+    .cmd-example { display: grid; gap: .75rem; max-width: 34rem; margin: 1.75rem auto 0; text-align: left; }
+    .cmd-example-chat { background: #fff; border: 1px solid #e4e4e7; border-radius: 1.1rem; padding: .9rem; box-shadow: 0 8px 30px rgb(0 0 0 / .04); }
+    .cmd-example-msg { display: flex; align-items: center; gap: .7rem; justify-content: flex-end; }
+    .cmd-example-photo { width: 3.2rem; height: 3.2rem; flex: none; border-radius: .7rem; background: #F2EDE4; border: 1px solid #e7e1d6; display: grid; place-items: center; color: #78716c; }
+    .cmd-example-bubble { background: #f4f4f5; border-radius: 1rem; padding: .55rem .85rem; font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; font-size: .95rem; font-weight: 600; color: #09090b; }
+    .cmd-example-out { display: flex; align-items: flex-start; gap: .55rem; margin-top: .75rem; font-size: .85rem; line-height: 1.5; color: #3f3f46; }
+    .cmd-example-out i, .cmd-example-out svg { flex: none; margin-top: .15rem; color: #059669; }
+    .ex-wrap { display: grid; grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr); align-items: start; gap: .6rem; margin: 1.5rem auto 0; max-width: 40rem; }
+    .ex-figure { margin: 0; text-align: left; }
+    .ex-img { display: block; width: 100%; aspect-ratio: 2 / 3; object-fit: cover; border-radius: .9rem; border: 1px solid #e4e4e7; background: #F2EDE4; }
+    .ex-photo { background: #fff; object-fit: contain; }
+    .ex-label { display: block; margin-bottom: .5rem; font-size: .68rem; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: #71717a; }
+    .ex-arrow { display: flex; flex-direction: column; align-items: center; gap: .3rem; align-self: center; font-size: .72rem; font-weight: 600; color: #059669; }
+    .ex-cap { display: flex; flex-direction: column; align-items: stretch; gap: .5rem; margin-top: .6rem; }
+    .ex-cap .cmd-code { font-size: .85rem; white-space: nowrap; }
+    .ex-cap .cmd-copy { width: 100%; }
+    .ex-note { margin-top: 1rem; font-size: .72rem; color: #a1a1aa; text-align: center; }
+    @media (min-width: 640px) {
+      .ex-wrap { gap: 1.5rem; }
+      .ex-arrow { font-size: .8rem; }
+    }
+    .cmd-toolbar { position: sticky; top: var(--cmd-top, 64px); z-index: 30; background: rgba(255,255,255,.94); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); border-bottom: 1px solid #e4e4e7; }
+    .cmd-search { position: relative; }
+    .cmd-search svg { position: absolute; left: .85rem; top: 50%; transform: translateY(-50%); width: 1.05rem; height: 1.05rem; color: #a1a1aa; pointer-events: none; }
+    .cmd-search input { width: 100%; border: 1px solid #d4d4d8; border-radius: .8rem; background: #fff; padding: .75rem 2.6rem .75rem 2.5rem; font-size: 16px; color: #09090b; outline: none; transition: border-color .2s, box-shadow .2s; }
+    .cmd-search input:focus { border-color: #10b981; box-shadow: 0 0 0 3px rgba(16,185,129,.15); }
+    .cmd-search-clear { position: absolute; right: .45rem; top: 50%; transform: translateY(-50%); width: 2rem; height: 2rem; border-radius: .5rem; color: #71717a; display: none; align-items: center; justify-content: center; font-size: 1.2rem; line-height: 1; }
+    .cmd-search-clear.is-on { display: inline-flex; }
+    .cmd-chips { display: flex; gap: .45rem; margin-top: .7rem; overflow-x: auto; scrollbar-width: none; -webkit-overflow-scrolling: touch; padding-bottom: .1rem; }
+    .cmd-chips::-webkit-scrollbar { display: none; }
+    @media (min-width: 1024px) { .cmd-chips { flex-wrap: wrap; overflow: visible; } .cmd-toolbar { position: static; } }
+    .cmd-chip { flex: none; white-space: nowrap; border: 1px solid #e4e4e7; background: #fff; color: #3f3f46; font-size: .78rem; font-weight: 600; padding: .45rem .8rem; border-radius: 999px; transition: all .2s; }
+    .cmd-chip span { color: #a1a1aa; font-weight: 600; margin-left: .15rem; }
+    .cmd-chip:hover { border-color: #a7f3d0; }
+    .cmd-chip.is-active { background: #09090b; border-color: #09090b; color: #fff; }
+    .cmd-chip.is-active span { color: #a1a1aa; }
+    .cmd-group { padding-top: 2.25rem; scroll-margin-top: 10rem; }
+    .cmd-group[hidden], .cmd-row[hidden] { display: none; }
+    .cmd-list { margin-top: 1rem; background: #fff; border: 1px solid #e4e4e7; border-radius: 1rem; overflow: hidden; }
+    .cmd-row { display: grid; grid-template-columns: minmax(0, 13rem) minmax(0, 1fr) auto; grid-template-areas: "code desc btn"; align-items: center; gap: .4rem 1.1rem; padding: .85rem 1rem; border-top: 1px solid #f4f4f5; }
+    .cmd-row:first-child { border-top: 0; }
+    .cmd-code { grid-area: code; font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; font-size: .92rem; font-weight: 700; color: #065f46; overflow-wrap: anywhere; }
+    .cmd-desc { grid-area: desc; font-size: .875rem; line-height: 1.5; color: #52525b; min-width: 0; }
+    .cmd-desc code, .cmd-group-head code { font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; font-size: .85em; color: #065f46; }
+    .cmd-copy { grid-area: btn; justify-self: end; display: inline-flex; align-items: center; justify-content: center; min-width: 5.2rem; border-radius: .6rem; font-size: .75rem; font-weight: 600; padding: .6rem .9rem; background: #09090b; color: #fff; transition: background .2s; }
+    .cmd-copy:hover { background: #27272a; }
+    .cmd-copy.is-done { background: #059669; }
+    @media (max-width: 639px) {
+      .cmd-row { grid-template-columns: minmax(0, 1fr) auto; grid-template-areas: "code btn" "desc desc"; padding: .8rem .85rem; }
+      .cmd-copy { padding: .5rem .8rem; min-width: 4.6rem; }
+    }
+    .cmd-empty { margin-top: 2.5rem; text-align: center; font-size: .9rem; color: #71717a; }
+    .cmd-pdf { display: inline-flex; align-items: center; justify-content: center; gap: .5rem; border-radius: .75rem; font-size: .85rem; font-weight: 700; padding: .85rem 1.3rem; background: #059669; color: #fff; transition: background .2s; }
+    .cmd-pdf:hover { background: #047857; }
+    .join-backdrop { position: fixed; inset: 0; z-index: 80; display: none; align-items: center; justify-content: center; padding: 1rem; background: rgba(9,9,11,.6); backdrop-filter: blur(3px); -webkit-backdrop-filter: blur(3px); }
+    .join-backdrop.is-open { display: flex; animation: join-fade .2s ease-out; }
+    .join-card { position: relative; width: 100%; max-width: 25rem; background: #fff; border-radius: 1.25rem; padding: 1.6rem 1.35rem 1.1rem; text-align: center; box-shadow: 0 24px 60px -16px rgba(0,0,0,.4); animation: join-up .25s ease-out; }
+    .join-icon { width: 3rem; height: 3rem; margin: 0 auto .9rem; border-radius: 999px; background: #ecfdf5; color: #059669; display: grid; place-items: center; }
+    .join-title { font-family: "Playfair Display", serif; font-size: 1.45rem; line-height: 1.2; color: #09090b; }
+    .join-text { margin-top: .6rem; font-size: .92rem; line-height: 1.55; color: #3f3f46; }
+    .join-btn { display: flex; align-items: center; justify-content: center; gap: .5rem; width: 100%; margin-top: 1.25rem; border-radius: .85rem; padding: 1rem 1.2rem; background: #10b981; color: #fff; font-size: 1rem; font-weight: 700; text-decoration: none; transition: background .2s; }
+    .join-btn:hover { background: #059669; }
+    .join-skip { display: inline-block; margin-top: .85rem; padding: .35rem .5rem; font-size: .78rem; color: #a1a1aa; text-decoration: underline; text-underline-offset: 3px; background: none; border: 0; cursor: pointer; }
+    .join-skip:hover { color: #52525b; }
+    .join-close { position: absolute; top: .55rem; right: .55rem; width: 2.2rem; height: 2.2rem; border-radius: .6rem; color: #a1a1aa; display: inline-flex; align-items: center; justify-content: center; font-size: 1.35rem; line-height: 1; }
+    .join-close:hover { color: #3f3f46; background: #f4f4f5; }
+    @keyframes join-fade { from { opacity: 0 } to { opacity: 1 } }
+    @keyframes join-up { from { transform: translateY(16px); opacity: 0 } to { transform: none; opacity: 1 } }
+    @media (prefers-reduced-motion: reduce) { .join-backdrop.is-open, .join-card { animation: none; } }
+  </style>
+</head>
+<body class="min-h-screen flex flex-col antialiased">
+  <header class="site-header sticky top-0 z-40 w-full border-b border-zinc-200/80 bg-white/80 backdrop-blur-md">
+    <a href="../../formation/" class="contest-banner group">
+      <span class="contest-banner-dot"></span>
+      <span>Formation</span>
+      <strong>Session en cours</strong>
+      <span class="hidden sm:inline">Réserve ta place pour la prochaine</span>
+      <i data-lucide="arrow-right" class="w-3.5 h-3.5 transition-transform group-hover:translate-x-0.5"></i>
+    </a>
+    <div class="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+      <div class="header-inner flex h-16 items-center justify-between">
+        <div class="flex items-center gap-3">
+          <a href="../../parlons-ia/" class="flex items-center gap-2 group">
+            <span class="brand-mark h-8 w-8 text-lg">P</span>
+            <span class="text-sm font-semibold tracking-tight text-zinc-900 brand-word">Parlons <b>IA</b></span>
+          </a>
+        </div>
+        <div class="hidden sm:flex items-center gap-3">
+          <a href="../" class="inline-flex items-center justify-center rounded-lg text-xs font-semibold px-4 py-2 border border-zinc-200 bg-white hover:bg-zinc-50 text-zinc-800 transition shadow-sm">
+            Toutes les ressources
+          </a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main class="flex-grow">
+    <section class="section-compact bg-white border-b border-zinc-200/60 relative overflow-hidden">
+      <div class="absolute inset-0 bg-[radial-gradient(#e4e4e7_1px,transparent_1px)] [background-size:24px_24px] opacity-40"></div>
+      <div class="relative mx-auto max-w-4xl px-4 sm:px-6 lg:px-8 text-center">
+        <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-zinc-900 text-white text-[10px] font-semibold tracking-wider uppercase mb-4">
+          Ressource gratuite
+        </span>
+        <h1 class="editorial-title text-4xl sm:text-5xl font-normal text-zinc-900 tracking-tight leading-tight">
+          301 commandes ChatGPT pour tes images
+        </h1>
+        <p class="text-sm sm:text-base text-zinc-500 max-w-2xl mx-auto mt-4 leading-relaxed font-light font-sans">
+          Tu importes ta photo dans ChatGPT, tu tapes la commande, tu envoies. Ta photo donne le sujet, la commande donne le rendu.
+        </p>
+        <div class="cmd-example">
+          <div class="cmd-example-chat">
+            <div class="cmd-example-msg">
+              <span class="cmd-example-photo" aria-hidden="true"><i data-lucide="shirt" class="w-6 h-6"></i></span>
+              <span class="cmd-example-bubble">/fashionmodel</span>
+            </div>
+            <p class="cmd-example-out"><i data-lucide="arrow-right" class="w-4 h-4"></i><span><strong class="text-zinc-900">Exemple :</strong> la photo d'un vêtement avec <code>/fashionmodel</code>, et ChatGPT le montre porté par un modèle.</span></p>
+          </div>
+        </div>
+        <div class="mt-6 flex flex-col items-center gap-2">
+          <a href="301-commandes-chatgpt-images.pdf" download="301-commandes-chatgpt-images.pdf" class="cmd-pdf" data-pdf>
+            <i data-lucide="download" class="w-4 h-4"></i>
+            Télécharger le PDF
+          </a>
+          <span class="text-xs text-zinc-400">Les 301 commandes, 20 pages</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="section-wash-soft border-b border-zinc-200/60" id="exemples">
+      <div class="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8 py-10 sm:py-12 text-center">
+        <span class="text-[10px] font-bold tracking-wider text-emerald-600 uppercase">Exemples</span>
+        <h2 class="font-serif text-2xl sm:text-3xl text-zinc-900 mt-2">Une photo, une commande</h2>
+        <div class="ex-wrap">
+          <figure class="ex-figure">
+            <span class="ex-label">Ta photo</span>
+            <img class="ex-img ex-photo" src="img/ta-photo.webp" width="600" height="751" alt="Photo de départ : un flacon de sérum corps vert sur fond blanc" decoding="async">
+          </figure>
+          <div class="ex-arrow" aria-hidden="true"><i data-lucide="arrow-right" class="w-5 h-5"></i><span>avec</span></div>
+          <figure class="ex-figure">
+            <span class="ex-label">Le résultat</span>
+            <img class="ex-img" src="img/minimalposter.webp" width="600" height="900" alt="Affiche épurée : le flacon de sérum sur un socle, fond clair et titre Sérum corps" decoding="async">
+            <figcaption class="ex-cap"><code class="cmd-code">/minimalposter</code><button type="button" class="cmd-copy" data-copy="/minimalposter" aria-label="Copier /minimalposter">Copier</button></figcaption>
+          </figure>
+        </div>
+        <p class="ex-note">Exemples générés par IA pour illustrer chaque commande. Le résultat varie selon ta photo.</p>
+      </div>
+    </section>
+
+    <div class="cmd-toolbar">
+      <div class="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8 py-3">
+        <label class="cmd-search">
+          <span class="sr-only">Chercher une commande</span>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+          <input type="search" id="cmd-q" placeholder="Chercher : affiche, plat, portrait…" autocomplete="off" enterkeyhint="search">
+          <button type="button" class="cmd-search-clear" id="cmd-clear" aria-label="Effacer la recherche">×</button>
+        </label>
+        <div class="cmd-chips" role="group" aria-label="Filtrer par catégorie">
+          <button type="button" class="cmd-chip is-active" data-cat="all" aria-pressed="true">Tout <span>301</span></button>
+          <button type="button" class="cmd-chip" data-cat="produits-et-cosmetiques" aria-pressed="false">Produits et cosmétiques <span>25</span></button>
+          <button type="button" class="cmd-chip" data-cat="pubs-et-reseaux-sociaux" aria-pressed="false">Pubs et réseaux sociaux <span>19</span></button>
+          <button type="button" class="cmd-chip" data-cat="vetements-et-mode" aria-pressed="false">Vêtements et mode <span>23</span></button>
+          <button type="button" class="cmd-chip" data-cat="plats-et-patisserie" aria-pressed="false">Plats et pâtisserie <span>20</span></button>
+          <button type="button" class="cmd-chip" data-cat="portraits-personnels" aria-pressed="false">Portraits personnels <span>27</span></button>
+          <button type="button" class="cmd-chip" data-cat="bijoux-et-accessoires" aria-pressed="false">Bijoux et accessoires <span>20</span></button>
+          <button type="button" class="cmd-chip" data-cat="boissons-et-cafes" aria-pressed="false">Boissons et cafés <span>20</span></button>
+          <button type="button" class="cmd-chip" data-cat="pieces-et-decoration-interieure" aria-pressed="false">Pièces et décoration intérieure <span>20</span></button>
+          <button type="button" class="cmd-chip" data-cat="creations-artisanales" aria-pressed="false">Créations artisanales <span>20</span></button>
+          <button type="button" class="cmd-chip" data-cat="lieux-professionnels-et-accueil" aria-pressed="false">Lieux professionnels et accueil <span>20</span></button>
+          <button type="button" class="cmd-chip" data-cat="voitures-velos-et-motos" aria-pressed="false">Voitures, vélos et motos <span>24</span></button>
+          <button type="button" class="cmd-chip" data-cat="animaux-de-compagnie" aria-pressed="false">Animaux de compagnie <span>20</span></button>
+          <button type="button" class="cmd-chip" data-cat="illustrations-a-partir-dune-photo" aria-pressed="false">Illustrations à partir d’une photo <span>21</span></button>
+          <button type="button" class="cmd-chip" data-cat="retouche-et-reparation-photo" aria-pressed="false">Retouche et réparation photo <span>12</span></button>
+          <button type="button" class="cmd-chip" data-cat="fiches-et-visuels-explicatifs" aria-pressed="false">Fiches et visuels explicatifs <span>10</span></button>
+        </div>
+      </div>
+    </div>
+
+    <section class="section-wash-soft pb-20">
+      <div class="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
+        <p class="pt-6 text-xs text-zinc-500" id="cmd-count" aria-live="polite">301 commandes</p>
+        <div id="cmd-root">
+          <section class="cmd-group" data-group="produits-et-cosmetiques">
+            <div class="cmd-group-head">
+              <h2 class="font-serif text-2xl sm:text-3xl text-zinc-900">Produits et cosmétiques</h2>
+              <p class="text-sm text-zinc-500 leading-relaxed mt-2">Pour mettre en scène une photo de produit, de flacon ou de pot de cosmétique.</p>
+            </div>
+            <ul class="cmd-list">
+              <li class="cmd-row" data-cmd="/packshot">
+                <code class="cmd-code">/packshot</code>
+                <p class="cmd-desc">Isoler le produit sur un fond clair avec une ombre légère sous sa base.</p>
+                <button type="button" class="cmd-copy" data-copy="/packshot" aria-label="Copier /packshot">Copier</button>
+              </li><li class="cmd-row" data-cmd="/stonepedestal">
+                <code class="cmd-code">/stonepedestal</code>
+                <p class="cmd-desc">Installer le produit sur un bloc de pierre avec une lumière latérale douce.</p>
+                <button type="button" class="cmd-copy" data-copy="/stonepedestal" aria-label="Copier /stonepedestal">Copier</button>
+              </li><li class="cmd-row" data-cmd="/leafshadow">
+                <code class="cmd-code">/leafshadow</code>
+                <p class="cmd-desc">Projeter des ombres de feuilles autour du produit dans une ambiance ensoleillée.</p>
+                <button type="button" class="cmd-copy" data-copy="/leafshadow" aria-label="Copier /leafshadow">Copier</button>
+              </li><li class="cmd-row" data-cmd="/bathroomshelf">
+                <code class="cmd-code">/bathroomshelf</code>
+                <p class="cmd-desc">Placer le produit près d’un lavabo dans une scène de routine quotidienne.</p>
+                <button type="button" class="cmd-copy" data-copy="/bathroomshelf" aria-label="Copier /bathroomshelf">Copier</button>
+              </li><li class="cmd-row" data-cmd="/handheld">
+                <code class="cmd-code">/handheld</code>
+                <p class="cmd-desc">Montrer une main présentant le produit, avec l’étiquette tournée vers l’objectif.</p>
+                <button type="button" class="cmd-copy" data-copy="/handheld" aria-label="Copier /handheld">Copier</button>
+              </li><li class="cmd-row" data-cmd="/ingredients">
+                <code class="cmd-code">/ingredients</code>
+                <p class="cmd-desc">Disposer autour du produit les ingrédients que tu précises dans ta demande.</p>
+                <button type="button" class="cmd-copy" data-copy="/ingredients" aria-label="Copier /ingredients">Copier</button>
+              </li><li class="cmd-row" data-cmd="/travelkit">
+                <code class="cmd-code">/travelkit</code>
+                <p class="cmd-desc">Mettre en scène le produit dans une trousse de voyage partiellement ouverte.</p>
+                <button type="button" class="cmd-copy" data-copy="/travelkit" aria-label="Copier /travelkit">Copier</button>
+              </li><li class="cmd-row" data-cmd="/labelcloseup">
+                <code class="cmd-code">/labelcloseup</code>
+                <p class="cmd-desc">Rapprocher le cadrage pour faire de l’étiquette le centre de la composition.</p>
+                <button type="button" class="cmd-copy" data-copy="/labelcloseup" aria-label="Copier /labelcloseup">Copier</button>
+              </li><li class="cmd-row" data-cmd="/textureswatch">
+                <code class="cmd-code">/textureswatch</code>
+                <p class="cmd-desc">Associer le flacon à une trace de crème ou de gel correspondant au produit précisé.</p>
+                <button type="button" class="cmd-copy" data-copy="/textureswatch" aria-label="Copier /textureswatch">Copier</button>
+              </li><li class="cmd-row" data-cmd="/unboxing">
+                <code class="cmd-code">/unboxing</code>
+                <p class="cmd-desc">Présenter le produit et son emballage dans une composition de découverte du colis.</p>
+                <button type="button" class="cmd-copy" data-copy="/unboxing" aria-label="Copier /unboxing">Copier</button>
+              </li><li class="cmd-row" data-cmd="/adlayout">
+                <code class="cmd-code">/adlayout</code>
+                <p class="cmd-desc">Placer le produit sur un côté et réserver une zone dégagée pour un titre.</p>
+                <button type="button" class="cmd-copy" data-copy="/adlayout" aria-label="Copier /adlayout">Copier</button>
+              </li><li class="cmd-row" data-cmd="/geometric">
+                <code class="cmd-code">/geometric</code>
+                <p class="cmd-desc">Entourer le produit de quelques formes géométriques pour une composition graphique.</p>
+                <button type="button" class="cmd-copy" data-copy="/geometric" aria-label="Copier /geometric">Copier</button>
+              </li><li class="cmd-row" data-cmd="/levitation">
+                <code class="cmd-code">/levitation</code>
+                <p class="cmd-desc">Faire flotter le produit au-dessus du décor avec une ombre qui suggère sa position.</p>
+                <button type="button" class="cmd-copy" data-copy="/levitation" aria-label="Copier /levitation">Copier</button>
+              </li><li class="cmd-row" data-cmd="/morningritual">
+                <code class="cmd-code">/morningritual</code>
+                <p class="cmd-desc">Intégrer le produit à un plateau de routine avec quelques objets du quotidien.</p>
+                <button type="button" class="cmd-copy" data-copy="/morningritual" aria-label="Copier /morningritual">Copier</button>
+              </li><li class="cmd-row" data-cmd="/silkdrape">
+                <code class="cmd-code">/silkdrape</code>
+                <p class="cmd-desc">Composer un décor de tissu autour du produit en laissant son étiquette visible.</p>
+                <button type="button" class="cmd-copy" data-copy="/silkdrape" aria-label="Copier /silkdrape">Copier</button>
+              </li><li class="cmd-row" data-cmd="/wallniche">
+                <code class="cmd-code">/wallniche</code>
+                <p class="cmd-desc">Exposer le produit dans une petite niche avec une lumière venant du dessus.</p>
+                <button type="button" class="cmd-copy" data-copy="/wallniche" aria-label="Copier /wallniche">Copier</button>
+              </li><li class="cmd-row" data-cmd="/branding">
+                <code class="cmd-code">/branding</code>
+                <p class="cmd-desc">Composer un visuel de marque en accordant le décor et la présentation aux couleurs du produit.</p>
+                <button type="button" class="cmd-copy" data-copy="/branding" aria-label="Copier /branding">Copier</button>
+              </li><li class="cmd-row" data-cmd="/retailshelf">
+                <code class="cmd-code">/retailshelf</code>
+                <p class="cmd-desc">Présenter le produit sur une étagère de boutique avec un arrière-plan discret.</p>
+                <button type="button" class="cmd-copy" data-copy="/retailshelf" aria-label="Copier /retailshelf">Copier</button>
+              </li><li class="cmd-row" data-cmd="/papercut">
+                <code class="cmd-code">/papercut</code>
+                <p class="cmd-desc">Créer un décor de formes en papier découpé autour du produit photographié.</p>
+                <button type="button" class="cmd-copy" data-copy="/papercut" aria-label="Copier /papercut">Copier</button>
+              </li><li class="cmd-row" data-cmd="/triptych">
+                <code class="cmd-code">/triptych</code>
+                <p class="cmd-desc">Composer trois panneaux avec le produit entier, un détail et une vue de l’emballage fourni.</p>
+                <button type="button" class="cmd-copy" data-copy="/triptych" aria-label="Copier /triptych">Copier</button>
+              </li><li class="cmd-row" data-cmd="/premiumshowcase">
+                <code class="cmd-code">/premiumshowcase</code>
+                <p class="cmd-desc">Mettre en scène le produit dans un décor haut de gamme, comme pour une séance photo de marque.</p>
+                <button type="button" class="cmd-copy" data-copy="/premiumshowcase" aria-label="Copier /premiumshowcase">Copier</button>
+              </li><li class="cmd-row" data-cmd="/deliverybox">
+                <code class="cmd-code">/deliverybox</code>
+                <p class="cmd-desc">Poser le produit dans un carton de livraison ouvert, avec papier kraft et carte de remerciement.</p>
+                <button type="button" class="cmd-copy" data-copy="/deliverybox" aria-label="Copier /deliverybox">Copier</button>
+              </li><li class="cmd-row" data-cmd="/modernrustic">
+                <code class="cmd-code">/modernrustic</code>
+                <p class="cmd-desc">Entourer le produit de bois brut et de pierre, dans l’esprit d’une marque artisanale.</p>
+                <button type="button" class="cmd-copy" data-copy="/modernrustic" aria-label="Copier /modernrustic">Copier</button>
+              </li><li class="cmd-row" data-cmd="/360view">
+                <code class="cmd-code">/360view</code>
+                <p class="cmd-desc">Composer une planche qui montre le produit sous toutes ses faces, comme une fiche de vente.</p>
+                <button type="button" class="cmd-copy" data-copy="/360view" aria-label="Copier /360view">Copier</button>
+              </li><li class="cmd-row" data-cmd="/ice">
+                <code class="cmd-code">/ice</code>
+                <p class="cmd-desc">Installer le produit dans un décor glacé, avec givre et éclats de glace.</p>
+                <button type="button" class="cmd-copy" data-copy="/ice" aria-label="Copier /ice">Copier</button>
+              </li>
+            </ul>
+          </section>
+          <section class="cmd-group" data-group="pubs-et-reseaux-sociaux">
+            <div class="cmd-group-head">
+              <h2 class="font-serif text-2xl sm:text-3xl text-zinc-900">Pubs et réseaux sociaux</h2>
+              <p class="text-sm text-zinc-500 leading-relaxed mt-2">Pour transformer la photo d’un produit en publicité, affiche ou visuel promo prêt à publier.</p>
+            </div>
+            <ul class="cmd-list">
+              <li class="cmd-row" data-cmd="/adcreative">
+                <code class="cmd-code">/adcreative</code>
+                <p class="cmd-desc">Transformer la photo en publicité prête à poster, avec décor, accroche et bouton d’action.</p>
+                <button type="button" class="cmd-copy" data-copy="/adcreative" aria-label="Copier /adcreative">Copier</button>
+              </li><li class="cmd-row" data-cmd="/metaad">
+                <code class="cmd-code">/metaad</code>
+                <p class="cmd-desc">Composer une pub au format Facebook ou Instagram, avec titre, accroche et petits pictogrammes.</p>
+                <button type="button" class="cmd-copy" data-copy="/metaad" aria-label="Copier /metaad">Copier</button>
+              </li><li class="cmd-row" data-cmd="/herooffer">
+                <code class="cmd-code">/herooffer</code>
+                <p class="cmd-desc">Mettre le produit en héros d’un visuel promo avec l’offre que tu précises, comme « -20 % ».</p>
+                <button type="button" class="cmd-copy" data-copy="/herooffer" aria-label="Copier /herooffer">Copier</button>
+              </li><li class="cmd-row" data-cmd="/minimalposter">
+                <code class="cmd-code">/minimalposter</code>
+                <p class="cmd-desc">Créer une affiche épurée, prête à publier, à partir de la photo du produit.</p>
+                <button type="button" class="cmd-copy" data-copy="/minimalposter" aria-label="Copier /minimalposter">Copier</button>
+              </li><li class="cmd-row" data-cmd="/cleanflyer">
+                <code class="cmd-code">/cleanflyer</code>
+                <p class="cmd-desc">Composer un flyer net et sobre, avec peu d’effets pour garder un rendu naturel.</p>
+                <button type="button" class="cmd-copy" data-copy="/cleanflyer" aria-label="Copier /cleanflyer">Copier</button>
+              </li><li class="cmd-row" data-cmd="/3dbillboard">
+                <code class="cmd-code">/3dbillboard</code>
+                <p class="cmd-desc">Afficher le produit sur un écran géant de rue, comme s’il sortait de l’écran en relief.</p>
+                <button type="button" class="cmd-copy" data-copy="/3dbillboard" aria-label="Copier /3dbillboard">Copier</button>
+              </li><li class="cmd-row" data-cmd="/newspaperad">
+                <code class="cmd-code">/newspaperad</code>
+                <p class="cmd-desc">Présenter le produit dans une publicité pleine page de journal ancien.</p>
+                <button type="button" class="cmd-copy" data-copy="/newspaperad" aria-label="Copier /newspaperad">Copier</button>
+              </li><li class="cmd-row" data-cmd="/explosion">
+                <code class="cmd-code">/explosion</code>
+                <p class="cmd-desc">Faire jaillir autour du produit ce qu’il contient : bonbons, épices, fruits ou morceaux.</p>
+                <button type="button" class="cmd-copy" data-copy="/explosion" aria-label="Copier /explosion">Copier</button>
+              </li><li class="cmd-row" data-cmd="/motionfreeze">
+                <code class="cmd-code">/motionfreeze</code>
+                <p class="cmd-desc">Figer en plein vol les ingrédients qui explosent autour du paquet ou de la bouteille.</p>
+                <button type="button" class="cmd-copy" data-copy="/motionfreeze" aria-label="Copier /motionfreeze">Copier</button>
+              </li><li class="cmd-row" data-cmd="/tinyworkers">
+                <code class="cmd-code">/tinyworkers</code>
+                <p class="cmd-desc">Montrer de petits ouvriers miniatures qui construisent le produit avec grue et échafaudage.</p>
+                <button type="button" class="cmd-copy" data-copy="/tinyworkers" aria-label="Copier /tinyworkers">Copier</button>
+              </li><li class="cmd-row" data-cmd="/cinematic">
+                <code class="cmd-code">/cinematic</code>
+                <p class="cmd-desc">Donner au produit l’éclairage et le cadrage d’une scène de film publicitaire.</p>
+                <button type="button" class="cmd-copy" data-copy="/cinematic" aria-label="Copier /cinematic">Copier</button>
+              </li><li class="cmd-row" data-cmd="/luxury">
+                <code class="cmd-code">/luxury</code>
+                <p class="cmd-desc">Habiller le produit d’une esthétique de luxe : matières nobles, lumière douce, décor sobre.</p>
+                <button type="button" class="cmd-copy" data-copy="/luxury" aria-label="Copier /luxury">Copier</button>
+              </li><li class="cmd-row" data-cmd="/fire">
+                <code class="cmd-code">/fire</code>
+                <p class="cmd-desc">Entourer le produit de flammes et d’étincelles pour une pub pleine d’énergie.</p>
+                <button type="button" class="cmd-copy" data-copy="/fire" aria-label="Copier /fire">Copier</button>
+              </li><li class="cmd-row" data-cmd="/energy">
+                <code class="cmd-code">/energy</code>
+                <p class="cmd-desc">Faire courir des éclairs lumineux autour du produit pour une ambiance électrique.</p>
+                <button type="button" class="cmd-copy" data-copy="/energy" aria-label="Copier /energy">Copier</button>
+              </li><li class="cmd-row" data-cmd="/neon">
+                <code class="cmd-code">/neon</code>
+                <p class="cmd-desc">Placer le produit dans un décor futuriste éclairé par des néons colorés.</p>
+                <button type="button" class="cmd-copy" data-copy="/neon" aria-label="Copier /neon">Copier</button>
+              </li><li class="cmd-row" data-cmd="/movieposter">
+                <code class="cmd-code">/movieposter</code>
+                <p class="cmd-desc">Transformer la photo en affiche de film, avec le titre et l’accroche que tu précises.</p>
+                <button type="button" class="cmd-copy" data-copy="/movieposter" aria-label="Copier /movieposter">Copier</button>
+              </li><li class="cmd-row" data-cmd="/albumcover">
+                <code class="cmd-code">/albumcover</code>
+                <p class="cmd-desc">Faire de la photo une pochette d’album carrée avec un titre court.</p>
+                <button type="button" class="cmd-copy" data-copy="/albumcover" aria-label="Copier /albumcover">Copier</button>
+              </li><li class="cmd-row" data-cmd="/ugcmarket">
+                <code class="cmd-code">/ugcmarket</code>
+                <p class="cmd-desc">Montrer le produit tenu en main dans un rayon de magasin, comme une photo de client.</p>
+                <button type="button" class="cmd-copy" data-copy="/ugcmarket" aria-label="Copier /ugcmarket">Copier</button>
+              </li><li class="cmd-row" data-cmd="/everydayphoto">
+                <code class="cmd-code">/everydayphoto</code>
+                <p class="cmd-desc">Placer le produit dans une vraie scène du quotidien, comme une photo partagée par une cliente.</p>
+                <button type="button" class="cmd-copy" data-copy="/everydayphoto" aria-label="Copier /everydayphoto">Copier</button>
+              </li>
+            </ul>
+          </section>
+          <section class="cmd-group" data-group="vetements-et-mode">
+            <div class="cmd-group-head">
+              <h2 class="font-serif text-2xl sm:text-3xl text-zinc-900">Vêtements et mode</h2>
+              <p class="text-sm text-zinc-500 leading-relaxed mt-2">Pour présenter tes vêtements dans différents décors ou sur un modèle, à partir d’une photo du vêtement posé ou porté.</p>
+            </div>
+            <ul class="cmd-list">
+              <li class="cmd-row" data-cmd="/flatlay">
+                <code class="cmd-code">/flatlay</code>
+                <p class="cmd-desc">Disposer le vêtement à plat dans une présentation nette avec un fond dégagé.</p>
+                <button type="button" class="cmd-copy" data-copy="/flatlay" aria-label="Copier /flatlay">Copier</button>
+              </li><li class="cmd-row" data-cmd="/streetstyle">
+                <code class="cmd-code">/streetstyle</code>
+                <p class="cmd-desc">Mettre la personne habillée dans une scène de rue au rendu naturel.</p>
+                <button type="button" class="cmd-copy" data-copy="/streetstyle" aria-label="Copier /streetstyle">Copier</button>
+              </li><li class="cmd-row" data-cmd="/hanger">
+                <code class="cmd-code">/hanger</code>
+                <p class="cmd-desc">Présenter le vêtement sur un cintre avec un éclairage uniforme et un fond simple.</p>
+                <button type="button" class="cmd-copy" data-copy="/hanger" aria-label="Copier /hanger">Copier</button>
+              </li><li class="cmd-row" data-cmd="/editorial">
+                <code class="cmd-code">/editorial</code>
+                <p class="cmd-desc">Composer une photographie de mode avec une pose et un décor de magazine.</p>
+                <button type="button" class="cmd-copy" data-copy="/editorial" aria-label="Copier /editorial">Copier</button>
+              </li><li class="cmd-row" data-cmd="/fabricmacro">
+                <code class="cmd-code">/fabricmacro</code>
+                <p class="cmd-desc">Créer un cadrage rapproché sur la texture et les finitions visibles du vêtement.</p>
+                <button type="button" class="cmd-copy" data-copy="/fabricmacro" aria-label="Copier /fabricmacro">Copier</button>
+              </li><li class="cmd-row" data-cmd="/graphicwall">
+                <code class="cmd-code">/graphicwall</code>
+                <p class="cmd-desc">Placer la personne devant un mur aux lignes simples qui encadrent la tenue.</p>
+                <button type="button" class="cmd-copy" data-copy="/graphicwall" aria-label="Copier /graphicwall">Copier</button>
+              </li><li class="cmd-row" data-cmd="/fashionmodel">
+                <code class="cmd-code">/fashionmodel</code>
+                <p class="cmd-desc">Présenter le vêtement porté par un modèle dans une photographie de mode.</p>
+                <button type="button" class="cmd-copy" data-copy="/fashionmodel" aria-label="Copier /fashionmodel">Copier</button>
+              </li><li class="cmd-row" data-cmd="/goldenhour">
+                <code class="cmd-code">/goldenhour</code>
+                <p class="cmd-desc">Recréer une photographie extérieure de la tenue dans une lumière basse et chaude.</p>
+                <button type="button" class="cmd-copy" data-copy="/goldenhour" aria-label="Copier /goldenhour">Copier</button>
+              </li><li class="cmd-row" data-cmd="/outfitgrid">
+                <code class="cmd-code">/outfitgrid</code>
+                <p class="cmd-desc">Assembler le vêtement et des accessoires assortis dans une vue de dessus.</p>
+                <button type="button" class="cmd-copy" data-copy="/outfitgrid" aria-label="Copier /outfitgrid">Copier</button>
+              </li><li class="cmd-row" data-cmd="/flowingfabric">
+                <code class="cmd-code">/flowingfabric</code>
+                <p class="cmd-desc">Suggérer un mouvement doux de la personne et du tissu dans une image de mode.</p>
+                <button type="button" class="cmd-copy" data-copy="/flowingfabric" aria-label="Copier /flowingfabric">Copier</button>
+              </li><li class="cmd-row" data-cmd="/boutiquerack">
+                <code class="cmd-code">/boutiquerack</code>
+                <p class="cmd-desc">Placer le vêtement au premier plan d’un portant dans une petite boutique.</p>
+                <button type="button" class="cmd-copy" data-copy="/boutiquerack" aria-label="Copier /boutiquerack">Copier</button>
+              </li><li class="cmd-row" data-cmd="/lookbook">
+                <code class="cmd-code">/lookbook</code>
+                <p class="cmd-desc">Présenter la tenue entière dans une pose simple avec un cadrage de catalogue.</p>
+                <button type="button" class="cmd-copy" data-copy="/lookbook" aria-label="Copier /lookbook">Copier</button>
+              </li><li class="cmd-row" data-cmd="/giftwrap">
+                <code class="cmd-code">/giftwrap</code>
+                <p class="cmd-desc">Montrer le vêtement plié dans un colis préparé avec du papier de protection.</p>
+                <button type="button" class="cmd-copy" data-copy="/giftwrap" aria-label="Copier /giftwrap">Copier</button>
+              </li><li class="cmd-row" data-cmd="/staircase">
+                <code class="cmd-code">/staircase</code>
+                <p class="cmd-desc">Utiliser les lignes d’un escalier pour composer une photographie autour de la tenue.</p>
+                <button type="button" class="cmd-copy" data-copy="/staircase" aria-label="Copier /staircase">Copier</button>
+              </li><li class="cmd-row" data-cmd="/sewingtable">
+                <code class="cmd-code">/sewingtable</code>
+                <p class="cmd-desc">Mettre le vêtement sur une table de couture avec quelques outils autour.</p>
+                <button type="button" class="cmd-copy" data-copy="/sewingtable" aria-label="Copier /sewingtable">Copier</button>
+              </li><li class="cmd-row" data-cmd="/directflash">
+                <code class="cmd-code">/directflash</code>
+                <p class="cmd-desc">Donner à la tenue une présentation de soirée avec un éclairage de flash marqué.</p>
+                <button type="button" class="cmd-copy" data-copy="/directflash" aria-label="Copier /directflash">Copier</button>
+              </li><li class="cmd-row" data-cmd="/typography">
+                <code class="cmd-code">/typography</code>
+                <p class="cmd-desc">Composer une affiche avec le vêtement et le court texte que tu fournis.</p>
+                <button type="button" class="cmd-copy" data-copy="/typography" aria-label="Copier /typography">Copier</button>
+              </li><li class="cmd-row" data-cmd="/windowreflection">
+                <code class="cmd-code">/windowreflection</code>
+                <p class="cmd-desc">Photographier la tenue à travers une vitre avec quelques reflets dans le décor.</p>
+                <button type="button" class="cmd-copy" data-copy="/windowreflection" aria-label="Copier /windowreflection">Copier</button>
+              </li><li class="cmd-row" data-cmd="/collectionboard">
+                <code class="cmd-code">/collectionboard</code>
+                <p class="cmd-desc">Organiser les vêtements des photos fournies sur une planche de présentation commune.</p>
+                <button type="button" class="cmd-copy" data-copy="/collectionboard" aria-label="Copier /collectionboard">Copier</button>
+              </li><li class="cmd-row" data-cmd="/fashionsketch">
+                <code class="cmd-code">/fashionsketch</code>
+                <p class="cmd-desc">Traduire la tenue portée en illustration de mode avec ses principaux détails reconnaissables.</p>
+                <button type="button" class="cmd-copy" data-copy="/fashionsketch" aria-label="Copier /fashionsketch">Copier</button>
+              </li><li class="cmd-row" data-cmd="/transferoutfit">
+                <code class="cmd-code">/transferoutfit</code>
+                <p class="cmd-desc">Habiller la personne de la première photo avec la tenue de la deuxième photo ajoutée.</p>
+                <button type="button" class="cmd-copy" data-copy="/transferoutfit" aria-label="Copier /transferoutfit">Copier</button>
+              </li><li class="cmd-row" data-cmd="/mirrorselfie">
+                <code class="cmd-code">/mirrorselfie</code>
+                <p class="cmd-desc">Recréer la photo en selfie dans le miroir, par exemple dans une cabine d’essayage.</p>
+                <button type="button" class="cmd-copy" data-copy="/mirrorselfie" aria-label="Copier /mirrorselfie">Copier</button>
+              </li><li class="cmd-row" data-cmd="/paparazzi">
+                <code class="cmd-code">/paparazzi</code>
+                <p class="cmd-desc">Présenter la tenue dans un cliché de rue pris sur le vif, au flash.</p>
+                <button type="button" class="cmd-copy" data-copy="/paparazzi" aria-label="Copier /paparazzi">Copier</button>
+              </li>
+            </ul>
+          </section>
+          <section class="cmd-group" data-group="plats-et-patisserie">
+            <div class="cmd-group-head">
+              <h2 class="font-serif text-2xl sm:text-3xl text-zinc-900">Plats et pâtisserie</h2>
+              <p class="text-sm text-zinc-500 leading-relaxed mt-2">Pour créer des visuels de plats et de pâtisseries à partir de tes photos de cuisine.</p>
+            </div>
+            <ul class="cmd-list">
+              <li class="cmd-row" data-cmd="/menushot">
+                <code class="cmd-code">/menushot</code>
+                <p class="cmd-desc">Présenter le plat seul avec un cadrage lisible pour une carte de restaurant.</p>
+                <button type="button" class="cmd-copy" data-copy="/menushot" aria-label="Copier /menushot">Copier</button>
+              </li><li class="cmd-row" data-cmd="/topview">
+                <code class="cmd-code">/topview</code>
+                <p class="cmd-desc">Composer une vue verticale du plat avec les couverts et quelques accompagnements.</p>
+                <button type="button" class="cmd-copy" data-copy="/topview" aria-label="Copier /topview">Copier</button>
+              </li><li class="cmd-row" data-cmd="/closeup">
+                <code class="cmd-code">/closeup</code>
+                <p class="cmd-desc">Rapprocher le cadrage pour montrer les textures et les détails du plat.</p>
+                <button type="button" class="cmd-copy" data-copy="/closeup" aria-label="Copier /closeup">Copier</button>
+              </li><li class="cmd-row" data-cmd="/freshlybaked">
+                <code class="cmd-code">/freshlybaked</code>
+                <p class="cmd-desc">Ajouter une légère vapeur dans une scène de service à la sortie du four.</p>
+                <button type="button" class="cmd-copy" data-copy="/freshlybaked" aria-label="Copier /freshlybaked">Copier</button>
+              </li><li class="cmd-row" data-cmd="/saucepour">
+                <code class="cmd-code">/saucepour</code>
+                <p class="cmd-desc">Montrer la sauce précisée en train de tomber sur le plat.</p>
+                <button type="button" class="cmd-copy" data-copy="/saucepour" aria-label="Copier /saucepour">Copier</button>
+              </li><li class="cmd-row" data-cmd="/ingredientspread">
+                <code class="cmd-code">/ingredientspread</code>
+                <p class="cmd-desc">Disposer autour du plat les ingrédients que tu fournis pour raconter sa préparation.</p>
+                <button type="button" class="cmd-copy" data-copy="/ingredientspread" aria-label="Copier /ingredientspread">Copier</button>
+              </li><li class="cmd-row" data-cmd="/picnic">
+                <code class="cmd-code">/picnic</code>
+                <p class="cmd-desc">Installer le plat dans une composition extérieure sur une nappe de pique-nique.</p>
+                <button type="button" class="cmd-copy" data-copy="/picnic" aria-label="Copier /picnic">Copier</button>
+              </li><li class="cmd-row" data-cmd="/takeaway">
+                <code class="cmd-code">/takeaway</code>
+                <p class="cmd-desc">Présenter le plat dans son contenant ouvert avec une mise en scène de commande.</p>
+                <button type="button" class="cmd-copy" data-copy="/takeaway" aria-label="Copier /takeaway">Copier</button>
+              </li><li class="cmd-row" data-cmd="/finedining">
+                <code class="cmd-code">/finedining</code>
+                <p class="cmd-desc">Imaginer un dressage espacé et soigné du plat sur une assiette de restaurant.</p>
+                <button type="button" class="cmd-copy" data-copy="/finedining" aria-label="Copier /finedining">Copier</button>
+              </li><li class="cmd-row" data-cmd="/familyfeast">
+                <code class="cmd-code">/familyfeast</code>
+                <p class="cmd-desc">Mettre le plat au centre d’une table préparée pour un repas partagé.</p>
+                <button type="button" class="cmd-copy" data-copy="/familyfeast" aria-label="Copier /familyfeast">Copier</button>
+              </li><li class="cmd-row" data-cmd="/dailyspecial">
+                <code class="cmd-code">/dailyspecial</code>
+                <p class="cmd-desc">Créer un visuel du plat avec une zone libre pour le nom et le prix.</p>
+                <button type="button" class="cmd-copy" data-copy="/dailyspecial" aria-label="Copier /dailyspecial">Copier</button>
+              </li><li class="cmd-row" data-cmd="/openkitchen">
+                <code class="cmd-code">/openkitchen</code>
+                <p class="cmd-desc">Présenter le plat au comptoir avec une cuisine de restaurant légèrement floue derrière.</p>
+                <button type="button" class="cmd-copy" data-copy="/openkitchen" aria-label="Copier /openkitchen">Copier</button>
+              </li><li class="cmd-row" data-cmd="/cakestand">
+                <code class="cmd-code">/cakestand</code>
+                <p class="cmd-desc">Exposer la pâtisserie sur un présentoir simple avec une lumière douce de vitrine.</p>
+                <button type="button" class="cmd-copy" data-copy="/cakestand" aria-label="Copier /cakestand">Copier</button>
+              </li><li class="cmd-row" data-cmd="/crosssection">
+                <code class="cmd-code">/crosssection</code>
+                <p class="cmd-desc">Montrer une part coupée en reprenant les couches visibles dans la référence fournie.</p>
+                <button type="button" class="cmd-copy" data-copy="/crosssection" aria-label="Copier /crosssection">Copier</button>
+              </li><li class="cmd-row" data-cmd="/sugardust">
+                <code class="cmd-code">/sugardust</code>
+                <p class="cmd-desc">Saisir visuellement un nuage de sucre fin en train de tomber sur la pâtisserie.</p>
+                <button type="button" class="cmd-copy" data-copy="/sugardust" aria-label="Copier /sugardust">Copier</button>
+              </li><li class="cmd-row" data-cmd="/giftbox">
+                <code class="cmd-code">/giftbox</code>
+                <p class="cmd-desc">Installer les pâtisseries dans une boîte ouverte avec une présentation de cadeau.</p>
+                <button type="button" class="cmd-copy" data-copy="/giftbox" aria-label="Copier /giftbox">Copier</button>
+              </li><li class="cmd-row" data-cmd="/tableservice">
+                <code class="cmd-code">/tableservice</code>
+                <p class="cmd-desc">Montrer des mains apportant l’assiette vers la table dans un cadrage rapproché.</p>
+                <button type="button" class="cmd-copy" data-copy="/tableservice" aria-label="Copier /tableservice">Copier</button>
+              </li><li class="cmd-row" data-cmd="/buffet">
+                <code class="cmd-code">/buffet</code>
+                <p class="cmd-desc">Intégrer le plat à un buffet en laissant sa présentation bien visible au premier plan.</p>
+                <button type="button" class="cmd-copy" data-copy="/buffet" aria-label="Copier /buffet">Copier</button>
+              </li><li class="cmd-row" data-cmd="/breakfast">
+                <code class="cmd-code">/breakfast</code>
+                <p class="cmd-desc">Composer une scène matinale avec la pâtisserie, une tasse et une serviette.</p>
+                <button type="button" class="cmd-copy" data-copy="/breakfast" aria-label="Copier /breakfast">Copier</button>
+              </li><li class="cmd-row" data-cmd="/candlelight">
+                <code class="cmd-code">/candlelight</code>
+                <p class="cmd-desc">Mettre le plat en scène sur une table avec un éclairage doux de dîner.</p>
+                <button type="button" class="cmd-copy" data-copy="/candlelight" aria-label="Copier /candlelight">Copier</button>
+              </li>
+            </ul>
+          </section>
+          <section class="cmd-group" data-group="portraits-personnels">
+            <div class="cmd-group-head">
+              <h2 class="font-serif text-2xl sm:text-3xl text-zinc-900">Portraits personnels</h2>
+              <p class="text-sm text-zinc-500 leading-relaxed mt-2">Pour changer l’ambiance, le cadrage ou le style d’une photo de toi.</p>
+            </div>
+            <ul class="cmd-list">
+              <li class="cmd-row" data-cmd="/headshot">
+                <code class="cmd-code">/headshot</code>
+                <p class="cmd-desc">Créer un portrait professionnel simple avec un cadrage de buste et une lumière douce.</p>
+                <button type="button" class="cmd-copy" data-copy="/headshot" aria-label="Copier /headshot">Copier</button>
+              </li><li class="cmd-row" data-cmd="/windowlight">
+                <code class="cmd-code">/windowlight</code>
+                <p class="cmd-desc">Éclairer le visage de côté dans une scène intérieure au rendu naturel.</p>
+                <button type="button" class="cmd-copy" data-copy="/windowlight" aria-label="Copier /windowlight">Copier</button>
+              </li><li class="cmd-row" data-cmd="/filmnoir">
+                <code class="cmd-code">/filmnoir</code>
+                <p class="cmd-desc">Composer un portrait monochrome avec des ombres marquées et un éclairage de cinéma.</p>
+                <button type="button" class="cmd-copy" data-copy="/filmnoir" aria-label="Copier /filmnoir">Copier</button>
+              </li><li class="cmd-row" data-cmd="/rooftop">
+                <code class="cmd-code">/rooftop</code>
+                <p class="cmd-desc">Installer la personne sur une terrasse avec un arrière-plan de ville légèrement flou.</p>
+                <button type="button" class="cmd-copy" data-copy="/rooftop" aria-label="Copier /rooftop">Copier</button>
+              </li><li class="cmd-row" data-cmd="/analog">
+                <code class="cmd-code">/analog</code>
+                <p class="cmd-desc">Donner au portrait un grain discret et des couleurs inspirées de la photographie argentique.</p>
+                <button type="button" class="cmd-copy" data-copy="/analog" aria-label="Copier /analog">Copier</button>
+              </li><li class="cmd-row" data-cmd="/highangle">
+                <code class="cmd-code">/highangle</code>
+                <p class="cmd-desc">Imaginer un portrait pris depuis un angle élevé avec le regard tourné vers l’objectif.</p>
+                <button type="button" class="cmd-copy" data-copy="/highangle" aria-label="Copier /highangle">Copier</button>
+              </li><li class="cmd-row" data-cmd="/workspace">
+                <code class="cmd-code">/workspace</code>
+                <p class="cmd-desc">Présenter la personne dans un espace de travail correspondant au contexte que tu précises.</p>
+                <button type="button" class="cmd-copy" data-copy="/workspace" aria-label="Copier /workspace">Copier</button>
+              </li><li class="cmd-row" data-cmd="/magazinecover">
+                <code class="cmd-code">/magazinecover</code>
+                <p class="cmd-desc">Placer le visage dans une composition de magazine avec une zone libre pour du texte.</p>
+                <button type="button" class="cmd-copy" data-copy="/magazinecover" aria-label="Copier /magazinecover">Copier</button>
+              </li><li class="cmd-row" data-cmd="/sunsetglow">
+                <code class="cmd-code">/sunsetglow</code>
+                <p class="cmd-desc">Recréer un portrait extérieur avec une lumière chaude sur le visage et les contours.</p>
+                <button type="button" class="cmd-copy" data-copy="/sunsetglow" aria-label="Copier /sunsetglow">Copier</button>
+              </li><li class="cmd-row" data-cmd="/photobooth">
+                <code class="cmd-code">/photobooth</code>
+                <p class="cmd-desc">Composer quatre petits portraits dans une bande verticale inspirée d’un photomaton.</p>
+                <button type="button" class="cmd-copy" data-copy="/photobooth" aria-label="Copier /photobooth">Copier</button>
+              </li><li class="cmd-row" data-cmd="/bokeh">
+                <code class="cmd-code">/bokeh</code>
+                <p class="cmd-desc">Détacher le visage devant un arrière-plan flou ponctué de petites sources de lumière.</p>
+                <button type="button" class="cmd-copy" data-copy="/bokeh" aria-label="Copier /bokeh">Copier</button>
+              </li><li class="cmd-row" data-cmd="/blindshadows">
+                <code class="cmd-code">/blindshadows</code>
+                <p class="cmd-desc">Faire traverser le décor et une partie du visage par des bandes de lumière.</p>
+                <button type="button" class="cmd-copy" data-copy="/blindshadows" aria-label="Copier /blindshadows">Copier</button>
+              </li><li class="cmd-row" data-cmd="/glassreflection">
+                <code class="cmd-code">/glassreflection</code>
+                <p class="cmd-desc">Associer le portrait à son reflet dans une vitre pour une composition de rue.</p>
+                <button type="button" class="cmd-copy" data-copy="/glassreflection" aria-label="Copier /glassreflection">Copier</button>
+              </li><li class="cmd-row" data-cmd="/wideshot">
+                <code class="cmd-code">/wideshot</code>
+                <p class="cmd-desc">Montrer la personne en pied dans un lieu dont les lignes structurent l’image.</p>
+                <button type="button" class="cmd-copy" data-copy="/wideshot" aria-label="Copier /wideshot">Copier</button>
+              </li><li class="cmd-row" data-cmd="/profilepic">
+                <code class="cmd-code">/profilepic</code>
+                <p class="cmd-desc">Créer un portrait centré qui reste lisible dans un recadrage circulaire de profil.</p>
+                <button type="button" class="cmd-copy" data-copy="/profilepic" aria-label="Copier /profilepic">Copier</button>
+              </li><li class="cmd-row" data-cmd="/silhouette">
+                <code class="cmd-code">/silhouette</code>
+                <p class="cmd-desc">Montrer la personne en silhouette devant un ciel de fin de journée.</p>
+                <button type="button" class="cmd-copy" data-copy="/silhouette" aria-label="Copier /silhouette">Copier</button>
+              </li><li class="cmd-row" data-cmd="/doubleexposure">
+                <code class="cmd-code">/doubleexposure</code>
+                <p class="cmd-desc">Superposer le portrait et un paysage végétal dans une composition photographique créative.</p>
+                <button type="button" class="cmd-copy" data-copy="/doubleexposure" aria-label="Copier /doubleexposure">Copier</button>
+              </li><li class="cmd-row" data-cmd="/banner">
+                <code class="cmd-code">/banner</code>
+                <p class="cmd-desc">Élargir la composition autour de la personne pour une bannière horizontale.</p>
+                <button type="button" class="cmd-copy" data-copy="/banner" aria-label="Copier /banner">Copier</button>
+              </li><li class="cmd-row" data-cmd="/streetcandid">
+                <code class="cmd-code">/streetcandid</code>
+                <p class="cmd-desc">Mettre en scène la personne dans une photographie de rue au rendu spontané.</p>
+                <button type="button" class="cmd-copy" data-copy="/streetcandid" aria-label="Copier /streetcandid">Copier</button>
+              </li><li class="cmd-row" data-cmd="/travelposter">
+                <code class="cmd-code">/travelposter</code>
+                <p class="cmd-desc">Transformer le portrait en affiche illustrée avec une destination que tu choisis.</p>
+                <button type="button" class="cmd-copy" data-copy="/travelposter" aria-label="Copier /travelposter">Copier</button>
+              </li><li class="cmd-row" data-cmd="/wormsview">
+                <code class="cmd-code">/wormsview</code>
+                <p class="cmd-desc">Recréer la photo en contre-plongée très basse, avec un effet spectaculaire.</p>
+                <button type="button" class="cmd-copy" data-copy="/wormsview" aria-label="Copier /wormsview">Copier</button>
+              </li><li class="cmd-row" data-cmd="/coupleselfie">
+                <code class="cmd-code">/coupleselfie</code>
+                <p class="cmd-desc">Composer un selfie complice à deux à partir des photos des deux personnes.</p>
+                <button type="button" class="cmd-copy" data-copy="/coupleselfie" aria-label="Copier /coupleselfie">Copier</button>
+              </li><li class="cmd-row" data-cmd="/romancecollage">
+                <code class="cmd-code">/romancecollage</code>
+                <p class="cmd-desc">Assembler un collage romantique de souvenirs, avec photos instantanées et petits cœurs.</p>
+                <button type="button" class="cmd-copy" data-copy="/romancecollage" aria-label="Copier /romancecollage">Copier</button>
+              </li><li class="cmd-row" data-cmd="/firefade">
+                <code class="cmd-code">/firefade</code>
+                <p class="cmd-desc">Faire émerger la personne d’un mur de flammes, dans une ambiance de cinéma.</p>
+                <button type="button" class="cmd-copy" data-copy="/firefade" aria-label="Copier /firefade">Copier</button>
+              </li><li class="cmd-row" data-cmd="/ghostwalk">
+                <code class="cmd-code">/ghostwalk</code>
+                <p class="cmd-desc">Ajouter derrière la personne des traînées transparentes, comme une photo à pose longue.</p>
+                <button type="button" class="cmd-copy" data-copy="/ghostwalk" aria-label="Copier /ghostwalk">Copier</button>
+              </li><li class="cmd-row" data-cmd="/halloween">
+                <code class="cmd-code">/halloween</code>
+                <p class="cmd-desc">Transformer le portrait en version Halloween, avec costume et décor de saison.</p>
+                <button type="button" class="cmd-copy" data-copy="/halloween" aria-label="Copier /halloween">Copier</button>
+              </li><li class="cmd-row" data-cmd="/vampire">
+                <code class="cmd-code">/vampire</code>
+                <p class="cmd-desc">Donner au portrait un costume de vampire dans un décor gothique.</p>
+                <button type="button" class="cmd-copy" data-copy="/vampire" aria-label="Copier /vampire">Copier</button>
+              </li>
+            </ul>
+          </section>
+          <section class="cmd-group" data-group="bijoux-et-accessoires">
+            <div class="cmd-group-head">
+              <h2 class="font-serif text-2xl sm:text-3xl text-zinc-900">Bijoux et accessoires</h2>
+              <p class="text-sm text-zinc-500 leading-relaxed mt-2">Pour mettre en valeur tes bijoux, montres, sacs ou lunettes à partir d’une photo.</p>
+            </div>
+            <ul class="cmd-list">
+              <li class="cmd-row" data-cmd="/velvet">
+                <code class="cmd-code">/velvet</code>
+                <p class="cmd-desc">Présenter le bijou sur un coussin de velours, avec un éclairage doux.</p>
+                <button type="button" class="cmd-copy" data-copy="/velvet" aria-label="Copier /velvet">Copier</button>
+              </li><li class="cmd-row" data-cmd="/sculpturalstand">
+                <code class="cmd-code">/sculpturalstand</code>
+                <p class="cmd-desc">Poser l’accessoire sur un socle aux lignes géométriques dans une scène épurée.</p>
+                <button type="button" class="cmd-copy" data-copy="/sculpturalstand" aria-label="Copier /sculpturalstand">Copier</button>
+              </li><li class="cmd-row" data-cmd="/opencase">
+                <code class="cmd-code">/opencase</code>
+                <p class="cmd-desc">Montrer le bijou dans un écrin ouvert, vu légèrement de dessus.</p>
+                <button type="button" class="cmd-copy" data-copy="/opencase" aria-label="Copier /opencase">Copier</button>
+              </li><li class="cmd-row" data-cmd="/macro">
+                <code class="cmd-code">/macro</code>
+                <p class="cmd-desc">Obtenir un cadrage serré sur les détails et la finition du bijou.</p>
+                <button type="button" class="cmd-copy" data-copy="/macro" aria-label="Copier /macro">Copier</button>
+              </li><li class="cmd-row" data-cmd="/tryon">
+                <code class="cmd-code">/tryon</code>
+                <p class="cmd-desc">Montrer le bijou porté, avec un cadrage centré sur l’accessoire.</p>
+                <button type="button" class="cmd-copy" data-copy="/tryon" aria-label="Copier /tryon">Copier</button>
+              </li><li class="cmd-row" data-cmd="/stilllife">
+                <code class="cmd-code">/stilllife</code>
+                <p class="cmd-desc">Composer une scène de magazine autour du sac avec quelques objets assortis.</p>
+                <button type="button" class="cmd-copy" data-copy="/stilllife" aria-label="Copier /stilllife">Copier</button>
+              </li><li class="cmd-row" data-cmd="/mirror">
+                <code class="cmd-code">/mirror</code>
+                <p class="cmd-desc">Disposer le bijou sur un miroir avec un reflet lisible et une lumière diffuse.</p>
+                <button type="button" class="cmd-copy" data-copy="/mirror" aria-label="Copier /mirror">Copier</button>
+              </li><li class="cmd-row" data-cmd="/showcase">
+                <code class="cmd-code">/showcase</code>
+                <p class="cmd-desc">Installer l’accessoire au centre d’une petite vitrine éclairée comme en boutique.</p>
+                <button type="button" class="cmd-copy" data-copy="/showcase" aria-label="Copier /showcase">Copier</button>
+              </li><li class="cmd-row" data-cmd="/sideview">
+                <code class="cmd-code">/sideview</code>
+                <p class="cmd-desc">Présenter les lunettes de côté pour montrer les branches et la silhouette.</p>
+                <button type="button" class="cmd-copy" data-copy="/sideview" aria-label="Copier /sideview">Copier</button>
+              </li><li class="cmd-row" data-cmd="/wristshot">
+                <code class="cmd-code">/wristshot</code>
+                <p class="cmd-desc">Mettre la montre au poignet dans un cadrage serré de photographie publicitaire.</p>
+                <button type="button" class="cmd-copy" data-copy="/wristshot" aria-label="Copier /wristshot">Copier</button>
+              </li><li class="cmd-row" data-cmd="/wardrobe">
+                <code class="cmd-code">/wardrobe</code>
+                <p class="cmd-desc">Intégrer le sac à une composition avec une tenue et des chaussures assorties.</p>
+                <button type="button" class="cmd-copy" data-copy="/wardrobe" aria-label="Copier /wardrobe">Copier</button>
+              </li><li class="cmd-row" data-cmd="/driedflowers">
+                <code class="cmd-code">/driedflowers</code>
+                <p class="cmd-desc">Placer le bijou dans une composition délicate avec quelques fleurs séchées.</p>
+                <button type="button" class="cmd-copy" data-copy="/driedflowers" aria-label="Copier /driedflowers">Copier</button>
+              </li><li class="cmd-row" data-cmd="/hardshadows">
+                <code class="cmd-code">/hardshadows</code>
+                <p class="cmd-desc">Créer une image avec des ombres franches qui encadrent l’accessoire.</p>
+                <button type="button" class="cmd-copy" data-copy="/hardshadows" aria-label="Copier /hardshadows">Copier</button>
+              </li><li class="cmd-row" data-cmd="/floating">
+                <code class="cmd-code">/floating</code>
+                <p class="cmd-desc">Présenter le sac comme suspendu dans les airs, avec une ombre en dessous.</p>
+                <button type="button" class="cmd-copy" data-copy="/floating" aria-label="Copier /floating">Copier</button>
+              </li><li class="cmd-row" data-cmd="/sculptedbust">
+                <code class="cmd-code">/sculptedbust</code>
+                <p class="cmd-desc">Exposer le bijou sur une sculpture simple évoquant une main ou un buste.</p>
+                <button type="button" class="cmd-copy" data-copy="/sculptedbust" aria-label="Copier /sculptedbust">Copier</button>
+              </li><li class="cmd-row" data-cmd="/giftset">
+                <code class="cmd-code">/giftset</code>
+                <p class="cmd-desc">Mettre en scène l’accessoire dans un coffret avec un ruban et du papier fin.</p>
+                <button type="button" class="cmd-copy" data-copy="/giftset" aria-label="Copier /giftset">Copier</button>
+              </li><li class="cmd-row" data-cmd="/poolside">
+                <code class="cmd-code">/poolside</code>
+                <p class="cmd-desc">Photographier les lunettes près de l’eau, avec des reflets lumineux autour.</p>
+                <button type="button" class="cmd-copy" data-copy="/poolside" aria-label="Copier /poolside">Copier</button>
+              </li><li class="cmd-row" data-cmd="/glassdome">
+                <code class="cmd-code">/glassdome</code>
+                <p class="cmd-desc">Isoler le bijou sous une cloche transparente dans une présentation de collection.</p>
+                <button type="button" class="cmd-copy" data-copy="/glassdome" aria-label="Copier /glassdome">Copier</button>
+              </li><li class="cmd-row" data-cmd="/diagonal">
+                <code class="cmd-code">/diagonal</code>
+                <p class="cmd-desc">Placer l’accessoire en diagonale pour laisser une zone libre dans le visuel.</p>
+                <button type="button" class="cmd-copy" data-copy="/diagonal" aria-label="Copier /diagonal">Copier</button>
+              </li><li class="cmd-row" data-cmd="/travelmood">
+                <code class="cmd-code">/travelmood</code>
+                <p class="cmd-desc">Composer une scène de départ en voyage où l’accessoire reste bien visible.</p>
+                <button type="button" class="cmd-copy" data-copy="/travelmood" aria-label="Copier /travelmood">Copier</button>
+              </li>
+            </ul>
+          </section>
+          <section class="cmd-group" data-group="boissons-et-cafes">
+            <div class="cmd-group-head">
+              <h2 class="font-serif text-2xl sm:text-3xl text-zinc-900">Boissons et cafés</h2>
+              <p class="text-sm text-zinc-500 leading-relaxed mt-2">Pour créer des images de boissons, de cafés et de thés à partir d’une photo du verre, de la tasse ou de la bouteille.</p>
+            </div>
+            <ul class="cmd-list">
+              <li class="cmd-row" data-cmd="/condensation">
+                <code class="cmd-code">/condensation</code>
+                <p class="cmd-desc">Ajouter de fines gouttes sur le contenant pour une présentation de boisson fraîche.</p>
+                <button type="button" class="cmd-copy" data-copy="/condensation" aria-label="Copier /condensation">Copier</button>
+              </li><li class="cmd-row" data-cmd="/splash">
+                <code class="cmd-code">/splash</code>
+                <p class="cmd-desc">Entourer le verre d’une éclaboussure suspendue comme sur une photo de publicité.</p>
+                <button type="button" class="cmd-copy" data-copy="/splash" aria-label="Copier /splash">Copier</button>
+              </li><li class="cmd-row" data-cmd="/morningsteam">
+                <code class="cmd-code">/morningsteam</code>
+                <p class="cmd-desc">Montrer la tasse avec une vapeur légère dans une lumière de début de journée.</p>
+                <button type="button" class="cmd-copy" data-copy="/morningsteam" aria-label="Copier /morningsteam">Copier</button>
+              </li><li class="cmd-row" data-cmd="/backlight">
+                <code class="cmd-code">/backlight</code>
+                <p class="cmd-desc">Faire passer la lumière derrière le verre pour montrer la couleur du liquide.</p>
+                <button type="button" class="cmd-copy" data-copy="/backlight" aria-label="Copier /backlight">Copier</button>
+              </li><li class="cmd-row" data-cmd="/icebucket">
+                <code class="cmd-code">/icebucket</code>
+                <p class="cmd-desc">Présenter la bouteille dans un seau rempli de glace sur une table.</p>
+                <button type="button" class="cmd-copy" data-copy="/icebucket" aria-label="Copier /icebucket">Copier</button>
+              </li><li class="cmd-row" data-cmd="/overhead">
+                <code class="cmd-code">/overhead</code>
+                <p class="cmd-desc">Composer une vue verticale du verre et des quelques accessoires disposés autour.</p>
+                <button type="button" class="cmd-copy" data-copy="/overhead" aria-label="Copier /overhead">Copier</button>
+              </li><li class="cmd-row" data-cmd="/bartop">
+                <code class="cmd-code">/bartop</code>
+                <p class="cmd-desc">Installer la boisson au premier plan d’un comptoir, avec un arrière-plan légèrement flou.</p>
+                <button type="button" class="cmd-copy" data-copy="/bartop" aria-label="Copier /bartop">Copier</button>
+              </li><li class="cmd-row" data-cmd="/tearitual">
+                <code class="cmd-code">/tearitual</code>
+                <p class="cmd-desc">Créer une scène calme avec la tasse et une théière sur un plateau simple.</p>
+                <button type="button" class="cmd-copy" data-copy="/tearitual" aria-label="Copier /tearitual">Copier</button>
+              </li><li class="cmd-row" data-cmd="/beachbar">
+                <code class="cmd-code">/beachbar</code>
+                <p class="cmd-desc">Placer la boisson sur une table avec une plage lumineuse en arrière-plan.</p>
+                <button type="button" class="cmd-copy" data-copy="/beachbar" aria-label="Copier /beachbar">Copier</button>
+              </li><li class="cmd-row" data-cmd="/readingnook">
+                <code class="cmd-code">/readingnook</code>
+                <p class="cmd-desc">Intégrer la tasse à une scène avec un livre ouvert et un fauteuil.</p>
+                <button type="button" class="cmd-copy" data-copy="/readingnook" aria-label="Copier /readingnook">Copier</button>
+              </li><li class="cmd-row" data-cmd="/crushedice">
+                <code class="cmd-code">/crushedice</code>
+                <p class="cmd-desc">Poser la canette au milieu de morceaux de glace en gardant sa face visible.</p>
+                <button type="button" class="cmd-copy" data-copy="/crushedice" aria-label="Copier /crushedice">Copier</button>
+              </li><li class="cmd-row" data-cmd="/bubbles">
+                <code class="cmd-code">/bubbles</code>
+                <p class="cmd-desc">Créer un gros plan qui montre les bulles dans une boisson pétillante.</p>
+                <button type="button" class="cmd-copy" data-copy="/bubbles" aria-label="Copier /bubbles">Copier</button>
+              </li><li class="cmd-row" data-cmd="/pourshot">
+                <code class="cmd-code">/pourshot</code>
+                <p class="cmd-desc">Montrer un liquide versé dans le verre avec le filet suspendu dans l’image.</p>
+                <button type="button" class="cmd-copy" data-copy="/pourshot" aria-label="Copier /pourshot">Copier</button>
+              </li><li class="cmd-row" data-cmd="/sunlittable">
+                <code class="cmd-code">/sunlittable</code>
+                <p class="cmd-desc">Projeter l’ombre d’une fenêtre autour de la tasse sur une table dégagée.</p>
+                <button type="button" class="cmd-copy" data-copy="/sunlittable" aria-label="Copier /sunlittable">Copier</button>
+              </li><li class="cmd-row" data-cmd="/layers">
+                <code class="cmd-code">/layers</code>
+                <p class="cmd-desc">Présenter les couches d’une boisson adaptée dans un verre transparent vu de côté.</p>
+                <button type="button" class="cmd-copy" data-copy="/layers" aria-label="Copier /layers">Copier</button>
+              </li><li class="cmd-row" data-cmd="/servingtray">
+                <code class="cmd-code">/servingtray</code>
+                <p class="cmd-desc">Mettre la boisson sur un plateau avec une serviette pliée et un petit accompagnement.</p>
+                <button type="button" class="cmd-copy" data-copy="/servingtray" aria-label="Copier /servingtray">Copier</button>
+              </li><li class="cmd-row" data-cmd="/rimlight">
+                <code class="cmd-code">/rimlight</code>
+                <p class="cmd-desc">Détacher les contours de la bouteille sur un fond sombre grâce à des lumières latérales.</p>
+                <button type="button" class="cmd-copy" data-copy="/rimlight" aria-label="Copier /rimlight">Copier</button>
+              </li><li class="cmd-row" data-cmd="/summerposter">
+                <code class="cmd-code">/summerposter</code>
+                <p class="cmd-desc">Créer une composition estivale avec la boisson et une place libre pour un titre.</p>
+                <button type="button" class="cmd-copy" data-copy="/summerposter" aria-label="Copier /summerposter">Copier</button>
+              </li><li class="cmd-row" data-cmd="/handshot">
+                <code class="cmd-code">/handshot</code>
+                <p class="cmd-desc">Montrer une main tenant la boisson dans un cadrage proche et naturel.</p>
+                <button type="button" class="cmd-copy" data-copy="/handshot" aria-label="Copier /handshot">Copier</button>
+              </li><li class="cmd-row" data-cmd="/ingredientlayout">
+                <code class="cmd-code">/ingredientlayout</code>
+                <p class="cmd-desc">Entourer la boisson des ingrédients que tu précises pour expliquer visuellement sa composition.</p>
+                <button type="button" class="cmd-copy" data-copy="/ingredientlayout" aria-label="Copier /ingredientlayout">Copier</button>
+              </li>
+            </ul>
+          </section>
+          <section class="cmd-group" data-group="pieces-et-decoration-interieure">
+            <div class="cmd-group-head">
+              <h2 class="font-serif text-2xl sm:text-3xl text-zinc-900">Pièces et décoration intérieure</h2>
+              <p class="text-sm text-zinc-500 leading-relaxed mt-2">Pour imaginer une autre décoration ou un nouvel aménagement à partir d’une photo de ta pièce.</p>
+            </div>
+            <ul class="cmd-list">
+              <li class="cmd-row" data-cmd="/warmminimal">
+                <code class="cmd-code">/warmminimal</code>
+                <p class="cmd-desc">Imaginer un aménagement avec peu de meubles, des matières naturelles et une lumière douce.</p>
+                <button type="button" class="cmd-copy" data-copy="/warmminimal" aria-label="Copier /warmminimal">Copier</button>
+              </li><li class="cmd-row" data-cmd="/library">
+                <code class="cmd-code">/library</code>
+                <p class="cmd-desc">Ajouter une composition de bibliothèque et un espace de lecture dans la pièce.</p>
+                <button type="button" class="cmd-copy" data-copy="/library" aria-label="Copier /library">Copier</button>
+              </li><li class="cmd-row" data-cmd="/industrial">
+                <code class="cmd-code">/industrial</code>
+                <p class="cmd-desc">Proposer un décor inspiré d’un atelier avec du métal et des meubles fonctionnels.</p>
+                <button type="button" class="cmd-copy" data-copy="/industrial" aria-label="Copier /industrial">Copier</button>
+              </li><li class="cmd-row" data-cmd="/mediterranean">
+                <code class="cmd-code">/mediterranean</code>
+                <p class="cmd-desc">Imaginer un décor de chaux, de bois clair et de fibres tressées.</p>
+                <button type="button" class="cmd-copy" data-copy="/mediterranean" aria-label="Copier /mediterranean">Copier</button>
+              </li><li class="cmd-row" data-cmd="/musiclounge">
+                <code class="cmd-code">/musiclounge</code>
+                <p class="cmd-desc">Aménager la pièce autour d’un espace d’écoute avec les équipements que tu précises.</p>
+                <button type="button" class="cmd-copy" data-copy="/musiclounge" aria-label="Copier /musiclounge">Copier</button>
+              </li><li class="cmd-row" data-cmd="/homeoffice">
+                <code class="cmd-code">/homeoffice</code>
+                <p class="cmd-desc">Intégrer visuellement un petit bureau et du rangement dans un angle de la pièce.</p>
+                <button type="button" class="cmd-copy" data-copy="/homeoffice" aria-label="Copier /homeoffice">Copier</button>
+              </li><li class="cmd-row" data-cmd="/ambientlighting">
+                <code class="cmd-code">/ambientlighting</code>
+                <p class="cmd-desc">Représenter la pièce le soir avec plusieurs éclairages d’appoint à faible intensité.</p>
+                <button type="button" class="cmd-copy" data-copy="/ambientlighting" aria-label="Copier /ambientlighting">Copier</button>
+              </li><li class="cmd-row" data-cmd="/urbanjungle">
+                <code class="cmd-code">/urbanjungle</code>
+                <p class="cmd-desc">Composer un aménagement avec des plantes de différentes tailles autour du mobilier.</p>
+                <button type="button" class="cmd-copy" data-copy="/urbanjungle" aria-label="Copier /urbanjungle">Copier</button>
+              </li><li class="cmd-row" data-cmd="/vintage">
+                <code class="cmd-code">/vintage</code>
+                <p class="cmd-desc">Proposer quelques meubles anciens dans une composition adaptée à la pièce photographiée.</p>
+                <button type="button" class="cmd-copy" data-copy="/vintage" aria-label="Copier /vintage">Copier</button>
+              </li><li class="cmd-row" data-cmd="/gallerywall">
+                <code class="cmd-code">/gallerywall</code>
+                <p class="cmd-desc">Imaginer une disposition de cadres sur un mur visible de la pièce.</p>
+                <button type="button" class="cmd-copy" data-copy="/gallerywall" aria-label="Copier /gallerywall">Copier</button>
+              </li><li class="cmd-row" data-cmd="/builtins">
+                <code class="cmd-code">/builtins</code>
+                <p class="cmd-desc">Visualiser des rangements intégrés au décor autour des éléments existants.</p>
+                <button type="button" class="cmd-copy" data-copy="/builtins" aria-label="Copier /builtins">Copier</button>
+              </li><li class="cmd-row" data-cmd="/softfurnishings">
+                <code class="cmd-code">/softfurnishings</code>
+                <p class="cmd-desc">Proposer un habillage de rideaux, de tapis et de coussins dans la pièce.</p>
+                <button type="button" class="cmd-copy" data-copy="/softfurnishings" aria-label="Copier /softfurnishings">Copier</button>
+              </li><li class="cmd-row" data-cmd="/playcorner">
+                <code class="cmd-code">/playcorner</code>
+                <p class="cmd-desc">Imaginer un espace de jeu organisé dans la zone de la pièce que tu indiques.</p>
+                <button type="button" class="cmd-copy" data-copy="/playcorner" aria-label="Copier /playcorner">Copier</button>
+              </li><li class="cmd-row" data-cmd="/covelighting">
+                <code class="cmd-code">/covelighting</code>
+                <p class="cmd-desc">Visualiser des lumières indirectes qui accompagnent les lignes des murs et du plafond.</p>
+                <button type="button" class="cmd-copy" data-copy="/covelighting" aria-label="Copier /covelighting">Copier</button>
+              </li><li class="cmd-row" data-cmd="/coastal">
+                <code class="cmd-code">/coastal</code>
+                <p class="cmd-desc">Proposer un décor avec des matières claires et des objets évoquant le littoral.</p>
+                <button type="button" class="cmd-copy" data-copy="/coastal" aria-label="Copier /coastal">Copier</button>
+              </li><li class="cmd-row" data-cmd="/restaging">
+                <code class="cmd-code">/restaging</code>
+                <p class="cmd-desc">Réorganiser visuellement les meubles de la photo pour essayer une autre disposition.</p>
+                <button type="button" class="cmd-copy" data-copy="/restaging" aria-label="Copier /restaging">Copier</button>
+              </li><li class="cmd-row" data-cmd="/accentwall">
+                <code class="cmd-code">/accentwall</code>
+                <p class="cmd-desc">Appliquer un motif de papier peint au mur que tu désignes dans la photo.</p>
+                <button type="button" class="cmd-copy" data-copy="/accentwall" aria-label="Copier /accentwall">Copier</button>
+              </li><li class="cmd-row" data-cmd="/partydecor">
+                <code class="cmd-code">/partydecor</code>
+                <p class="cmd-desc">Imaginer une décoration temporaire pour l’occasion que tu précises dans ta demande.</p>
+                <button type="button" class="cmd-copy" data-copy="/partydecor" aria-label="Copier /partydecor">Copier</button>
+              </li><li class="cmd-row" data-cmd="/moodboard">
+                <code class="cmd-code">/moodboard</code>
+                <p class="cmd-desc">Composer une planche avec la pièce et des propositions de matières ou de mobilier.</p>
+                <button type="button" class="cmd-copy" data-copy="/moodboard" aria-label="Copier /moodboard">Copier</button>
+              </li><li class="cmd-row" data-cmd="/dollhouse">
+                <code class="cmd-code">/dollhouse</code>
+                <p class="cmd-desc">Transformer la pièce en petite maquette décorative vue sous un angle élevé.</p>
+                <button type="button" class="cmd-copy" data-copy="/dollhouse" aria-label="Copier /dollhouse">Copier</button>
+              </li>
+            </ul>
+          </section>
+          <section class="cmd-group" data-group="creations-artisanales">
+            <div class="cmd-group-head">
+              <h2 class="font-serif text-2xl sm:text-3xl text-zinc-900">Créations artisanales</h2>
+              <p class="text-sm text-zinc-500 leading-relaxed mt-2">Pour présenter tes créations faites main : céramiques, bougies, tissages ou objets en bois.</p>
+            </div>
+            <ul class="cmd-list">
+              <li class="cmd-row" data-cmd="/workbench">
+                <code class="cmd-code">/workbench</code>
+                <p class="cmd-desc">Installer l’objet sur un établi avec quelques outils adaptés au matériau que tu précises.</p>
+                <button type="button" class="cmd-copy" data-copy="/workbench" aria-label="Copier /workbench">Copier</button>
+              </li><li class="cmd-row" data-cmd="/cuppedhands">
+                <code class="cmd-code">/cuppedhands</code>
+                <p class="cmd-desc">Présenter l’objet entre les mains d’une personne dans un cadrage rapproché.</p>
+                <button type="button" class="cmd-copy" data-copy="/cuppedhands" aria-label="Copier /cuppedhands">Copier</button>
+              </li><li class="cmd-row" data-cmd="/detailshot">
+                <code class="cmd-code">/detailshot</code>
+                <p class="cmd-desc">Resserrer l’image sur une couture, une gravure ou une finition visible dans la référence.</p>
+                <button type="button" class="cmd-copy" data-copy="/detailshot" aria-label="Copier /detailshot">Copier</button>
+              </li><li class="cmd-row" data-cmd="/marketstall">
+                <code class="cmd-code">/marketstall</code>
+                <p class="cmd-desc">Mettre l’objet au premier plan d’un petit étal de marché.</p>
+                <button type="button" class="cmd-copy" data-copy="/marketstall" aria-label="Copier /marketstall">Copier</button>
+              </li><li class="cmd-row" data-cmd="/collection">
+                <code class="cmd-code">/collection</code>
+                <p class="cmd-desc">Organiser les créations des photos fournies dans une composition de collection.</p>
+                <button type="button" class="cmd-copy" data-copy="/collection" aria-label="Copier /collection">Copier</button>
+              </li><li class="cmd-row" data-cmd="/paperbag">
+                <code class="cmd-code">/paperbag</code>
+                <p class="cmd-desc">Présenter l’objet dans un sac en papier ouvert avec une mise en scène d’emballage.</p>
+                <button type="button" class="cmd-copy" data-copy="/paperbag" aria-label="Copier /paperbag">Copier</button>
+              </li><li class="cmd-row" data-cmd="/gallery">
+                <code class="cmd-code">/gallery</code>
+                <p class="cmd-desc">Exposer l’objet dans une galerie sobre avec un éclairage dirigé.</p>
+                <button type="button" class="cmd-copy" data-copy="/gallery" aria-label="Copier /gallery">Copier</button>
+              </li><li class="cmd-row" data-cmd="/cleanbackground">
+                <code class="cmd-code">/cleanbackground</code>
+                <p class="cmd-desc">Isoler l’objet dans un cadrage complet avec un fond simple et une lumière uniforme.</p>
+                <button type="button" class="cmd-copy" data-copy="/cleanbackground" aria-label="Copier /cleanbackground">Copier</button>
+              </li><li class="cmd-row" data-cmd="/tablesetting">
+                <code class="cmd-code">/tablesetting</code>
+                <p class="cmd-desc">Mettre la pièce de céramique en situation sur une table préparée pour un repas.</p>
+                <button type="button" class="cmd-copy" data-copy="/tablesetting" aria-label="Copier /tablesetting">Copier</button>
+              </li><li class="cmd-row" data-cmd="/cozycorner">
+                <code class="cmd-code">/cozycorner</code>
+                <p class="cmd-desc">Installer la bougie dans une scène de lecture avec une lumière de soirée.</p>
+                <button type="button" class="cmd-copy" data-copy="/cozycorner" aria-label="Copier /cozycorner">Copier</button>
+              </li><li class="cmd-row" data-cmd="/rawmaterials">
+                <code class="cmd-code">/rawmaterials</code>
+                <p class="cmd-desc">Associer l’objet fini au matériau brut que tu indiques dans une composition simple.</p>
+                <button type="button" class="cmd-copy" data-copy="/rawmaterials" aria-label="Copier /rawmaterials">Copier</button>
+              </li><li class="cmd-row" data-cmd="/wallhanging">
+                <code class="cmd-code">/wallhanging</code>
+                <p class="cmd-desc">Présenter le tissage accroché à un mur dans une pièce peu chargée.</p>
+                <button type="button" class="cmd-copy" data-copy="/wallhanging" aria-label="Copier /wallhanging">Copier</button>
+              </li><li class="cmd-row" data-cmd="/lowangle">
+                <code class="cmd-code">/lowangle</code>
+                <p class="cmd-desc">Photographier l’objet depuis un angle bas pour faire ressortir sa silhouette.</p>
+                <button type="button" class="cmd-copy" data-copy="/lowangle" aria-label="Copier /lowangle">Copier</button>
+              </li><li class="cmd-row" data-cmd="/wrinkledlinen">
+                <code class="cmd-code">/wrinkledlinen</code>
+                <p class="cmd-desc">Poser l’objet sur un tissu de lin dans une composition aux matières visibles.</p>
+                <button type="button" class="cmd-copy" data-copy="/wrinkledlinen" aria-label="Copier /wrinkledlinen">Copier</button>
+              </li><li class="cmd-row" data-cmd="/seasonaldisplay">
+                <code class="cmd-code">/seasonaldisplay</code>
+                <p class="cmd-desc">Imaginer une vitrine autour de l’objet avec des éléments de la saison choisie.</p>
+                <button type="button" class="cmd-copy" data-copy="/seasonaldisplay" aria-label="Copier /seasonaldisplay">Copier</button>
+              </li><li class="cmd-row" data-cmd="/eventposter">
+                <code class="cmd-code">/eventposter</code>
+                <p class="cmd-desc">Composer un visuel centré sur l’objet avec de la place pour les informations du marché.</p>
+                <button type="button" class="cmd-copy" data-copy="/eventposter" aria-label="Copier /eventposter">Copier</button>
+              </li><li class="cmd-row" data-cmd="/sketchbook">
+                <code class="cmd-code">/sketchbook</code>
+                <p class="cmd-desc">Dessiner l’objet comme une étude dans un carnet avec quelques détails de matière.</p>
+                <button type="button" class="cmd-copy" data-copy="/sketchbook" aria-label="Copier /sketchbook">Copier</button>
+              </li><li class="cmd-row" data-cmd="/rakinglight">
+                <code class="cmd-code">/rakinglight</code>
+                <p class="cmd-desc">Faire arriver la lumière de côté pour montrer le relief de la surface.</p>
+                <button type="button" class="cmd-copy" data-copy="/rakinglight" aria-label="Copier /rakinglight">Copier</button>
+              </li><li class="cmd-row" data-cmd="/giftready">
+                <code class="cmd-code">/giftready</code>
+                <p class="cmd-desc">Présenter l’objet dans une composition de cadeau avec une petite carte vierge.</p>
+                <button type="button" class="cmd-copy" data-copy="/giftready" aria-label="Copier /giftready">Copier</button>
+              </li><li class="cmd-row" data-cmd="/diptych">
+                <code class="cmd-code">/diptych</code>
+                <p class="cmd-desc">Composer deux panneaux associant l’objet complet à un détail de la référence fournie.</p>
+                <button type="button" class="cmd-copy" data-copy="/diptych" aria-label="Copier /diptych">Copier</button>
+              </li>
+            </ul>
+          </section>
+          <section class="cmd-group" data-group="lieux-professionnels-et-accueil">
+            <div class="cmd-group-head">
+              <h2 class="font-serif text-2xl sm:text-3xl text-zinc-900">Lieux professionnels et accueil</h2>
+              <p class="text-sm text-zinc-500 leading-relaxed mt-2">Pour imaginer une nouvelle présentation ou un aménagement de ta boutique, de ton atelier ou de ton lieu d’accueil.</p>
+            </div>
+            <ul class="cmd-list">
+              <li class="cmd-row" data-cmd="/launchdisplay">
+                <code class="cmd-code">/launchdisplay</code>
+                <p class="cmd-desc">Imaginer une vitrine consacrée au lancement que tu décris en gardant la façade comme référence.</p>
+                <button type="button" class="cmd-copy" data-copy="/launchdisplay" aria-label="Copier /launchdisplay">Copier</button>
+              </li><li class="cmd-row" data-cmd="/symmetry">
+                <code class="cmd-code">/symmetry</code>
+                <p class="cmd-desc">Recomposer une vue frontale où les lignes du lieu structurent le cadrage.</p>
+                <button type="button" class="cmd-copy" data-copy="/symmetry" aria-label="Copier /symmetry">Copier</button>
+              </li><li class="cmd-row" data-cmd="/daylight">
+                <code class="cmd-code">/daylight</code>
+                <p class="cmd-desc">Représenter le lieu dans une lumière matinale venant des ouvertures visibles.</p>
+                <button type="button" class="cmd-copy" data-copy="/daylight" aria-label="Copier /daylight">Copier</button>
+              </li><li class="cmd-row" data-cmd="/greenentrance">
+                <code class="cmd-code">/greenentrance</code>
+                <p class="cmd-desc">Imaginer des plantes et un aménagement d’accueil autour de l’entrée photographiée.</p>
+                <button type="button" class="cmd-copy" data-copy="/greenentrance" aria-label="Copier /greenentrance">Copier</button>
+              </li><li class="cmd-row" data-cmd="/terrace">
+                <code class="cmd-code">/terrace</code>
+                <p class="cmd-desc">Proposer une disposition de tables et de sièges sur la terrasse de référence.</p>
+                <button type="button" class="cmd-copy" data-copy="/terrace" aria-label="Copier /terrace">Copier</button>
+              </li><li class="cmd-row" data-cmd="/wayfinding">
+                <code class="cmd-code">/wayfinding</code>
+                <p class="cmd-desc">Visualiser une signalétique dans le lieu avec les indications exactes que tu fournis.</p>
+                <button type="button" class="cmd-copy" data-copy="/wayfinding" aria-label="Copier /wayfinding">Copier</button>
+              </li><li class="cmd-row" data-cmd="/grandopening">
+                <code class="cmd-code">/grandopening</code>
+                <p class="cmd-desc">Imaginer une décoration temporaire du lieu pour accueillir une inauguration.</p>
+                <button type="button" class="cmd-copy" data-copy="/grandopening" aria-label="Copier /grandopening">Copier</button>
+              </li><li class="cmd-row" data-cmd="/photoposter">
+                <code class="cmd-code">/photoposter</code>
+                <p class="cmd-desc">Composer une affiche autour de la photo avec une zone pour le message fourni.</p>
+                <button type="button" class="cmd-copy" data-copy="/photoposter" aria-label="Copier /photoposter">Copier</button>
+              </li><li class="cmd-row" data-cmd="/panorama">
+                <code class="cmd-code">/panorama</code>
+                <p class="cmd-desc">Élargir visuellement la scène pour une image de présentation horizontale du lieu.</p>
+                <button type="button" class="cmd-copy" data-copy="/panorama" aria-label="Copier /panorama">Copier</button>
+              </li><li class="cmd-row" data-cmd="/displaycorner">
+                <code class="cmd-code">/displaycorner</code>
+                <p class="cmd-desc">Imaginer un espace de présentation d’un produit dans la zone de boutique indiquée.</p>
+                <button type="button" class="cmd-copy" data-copy="/displaycorner" aria-label="Copier /displaycorner">Copier</button>
+              </li><li class="cmd-row" data-cmd="/demostation">
+                <code class="cmd-code">/demostation</code>
+                <p class="cmd-desc">Proposer un coin de démonstration avec une table visible et un décor adapté à l’activité.</p>
+                <button type="button" class="cmd-copy" data-copy="/demostation" aria-label="Copier /demostation">Copier</button>
+              </li><li class="cmd-row" data-cmd="/eveningambience">
+                <code class="cmd-code">/eveningambience</code>
+                <p class="cmd-desc">Représenter le lieu en soirée avec des éclairages qui accompagnent son architecture.</p>
+                <button type="button" class="cmd-copy" data-copy="/eveningambience" aria-label="Copier /eveningambience">Copier</button>
+              </li><li class="cmd-row" data-cmd="/waitinglounge">
+                <code class="cmd-code">/waitinglounge</code>
+                <p class="cmd-desc">Imaginer un espace d’attente avec des assises et quelques éléments de décoration.</p>
+                <button type="button" class="cmd-copy" data-copy="/waitinglounge" aria-label="Copier /waitinglounge">Copier</button>
+              </li><li class="cmd-row" data-cmd="/reception">
+                <code class="cmd-code">/reception</code>
+                <p class="cmd-desc">Visualiser une disposition pour une réception dans la salle montrée sur la photo.</p>
+                <button type="button" class="cmd-copy" data-copy="/reception" aria-label="Copier /reception">Copier</button>
+              </li><li class="cmd-row" data-cmd="/selfiespot">
+                <code class="cmd-code">/selfiespot</code>
+                <p class="cmd-desc">Proposer un décor dans le lieu où les visiteurs pourraient prendre une photo.</p>
+                <button type="button" class="cmd-copy" data-copy="/selfiespot" aria-label="Copier /selfiespot">Copier</button>
+              </li><li class="cmd-row" data-cmd="/postcard">
+                <code class="cmd-code">/postcard</code>
+                <p class="cmd-desc">Transformer la façade ou la salle en illustration de carte postale.</p>
+                <button type="button" class="cmd-copy" data-copy="/postcard" aria-label="Copier /postcard">Copier</button>
+              </li><li class="cmd-row" data-cmd="/welcomesetup">
+                <code class="cmd-code">/welcomesetup</code>
+                <p class="cmd-desc">Imaginer une présentation d’accueil sur la table ou le lit de la photo.</p>
+                <button type="button" class="cmd-copy" data-copy="/welcomesetup" aria-label="Copier /welcomesetup">Copier</button>
+              </li><li class="cmd-row" data-cmd="/architecturaldetail">
+                <code class="cmd-code">/architecturaldetail</code>
+                <p class="cmd-desc">Créer un cadrage rapproché d’un détail du lieu visible dans l’image fournie.</p>
+                <button type="button" class="cmd-copy" data-copy="/architecturaldetail" aria-label="Copier /architecturaldetail">Copier</button>
+              </li><li class="cmd-row" data-cmd="/miniaturefacade">
+                <code class="cmd-code">/miniaturefacade</code>
+                <p class="cmd-desc">Représenter la façade comme une maquette décorative avec ses principaux éléments reconnaissables.</p>
+                <button type="button" class="cmd-copy" data-copy="/miniaturefacade" aria-label="Copier /miniaturefacade">Copier</button>
+              </li><li class="cmd-row" data-cmd="/infopanel">
+                <code class="cmd-code">/infopanel</code>
+                <p class="cmd-desc">Assembler une photo du lieu et les informations que tu fournis dans un visuel de présentation.</p>
+                <button type="button" class="cmd-copy" data-copy="/infopanel" aria-label="Copier /infopanel">Copier</button>
+              </li>
+            </ul>
+          </section>
+          <section class="cmd-group" data-group="voitures-velos-et-motos">
+            <div class="cmd-group-head">
+              <h2 class="font-serif text-2xl sm:text-3xl text-zinc-900">Voitures, vélos et motos</h2>
+              <p class="text-sm text-zinc-500 leading-relaxed mt-2">Pour mettre en scène ta voiture, ton vélo ou ta moto dans différents décors et styles visuels.</p>
+            </div>
+            <ul class="cmd-list">
+              <li class="cmd-row" data-cmd="/showroom">
+                <code class="cmd-code">/showroom</code>
+                <p class="cmd-desc">Présenter le véhicule sous un grand éclairage de studio avec un fond continu.</p>
+                <button type="button" class="cmd-copy" data-copy="/showroom" aria-label="Copier /showroom">Copier</button>
+              </li><li class="cmd-row" data-cmd="/mountainroad">
+                <code class="cmd-code">/mountainroad</code>
+                <p class="cmd-desc">Installer le véhicule sur une route sinueuse avec un relief montagneux en arrière-plan.</p>
+                <button type="button" class="cmd-copy" data-copy="/mountainroad" aria-label="Copier /mountainroad">Copier</button>
+              </li><li class="cmd-row" data-cmd="/wetneon">
+                <code class="cmd-code">/wetneon</code>
+                <p class="cmd-desc">Placer le véhicule dans une rue de nuit où le sol reflète les lumières.</p>
+                <button type="button" class="cmd-copy" data-copy="/wetneon" aria-label="Copier /wetneon">Copier</button>
+              </li><li class="cmd-row" data-cmd="/garage">
+                <code class="cmd-code">/garage</code>
+                <p class="cmd-desc">Créer une scène quotidienne avec le véhicule garé devant un atelier ouvert.</p>
+                <button type="button" class="cmd-copy" data-copy="/garage" aria-label="Copier /garage">Copier</button>
+              </li><li class="cmd-row" data-cmd="/droneview">
+                <code class="cmd-code">/droneview</code>
+                <p class="cmd-desc">Imaginer une photographie prise du dessus avec le véhicule dans un décor lisible.</p>
+                <button type="button" class="cmd-copy" data-copy="/droneview" aria-label="Copier /droneview">Copier</button>
+              </li><li class="cmd-row" data-cmd="/panning">
+                <code class="cmd-code">/panning</code>
+                <p class="cmd-desc">Suggérer le déplacement avec un arrière-plan étiré et le véhicule visuellement net.</p>
+                <button type="button" class="cmd-copy" data-copy="/panning" aria-label="Copier /panning">Copier</button>
+              </li><li class="cmd-row" data-cmd="/trailhead">
+                <code class="cmd-code">/trailhead</code>
+                <p class="cmd-desc">Présenter le vélo près d’un chemin dans une ambiance de sortie matinale.</p>
+                <button type="button" class="cmd-copy" data-copy="/trailhead" aria-label="Copier /trailhead">Copier</button>
+              </li><li class="cmd-row" data-cmd="/underpass">
+                <code class="cmd-code">/underpass</code>
+                <p class="cmd-desc">Mettre en scène la moto sous une structure de béton aux lignes graphiques.</p>
+                <button type="button" class="cmd-copy" data-copy="/underpass" aria-label="Copier /underpass">Copier</button>
+              </li><li class="cmd-row" data-cmd="/retroposter">
+                <code class="cmd-code">/retroposter</code>
+                <p class="cmd-desc">Transformer la photo en affiche de transport ancienne avec des aplats de couleurs.</p>
+                <button type="button" class="cmd-copy" data-copy="/retroposter" aria-label="Copier /retroposter">Copier</button>
+              </li><li class="cmd-row" data-cmd="/scalemodel">
+                <code class="cmd-code">/scalemodel</code>
+                <p class="cmd-desc">Représenter le véhicule comme une petite maquette posée sur un bureau.</p>
+                <button type="button" class="cmd-copy" data-copy="/scalemodel" aria-label="Copier /scalemodel">Copier</button>
+              </li><li class="cmd-row" data-cmd="/mechanicaldetail">
+                <code class="cmd-code">/mechanicaldetail</code>
+                <p class="cmd-desc">Composer un cadrage rapproché sur la pièce visible dans la photo de référence.</p>
+                <button type="button" class="cmd-copy" data-copy="/mechanicaldetail" aria-label="Copier /mechanicaldetail">Copier</button>
+              </li><li class="cmd-row" data-cmd="/heroangle">
+                <code class="cmd-code">/heroangle</code>
+                <p class="cmd-desc">Montrer le véhicule depuis un angle bas pour accentuer sa silhouette.</p>
+                <button type="button" class="cmd-copy" data-copy="/heroangle" aria-label="Copier /heroangle">Copier</button>
+              </li><li class="cmd-row" data-cmd="/countryside">
+                <code class="cmd-code">/countryside</code>
+                <p class="cmd-desc">Placer le véhicule près d’un champ sous une lumière de fin de journée.</p>
+                <button type="button" class="cmd-copy" data-copy="/countryside" aria-label="Copier /countryside">Copier</button>
+              </li><li class="cmd-row" data-cmd="/vanishingpoint">
+                <code class="cmd-code">/vanishingpoint</code>
+                <p class="cmd-desc">Cadrer le véhicule au centre d’un parking dont les lignes convergent vers lui.</p>
+                <button type="button" class="cmd-copy" data-copy="/vanishingpoint" aria-label="Copier /vanishingpoint">Copier</button>
+              </li><li class="cmd-row" data-cmd="/exhibition">
+                <code class="cmd-code">/exhibition</code>
+                <p class="cmd-desc">Présenter le véhicule sur un emplacement d’exposition avec un éclairage dirigé.</p>
+                <button type="button" class="cmd-copy" data-copy="/exhibition" aria-label="Copier /exhibition">Copier</button>
+              </li><li class="cmd-row" data-cmd="/texturedwall">
+                <code class="cmd-code">/texturedwall</code>
+                <p class="cmd-desc">Photographier le vélo de profil devant un mur dont la matière reste discrète.</p>
+                <button type="button" class="cmd-copy" data-copy="/texturedwall" aria-label="Copier /texturedwall">Copier</button>
+              </li><li class="cmd-row" data-cmd="/puddlereflection">
+                <code class="cmd-code">/puddlereflection</code>
+                <p class="cmd-desc">Composer une vue basse qui montre le véhicule et son reflet dans l’eau.</p>
+                <button type="button" class="cmd-copy" data-copy="/puddlereflection" aria-label="Copier /puddlereflection">Copier</button>
+              </li><li class="cmd-row" data-cmd="/lineart">
+                <code class="cmd-code">/lineart</code>
+                <p class="cmd-desc">Traduire la silhouette du véhicule en dessin linéaire sur un fond uni.</p>
+                <button type="button" class="cmd-copy" data-copy="/lineart" aria-label="Copier /lineart">Copier</button>
+              </li><li class="cmd-row" data-cmd="/tunnellights">
+                <code class="cmd-code">/tunnellights</code>
+                <p class="cmd-desc">Installer le véhicule dans un tunnel dont les lumières dessinent une perspective.</p>
+                <button type="button" class="cmd-copy" data-copy="/tunnellights" aria-label="Copier /tunnellights">Copier</button>
+              </li><li class="cmd-row" data-cmd="/listingshot">
+                <code class="cmd-code">/listingshot</code>
+                <p class="cmd-desc">Créer une présentation sobre du véhicule avec un fond dégagé et un cadrage complet.</p>
+                <button type="button" class="cmd-copy" data-copy="/listingshot" aria-label="Copier /listingshot">Copier</button>
+              </li><li class="cmd-row" data-cmd="/garagereveal">
+                <code class="cmd-code">/garagereveal</code>
+                <p class="cmd-desc">Montrer une personne qui retire la bâche du véhicule dans un garage lumineux.</p>
+                <button type="button" class="cmd-copy" data-copy="/garagereveal" aria-label="Copier /garagereveal">Copier</button>
+              </li><li class="cmd-row" data-cmd="/nightdrive">
+                <code class="cmd-code">/nightdrive</code>
+                <p class="cmd-desc">Placer le véhicule de nuit, phares allumés, devant une ville floue.</p>
+                <button type="button" class="cmd-copy" data-copy="/nightdrive" aria-label="Copier /nightdrive">Copier</button>
+              </li><li class="cmd-row" data-cmd="/racetrack">
+                <code class="cmd-code">/racetrack</code>
+                <p class="cmd-desc">Mettre le véhicule en mouvement sur un circuit, avec un arrière-plan filé.</p>
+                <button type="button" class="cmd-copy" data-copy="/racetrack" aria-label="Copier /racetrack">Copier</button>
+              </li><li class="cmd-row" data-cmd="/carshowcase">
+                <code class="cmd-code">/carshowcase</code>
+                <p class="cmd-desc">Faire poser la personne de ta photo à côté du véhicule, dans un rendu studio.</p>
+                <button type="button" class="cmd-copy" data-copy="/carshowcase" aria-label="Copier /carshowcase">Copier</button>
+              </li>
+            </ul>
+          </section>
+          <section class="cmd-group" data-group="animaux-de-compagnie">
+            <div class="cmd-group-head">
+              <h2 class="font-serif text-2xl sm:text-3xl text-zinc-900">Animaux de compagnie</h2>
+              <p class="text-sm text-zinc-500 leading-relaxed mt-2">Pour créer des portraits et des scènes imaginaires à partir d’une photo de ton animal.</p>
+            </div>
+            <ul class="cmd-list">
+              <li class="cmd-row" data-cmd="/studio">
+                <code class="cmd-code">/studio</code>
+                <p class="cmd-desc">Présenter l’animal sur un fond uni avec un éclairage doux de portrait.</p>
+                <button type="button" class="cmd-copy" data-copy="/studio" aria-label="Copier /studio">Copier</button>
+              </li><li class="cmd-row" data-cmd="/flowergarden">
+                <code class="cmd-code">/flowergarden</code>
+                <p class="cmd-desc">Placer l’animal au milieu de fleurs avec un arrière-plan de jardin légèrement flou.</p>
+                <button type="button" class="cmd-copy" data-copy="/flowergarden" aria-label="Copier /flowergarden">Copier</button>
+              </li><li class="cmd-row" data-cmd="/groundlevel">
+                <code class="cmd-code">/groundlevel</code>
+                <p class="cmd-desc">Créer un point de vue proche du sol, à la hauteur de l’animal.</p>
+                <button type="button" class="cmd-copy" data-copy="/groundlevel" aria-label="Copier /groundlevel">Copier</button>
+              </li><li class="cmd-row" data-cmd="/monochrome">
+                <code class="cmd-code">/monochrome</code>
+                <p class="cmd-desc">Réaliser un portrait monochrome qui met en valeur son regard et son pelage.</p>
+                <button type="button" class="cmd-copy" data-copy="/monochrome" aria-label="Copier /monochrome">Copier</button>
+              </li><li class="cmd-row" data-cmd="/coverstory">
+                <code class="cmd-code">/coverstory</code>
+                <p class="cmd-desc">Créer une composition de couverture avec l’animal et un espace libre pour le titre.</p>
+                <button type="button" class="cmd-copy" data-copy="/coverstory" aria-label="Copier /coverstory">Copier</button>
+              </li><li class="cmd-row" data-cmd="/softlight">
+                <code class="cmd-code">/softlight</code>
+                <p class="cmd-desc">Montrer l’animal dans une pièce calme, éclairé de côté par une fenêtre.</p>
+                <button type="button" class="cmd-copy" data-copy="/softlight" aria-label="Copier /softlight">Copier</button>
+              </li><li class="cmd-row" data-cmd="/fisheye">
+                <code class="cmd-code">/fisheye</code>
+                <p class="cmd-desc">Accentuer doucement la perspective autour du museau dans un portrait rapproché et ludique.</p>
+                <button type="button" class="cmd-copy" data-copy="/fisheye" aria-label="Copier /fisheye">Copier</button>
+              </li><li class="cmd-row" data-cmd="/oilpainting">
+                <code class="cmd-code">/oilpainting</code>
+                <p class="cmd-desc">Représenter l’animal dans une peinture de portrait classique avec un décor sobre.</p>
+                <button type="button" class="cmd-copy" data-copy="/oilpainting" aria-label="Copier /oilpainting">Copier</button>
+              </li><li class="cmd-row" data-cmd="/comichero">
+                <code class="cmd-code">/comichero</code>
+                <p class="cmd-desc">Dessiner l’animal dans une case de bande dessinée avec une pose expressive.</p>
+                <button type="button" class="cmd-copy" data-copy="/comichero" aria-label="Copier /comichero">Copier</button>
+              </li><li class="cmd-row" data-cmd="/collectible">
+                <code class="cmd-code">/collectible</code>
+                <p class="cmd-desc">Transformer l’animal en figurine sur un petit socle avec ses couleurs reconnaissables.</p>
+                <button type="button" class="cmd-copy" data-copy="/collectible" aria-label="Copier /collectible">Copier</button>
+              </li><li class="cmd-row" data-cmd="/miniatureworld">
+                <code class="cmd-code">/miniatureworld</code>
+                <p class="cmd-desc">Installer une version miniature de l’animal dans un petit décor fabriqué à son échelle.</p>
+                <button type="button" class="cmd-copy" data-copy="/miniatureworld" aria-label="Copier /miniatureworld">Copier</button>
+              </li><li class="cmd-row" data-cmd="/instantfilm">
+                <code class="cmd-code">/instantfilm</code>
+                <p class="cmd-desc">Donner à l’image le rendu d’une photo instantanée avec un cadre clair.</p>
+                <button type="button" class="cmd-copy" data-copy="/instantfilm" aria-label="Copier /instantfilm">Copier</button>
+              </li><li class="cmd-row" data-cmd="/eyefocus">
+                <code class="cmd-code">/eyefocus</code>
+                <p class="cmd-desc">Resserrer le cadrage autour du visage en gardant le regard comme point d’attention.</p>
+                <button type="button" class="cmd-copy" data-copy="/eyefocus" aria-label="Copier /eyefocus">Copier</button>
+              </li><li class="cmd-row" data-cmd="/adventureposter">
+                <code class="cmd-code">/adventureposter</code>
+                <p class="cmd-desc">Composer une affiche illustrée où l’animal devient le personnage central d’une aventure.</p>
+                <button type="button" class="cmd-copy" data-copy="/adventureposter" aria-label="Copier /adventureposter">Copier</button>
+              </li><li class="cmd-row" data-cmd="/dreamclouds">
+                <code class="cmd-code">/dreamclouds</code>
+                <p class="cmd-desc">Créer une scène dessinée où l’animal repose sur un nuage dans un ciel doux.</p>
+                <button type="button" class="cmd-copy" data-copy="/dreamclouds" aria-label="Copier /dreamclouds">Copier</button>
+              </li><li class="cmd-row" data-cmd="/birthday">
+                <code class="cmd-code">/birthday</code>
+                <p class="cmd-desc">Composer un portrait d’anniversaire avec une guirlande et quelques décorations dans l’arrière-plan.</p>
+                <button type="button" class="cmd-copy" data-copy="/birthday" aria-label="Copier /birthday">Copier</button>
+              </li><li class="cmd-row" data-cmd="/shadowplay">
+                <code class="cmd-code">/shadowplay</code>
+                <p class="cmd-desc">Dessiner la silhouette de l’animal en aplat sombre sur un fond lumineux.</p>
+                <button type="button" class="cmd-copy" data-copy="/shadowplay" aria-label="Copier /shadowplay">Copier</button>
+              </li><li class="cmd-row" data-cmd="/feltplush">
+                <code class="cmd-code">/feltplush</code>
+                <p class="cmd-desc">Représenter l’animal comme une petite création en feutrine avec des coutures visibles.</p>
+                <button type="button" class="cmd-copy" data-copy="/feltplush" aria-label="Copier /feltplush">Copier</button>
+              </li><li class="cmd-row" data-cmd="/sticker">
+                <code class="cmd-code">/sticker</code>
+                <p class="cmd-desc">Créer un autocollant de l’animal avec un contour blanc autour de sa silhouette.</p>
+                <button type="button" class="cmd-copy" data-copy="/sticker" aria-label="Copier /sticker">Copier</button>
+              </li><li class="cmd-row" data-cmd="/holidaycard">
+                <code class="cmd-code">/holidaycard</code>
+                <p class="cmd-desc">Mettre l’animal au centre d’une carte postale illustrée dans une destination à préciser.</p>
+                <button type="button" class="cmd-copy" data-copy="/holidaycard" aria-label="Copier /holidaycard">Copier</button>
+              </li>
+            </ul>
+          </section>
+          <section class="cmd-group" data-group="illustrations-a-partir-dune-photo">
+            <div class="cmd-group-head">
+              <h2 class="font-serif text-2xl sm:text-3xl text-zinc-900">Illustrations à partir d’une photo</h2>
+              <p class="text-sm text-zinc-500 leading-relaxed mt-2">Pour transformer la photo d’une personne, d’un objet, d’un animal ou d’un lieu en illustration.</p>
+            </div>
+            <ul class="cmd-list">
+              <li class="cmd-row" data-cmd="/watercolor">
+                <code class="cmd-code">/watercolor</code>
+                <p class="cmd-desc">Peindre le sujet avec des couleurs diluées et des contours souples sur papier clair.</p>
+                <button type="button" class="cmd-copy" data-copy="/watercolor" aria-label="Copier /watercolor">Copier</button>
+              </li><li class="cmd-row" data-cmd="/charcoal">
+                <code class="cmd-code">/charcoal</code>
+                <p class="cmd-desc">Traduire la photo en dessin au fusain avec des valeurs de gris et des traits visibles.</p>
+                <button type="button" class="cmd-copy" data-copy="/charcoal" aria-label="Copier /charcoal">Copier</button>
+              </li><li class="cmd-row" data-cmd="/paperlayers">
+                <code class="cmd-code">/paperlayers</code>
+                <p class="cmd-desc">Recomposer le sujet en couches de papier découpé avec de petites ombres entre elles.</p>
+                <button type="button" class="cmd-copy" data-copy="/paperlayers" aria-label="Copier /paperlayers">Copier</button>
+              </li><li class="cmd-row" data-cmd="/engraving">
+                <code class="cmd-code">/engraving</code>
+                <p class="cmd-desc">Dessiner le sujet avec des hachures fines inspirées d’une gravure imprimée.</p>
+                <button type="button" class="cmd-copy" data-copy="/engraving" aria-label="Copier /engraving">Copier</button>
+              </li><li class="cmd-row" data-cmd="/comicbook">
+                <code class="cmd-code">/comicbook</code>
+                <p class="cmd-desc">Créer une illustration aux contours marqués avec des couleurs en aplats.</p>
+                <button type="button" class="cmd-copy" data-copy="/comicbook" aria-label="Copier /comicbook">Copier</button>
+              </li><li class="cmd-row" data-cmd="/screenprint">
+                <code class="cmd-code">/screenprint</code>
+                <p class="cmd-desc">Réduire la photo à quelques couleurs avec un léger grain d’impression.</p>
+                <button type="button" class="cmd-copy" data-copy="/screenprint" aria-label="Copier /screenprint">Copier</button>
+              </li><li class="cmd-row" data-cmd="/claymation">
+                <code class="cmd-code">/claymation</code>
+                <p class="cmd-desc">Représenter le sujet comme une création modelée avec des volumes arrondis et des empreintes légères.</p>
+                <button type="button" class="cmd-copy" data-copy="/claymation" aria-label="Copier /claymation">Copier</button>
+              </li><li class="cmd-row" data-cmd="/mosaic">
+                <code class="cmd-code">/mosaic</code>
+                <p class="cmd-desc">Composer l’image avec de petites pièces colorées qui dessinent le sujet.</p>
+                <button type="button" class="cmd-copy" data-copy="/mosaic" aria-label="Copier /mosaic">Copier</button>
+              </li><li class="cmd-row" data-cmd="/embroidery">
+                <code class="cmd-code">/embroidery</code>
+                <p class="cmd-desc">Dessiner le sujet avec des fils brodés visibles sur un fond de tissu.</p>
+                <button type="button" class="cmd-copy" data-copy="/embroidery" aria-label="Copier /embroidery">Copier</button>
+              </li><li class="cmd-row" data-cmd="/travelsketch">
+                <code class="cmd-code">/travelsketch</code>
+                <p class="cmd-desc">Transformer la photo en croquis coloré dans une page de carnet de voyage.</p>
+                <button type="button" class="cmd-copy" data-copy="/travelsketch" aria-label="Copier /travelsketch">Copier</button>
+              </li><li class="cmd-row" data-cmd="/pixelart">
+                <code class="cmd-code">/pixelart</code>
+                <p class="cmd-desc">Recréer le sujet avec de gros pixels et une palette de couleurs limitée.</p>
+                <button type="button" class="cmd-copy" data-copy="/pixelart" aria-label="Copier /pixelart">Copier</button>
+              </li><li class="cmd-row" data-cmd="/stainedglass">
+                <code class="cmd-code">/stainedglass</code>
+                <p class="cmd-desc">Découper le sujet en zones de verre coloré séparées par des contours sombres.</p>
+                <button type="button" class="cmd-copy" data-copy="/stainedglass" aria-label="Copier /stainedglass">Copier</button>
+              </li><li class="cmd-row" data-cmd="/duotone">
+                <code class="cmd-code">/duotone</code>
+                <p class="cmd-desc">Simplifier le sujet en deux couleurs avec un rendu d’encre imprimée.</p>
+                <button type="button" class="cmd-copy" data-copy="/duotone" aria-label="Copier /duotone">Copier</button>
+              </li><li class="cmd-row" data-cmd="/storybook">
+                <code class="cmd-code">/storybook</code>
+                <p class="cmd-desc">Peindre le sujet avec des formes simples et une texture de gouache visible.</p>
+                <button type="button" class="cmd-copy" data-copy="/storybook" aria-label="Copier /storybook">Copier</button>
+              </li><li class="cmd-row" data-cmd="/papercollage">
+                <code class="cmd-code">/papercollage</code>
+                <p class="cmd-desc">Recomposer le sujet avec des morceaux de papier imprimé et des découpes visibles.</p>
+                <button type="button" class="cmd-copy" data-copy="/papercollage" aria-label="Copier /papercollage">Copier</button>
+              </li><li class="cmd-row" data-cmd="/singleline">
+                <code class="cmd-code">/singleline</code>
+                <p class="cmd-desc">Tracer une version simplifiée du sujet avec une ligne qui semble rester continue.</p>
+                <button type="button" class="cmd-copy" data-copy="/singleline" aria-label="Copier /singleline">Copier</button>
+              </li><li class="cmd-row" data-cmd="/cardboard">
+                <code class="cmd-code">/cardboard</code>
+                <p class="cmd-desc">Représenter le sujet comme une maquette fabriquée en carton avec des plis visibles.</p>
+                <button type="button" class="cmd-copy" data-copy="/cardboard" aria-label="Copier /cardboard">Copier</button>
+              </li><li class="cmd-row" data-cmd="/stickersheet">
+                <code class="cmd-code">/stickersheet</code>
+                <p class="cmd-desc">Composer plusieurs petites illustrations du sujet avec un contour de découpe clair.</p>
+                <button type="button" class="cmd-copy" data-copy="/stickersheet" aria-label="Copier /stickersheet">Copier</button>
+              </li><li class="cmd-row" data-cmd="/chalk">
+                <code class="cmd-code">/chalk</code>
+                <p class="cmd-desc">Dessiner le sujet à la craie avec une texture poudreuse sur un tableau.</p>
+                <button type="button" class="cmd-copy" data-copy="/chalk" aria-label="Copier /chalk">Copier</button>
+              </li><li class="cmd-row" data-cmd="/seamlesspattern">
+                <code class="cmd-code">/seamlesspattern</code>
+                <p class="cmd-desc">Transformer le sujet en petit motif répété pour un fond ou un papier décoratif.</p>
+                <button type="button" class="cmd-copy" data-copy="/seamlesspattern" aria-label="Copier /seamlesspattern">Copier</button>
+              </li><li class="cmd-row" data-cmd="/8bitgame">
+                <code class="cmd-code">/8bitgame</code>
+                <p class="cmd-desc">Transformer la photo en écran de jeu vidéo rétro, avec score, vies et gros pixels.</p>
+                <button type="button" class="cmd-copy" data-copy="/8bitgame" aria-label="Copier /8bitgame">Copier</button>
+              </li>
+            </ul>
+          </section>
+          <section class="cmd-group" data-group="retouche-et-reparation-photo">
+            <div class="cmd-group-head">
+              <h2 class="font-serif text-2xl sm:text-3xl text-zinc-900">Retouche et réparation photo</h2>
+              <p class="text-sm text-zinc-500 leading-relaxed mt-2">Pour nettoyer, réparer ou améliorer une photo en gardant son sujet. Certaines commandes demandent une deuxième photo.</p>
+            </div>
+            <ul class="cmd-list">
+              <li class="cmd-row" data-cmd="/restore4k">
+                <code class="cmd-code">/restore4k</code>
+                <p class="cmd-desc">Réparer une photo floue, abîmée ou ancienne et en augmenter la netteté.</p>
+                <button type="button" class="cmd-copy" data-copy="/restore4k" aria-label="Copier /restore4k">Copier</button>
+              </li><li class="cmd-row" data-cmd="/colorize">
+                <code class="cmd-code">/colorize</code>
+                <p class="cmd-desc">Mettre en couleurs une photo en noir et blanc.</p>
+                <button type="button" class="cmd-copy" data-copy="/colorize" aria-label="Copier /colorize">Copier</button>
+              </li><li class="cmd-row" data-cmd="/upscale">
+                <code class="cmd-code">/upscale</code>
+                <p class="cmd-desc">Agrandir la photo en ajoutant de la résolution et des détails.</p>
+                <button type="button" class="cmd-copy" data-copy="/upscale" aria-label="Copier /upscale">Copier</button>
+              </li><li class="cmd-row" data-cmd="/cleanup">
+                <code class="cmd-code">/cleanup</code>
+                <p class="cmd-desc">Retirer de l’arrière-plan les objets gênants et le désordre.</p>
+                <button type="button" class="cmd-copy" data-copy="/cleanup" aria-label="Copier /cleanup">Copier</button>
+              </li><li class="cmd-row" data-cmd="/studioquality">
+                <code class="cmd-code">/studioquality</code>
+                <p class="cmd-desc">Donner à la photo la lumière et la netteté d’une séance en studio.</p>
+                <button type="button" class="cmd-copy" data-copy="/studioquality" aria-label="Copier /studioquality">Copier</button>
+              </li><li class="cmd-row" data-cmd="/blurothers">
+                <code class="cmd-code">/blurothers</code>
+                <p class="cmd-desc">Flouter les personnes derrière le sujet ; vérifie ensuite qu’aucun visage ne reste reconnaissable.</p>
+                <button type="button" class="cmd-copy" data-copy="/blurothers" aria-label="Copier /blurothers">Copier</button>
+              </li><li class="cmd-row" data-cmd="/identitylock">
+                <code class="cmd-code">/identitylock</code>
+                <p class="cmd-desc">Améliorer la photo en gardant les traits du visage tels qu’ils sont.</p>
+                <button type="button" class="cmd-copy" data-copy="/identitylock" aria-label="Copier /identitylock">Copier</button>
+              </li><li class="cmd-row" data-cmd="/poseonly">
+                <code class="cmd-code">/poseonly</code>
+                <p class="cmd-desc">Changer la pose ou l’angle de la personne sans toucher à son visage.</p>
+                <button type="button" class="cmd-copy" data-copy="/poseonly" aria-label="Copier /poseonly">Copier</button>
+              </li><li class="cmd-row" data-cmd="/keepproduct">
+                <code class="cmd-code">/keepproduct</code>
+                <p class="cmd-desc">Retoucher la scène en gardant intacts l’étiquette, le logo et la forme du produit.</p>
+                <button type="button" class="cmd-copy" data-copy="/keepproduct" aria-label="Copier /keepproduct">Copier</button>
+              </li><li class="cmd-row" data-cmd="/transferbg">
+                <code class="cmd-code">/transferbg</code>
+                <p class="cmd-desc">Remplacer le fond par le décor d’une deuxième photo que tu ajoutes.</p>
+                <button type="button" class="cmd-copy" data-copy="/transferbg" aria-label="Copier /transferbg">Copier</button>
+              </li><li class="cmd-row" data-cmd="/motionblur">
+                <code class="cmd-code">/motionblur</code>
+                <p class="cmd-desc">Ajouter un effet de vitesse ou de zoom autour du sujet.</p>
+                <button type="button" class="cmd-copy" data-copy="/motionblur" aria-label="Copier /motionblur">Copier</button>
+              </li><li class="cmd-row" data-cmd="/referencesheet">
+                <code class="cmd-code">/referencesheet</code>
+                <p class="cmd-desc">Créer une planche du sujet de face, de profil et de dos, à réutiliser pour garder le même rendu.</p>
+                <button type="button" class="cmd-copy" data-copy="/referencesheet" aria-label="Copier /referencesheet">Copier</button>
+              </li>
+            </ul>
+          </section>
+          <section class="cmd-group" data-group="fiches-et-visuels-explicatifs">
+            <div class="cmd-group-head">
+              <h2 class="font-serif text-2xl sm:text-3xl text-zinc-900">Fiches et visuels explicatifs</h2>
+              <p class="text-sm text-zinc-500 leading-relaxed mt-2">Pour tirer une affiche explicative d’un sujet ou d’un produit. Tape la commande suivie du sujet, avec ou sans photo.</p>
+            </div>
+            <ul class="cmd-list">
+              <li class="cmd-row" data-cmd="/cheatsheet">
+                <code class="cmd-code">/cheatsheet</code>
+                <p class="cmd-desc">Résumer un sujet sur une affiche d’une page, en blocs numérotés avec icônes.</p>
+                <button type="button" class="cmd-copy" data-copy="/cheatsheet" aria-label="Copier /cheatsheet">Copier</button>
+              </li><li class="cmd-row" data-cmd="/blueprint">
+                <code class="cmd-code">/blueprint</code>
+                <p class="cmd-desc">Présenter le produit comme un plan d’ingénieur, avec vues, cotes et nuancier.</p>
+                <button type="button" class="cmd-copy" data-copy="/blueprint" aria-label="Copier /blueprint">Copier</button>
+              </li><li class="cmd-row" data-cmd="/explodedview">
+                <code class="cmd-code">/explodedview</code>
+                <p class="cmd-desc">Éclater le produit en pièces ou en couches flottantes, chacune nommée.</p>
+                <button type="button" class="cmd-copy" data-copy="/explodedview" aria-label="Copier /explodedview">Copier</button>
+              </li><li class="cmd-row" data-cmd="/xray">
+                <code class="cmd-code">/xray</code>
+                <p class="cmd-desc">Montrer l’intérieur du produit comme sur une radiographie.</p>
+                <button type="button" class="cmd-copy" data-copy="/xray" aria-label="Copier /xray">Copier</button>
+              </li><li class="cmd-row" data-cmd="/mindmap">
+                <code class="cmd-code">/mindmap</code>
+                <p class="cmd-desc">Organiser un sujet en carte mentale illustrée autour d’une idée centrale.</p>
+                <button type="button" class="cmd-copy" data-copy="/mindmap" aria-label="Copier /mindmap">Copier</button>
+              </li><li class="cmd-row" data-cmd="/flashcards">
+                <code class="cmd-code">/flashcards</code>
+                <p class="cmd-desc">Créer une carte illustrée en questions et réponses sur le sujet.</p>
+                <button type="button" class="cmd-copy" data-copy="/flashcards" aria-label="Copier /flashcards">Copier</button>
+              </li><li class="cmd-row" data-cmd="/sketchnote">
+                <code class="cmd-code">/sketchnote</code>
+                <p class="cmd-desc">Résumer le sujet en notes dessinées, avec flèches et petits croquis.</p>
+                <button type="button" class="cmd-copy" data-copy="/sketchnote" aria-label="Copier /sketchnote">Copier</button>
+              </li><li class="cmd-row" data-cmd="/stickynotes">
+                <code class="cmd-code">/stickynotes</code>
+                <p class="cmd-desc">Résumer le sujet sur des notes adhésives colorées.</p>
+                <button type="button" class="cmd-copy" data-copy="/stickynotes" aria-label="Copier /stickynotes">Copier</button>
+              </li><li class="cmd-row" data-cmd="/educationcomics">
+                <code class="cmd-code">/educationcomics</code>
+                <p class="cmd-desc">Raconter le sujet dans une planche de bande dessinée explicative.</p>
+                <button type="button" class="cmd-copy" data-copy="/educationcomics" aria-label="Copier /educationcomics">Copier</button>
+              </li><li class="cmd-row" data-cmd="/memorypalace">
+                <code class="cmd-code">/memorypalace</code>
+                <p class="cmd-desc">Représenter le sujet comme une maison illustrée, avec une étape par pièce.</p>
+                <button type="button" class="cmd-copy" data-copy="/memorypalace" aria-label="Copier /memorypalace">Copier</button>
+              </li>
+            </ul>
+          </section>
+        </div>
+        <p class="cmd-empty" id="cmd-empty" hidden>Aucune commande ne correspond. Essaie un autre mot, comme « affiche », « plat » ou « portrait ».</p>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-4 bg-white rounded-xl p-6 border border-zinc-200/60 text-xs mt-12">
+          <div><h3 class="font-bold text-zinc-900 mb-2">Une deuxième photo</h3><p class="text-zinc-500 leading-relaxed">Certaines commandes en demandent une autre, comme <code>/transferoutfit</code> avec la tenue à essayer.</p></div>
+          <div><h3 class="font-bold text-zinc-900 mb-2">Précise si besoin</h3><p class="text-zinc-500 leading-relaxed">Le rendu dépend de ta photo. S'il s'éloigne de ton idée, ajoute une phrase après la commande.</p></div>
+          <div><h3 class="font-bold text-zinc-900 mb-2">Des idées à essayer</h3><p class="text-zinc-500 leading-relaxed">Ces commandes sont des pistes. Garde celles qui marchent avec tes photos.</p></div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="bg-zinc-950 text-zinc-400 py-12 border-t border-zinc-900 text-xs">
+    <div class="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+      <div class="flex flex-col md:flex-row items-center justify-between gap-6 pb-8 border-b border-zinc-900">
+        <div class="flex items-center gap-2">
+          <span class="brand-mark h-7 w-7 text-sm !bg-white !text-zinc-950">P</span>
+          <span class="font-semibold text-white brand-word">Parlons <b>IA</b></span>
+        </div>
+        <div class="flex items-center gap-6">
+          <a href="../../parlons-ia/" class="footer-link">Accueil</a>
+          <a href="../" class="footer-link">Ressources</a>
+          <a href="../../formation/" class="footer-link">Formation</a>
+        </div>
+      </div>
+      <div class="flex flex-col sm:flex-row items-center justify-between gap-3 mt-8 pt-6 border-t border-zinc-900 text-xs text-zinc-600">
+        <span>© <span data-year>2026</span> Parlons IA. Tous droits réservés.</span>
+        <span>Chaîne pour recevoir. Communauté pour échanger.</span>
+      </div>
+    </div>
+  </footer>
+
+  <div class="join-backdrop" id="join-modal" role="dialog" aria-modal="true" aria-labelledby="join-title" aria-describedby="join-text">
+    <div class="join-card">
+      <button type="button" class="join-close" data-join-close aria-label="Fermer">×</button>
+      <div class="join-icon"><i data-lucide="bell-ring" class="w-6 h-6"></i></div>
+      <h2 class="join-title" id="join-title">Avant de commencer</h2>
+      <p class="join-text" id="join-text">Rejoins ma chaîne WhatsApp pour ne rater aucune nouvelle commande ni ressource gratuite.</p>
+      <a class="join-btn" id="join-go" href="https://whatsapp.com/channel/0029VbCaX96EgGfOFW6Isc37" target="_blank" rel="noopener">Rejoindre la chaîne</a>
+      <button type="button" class="join-skip" data-join-close>C'est déjà fait</button>
+    </div>
+  </div>
+
+  <script>
+    (function () {
+      var KEY = "parlonsia_join_channel_seen";
+      var seen = false;
+      try { seen = localStorage.getItem(KEY) === "1"; } catch (e) {}
+      var pending = null;
+      var modal = document.getElementById("join-modal");
+      var lastFocus = null;
+
+      function markSeen() {
+        seen = true;
+        try { localStorage.setItem(KEY, "1"); } catch (e) {}
+      }
+
+      function legacyCopy(text) {
+        var field = document.createElement("textarea");
+        field.value = text;
+        field.setAttribute("readonly", "");
+        field.style.position = "fixed";
+        field.style.top = "0";
+        field.style.left = "0";
+        field.style.opacity = "0";
+        document.body.appendChild(field);
+        field.focus();
+        field.select();
+        field.setSelectionRange(0, text.length);
+        var ok = false;
+        try { ok = document.execCommand("copy"); } catch (e) {}
+        field.remove();
+        return ok;
+      }
+
+      function copyText(text) {
+        if (navigator.clipboard && window.isSecureContext) {
+          return navigator.clipboard.writeText(text).then(function () { return true; }, function () { return legacyCopy(text); });
+        }
+        return Promise.resolve(legacyCopy(text));
+      }
+
+      function doCopy(button) {
+        var text = button.getAttribute("data-copy");
+        copyText(text).then(function (ok) {
+          button.textContent = ok ? "Copié" : text;
+          button.classList.toggle("is-done", ok);
+          clearTimeout(button._t);
+          button._t = setTimeout(function () { button.textContent = "Copier"; button.classList.remove("is-done"); }, 1600);
+        });
+      }
+
+      function doDownload(link) {
+        link._bypass = true;
+        link.click();
+      }
+
+      function openModal(action) {
+        pending = action;
+        lastFocus = document.activeElement;
+        modal.classList.add("is-open");
+        document.body.style.overflow = "hidden";
+        document.getElementById("join-go").focus();
+      }
+
+      function closeModal() {
+        if (!modal.classList.contains("is-open")) return;
+        modal.classList.remove("is-open");
+        document.body.style.overflow = "";
+        markSeen();
+        var action = pending;
+        pending = null;
+        if (lastFocus && lastFocus.focus) lastFocus.focus();
+        if (action) action();
+      }
+
+      function gate(action) {
+        if (seen) { action(); return; }
+        openModal(action);
+      }
+
+      document.addEventListener("click", function (event) {
+        var copyBtn = event.target.closest(".cmd-copy");
+        if (copyBtn) {
+          gate(function () { doCopy(copyBtn); });
+          return;
+        }
+        var pdf = event.target.closest("[data-pdf]");
+        if (pdf) {
+          if (pdf._bypass) { pdf._bypass = false; return; }
+          if (seen) return;
+          event.preventDefault();
+          gate(function () { doDownload(pdf); });
+        }
+      });
+
+      // Le bouton ouvre la chaîne dans un nouvel onglet (lien natif), puis l'action demandée se fait.
+      document.getElementById("join-go").addEventListener("click", function () { closeModal(); });
+      modal.querySelectorAll("[data-join-close]").forEach(function (b) { b.addEventListener("click", closeModal); });
+      modal.addEventListener("click", function (event) { if (event.target === modal) closeModal(); });
+      document.addEventListener("keydown", function (event) { if (event.key === "Escape") closeModal(); });
+
+      // Recherche et filtres
+      var input = document.getElementById("cmd-q");
+      var clear = document.getElementById("cmd-clear");
+      var chips = Array.prototype.slice.call(document.querySelectorAll(".cmd-chip"));
+      var groups = Array.prototype.slice.call(document.querySelectorAll(".cmd-group"));
+      var count = document.getElementById("cmd-count");
+      var empty = document.getElementById("cmd-empty");
+      var cat = "all";
+      function norm(s) {
+        return s.toLowerCase().normalize("NFD").replace(/[̀-ͯ]/g, "").replace(/[’']/g, " ");
+      }
+      var rows = [];
+      groups.forEach(function (g) {
+        g.querySelectorAll(".cmd-row").forEach(function (r) {
+          rows.push({ el: r, group: g, text: norm(r.getAttribute("data-cmd") + " " + r.querySelector(".cmd-desc").textContent + " " + g.querySelector("h2").textContent) });
+        });
+      });
+      function apply() {
+        var terms = norm(input.value).replace(/\//g, " ").split(/\s+/).filter(Boolean);
+        var total = 0;
+        var perGroup = new Map();
+        rows.forEach(function (r) {
+          var okCat = cat === "all" || r.group.getAttribute("data-group") === cat;
+          var okText = terms.every(function (t) { return r.text.indexOf(t) !== -1; });
+          var show = okCat && okText;
+          r.el.hidden = !show;
+          if (show) { total++; perGroup.set(r.group, (perGroup.get(r.group) || 0) + 1); }
+        });
+        groups.forEach(function (g) { g.hidden = !perGroup.get(g); });
+        count.textContent = total + (total > 1 ? " commandes" : " commande");
+        empty.hidden = total > 0;
+        clear.classList.toggle("is-on", input.value.length > 0);
+      }
+      input.addEventListener("input", apply);
+      clear.addEventListener("click", function () { input.value = ""; apply(); input.focus(); });
+      chips.forEach(function (c) {
+        c.addEventListener("click", function () {
+          cat = c.getAttribute("data-cat");
+          chips.forEach(function (x) { var on = x === c; x.classList.toggle("is-active", on); x.setAttribute("aria-pressed", on ? "true" : "false"); });
+          apply();
+          var bar = document.querySelector(".cmd-toolbar");
+          if (bar.getBoundingClientRect().top <= parseFloat(getComputedStyle(bar).top) + 1) {
+            window.scrollTo({ top: window.scrollY + document.getElementById("cmd-count").getBoundingClientRect().top - bar.getBoundingClientRect().bottom - 8 });
+          }
+        });
+      });
+
+      // La barre de recherche reste collée sous l'en-tête, dont la hauteur change au défilement.
+      var header = document.querySelector(".site-header");
+      function syncTop() { document.documentElement.style.setProperty("--cmd-top", header.offsetHeight + "px"); }
+      syncTop();
+      if (window.ResizeObserver) new ResizeObserver(syncTop).observe(header);
+      window.addEventListener("resize", syncTop);
+    })();
+  </script>
+  <script src="../../script.js"></script>
+</body>
+</html>
