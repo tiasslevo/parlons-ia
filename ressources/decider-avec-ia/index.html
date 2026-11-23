@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html lang="fr" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Décider avec l'IA : Red Team, puis OODA — Parlons IA</title>
+  <meta name="description" content="Deux prompts pour ChatGPT et Claude : la Red Team cherche les failles de ton projet, puis la boucle OODA te donne la décision et le plan de la semaine.">
+  <meta name="theme-color" content="#0b100e">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%22-60 -30 870 890%22 fill=%22none%22 stroke=%22%23ffffff%22 stroke-linecap=%22round%22 stroke-linejoin=%22round%22%3E%3Crect x=%22-60%22 y=%22-30%22 width=%22870%22 height=%22890%22 rx=%22190%22 fill=%22%230b100e%22 stroke=%22none%22/%3E %3Cpath d=%22M355,82 H205 C118,82 58,150 58,262 V432 C58,545 122,622 226,640 V742 L355,662 Z%22 stroke-width=%2232%22/%3E %3Cpath d=%22M432,86 H503 C563,86 597,128 599,186 C652,196 688,246 684,308 C714,340 714,410 677,434 C702,474 690,544 638,562 C636,634 588,690 520,690 H478 C420,690 392,652 392,612 V576 H514%22 stroke-width=%2232%22/%3E %3Cpath d=%22M382,408 C408,404 424,392 442,366 L494,284%22 stroke-width=%2224%22/%3E %3Cpath d=%22M390,490 H444 C478,490 492,470 512,445 C532,420 548,410 570,408%22 stroke-width=%2224%22/%3E %3Ccircle cx=%22510%22 cy=%22262%22 r=%2219%22 stroke-width=%2212%22/%3E %3Ccircle cx=%22590%22 cy=%22405%22 r=%2219%22 stroke-width=%2212%22/%3E %3Ccircle cx=%22536%22 cy=%22566%22 r=%2219%22 stroke-width=%2212%22/%3E %3C/svg%3E ">
+  <script>document.documentElement.classList.add("js");</script>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400;1,500&display=swap" rel="stylesheet">
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', "sans-serif"],
+            serif: ['"Playfair Display"', "serif"]
+          }
+        }
+      }
+    };
+  </script>
+  <link rel="stylesheet" href="../../styles.css">
+  <link rel="stylesheet" href="../../article.css">
+  <style>
+    .dc-steps { display: grid; gap: .75rem; counter-reset: step; }
+    @media (min-width: 768px) { .dc-steps { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1rem; } }
+    .dc-step { display: flex; gap: .85rem; align-items: flex-start; background: #fff; border: 1px solid #e4e4e7; border-radius: 1rem; padding: 1rem; text-align: left; }
+    .dc-step-num { flex: none; width: 2rem; height: 2rem; border-radius: 999px; background: #09090b; color: #fff; display: grid; place-items: center; font-size: .85rem; font-weight: 700; }
+    .dc-step h3 { font-size: .95rem; font-weight: 700; color: #09090b; }
+    .dc-step p { margin-top: .25rem; font-size: .85rem; line-height: 1.5; color: #52525b; }
+    .dc-works { display: inline-flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: .4rem; margin-top: 1.1rem; font-size: .8rem; color: #52525b; }
+    .dc-works i, .dc-works svg { color: #059669; }
+
+    .dc-prompt { background: #fff; border: 1px solid #e4e4e7; border-radius: 1.1rem; overflow: hidden; box-shadow: 0 8px 30px rgb(0 0 0 / .04); text-align: left; }
+    .dc-prompt-head { display: flex; align-items: center; justify-content: space-between; gap: .75rem; padding: .85rem 1rem; border-bottom: 1px solid #f4f4f5; }
+    .dc-prompt-label { font-size: .68rem; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: #047857; }
+    .dc-prompt-title { margin-top: .15rem; font-family: "Playfair Display", serif; font-size: 1.25rem; line-height: 1.2; color: #09090b; }
+    .dc-prompt-text { margin: 0; padding: 1rem; font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; font-size: .82rem; line-height: 1.65; color: #27272a; white-space: pre-wrap; overflow-wrap: anywhere; background: #fafaf9; }
+    .dc-prompt-text .fill { background: #fef3c7; color: #92400e; border-radius: .25rem; padding: 0 .15rem; font-weight: 600; }
+    .dc-prompt-foot { padding: .75rem 1rem 1rem; }
+    .dc-prompt-foot .cmd-copy { width: 100%; }
+    .dc-prompt-hint { margin-top: .6rem; font-size: .78rem; line-height: 1.5; color: #71717a; }
+    @media (min-width: 640px) { .dc-prompt-text { font-size: .88rem; padding: 1.25rem; } .dc-prompt-foot .cmd-copy { width: auto; } }
+
+    .cmd-copy { display: inline-flex; align-items: center; justify-content: center; gap: .45rem; min-width: 5.2rem; border-radius: .7rem; font-size: .85rem; font-weight: 700; padding: .8rem 1.2rem; background: #09090b; color: #fff; transition: background .2s; }
+    .cmd-copy:hover { background: #27272a; }
+    .cmd-copy.is-done { background: #059669; }
+
+    .dc-then { display: flex; align-items: center; justify-content: center; gap: .5rem; margin: 1rem 0; font-size: .8rem; font-weight: 600; color: #059669; }
+
+    .dc-case { background: #F2EDE4; border: 1px solid #e7e1d6; border-radius: 1rem; padding: 1rem; text-align: left; font-size: .9rem; line-height: 1.55; color: #3f3f46; }
+    .dc-case strong { color: #09090b; }
+    .dc-box { background: #fff; border: 1px solid #e4e4e7; border-radius: 1rem; padding: 1rem; text-align: left; }
+    .dc-box-label { display: block; font-size: .68rem; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: #71717a; margin-bottom: .75rem; }
+    .dc-flaw { display: flex; gap: .75rem; padding: .85rem 0; border-top: 1px solid #f4f4f5; }
+    .dc-flaw:first-of-type { border-top: 0; padding-top: 0; }
+    .dc-flaw-num { flex: none; width: 1.7rem; height: 1.7rem; border-radius: .5rem; background: #fee2e2; color: #b91c1c; display: grid; place-items: center; font-size: .8rem; font-weight: 800; }
+    .dc-flaw h4 { font-size: .95rem; font-weight: 700; color: #09090b; }
+    .dc-flaw p { margin-top: .2rem; font-size: .86rem; line-height: 1.55; color: #52525b; }
+    .dc-flaw p b { color: #3f3f46; }
+    .dc-ooda { display: grid; gap: .6rem; }
+    .dc-ooda-row { display: grid; grid-template-columns: 6.2rem minmax(0, 1fr); gap: .75rem; padding: .8rem 0; border-top: 1px solid #f4f4f5; }
+    .dc-ooda-row:first-child { border-top: 0; padding-top: 0; }
+    .dc-ooda-key { font-size: .72rem; font-weight: 800; letter-spacing: .08em; color: #047857; padding-top: .1rem; }
+    .dc-ooda-row ul { margin: 0; padding-left: 1rem; list-style: disc; font-size: .86rem; line-height: 1.55; color: #3f3f46; }
+    .dc-ooda-row li + li { margin-top: .25rem; }
+    .dc-verdict { display: inline-block; margin-bottom: .25rem; background: #fef3c7; color: #92400e; font-size: .75rem; font-weight: 700; border-radius: 999px; padding: .15rem .6rem; }
+    @media (max-width: 479px) { .dc-ooda-row { grid-template-columns: minmax(0, 1fr); gap: .35rem; } }
+
+    .dc-tip { display: flex; gap: .85rem; align-items: flex-start; background: #ecfdf5; border: 1px solid #a7f3d0; border-radius: 1rem; padding: 1rem 1.1rem; text-align: left; }
+    .dc-tip i, .dc-tip svg { flex: none; color: #059669; margin-top: .1rem; }
+    .dc-tip p { font-size: .9rem; line-height: 1.6; color: #065f46; }
+
+    .dc-cercle { background: #0b100e; color: #e4e4e7; border-radius: 1.25rem; padding: 1.6rem 1.35rem; text-align: left; }
+    .dc-cercle-label { font-size: .68rem; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: #6ee7b7; }
+    .dc-cercle p { margin-top: .6rem; font-family: "Playfair Display", serif; font-size: 1.3rem; line-height: 1.35; color: #fff; }
+    .dc-cercle a { display: inline-flex; align-items: center; justify-content: center; gap: .5rem; margin-top: 1.25rem; width: 100%; border-radius: .85rem; padding: .95rem 1.4rem; background: #10b981; color: #fff; font-size: .95rem; font-weight: 700; transition: background .2s; }
+    .dc-cercle a:hover { background: #059669; }
+    @media (min-width: 640px) { .dc-cercle { padding: 2.2rem 2.2rem; } .dc-cercle p { font-size: 1.55rem; } .dc-cercle a { width: auto; } }
+
+    .join-backdrop { position: fixed; inset: 0; z-index: 80; display: none; align-items: center; justify-content: center; padding: 1rem; background: rgba(9,9,11,.6); backdrop-filter: blur(3px); -webkit-backdrop-filter: blur(3px); }
+    .join-backdrop.is-open { display: flex; animation: join-fade .2s ease-out; }
+    .join-card { position: relative; width: 100%; max-width: 25rem; background: #fff; border-radius: 1.25rem; padding: 1.6rem 1.35rem 1.1rem; text-align: center; box-shadow: 0 24px 60px -16px rgba(0,0,0,.4); animation: join-up .25s ease-out; }
+    .join-icon { width: 3rem; height: 3rem; margin: 0 auto .9rem; border-radius: 999px; background: #ecfdf5; color: #059669; display: grid; place-items: center; }
+    .join-title { font-family: "Playfair Display", serif; font-size: 1.45rem; line-height: 1.2; color: #09090b; }
+    .join-text { margin-top: .6rem; font-size: .92rem; line-height: 1.55; color: #3f3f46; }
+    .join-btn { display: flex; align-items: center; justify-content: center; gap: .5rem; width: 100%; margin-top: 1.25rem; border-radius: .85rem; padding: 1rem 1.2rem; background: #10b981; color: #fff; font-size: 1rem; font-weight: 700; text-decoration: none; transition: background .2s; }
+    .join-btn:hover { background: #059669; }
+    .join-skip { display: inline-block; margin-top: .85rem; padding: .35rem .5rem; font-size: .78rem; color: #a1a1aa; text-decoration: underline; text-underline-offset: 3px; background: none; border: 0; cursor: pointer; }
+    .join-skip:hover { color: #52525b; }
+    .join-close { position: absolute; top: .55rem; right: .55rem; width: 2.2rem; height: 2.2rem; border-radius: .6rem; color: #a1a1aa; display: inline-flex; align-items: center; justify-content: center; font-size: 1.35rem; line-height: 1; }
+    .join-close:hover { color: #3f3f46; background: #f4f4f5; }
+    @keyframes join-fade { from { opacity: 0 } to { opacity: 1 } }
+    @keyframes join-up { from { transform: translateY(16px); opacity: 0 } to { transform: none; opacity: 1 } }
+    @media (prefers-reduced-motion: reduce) { .join-backdrop.is-open, .join-card { animation: none; } }
+  </style>
+</head>
+<body class="min-h-screen flex flex-col antialiased">
+  <header class="site-header sticky top-0 z-40 w-full border-b border-zinc-200/80 bg-white/80 backdrop-blur-md">
+    <a href="../../formation/" class="contest-banner group">
+      <span class="contest-banner-dot"></span>
+      <span>Formation</span>
+      <strong>Session en cours</strong>
+      <span class="hidden sm:inline">Réserve ta place pour la prochaine</span>
+      <i data-lucide="arrow-right" class="w-3.5 h-3.5 transition-transform group-hover:translate-x-0.5"></i>
+    </a>
+    <div class="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+      <div class="header-inner flex h-16 items-center justify-between">
+        <div class="flex items-center gap-3">
+          <a href="../../parlons-ia/" class="flex items-center gap-2 group">
+            <span class="brand-mark h-8 w-8 text-lg">P</span>
+            <span class="text-sm font-semibold tracking-tight text-zinc-900 brand-word">Parlons <b>IA</b></span>
+          </a>
+        </div>
+        <div class="hidden sm:flex items-center gap-3">
+          <a href="../" class="inline-flex items-center justify-center rounded-lg text-xs font-semibold px-4 py-2 border border-zinc-200 bg-white hover:bg-zinc-50 text-zinc-800 transition shadow-sm">
+            Toutes les ressources
+          </a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main class="flex-grow">
+    <section class="section-compact bg-white border-b border-zinc-200/60 relative overflow-hidden">
+      <div class="absolute inset-0 bg-[radial-gradient(#e4e4e7_1px,transparent_1px)] [background-size:24px_24px] opacity-40"></div>
+      <div class="relative mx-auto max-w-4xl px-4 sm:px-6 lg:px-8 text-center">
+        <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-zinc-900 text-white text-[10px] font-semibold tracking-wider uppercase mb-4">
+          Ressource gratuite
+        </span>
+        <h1 class="editorial-title text-4xl sm:text-5xl font-normal text-zinc-900 tracking-tight leading-tight">
+          Décider avec l'IA : Red Team, puis OODA
+        </h1>
+        <p class="text-sm sm:text-base text-zinc-500 max-w-2xl mx-auto mt-4 leading-relaxed font-light font-sans">
+          Par défaut, l'IA te dit vas-y. Avec ces deux prompts, elle cherche d'abord la faille de ton projet, puis elle t'aide à décider.
+        </p>
+      </div>
+    </section>
+
+    <section class="section-wash-soft border-b border-zinc-200/60" id="mode-emploi">
+      <div class="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8 py-10 sm:py-12 text-center">
+        <span class="text-[10px] font-bold tracking-wider text-emerald-600 uppercase">Mode d'emploi</span>
+        <h2 class="font-serif text-2xl sm:text-3xl text-zinc-900 mt-2 mb-6">3 étapes, 3 minutes</h2>
+        <div class="dc-steps">
+          <div class="dc-step"><span class="dc-step-num">1</span><div><h3>Remplis les crochets</h3><p>Copie le prompt 1 et remplace chaque [crochet] par ton cas : ton projet, ton quartier, ton budget.</p></div></div>
+          <div class="dc-step"><span class="dc-step-num">2</span><div><h3>Colle le prompt 1</h3><p>L'IA attaque ton projet et te sort les failles, de la plus dangereuse à la moins grave.</p></div></div>
+          <div class="dc-step"><span class="dc-step-num">3</span><div><h3>Enchaîne avec le prompt 2</h3><p>Dans la même conversation. Elle transforme les failles en décision et en plan pour la semaine.</p></div></div>
+        </div>
+        <p class="dc-works"><i data-lucide="check-circle-2" class="w-4 h-4"></i>Ça marche dans ChatGPT et dans Claude, version gratuite comprise.</p>
+      </div>
+    </section>
+
+    <section class="bg-white border-b border-zinc-200/60" id="prompts">
+      <div class="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8 py-10 sm:py-14">
+        <div class="text-center mb-6">
+          <span class="text-[10px] font-bold tracking-wider text-emerald-600 uppercase">Les 2 prompts</span>
+          <h2 class="font-serif text-2xl sm:text-3xl text-zinc-900 mt-2">Copie, remplis, envoie</h2>
+        </div>
+
+        <article class="dc-prompt">
+          <div class="dc-prompt-head">
+            <div>
+              <div class="dc-prompt-label">Prompt 1</div>
+              <div class="dc-prompt-title">Red Team</div>
+            </div>
+            <i data-lucide="shield-alert" class="w-6 h-6 text-rose-600"></i>
+          </div>
+<pre class="dc-prompt-text" id="prompt-red-team">Fais la Red Team de mon projet. Attaque-le comme un investisseur qui veut prouver que je vais perdre tout mon argent.
+
+Mon projet : <span class="fill">[ton projet]</span>
+Ville / quartier : <span class="fill">[ville / quartier]</span>
+Budget disponible : <span class="fill">[budget disponible]</span>
+Mes clients : <span class="fill">[tes clients]</span>
+Ce que j'ai déjà : <span class="fill">[ce que tu as déjà]</span>
+
+S'il te manque une information essentielle, pose-moi d'abord tes questions et attends mes réponses.
+
+Ensuite, donne-moi les 5 à 8 failles les plus graves, classées de la plus dangereuse à la moins dangereuse. Pour chaque faille :
+- la faille, en une phrase ;
+- pourquoi c'est grave, avec des chiffres si tu peux ;
+- comment la vérifier en vrai, sur le terrain, avant de dépenser quoi que ce soit.
+
+Pas de flatterie. Pas de « ça dépend ». Sois direct.</pre>
+          <div class="dc-prompt-foot">
+            <button type="button" class="cmd-copy" data-copy-target="prompt-red-team" aria-label="Copier le prompt Red Team"><i data-lucide="copy" class="w-4 h-4"></i><span>Copier</span></button>
+            <p class="dc-prompt-hint">Les passages surlignés sont à remplacer par ton cas avant d'envoyer.</p>
+          </div>
+        </article>
+
+        <div class="dc-then"><i data-lucide="arrow-down" class="w-4 h-4"></i>Puis, dans la même conversation</div>
+
+        <article class="dc-prompt">
+          <div class="dc-prompt-head">
+            <div>
+              <div class="dc-prompt-label">Prompt 2</div>
+              <div class="dc-prompt-title">OODA</div>
+            </div>
+            <i data-lucide="compass" class="w-6 h-6 text-emerald-600"></i>
+          </div>
+<pre class="dc-prompt-text" id="prompt-ooda">Maintenant, applique la boucle OODA aux failles que tu viens de trouver.
+
+OBSERVER : ce que je dois aller vérifier cette semaine, concrètement. Où aller, qui appeler, quoi compter.
+S'ORIENTER : ce qui compte vraiment parmi ces failles, et ce que j'ignore encore.
+DÉCIDER : une décision claire. Go, go sous conditions, ou stop. Donne le seuil qui te ferait changer d'avis.
+AGIR : les 3 actions à faire dès lundi, chacune avec sa date.
+
+Réponds court, en liste.</pre>
+          <div class="dc-prompt-foot">
+            <button type="button" class="cmd-copy" data-copy-target="prompt-ooda" aria-label="Copier le prompt OODA"><i data-lucide="copy" class="w-4 h-4"></i><span>Copier</span></button>
+            <p class="dc-prompt-hint">OODA, c'est la méthode des pilotes de chasse : observer, s'orienter, décider, agir.</p>
+          </div>
+        </article>
+
+        <div class="dc-tip mt-8">
+          <i data-lucide="lightbulb" class="w-5 h-5"></i>
+          <p><strong>Astuce.</strong> Plus tu donnes de détails, plus la Red Team est précise. Le quartier exact, ton budget, qui sont tes clients, tes chiffres de ventes. Avec trois mots, tu auras des failles générales. Avec tes vrais chiffres, tu auras les tiennes.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section-wash-soft border-b border-zinc-200/60" id="exemple">
+      <div class="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8 py-10 sm:py-14">
+        <div class="text-center mb-6">
+          <span class="text-[10px] font-bold tracking-wider text-emerald-600 uppercase">Exemple</span>
+          <h2 class="font-serif text-2xl sm:text-3xl text-zinc-900 mt-2">Une deuxième boutique de vêtements</h2>
+        </div>
+
+        <div class="dc-case">
+          <strong>Le projet :</strong> ouvrir une deuxième boutique de vêtements pour femmes, dans une rue commerçante du centre-ville. La première marche bien depuis trois ans. Le budget couvre six mois de loyer et un premier stock. Les clientes ont entre 25 et 40 ans.
+        </div>
+
+        <div class="dc-box mt-4">
+          <span class="dc-box-label">Prompt 1 · Les 3 failles les plus graves</span>
+          <div class="dc-flaw">
+            <span class="dc-flaw-num">1</span>
+            <div>
+              <h4>Le loyer est trop cher</h4>
+              <p>Il est deux fois plus élevé que celui de la première boutique. Pour le payer, il faut vendre 15 pièces par jour. La première en vend 8.</p>
+              <p><b>À vérifier :</b> compte les passants devant la vitrine, une heure un mardi et une heure un samedi.</p>
+            </div>
+          </div>
+          <div class="dc-flaw">
+            <span class="dc-flaw-num">2</span>
+            <div>
+              <h4>La rue est déjà pleine de concurrents</h4>
+              <p>Quatre boutiques de vêtements pour femmes à moins de 200 mètres, dont deux moins chères.</p>
+              <p><b>À vérifier :</b> fais le tour, note leurs prix, leurs modèles, et ce qu'elles ne proposent pas.</p>
+            </div>
+          </div>
+          <div class="dc-flaw">
+            <span class="dc-flaw-num">3</span>
+            <div>
+              <h4>Le stock n'est pas calculé</h4>
+              <p>Tu veux remplir la boutique sans savoir combien de pièces il faut, ni ce qui va rester sur les bras.</p>
+              <p><b>À vérifier :</b> reprends les ventes des trois derniers mois de la première boutique, par modèle et par taille.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="dc-box mt-4">
+          <span class="dc-box-label">Prompt 2 · Le plan OODA de la semaine</span>
+          <div class="dc-ooda">
+            <div class="dc-ooda-row">
+              <span class="dc-ooda-key">OBSERVER</span>
+              <ul>
+                <li>Comptage des passants, mardi et samedi.</li>
+                <li>Relevé des prix des quatre boutiques voisines.</li>
+                <li>Ventes des trois derniers mois de la première boutique.</li>
+              </ul>
+            </div>
+            <div class="dc-ooda-row">
+              <span class="dc-ooda-key">S'ORIENTER</span>
+              <ul>
+                <li>Le vrai danger, c'est le loyer. La concurrence se contourne avec des modèles différents.</li>
+                <li>Tu ne sais pas encore combien de tes clientes passent déjà dans cette rue.</li>
+              </ul>
+            </div>
+            <div class="dc-ooda-row">
+              <span class="dc-ooda-key">DÉCIDER</span>
+              <ul>
+                <li><span class="dc-verdict">Go sous conditions</span><br>Go si le propriétaire baisse le loyer d'au moins 20 %, ou si tu comptes plus de 300 passants par heure le samedi. Sinon, stop.</li>
+              </ul>
+            </div>
+            <div class="dc-ooda-row">
+              <span class="dc-ooda-key">AGIR</span>
+              <ul>
+                <li><b>Lundi :</b> appeler le propriétaire pour négocier le loyer.</li>
+                <li><b>Mardi :</b> faire le premier comptage et le tour des concurrentes.</li>
+                <li><b>Samedi :</b> deuxième comptage, puis décision finale avec les chiffres.</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <p class="text-xs text-zinc-400 text-center mt-4">Exemple raccourci. Ta réponse dépendra de ce que tu mets dans les crochets.</p>
+      </div>
+    </section>
+
+    <section class="bg-white pb-16 sm:pb-20">
+      <div class="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8 pt-10 sm:pt-14">
+        <div class="dc-cercle">
+          <span class="dc-cercle-label">Cercle IA Business</span>
+          <p>Aujourd'hui, les business qui avancent sont ceux qui ont mis l'IA au cœur : contenu, vidéos, pubs, clients. C'est ce qu'on fait au Cercle IA Business.</p>
+          <a href="../../cercle-ia-business/">Candidater<i data-lucide="arrow-right" class="w-4 h-4"></i></a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="bg-zinc-950 text-zinc-400 py-12 border-t border-zinc-900 text-xs">
+    <div class="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+      <div class="flex flex-col md:flex-row items-center justify-between gap-6 pb-8 border-b border-zinc-900">
+        <div class="flex items-center gap-2">
+          <span class="brand-mark h-7 w-7 text-sm !bg-white !text-zinc-950">P</span>
+          <span class="font-semibold text-white brand-word">Parlons <b>IA</b></span>
+        </div>
+        <div class="flex items-center gap-6">
+          <a href="../../parlons-ia/" class="footer-link">Accueil</a>
+          <a href="../" class="footer-link">Ressources</a>
+          <a href="../../formation/" class="footer-link">Formation</a>
+        </div>
+      </div>
+      <div class="flex flex-col sm:flex-row items-center justify-between gap-3 mt-8 pt-6 border-t border-zinc-900 text-xs text-zinc-600">
+        <span>© <span data-year>2026</span> Parlons IA. Tous droits réservés.</span>
+        <span>Chaîne pour recevoir. Communauté pour échanger.</span>
+      </div>
+    </div>
+  </footer>
+
+  <div class="join-backdrop" id="join-modal" role="dialog" aria-modal="true" aria-labelledby="join-title" aria-describedby="join-text">
+    <div class="join-card">
+      <button type="button" class="join-close" data-join-close aria-label="Fermer">×</button>
+      <div class="join-icon"><i data-lucide="bell-ring" class="w-6 h-6"></i></div>
+      <h2 class="join-title" id="join-title">Avant de commencer</h2>
+      <p class="join-text" id="join-text">Rejoins ma chaîne WhatsApp pour ne rater aucun nouveau prompt ni aucune ressource gratuite.</p>
+      <a class="join-btn" id="join-go" href="https://whatsapp.com/channel/0029VbCaX96EgGfOFW6Isc37" target="_blank" rel="noopener">Rejoindre la chaîne</a>
+      <button type="button" class="join-skip" data-join-close>C'est déjà fait</button>
+    </div>
+  </div>
+
+  <script>
+    (function () {
+      var KEY = "parlonsia_join_channel_seen";
+      var seen = false;
+      try { seen = localStorage.getItem(KEY) === "1"; } catch (e) {}
+      var pending = null;
+      var modal = document.getElementById("join-modal");
+      var lastFocus = null;
+
+      function markSeen() {
+        seen = true;
+        try { localStorage.setItem(KEY, "1"); } catch (e) {}
+      }
+
+      function legacyCopy(text) {
+        var field = document.createElement("textarea");
+        field.value = text;
+        field.setAttribute("readonly", "");
+        field.style.position = "fixed";
+        field.style.top = "0";
+        field.style.left = "0";
+        field.style.opacity = "0";
+        document.body.appendChild(field);
+        field.focus();
+        field.select();
+        field.setSelectionRange(0, text.length);
+        var ok = false;
+        try { ok = document.execCommand("copy"); } catch (e) {}
+        field.remove();
+        return ok;
+      }
+
+      function copyText(text) {
+        if (navigator.clipboard && window.isSecureContext) {
+          return navigator.clipboard.writeText(text).then(function () { return true; }, function () { return legacyCopy(text); });
+        }
+        return Promise.resolve(legacyCopy(text));
+      }
+
+      function doCopy(button) {
+        var source = document.getElementById(button.getAttribute("data-copy-target"));
+        var text = source.textContent.trim();
+        var label = button.querySelector("span");
+        copyText(text).then(function (ok) {
+          label.textContent = ok ? "Copié" : "Sélectionne le texte à la main";
+          button.classList.toggle("is-done", ok);
+          clearTimeout(button._t);
+          button._t = setTimeout(function () { label.textContent = "Copier"; button.classList.remove("is-done"); }, 1600);
+        });
+      }
+
+      function openModal(action) {
+        pending = action;
+        lastFocus = document.activeElement;
+        modal.classList.add("is-open");
+        document.body.style.overflow = "hidden";
+        document.getElementById("join-go").focus();
+      }
+
+      function closeModal() {
+        if (!modal.classList.contains("is-open")) return;
+        modal.classList.remove("is-open");
+        document.body.style.overflow = "";
+        markSeen();
+        var action = pending;
+        pending = null;
+        if (lastFocus && lastFocus.focus) lastFocus.focus();
+        if (action) action();
+      }
+
+      function gate(action) {
+        if (seen) { action(); return; }
+        openModal(action);
+      }
+
+      document.addEventListener("click", function (event) {
+        var copyBtn = event.target.closest(".cmd-copy");
+        if (copyBtn) gate(function () { doCopy(copyBtn); });
+      });
+
+      // Le bouton ouvre la chaîne dans un nouvel onglet (lien natif), puis la copie se fait.
+      document.getElementById("join-go").addEventListener("click", function () { closeModal(); });
+      modal.querySelectorAll("[data-join-close]").forEach(function (b) { b.addEventListener("click", closeModal); });
+      modal.addEventListener("click", function (event) { if (event.target === modal) closeModal(); });
+      document.addEventListener("keydown", function (event) { if (event.key === "Escape") closeModal(); });
+    })();
+  </script>
+  <script src="../../script.js"></script>
+</body>
+</html>
