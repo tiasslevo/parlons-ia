@@ -148,6 +148,12 @@
         <p class="text-sm sm:text-base text-zinc-500 max-w-2xl mx-auto mt-4 leading-relaxed font-light font-sans">
           Une photo de toi, un prompt pris sur MeiGen, et le petit prompt qui garde ton visage.
         </p>
+        <div class="grid grid-cols-3 gap-2 sm:gap-3 max-w-xl mx-auto mt-8">
+          <img src="img/portrait-noir-blanc.webp" alt="Portrait noir et blanc généré par IA" class="w-full aspect-[2/3] object-cover rounded-xl shadow-sm" loading="eager">
+          <img src="img/portrait-fisheye.webp" alt="Portrait fisheye fond terracotta généré par IA" class="w-full aspect-[2/3] object-cover rounded-xl shadow-sm" loading="eager">
+          <img src="img/portrait-passage-pieton.webp" alt="Portrait passage piéton généré par IA" class="w-full aspect-[2/3] object-cover rounded-xl shadow-sm" loading="eager">
+        </div>
+        <p class="text-xs text-zinc-400 mt-3">Les trois photos : une seule photo de moi, faite au téléphone.</p>
       </div>
     </section>
 
@@ -247,7 +253,7 @@ Prompt :</pre>
 
 Garde ma tête, mais respecte exactement la pose, le cadrage et la lumière décrits dans le prompt.
 
-On voit que c'est un montage : le visage est collé. Reconstruis-moi naturellement dans la scène, avec la même lumière et les mêmes ombres que la référence.</pre>
+On voit que c'est un montage : le visage est collé. Reconstruis-moi naturellement dans la scène, avec la même lumière et les mêmes ombres que la scène du prompt.</pre>
           <div class="dc-prompt-foot">
             <button type="button" class="cmd-copy" data-copy-target="prompt-corrections" aria-label="Copier les phrases pour corriger"><i data-lucide="copy" class="w-4 h-4"></i><span>Copier</span></button>
             <p class="dc-prompt-hint">Garde seulement la phrase qui correspond à ton problème, puis envoie-la.</p>
